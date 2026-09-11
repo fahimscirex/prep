@@ -236,7 +236,11 @@ mark strong,strong mark{font-weight:600;color:var(--ink)}
 /* default hangs rightward, where there is room. Only the last table
    column flips, since anything there would run off the pane edge. */
 td:last-child .tip{left:auto;right:0}
-/* touch: a sheet pinned to the bottom, so it can never clip */
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
 @media (hover:none),(max-width:760px){
   .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
     width:auto;max-width:none;font-size:15px;padding:14px 16px;

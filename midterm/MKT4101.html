@@ -134,6 +134,14 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
   background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
   transition:transform 220ms cubic-bezier(.23,1,.32,1)}
 :root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
 @media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
 .themebtn:active{transform:scale(.96)}
 #flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
@@ -312,7 +320,7 @@ td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-hei
 /* ═══════ figure ═══════ */
 figure{margin:0 0 1.8em;max-width:var(--measure)}
 .figbox{background:var(--band);padding:26px 18px;overflow-x:auto}
-svg{display:block;width:100%;min-width:430px;height:auto}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
 figcaption{margin-top:12px}
 
 /* ═══════ recall ═══════ */
@@ -425,7 +433,11 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
   .crumb{flex:1;min-width:0;white-space:nowrap}
   .crumb-rest{display:none}
 
-  .menubtn{display:inline-flex;align-items:center;gap:9px;flex:none;
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:none;
+    width:40px;padding:0;
     font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;border:1px solid var(--ink);
     padding:9px 12px;min-height:40px;background:var(--paper)}
@@ -481,22 +493,57 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
   .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
 }
 
-/* ═══════ print ═══════ */
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
 @media print{
   :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
     --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
-  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose{display:none!important}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
   .app{display:block;height:auto;overflow:visible}
   .pane,.scrollarea{height:auto;overflow:visible}
   .inner{padding:0;max-width:none}
-  body{font-size:10.5pt}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
   .scroller,.figbox{overflow:visible}
-  svg{min-width:0}
-  .sheet ol{display:block!important}
-  h3,h4{page-break-after:avoid}
-  table,.sheet,figure,.recall,.card,.note{page-break-inside:avoid}
-  a{text-decoration:none}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
 }
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -510,7 +557,7 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
 
   <aside class="rail" id="menu">
     <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
-    <a class="brand" href="index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
     <hr class="rule">
     <p class="nav-h">Contents</p>
     <nav class="nav" aria-label="Contents">
@@ -534,8 +581,9 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
   <div class="pane">
 
     <header class="topbar">
-      <a class="menubtn" href="#menu"><span class="bars" aria-hidden="true"></span>Contents</a>
-      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Exam Prep</a><span class="crumb-rest"> &nbsp;/&nbsp; Midterm</span> &nbsp;/&nbsp; <b aria-current="page">MKT4101</b></nav>
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Midterm &nbsp;/&nbsp; </span><b aria-current="page">MKT4101</b></nav>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
       <input type="checkbox" id="flip" class="sr-only">
       <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
     </header>

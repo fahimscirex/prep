@@ -125,10 +125,13 @@ footer p{margin:0;color:var(--ink-3);font-size:.9rem;line-height:1.6}
   color:var(--ink-3);text-transform:none}
 .made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
 
+@page{size:A4 portrait;margin:16mm 15mm}
 @media print{
   :root{--paper:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;--rule:#ccc;--rule-strong:#999}
   .topbar,.skip{display:none!important}
   .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif)}
+  a{color:inherit}
 }
 </style>
 </head>
@@ -154,7 +157,7 @@ footer p{margin:0;color:var(--ink-3);font-size:.9rem;line-height:1.6}
       <h2 class="lbl">Midterm</h2>
       <ol class="courses">
         <li>
-          <a class="row" href="MKT4101.html">
+          <a class="row" href="midterm/MKT4101.html">
             <span class="code">MKT4101</span>
             <span class="nm"><span class="t">Services Marketing</span><span class="meta">3 chapters &middot; &asymp; 35 min</span></span>
             <span class="go" aria-hidden="true">&rarr;</span>

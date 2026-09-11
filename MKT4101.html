@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4101 Services Marketing</title>
+<meta name="description" content="Midterm study guide for MKT4101 Services Marketing, covering Zeithaml chapters 1–2 and Lovelock chapter 2.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#8b857d;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:64ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#8b857d;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.02rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style — content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink-2);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top left;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0}
+/* touch: a sheet pinned to the bottom, so it can never clip */
+@media (hover:none),(max-width:760px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
+    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto}
+svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+body:has(#key:target) .nav a[href="#key"],
+body:has(#s-what:target) .nav a[href="#s-what"],
+body:has(#s-senses:target) .nav a[href="#s-senses"],
+body:has(#s-tangibility:target) .nav a[href="#s-tangibility"],
+body:has(#s-practice:target) .nav a[href="#s-practice"],
+body:has(#s-why:target) .nav a[href="#s-why"],
+body:has(#s-tech:target) .nav a[href="#s-tech"],
+body:has(#s-characteristics:target) .nav a[href="#s-characteristics"],
+body:has(#s-7ps:target) .nav a[href="#s-7ps"],
+body:has(#s-lovelock1:target) .nav a[href="#s-lovelock1"],
+body:has(#s-customer-gap:target) .nav a[href="#s-customer-gap"],
+body:has(#s-provider-gaps:target) .nav a[href="#s-provider-gaps"],
+body:has(#s-gap-case:target) .nav a[href="#s-gap-case"],
+body:has(#s-three-stage:target) .nav a[href="#s-three-stage"],
+body:has(#s-prepurchase:target) .nav a[href="#s-prepurchase"],
+body:has(#s-encounter:target) .nav a[href="#s-encounter"],
+body:has(#s-postencounter:target) .nav a[href="#s-postencounter"],
+body:has(#sheet:target) .nav a[href="#sheet"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+
+  .menubtn{display:inline-flex;align-items:center;gap:9px;flex:none;
+    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--ink);
+    padding:9px 12px;min-height:40px;background:var(--paper)}
+  .menubtn .bars{width:13px;height:9px;flex:none;
+    border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+    position:relative}
+  .menubtn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;
+    border-top:1.5px solid var(--ink)}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print ═══════ */
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font-size:10.5pt}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  svg{min-width:0}
+  .sheet ol{display:block!important}
+  h3,h4{page-break-after:avoid}
+  table,.sheet,figure,.recall,.card,.note{page-break-inside:avoid}
+  a{text-decoration:none}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to contents</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <a href="#key"><span class="ht">Priority key</span></a>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Introduction to Services</span><span class="dots" aria-hidden="true">·········</span></summary>
+            <ul><li><a href="#s-what"><span class="ht">What services are</span></a></li><li><a href="#s-senses"><span class="ht">Four senses of "service"</span></a></li><li><a href="#s-tangibility"><span class="ht">Tangibility spectrum</span></a></li><li><a href="#s-practice"><span class="ht">Services in practice</span></a></li><li><a href="#s-why"><span class="ht">Why services marketing</span></a></li><li><a href="#s-tech"><span class="ht">Service and technology</span></a></li><li><a href="#s-characteristics"><span class="ht">Characteristics of services</span></a></li><li><a href="#s-7ps"><span class="ht">The 7 Ps</span></a></li><li><a href="#s-lovelock1"><span class="ht">Lovelock Ch. 1 extracts</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">The Gaps Model</span><span class="dots" aria-hidden="true">···</span></summary>
+            <ul><li><a href="#s-customer-gap"><span class="ht">The customer gap</span></a></li><li><a href="#s-provider-gaps"><span class="ht">The four provider gaps</span></a></li><li><a href="#s-gap-case"><span class="ht">Identifying gaps from a case</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Consumer Behavior</span><span class="dots" aria-hidden="true">····</span></summary>
+            <ul><li><a href="#s-three-stage"><span class="ht">Three-stage model</span></a></li><li><a href="#s-prepurchase"><span class="ht">1 / Pre-purchase</span></a></li><li><a href="#s-encounter"><span class="ht">2 / Service encounter</span></a></li><li><a href="#s-postencounter"><span class="ht">3 / Post-encounter</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 30 minutes</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu"><span class="bars" aria-hidden="true"></span>Contents</a>
+      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Exam Prep</a><span class="crumb-rest"> &nbsp;/&nbsp; Midterm</span> &nbsp;/&nbsp; <b aria-current="page">MKT4101</b></nav>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4101</p>
+    <h1>Services Marketing</h1>
+    <p class="lede">Midterm study guide. Covers Zeithaml chapters 1 and 2 and Lovelock chapter 2, with the topics marked in the suggestion copies flagged inline. Book terminology is kept as printed.</p>
+    <div class="mast-meta">
+      <span>Midterm</span>
+      <span>3 chapters</span>
+      <span>≈ 35 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ KEY ══════════ -->
+      <section id="key">
+        <div class="chap"><h2>Priority key</h2></div>
+        <p class="src">Read from the handwritten marks</p>
+        <p>Every topic is tagged by how heavily the teacher marked it.</p>
+        <div class="terms">
+          <div><div class="k"><span class="mark key"><i class="st" aria-hidden="true">✱✱✱</i>must know</span></div><div class="v">Most likely to come up.</div></div>
+          <div><div class="k"><span class="mark"><i class="st" aria-hidden="true">✱✱</i>important</span></div><div class="v">Worth knowing well.</div></div>
+          <div><div class="k">background</div><div class="v">Least likely. A definition and one example is enough.</div></div>
+        </div>
+        <div class="note">
+          <span class="lbl">Worth knowing</span>
+          <p>Zeithaml slide 25 explicitly assigns four Lovelock topics as reference reading. Those are exactly the pages the teacher ticked. Treat that overlap as a signal, not a coincidence.</p>
+        </div>
+      </section>
+
+      <!-- ══════════ CH 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>Introduction to Services</h2></div>
+        <p class="src">Zeithaml, Chapter 1</p>
+
+        <h3 id="s-what">What services are</h3>
+        <p><strong>Services are <span class="term" tabindex="0"><mark>deeds, processes and performances</mark><span class="tip" role="tooltip"><b>Zeithaml&#x27;s definition of a service: acts provided, coproduced or cocreated by one party for another, rather than objects.</b>Three nouns, all of them actions. If you can drop it on your foot it is not a service. Use the wording verbatim.</span></span></strong> provided, coproduced or cocreated by one entity or person for and/or with another entity or person.</p>
+        <p>The broader economic definition: <em>all economic activities whose output is not a physical product or construction, is generally consumed at the time it is produced, and provides added value in forms (convenience, amusement, timeliness, comfort, health) that are essentially intangible concerns of its first purchaser.</em></p>
+
+        <h3 id="s-senses">Four ways the word "service" is used</h3>
+        <p>A standard short-answer question. Keep the four apart and attach one example each.</p>
+        <div class="terms">
+          <div><div class="k">Service industries and companies</div><div class="v">Industries where the <em>core product is a service</em>. Marriott (lodging), American Airlines (transportation), Mayo Clinic (health care).</div></div>
+          <div><div class="k">Service as a product</div><div class="v">Intangible product offerings customers value and <em>pay for</em>. Sold by service and non-service firms alike: IBM technology consulting, PetSmart pet training, Macy's gift wrapping and shipping.</div></div>
+          <div><div class="k">Customer service</div><div class="v">Service provided <em>in support of a company's core products</em>. Companies typically do <em>not</em> charge for it. On-site, by phone, or via internet chat in real time.</div></div>
+          <div><div class="k">Derived service</div><div class="v">Vargo and Lusch: physical goods are valued for the <em>service they provide</em>. A pharmaceutical drug gives medical service, a razor gives barbering service, a computer gives data-manipulation service.</div></div>
+        </div>
+
+        <h3 id="s-tangibility">Tangibility spectrum <span class="mark key"><i class="st" aria-hidden="true">✱✱✱</i>must know</span></h3>
+        <p>The <strong><span class="term" tabindex="0"><mark>tangibility spectrum</mark><span class="tip" role="tooltip"><b>A continuum classifying offerings from tangible dominant (salt) to intangible dominant (teaching).</b>Shostack, 1977. The trap is writing that services are simply &#x27;intangible&#x27; — the point is that it is a continuum, which is why fast food is the standard middle case.</span></span></strong> is a continuum that classifies goods and services by how tangible or intangible they are, from <strong>tangible dominant</strong> to <strong>intangible dominant</strong>. <em>Pure goods</em> sit at the far left, <em>pure services</em> at the far right.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Tangible dominant →</th><th>Middle</th><th>→ Intangible dominant</th></tr></thead>
+            <tbody><tr>
+              <td>Salt · soft drinks · detergents · automobiles</td>
+              <td>Fast-food outlets · cosmetics · advertising agencies</td>
+              <td>Airlines · investment management · consulting · teaching</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <h4>How it works</h4>
+        <ul>
+          <li>Very few products are <strong>purely</strong> intangible or totally tangible. Fast food is classified as a service yet includes food and packaging; an automobile is manufactured yet supplies transportation and navigation services.</li>
+          <li>Services tend to be <em>more</em> intangible than manufactured products; manufactured products tend to be <em>more</em> tangible than services.</li>
+          <li>Even intangible-dominant services include tangible components: consumables and durables.</li>
+          <li><strong>Tangible evidence can be used to indicate service quality.</strong></li>
+        </ul>
+        <h4>Benefits</h4>
+        <ul>
+          <li>Helps service providers identify ways to <strong>improve service quality</strong>.</li>
+          <li>Helps them use <strong><span class="term" tabindex="0"><mark>tangible cues</mark><span class="tip" role="tooltip"><b>The physical signals customers read to judge a service they cannot otherwise assess: decor, uniforms, equipment, reports, paperwork.</b>The same idea recurs three times in this syllabus — physical evidence in the 7 Ps, the servicescape in gap 2, risk reduction in Lovelock.</span></span></strong> or develop a <strong>corporate image</strong> to signal quality where the offering itself cannot be seen or touched.</li>
+        </ul>
+        <div class="note">
+          <span class="lbl">Why it matters here</span>
+          <p>Source: Shostack, "Breaking Free from Product Marketing" (1977). The spectrum is also the model for the four <strong>characteristics of services</strong> below: each of those sits on a continuum in exactly the same way, rather than being a yes/no property.</p>
+        </div>
+
+        <h3 id="s-practice">Services in practice</h3>
+        <h4>Service-based economy in Bangladesh</h4>
+        <p>Bangladesh's services sector expanded by nearly <strong>90% over five years</strong> to <strong>Tk 18.98 trillion</strong>, about <strong>54% of the Tk 34.84 trillion nominal GDP</strong> in FY2020–21. It spans accommodation, education, financial services, transport, and wholesale and retail trading.</p>
+        <p>The wider claim behind it: <strong>all businesses are service businesses.</strong> IBM, General Electric, Apple and Samsung are service providers; most new business models, such as Airbnb and Uber, are built on a services model.</p>
+
+        <h4>New service business ideas</h4>
+        <p>The slides group emerging service categories. Learn the four buckets and two examples each.</p>
+        <div class="terms">
+          <div><div class="k">Technology-focused services</div><div class="v">AI-powered content creation (marketing material, social posts, personalized video) · cybersecurity consulting for small businesses · blockchain development services · data analysis and visualization · virtual reality training platforms for medical and industrial workers.</div></div>
+          <div><div class="k">Sustainability and wellness services</div><div class="v">Urban farming consultancy · zero-waste lifestyle coaching · mindfulness app development · personalized nutrition plans based on DNA testing.</div></div>
+          <div><div class="k">Convenience and lifestyle services</div><div class="v">On-demand laundry pickup and delivery · smart home installation and management · personal errands and delivery · pet sitting with live streaming access.</div></div>
+          <div><div class="k">Specialized skill development</div><div class="v">Online coding bootcamps for specific industries (fintech, healthcare) · digital marketing training for small businesses · language learning with AR/VR integration.</div></div>
+        </div>
+        <p>Others named across the slides: drone delivery, personalized AI-powered wellness coaching, VR experiences, on-demand home maintenance, eco-friendly cleaning, specialized pet care, sustainable fashion rental platforms, remote healthcare monitoring, 3D printing customization, community-based food delivery networks, virtual event planning.</p>
+
+        <h3 id="s-why">Why services marketing?</h3>
+        <ul>
+          <li><strong>Service-based economy.</strong> Services dominate GDP and employment; in Bangladesh the services sector reached Tk 18.98 trillion, about 54% of nominal GDP in FY2020–21.</li>
+          <li><strong>Service as a business imperative in goods-focused business.</strong> GE, Caterpillar, Xerox, IBM and P&amp;G grow through service. Drivers: commoditization squeezing margins, customers demanding solutions, higher service margins, service as a differentiator.</li>
+          <li><strong>Deregulated industries and professional service needs.</strong> Airlines, banking, telecom and trucking deregulated; doctors, lawyers, accountants and architects now compete and advertise.</li>
+          <li><strong>Service marketing is different.</strong> Packaged-goods skills did not transfer; new concepts were required.</li>
+          <li><strong>Service equals profits.</strong> Service quality drives loyalty and satisfaction, and therefore profit.</li>
+        </ul>
+        <h4>…but "service stinks"</h4>
+        <p>The counter-argument: firms offer <strong>tiered service</strong> so many customers get less than before; <strong>self-service and technology-based service</strong> spreads; expectations rise and are applied to every firm; organizations cut costs; and firms pay <strong>lip service</strong>, failing to train and compensate employees.</p>
+
+        <h3 id="s-tech">Service and technology</h3>
+        <p>Technology creates <strong>new service offerings</strong>, <strong>new ways to deliver service</strong>, engages both customers and employees, gives services <strong>global reach</strong>, and is itself a service (the internet). The dark side: customers and employees may resist it, human contact is lost, and the payback on technology investment is uncertain.</p>
+
+        <h3 id="s-characteristics">Characteristics of services</h3>
+        <p>Four characteristics, each with resulting marketing implications. This is the most examinable single object in the chapter, so reproduce it.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Goods</th><th>Services</th><th>Resulting implications</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Tangible</td><td class="k">Intangible</td><td>Cannot be inventoried · cannot be easily patented · cannot be readily displayed or communicated · pricing is difficult</td></tr>
+              <tr><td class="k">Standardized</td><td class="k">Heterogeneous</td><td>Delivery and satisfaction depend on employee and customer actions · quality depends on uncontrollable factors · no sure knowledge the service delivered matches what was planned and promoted</td></tr>
+              <tr><td class="k">Production separate from consumption</td><td class="k">Simultaneous production and consumption</td><td>Customers participate in and affect the transaction · customers affect each other · employees affect the outcome · decentralization may be essential · mass production is difficult</td></tr>
+              <tr><td class="k">Nonperishable</td><td class="k">Perishable</td><td>Hard to synchronize supply and demand · services cannot be returned or resold · a given period's service cannot be sold or delivered later</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Intangibility</strong> is the most basic distinguishing characteristic: services are performances, not objects. <strong>Heterogeneity</strong> arises because no two employees, customers or occasions are alike, and customers cocreate. <strong>Simultaneity</strong> puts the customer inside the factory as coproducer, alongside other customers. <strong>Perishability</strong> means a seat, an hour of a lawyer's time or an empty hotel room is gone forever.</p>
+        <div class="note">
+          <span class="lbl">Nuance that earns marks</span>
+          <p>Each characteristic sits on a <strong>continuum</strong>, like the tangibility spectrum: the goods/services difference is not black and white. Note also the newer view that "all products are services" and economic exchange is fundamentally about service provision.</p>
+        </div>
+
+        <h3 id="s-7ps">Services marketing mix: the 7 Ps</h3>
+        <p>The <strong><span class="term" tabindex="0"><mark>marketing mix</mark><span class="tip" role="tooltip"><b>The controllable elements a firm uses to satisfy and communicate with customers.</b>The 4 Ps are McCarthy, 1960; the extra three are Booms and Bitner, 1981. Naming both sources is cheap marks.</span></span></strong> is the set of elements an organization controls that can be used to satisfy or communicate with customers. The traditional mix is the <strong>4 Ps</strong>: product, place (distribution), promotion, price.</p>
+
+        <div class="note">
+          <span class="lbl">Exam answer · why are the 4 Ps extended to 7 Ps in services marketing?</span>
+          <p>Three reasons, each traced back to a characteristic of services:</p>
+          <p><strong>1. Simultaneous production and consumption.</strong> Customers are present in the firm's "factory", interact directly with personnel, and are actually part of the production process, so <strong>people</strong> must be managed as a mix element. Delivery staff perform real-time promotion whether or not their job is defined that way.</p>
+          <p><strong>2. Intangibility.</strong> Customers have nothing to see or touch, so they hunt for any tangible cue to judge quality, so <strong>physical evidence</strong> must be managed.</p>
+          <p><strong>3. Services are processes, not objects.</strong> The operational flow the customer experiences is itself evidence they judge the service by, so <strong>process</strong> must be managed.</p>
+          <p>The three are included as separate elements because they are <strong>particularly salient for services</strong>, they are <strong>within the firm's control</strong>, and any of them may influence both the initial purchase decision and later satisfaction and repurchase.</p>
+        </div>
+
+        <p>The three added elements:</p>
+        <div class="terms">
+          <div><div class="k">People</div><div class="v">All human actors who play a part in service delivery and thus influence the buyer's perceptions: the firm's personnel, the customer, and other customers in the service environment. For consulting, counselling or teaching, <em>the provider is the service</em>.</div></div>
+          <div><div class="k">Physical evidence</div><div class="v">The environment in which the service is delivered and where firm and customer interact, plus tangible components that facilitate performance or communication: brochures, letterhead, business cards, reports, signage, equipment, web pages, and the <em><span class="term" tabindex="0"><mark>servicescape</mark><span class="tip" role="tooltip"><b>The physical setting in which the service is delivered and where firm and customer interact.</b>Bitner&#x27;s term. It sits in gap 2, not gap 3: a wrong servicescape is a design failure, not a delivery one.</span></span></em>.</div></div>
+          <div><div class="k">Process</div><div class="v">The procedures, mechanisms and flow of activities by which the service is delivered, consumed and cocreated. Standardized vs. customized, simple vs. complex, degree of customer involvement. Compare Southwest (no-frills, standardized) with Singapore Airlines (customized, empowered staff).</div></div>
+        </div>
+
+        <h3 id="s-lovelock1">Lovelock Chapter 1 extracts <span class="mark"><i class="st" aria-hidden="true">✱✱</i>important</span></h3>
+        <p>Assigned on Zeithaml slide 25 as reference reading, and ticked throughout the photocopy. Four topics.</p>
+
+        <h4>a. Forces that transform and impact the service economy</h4>
+        <p>Five groups (Figure 1.6 and Table 1.1). Learn the five headings plus two examples each.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Force</th><th>Contains</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Government policies</td><td>Changes in regulations · privatization · new rules to protect customers, employees and the environment · new agreements on trade in services<small>e.g. ban on smoking in restaurants; privatization of utilities and transportation</small></td></tr>
+              <tr><td class="k">Social changes</td><td>Rising consumer expectations · more affluence · personal outsourcing · more people short of time · increased desire for buying experiences vs. things · rising consumer ownership of computers and cell phones · easier access to information · migration · growing but aging population</td></tr>
+              <tr><td class="k">Business trends</td><td>Push to increase shareholder value · emphasis on productivity and cost savings · manufacturers add value through service and sell services · more strategic alliances and outsourcing · focus on quality and customer satisfaction · growth of franchising · marketing emphasis by nonprofits</td></tr>
+              <tr><td class="k">Advances in information technology</td><td>Growth of internet · greater bandwidth · compact mobile equipment · wireless networking · faster, more powerful software · digitization of text, graphics, audio and video</td></tr>
+              <tr><td class="k">Globalization</td><td>More companies operating on a transnational basis · increased international travel · international mergers and alliances · "offshoring" of <span class="term" tabindex="0"><mark>customer service</mark><span class="tip" role="tooltip"><b>Support provided around a product the customer has already bought, normally free of charge.</b>The distinction students lose marks on. Service-as-a-product is the thing being sold; this is what surrounds it.</span></span> · foreign competitors invade domestic markets</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The chain these five set off, in order: new markets and product categories create increased demand for services → innovation in service products and delivery systems → consumers have more choices and exercise more power → success hinges on understanding customers and competitors, viable business models, and creation of value → increased focus on services marketing and management.</p>
+
+        <h4>b. The nonownership framework: benefits without ownership</h4>
+        <p>Lovelock and Gummesson: services involve a form of <strong>rental</strong> through which customers obtain benefits. You pay <em>rent</em> for using or accessing something for a defined period instead of buying it outright. <strong>Five broad categories</strong>, every one ticked in the photocopy:</p>
+        <div class="terms">
+          <div><div class="k">1. Rented goods services</div><div class="v">Temporary right to use a physical good you prefer not to own: boats, fancy dress costumes, combine harvesters.</div></div>
+          <div><div class="k">2. Defined space and place rentals</div><div class="v">Use of a defined portion of a larger space: a suite in an office building, a seat in an aircraft, a table in a restaurant.</div></div>
+          <div><div class="k">3. Labor and expertise rentals</div><div class="v">Hiring others to do work you choose not to, or lack the expertise, tools or skills for: cleaning a house, car repair, surgery, management consultancy.</div></div>
+          <div><div class="k">4. Access to shared physical environments</div><div class="v">Indoor or outdoor environments shared with other customers for a fee: museums, theme parks, trade shows, gyms, ski resorts, golf courses, toll roads.</div></div>
+          <div><div class="k">5. Access to and usage of systems and networks</div><div class="v">Renting the right to participate in a specified network: telecommunications, utilities, banking, insurance, specialized information services.</div></div>
+        </div>
+        <p>Categories combine: a taxi rents you both a driver and a vehicle.</p>
+
+        <h4>c. Four broad categories of services: a process perspective</h4>
+        <p>Classification by <strong>what is being processed</strong> (people, physical objects, data) and whether the nature of the act is <strong>tangible or intangible</strong>. Tangible actions are performed on people's bodies or their physical possessions; intangible actions on people's minds or intangible assets.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Nature of the act</th><th>Recipient: People</th><th>Recipient: Possessions</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="k">Tangible actions</td>
+                <td><strong>People processing</strong><small>Passenger transportation, lodging, health care, salon. Customer must physically enter the <em><span class="term" tabindex="0"><mark>service factory</mark><span class="tip" role="tooltip"><b>The physical site a customer must enter to receive the service: a hotel, hospital, aircraft, restaurant.</b>Only people-processing services have one. Possession processing has no factory the customer ever sees.</span></span></em> and cooperate actively.</small></td>
+                <td><strong>Possession processing</strong><small>Freight transportation, repair and maintenance, laundry and dry cleaning. Quasi-manufacturing; involvement usually limited to drop-off and pick-up, so production and consumption are often <em>separable</em>.</small></td>
+              </tr>
+              <tr>
+                <td class="k">Intangible actions</td>
+                <td><strong>Mental stimulus processing</strong><small>Education, advertising and PR, psychotherapy, entertainment. Requires time and mental effort; recipients need not be physically present, only mentally in communication.</small></td>
+                <td><strong>Information processing</strong><small>Accounting, banking, legal services. The most intangible output, but can be transformed into letters, reports, plans, CD-ROMs.</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <span class="lbl">Marked with an arrow</span>
+          <p>The line between mental stimulus processing and information processing is blurred, so the book combines the two under the umbrella term <strong><span class="term" tabindex="0"><mark>information-based services</mark><span class="tip" role="tooltip"><b>Lovelock&#x27;s umbrella term covering mental stimulus processing and information processing together.</b>Only an umbrella. If asked for the four categories, name all four — never &#x27;three plus a combined one&#x27;.</span></span></strong>.</p>
+        </div>
+
+        <h4>d. Services pose distinct marketing challenges</h4>
+        <p>Marketing concepts from manufacturing are often <em>not</em> directly transferable where no transfer of ownership takes place. The eight differences are useful generalizations but <strong>do not apply equally to all services</strong>: people are part of the experience in people-processing services but not in online banking. Hence the 4 Ps must be adapted and extended.</p>
+
+        <div class="recall">
+          <span class="lbl">Recall in one line each</span>
+          <ul>
+            <li>Services = deeds, processes, performances, coproduced or cocreated.</li>
+            <li>Four senses of "service": service industries · <span class="term" tabindex="0"><mark>service as a product</mark><span class="tip" role="tooltip"><b>An intangible offering sold in its own right, by service and non-service firms alike.</b>Also the evidence for the &#x27;service as a business imperative&#x27; argument, so IBM and Xerox serve both points at once.</span></span> · customer service · <span class="term" tabindex="0"><mark>derived service</mark><span class="tip" role="tooltip"><b>The view that a good is valued for the service it renders: a razor delivers barbering, a drug delivers medical care.</b>Vargo and Lusch, 2004, service-dominant logic. It is the basis for the &#x27;all products are services&#x27; nuance.</span></span>.</li>
+            <li>Tangibility spectrum: tangible dominant → intangible dominant; few products are pure; tangible evidence signals quality.</li>
+            <li>Four characteristics: intangible · heterogeneous · simultaneous production and consumption · perishable.</li>
+            <li>7 Ps = 4 Ps + people, physical evidence, process, added because of simultaneity, intangibility and process.</li>
+            <li>Five forces: government policies · social changes · business trends · advances in IT · globalization.</li>
+            <li>Five nonownership categories: rented goods · defined space and place · labor and expertise · shared physical environments · systems and networks.</li>
+            <li>Four process categories: people · possession · mental stimulus · information processing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ══════════ CH 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>The Gaps Model of Service Quality</h2></div>
+        <p class="src">Zeithaml, Chapter 2</p>
+
+        <h3 id="s-customer-gap">The customer gap</h3>
+        <p>The <strong><span class="term" tabindex="0"><mark>customer gap</mark><span class="tip" role="tooltip"><b>The difference between what a customer expected and what they perceived they received.</b>An outcome, never a cause. In a case question you must also name which provider gap produced it.</span></span></strong> is the difference between <strong><span class="term" tabindex="0"><mark>customer expectations</mark><span class="tip" role="tooltip"><b>The reference standards a customer brings into the encounter: what they believe should or will happen.</b>Split them by source when answering — marketer-controlled (price, advertising, promises) versus not (needs, word of mouth, competitors).</span></span></strong> and <strong><span class="term" tabindex="0"><mark>customer perceptions</mark><span class="tip" role="tooltip"><b>The customer&#x27;s subjective assessment of the service as actually experienced.</b>Subjective, so they can be factually wrong and still count. That is why managing perception is as legitimate as improving delivery.</span></span></strong>.</p>
+        <div class="terms">
+          <div><div class="k">Customer expectations</div><div class="v">Standards or reference points customers bring <em>into</em> the service experience: what a customer believes should or will happen.</div></div>
+          <div><div class="k">Customer perceptions</div><div class="v">Subjective assessments of <em>actual</em> service experiences.</div></div>
+        </div>
+        <p>Sources of expectations split into <strong>marketer-controlled factors</strong> (pricing, advertising, sales promises) and factors the marketer can barely affect (innate personal needs, word-of-mouth communications, competitive offerings). Closing this gap is the goal of the entire book.</p>
+
+        <h4>Types of customer gap (from the lecture slides)</h4>
+        <div class="terms">
+          <div><div class="k">Customer service gap</div><div class="v">Between what customers expect and what they receive.</div></div>
+          <div><div class="k">Value gap</div><div class="v">Between what customers perceive the value of the product or service to be and what the company believes it is.</div></div>
+          <div><div class="k">Customer experience gap</div><div class="v">Between what customers expect from their experiences with a brand and how well the brand believes it is meeting those expectations.</div></div>
+        </div>
+        <p>Factors contributing to customer gaps: a customer's background, lifestyle, personality, demographics and advertising; prior experiences with the product or service; market trends; product messaging.</p>
+
+        <h3 id="s-provider-gaps">The provider gaps</h3>
+        <p>To close the all-important customer gap, <strong>four provider gaps</strong>, the gaps occurring <em>within</em> the organization providing the service, must be closed and kept closed.</p>
+
+        <figure>
+          <div class="figbox">
+            <svg viewBox="0 0 600 344" role="img" aria-label="The gaps model: the customer gap sits between expected and perceived service; provider gap 1 is listening, gap 2 service design and standards, gap 3 service performance, gap 4 communication.">
+              <defs>
+                <marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M0 0 L8 4 L0 8 Z" fill="var(--accent)"/>
+                </marker>
+              </defs>
+
+              <!-- CUSTOMER row -->
+              <text x="44" y="14" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.6" fill="var(--ink-3)">CUSTOMER</text>
+              <rect x="44" y="24" width="200" height="44" fill="var(--bg)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="144" y="51" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="600" fill="var(--ink)">Expected service</text>
+              <rect x="344" y="24" width="200" height="44" fill="var(--bg)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="444" y="51" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="600" fill="var(--ink)">Perceived service</text>
+              <line x1="252" y1="46" x2="336" y2="46" stroke="var(--mark)" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="294" y="20" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.1" fill="var(--mark)">CUSTOMER GAP</text>
+
+              <!-- COMPANY row -->
+              <text x="44" y="97" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.6" fill="var(--ink-3)">COMPANY</text>
+              <rect x="44" y="107" width="200" height="44" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+              <text x="144" y="128" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">External communications</text>
+              <text x="144" y="142" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">to customers</text>
+              <rect x="344" y="107" width="200" height="44" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+              <text x="444" y="134" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">Service delivery</text>
+
+              <line x1="144" y1="105" x2="144" y2="72" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a)"/>
+              <line x1="444" y1="105" x2="444" y2="72" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a)"/>
+              <line x1="252" y1="129" x2="336" y2="129" stroke="var(--mark)" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <text x="294" y="100" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.1" fill="var(--mark)">GAP 4 · COMMUNICATION</text>
+
+              <!-- standards -->
+              <rect x="294" y="195" width="250" height="44" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+              <text x="419" y="216" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">Customer-driven service</text>
+              <text x="419" y="230" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">designs and standards</text>
+              <line x1="444" y1="193" x2="444" y2="155" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a)"/>
+              <text x="284" y="178" text-anchor="end" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.1" fill="var(--mark)">GAP 3 · PERFORMANCE</text>
+
+              <!-- perceptions -->
+              <rect x="294" y="283" width="250" height="44" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+              <text x="419" y="304" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">Company perceptions of</text>
+              <text x="419" y="318" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11.5" fill="var(--ink)">customer expectations</text>
+              <line x1="444" y1="281" x2="444" y2="243" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a)"/>
+              <text x="284" y="266" text-anchor="end" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.1" fill="var(--mark)">GAP 2 · DESIGN &amp; STANDARDS</text>
+
+              <!-- gap 1 path -->
+              <path d="M294 305 L20 305 L20 46 L38 46" fill="none" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a)"/>
+              <text x="32" y="185" text-anchor="middle" transform="rotate(-90 32 185)" font-family="Archivo,sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.1" fill="var(--mark)">GAP 1 · LISTENING</text>
+            </svg>
+          </div>
+          <figcaption>Close provider gaps 1 through 4, and the customer gap closes</figcaption>
+        </figure>
+
+        <h4>Gap 1 · The listening gap</h4>
+        <p>Between <strong>customer expectations of service</strong> and <strong>company understanding of those expectations</strong>. Firms fail because they lack an accurate understanding of what customers expect. Key factors:</p>
+        <ul>
+          <li><strong>Inadequate customer research orientation</strong>: insufficient research, research not focused on service quality, inadequate use of market research.</li>
+          <li><strong>Lack of upward communication</strong>: little interaction between management and customers, poor communication between contact employees and managers, too many layers between contact personnel and top management.</li>
+          <li><strong>Insufficient relationship focus</strong>: lack of segmentation, focus on transactions rather than relationships, focus on new customers rather than relationship customers. (<em>Relationship marketing</em> vs. <em>transactional marketing</em>.)</li>
+          <li><strong>Inadequate service recovery</strong>: no encouragement to listen to complaints, failure to make amends, no recovery mechanisms for service failures.</li>
+        </ul>
+
+        <h4>Gap 2 · The service design and standards gap</h4>
+        <p>Between <strong>company understanding of customer expectations</strong> and the development of <strong>customer-driven service designs and standards</strong>. Customer-driven standards differ from conventional performance standards: they are based on pivotal customer requirements visible to and measured by customers, not on company concerns such as productivity. Key factors:</p>
+        <ul>
+          <li><strong>Poor service design</strong>: unsystematic new service development process, vague undefined designs, failure to connect design to service positioning.</li>
+          <li><strong>Absence of <span class="term" tabindex="0"><mark>customer-driven standards</mark><span class="tip" role="tooltip"><b>Operating standards written from what customers require and can observe, not from internal efficiency goals.</b>&#x27;Answer within 20 seconds&#x27; qualifies. &#x27;Handle 40 calls an hour&#x27; is a productivity target in disguise.</span></span></strong>: no customer-driven service standards, no process management focused on customer requirements, no formal process for setting service quality goals.</li>
+          <li><strong>Inappropriate physical evidence and servicescape</strong>: tangibles not in line with customer expectations, servicescape design that fails customers and employees, inadequate maintenance and updating.</li>
+        </ul>
+        <p>Tool that closes it: <strong><span class="term" tabindex="0"><mark>service blueprinting</mark><span class="tip" role="tooltip"><b>A diagram of the whole service process that separates what the customer sees from what happens behind the scenes.</b>Chapter 8&#x27;s tool, but the answer to a gap 2 question. Its line of visibility is the servuction model&#x27;s front/back stage boundary.</span></span></strong>.</p>
+
+        <h4>Gap 3 · The service performance gap</h4>
+        <p>Between <strong>customer-driven service standards</strong> and <strong>actual service performance</strong> by employees. Standards must be backed by resources and enforced, with employees measured and compensated against them. Key factors:</p>
+        <ul>
+          <li><strong>Deficiencies in human resource policies</strong>: ineffective recruitment, role ambiguity and role conflict, poor employee–technology job fit, inappropriate evaluation and compensation, lack of empowerment, perceived control and teamwork.</li>
+          <li><strong>Customers not fulfilling roles</strong>: customers lack knowledge of their roles and responsibilities; customers negatively impact each other.</li>
+          <li><strong>Problems with service intermediaries</strong>: channel conflict over objectives, performance, costs and rewards; difficulty controlling quality and consistency; tension between empowerment and control.</li>
+          <li><strong>Failure to match supply and demand</strong>: failure to smooth peaks and valleys, inappropriate customer mix, overreliance on price to smooth demand.</li>
+        </ul>
+
+        <h4>Gap 4 · The communication gap</h4>
+        <p>Between <strong>service delivery</strong> and the provider's <strong>external communications</strong>. Promises made through advertising, the sales force and other communications raise expectations, the standard against which quality is judged. Key factors:</p>
+        <ul>
+          <li><strong>Lack of integrated services marketing communications</strong>: treating each external communication as independent, excluding <em><span class="term" tabindex="0"><mark>interactive marketing</mark><span class="tip" role="tooltip"><b>The marketing that happens inside the encounter itself, between contact staff and the customer.</b>Completes the services triangle with external and internal marketing. Gap 4 opens when the three disagree.</span></span></em> (marketing between contact people and customers) from the plan, no strong internal marketing program.</li>
+          <li><strong>Ineffective management of customer expectations</strong>: not managing expectations through all forms of communication, not adequately educating customers.</li>
+          <li><strong>Overpromising</strong>: in advertising, in personal selling, through physical evidence cues.</li>
+          <li><strong>Inadequate horizontal communications</strong>: between sales and operations, between advertising and operations; differences in policies and procedures across branches.</li>
+          <li><strong>Inappropriate pricing</strong>: high prices that raise expectations; prices not tied to customer perceptions of value. Customers often have <em>no internal reference price</em> for a service before purchase.</li>
+        </ul>
+
+        <div class="note">
+          <span class="lbl">Technology across the model</span>
+          <p>Technology affects every gap: social media research and responding to customer tweets (gap 1); technology-enabled design and standards (gap 2); simultaneous chat sessions and self-service technologies that empower employees and customers (gap 3); online <span class="term" tabindex="0"><mark>word of mouth</mark><span class="tip" role="tooltip"><b>Customer-to-customer communication about a service.</b>It appears at both ends of the syllabus: it shapes expectations before purchase and is an outcome after. State which you mean.</span></span> and borderless reach that reshape expectations (gap 4).</p>
+        </div>
+
+        <h3 id="s-gap-case">Identifying gaps from a case <span class="mark key"><i class="st" aria-hidden="true">✱✱✱</i>must know</span></h3>
+        <p>The applied version of this chapter: you are given a scenario and must name which gap is open and justify it. Work it in three steps.</p>
+        <ol>
+          <li><strong>Locate where the breakdown sits</strong> in the chain: expectation → company understanding → standards → delivery → communication.</li>
+          <li><strong>Name the gap</strong> and quote its definition.</li>
+          <li><strong>Name the key factor</strong> from that gap's list, then prescribe the fix.</li>
+        </ol>
+
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Symptom in the case</th><th>Gap</th><th>Because</th></tr></thead>
+            <tbody>
+              <tr><td>No customer research; management never talks to customers; complaints ignored; frontline staff know things management doesn't</td><td class="k">Gap 1<small>Listening</small></td><td>The firm doesn't <em>know</em> what customers expect</td></tr>
+              <tr><td>Expectations are known, but no written standards exist; service was never properly designed; facility or servicescape doesn't fit what customers want</td><td class="k">Gap 2<small>Design &amp; standards</small></td><td>The firm knows, but hasn't <em>translated</em> it into designs and customer-driven standards</td></tr>
+              <tr><td>Standards exist but staff don't follow them; untrained or unmotivated employees; wrong compensation; franchisee inconsistency; queues at peak and idle capacity off-peak; customers don't play their part</td><td class="k">Gap 3<small>Performance</small></td><td>Standards exist but are not <em>delivered</em></td></tr>
+              <tr><td>Advertising promises more than is delivered; salespeople overpromise; branches quote different policies; price is high relative to what is delivered; customers were never told how to use the service</td><td class="k">Gap 4<small>Communication</small></td><td>What was <em>promised</em> doesn't match what was delivered</td></tr>
+              <tr><td>Customer is simply dissatisfied: service fell below what they expected</td><td class="k">Customer gap</td><td>The <em>result</em> of one or more provider gaps; always name the provider gap causing it</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <span class="lbl">Two traps</span>
+          <p><strong>Don't stop at the customer gap.</strong> It is the outcome, not the cause. A full answer names the provider gap and the specific key factor behind it.</p>
+          <p><strong>Gap 3 vs. Gap 4.</strong> If the firm delivered less than its <em>own standard</em>, it is gap 3. If it delivered its standard but had <em>promised</em> more, it is gap 4. A case can contain more than one gap, so say so.</p>
+        </div>
+
+        <div class="recall">
+          <span class="lbl">Recall in one line each</span>
+          <ul>
+            <li>Customer gap = expected service − perceived service.</li>
+            <li>Gap 1 listening · Gap 2 service design and standards · Gap 3 service performance · Gap 4 communication.</li>
+            <li>Gap 1 = don't know what customers expect. Gap 2 = know but don't design for it. Gap 3 = designed but don't deliver it. Gap 4 = deliver but promise something else.</li>
+            <li>Close provider gaps 1–4 and keep them closed → the customer gap closes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ══════════ CH 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>Consumer Behavior in a Service Context</h2></div>
+        <p class="src">Lovelock, Chapter 2</p>
+        <p>The most heavily marked chapter in the suggestion copies.</p>
+
+        <h3 id="s-three-stage">The three-stage model of service consumption <span class="mark"><i class="st" aria-hidden="true">✱✱</i>important</span></h3>
+        <p>Service consumption divides into three principal stages. The nature of the steps varies by whether the service is <strong>high-contact</strong> (great degree of interaction between service employees and customers, typical of people-processing services) or <strong>low-contact</strong> (little to no face-to-face contact, common for information-processing services delivered at arm's length).</p>
+        <div class="cards"><div class="card"><span class="num">01</span><div class="bd"><h4>Pre-purchase</h4><ul><li>Awareness of need</li><li>Information search</li><li>Evaluation of alternatives</li><li>Purchase decision</li></ul></div></div><div class="card"><span class="num">02</span><div class="bd"><h4>Service encounter</h4><ul><li>Request service from chosen supplier, or initiate self-service</li><li>Service delivery by personnel or self-service</li></ul></div></div><div class="card"><span class="num">03</span><div class="bd"><h4>Post-encounter</h4><ul><li>Evaluation of service performance</li><li>Future intentions</li></ul></div></div></div>
+
+        <h3 id="s-prepurchase">Stage 1 · Pre-purchase</h3>
+        <p>Begins with <strong><span class="term" tabindex="0"><mark>need arousal</mark><span class="tip" role="tooltip"><b>The moment a customer becomes aware of a need, which starts the pre-purchase stage.</b>Three triggers: unconscious, physical, external. Only the third is under a marketer&#x27;s control.</span></span></strong>, the prospective customer's awareness of a need. Needs may be triggered by <strong>unconscious minds</strong> (personal identity and aspirations), <strong>physical conditions</strong> (hunger), or <strong>external sources</strong> (a firm's marketing activities).</p>
+        <p>Information search follows. The alternatives that come to mind form the <strong><span class="term" tabindex="0"><mark>evoked set</mark><span class="tip" role="tooltip"><b>The small group of brands a customer actually considers, drawn from memory or from search.</b>Not every option available. Getting into it is a communications problem; winning inside it is positioning.</span></span></strong> (also called the <em>consideration set</em>), the set of products or brands a customer may consider in the decision-making process, derived from past experience or external sources.</p>
+
+        <h4>Service attributes: the three types</h4>
+        <div class="terms">
+          <div><div class="k">Search attributes</div><div class="v">Tangible characteristics customers can evaluate <em>before</em> purchase: style, color, texture, taste, sound. Clothing, furniture, cars and foods are high in <span class="term" tabindex="0"><mark>search attributes</mark><span class="tip" role="tooltip"><b>Features a customer can evaluate before buying: colour, style, price, location.</b>Goods are rich in these and services are not, which is the real evidence for &#x27;service marketing is different&#x27;.</span></span>; so are a restaurant's location, type of food and price.</div></div>
+          <div><div class="k">Experience attributes</div><div class="v">Cannot be evaluated before purchase; the customer must "experience" the service: reliability, ease of use, customer support. Vacations, live entertainment, many medical procedures.</div></div>
+          <div><div class="k">Credence attributes</div><div class="v">Characteristics customers find hard to evaluate <em>even after</em> consumption; the customer is forced to trust the task was done at the promised level: kitchen hygiene, complex surgery, legal advice, consulting.</div></div>
+        </div>
+        <p>All products sit on a continuum from <strong>easy to evaluate</strong> to <strong>difficult to evaluate</strong>. Most physical goods sit left (high in search attributes); most services sit centre-to-right (high in experience and <span class="term" tabindex="0"><mark>credence attributes</mark><span class="tip" role="tooltip"><b>Features a customer cannot confidently judge even after consumption: a diagnosis, an audit, legal advice.</b>Why professional firms lean on credentials and guarantees — the customer buys the signals instead of the work.</span></span>). Do not overgeneralize: an experienced customer evaluates differently from a first-time user.</p>
+
+        <h4>Perceived risk: seven types</h4>
+        <p>The harder a service is to evaluate before purchase, the higher the <strong><span class="term" tabindex="0"><mark>perceived risk</mark><span class="tip" role="tooltip"><b>The customer&#x27;s sense of possible loss from a purchase they cannot fully assess in advance.</b>Seven types and the order is easy to lose. Two F&#x27;s, two P&#x27;s, then the rest: Functional, Financial, Temporal, Physical, Psychological, Social, Sensory.</span></span></strong>. Customers are risk averse and, everything else equal, choose the service with the lower perceived risk.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Type of risk</th><th>Customer concern</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Functional</td><td>Unsatisfactory performance outcomes: "Will this training course give me the skills I need?"</td></tr>
+              <tr><td class="k">Financial</td><td>Monetary loss, unexpected costs: "Will repairing my car cost more than the estimate?"</td></tr>
+              <tr><td class="k">Temporal</td><td>Wasting time, consequences of delays: "Will I have to wait in line before entering?"</td></tr>
+              <tr><td class="k">Physical</td><td>Personal injury or damage to possessions: "Will I get hurt if I go skiing at this resort?"</td></tr>
+              <tr><td class="k">Psychological</td><td>Personal fears and emotions: "Will the consultant make me feel stupid?"</td></tr>
+              <tr><td class="k">Social</td><td>How others think and react: "What will my friends think if they learnt I stayed at this cheap motel?"</td></tr>
+              <tr><td class="k">Sensory</td><td>Unwanted effects on any of the five senses: "Will my room smell of stale cigarette smoke?"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>How customers reduce risk:</strong> seek information from trusted personal sources; use the web to compare offerings and read independent reviews; rely on a firm with a good reputation; look for guarantees and warranties; visit facilities or try the service, examining tangible cues; ask knowledgeable employees about competing services.</p>
+        <p><strong>How firms reduce customers' perceived risk:</strong> encourage previews through brochures, websites and videos; encourage visits to facilities in advance; offer free trials for services high in <span class="term" tabindex="0"><mark>experience attributes</mark><span class="tip" role="tooltip"><b>Features that can only be judged during or after consumption: a meal, a flight, a haircut.</b>Free trials work here and nowhere else, since they cannot resolve a credence attribute at all.</span></span>; advertise; <strong>display credentials</strong>; use <strong><span class="term" tabindex="0"><mark>evidence management</mark><span class="tip" role="tooltip"><b>Deliberately organising every tangible signal a customer meets so they add up to the intended image.</b>Berry and Bendapudi&#x27;s term. Treat it as the operational form of &#x27;tangible cues&#x27;, with a checklist attached.</span></span></strong>, an organized approach presenting coherent evidence of the company's targeted image and value proposition, including furnishings, equipment, facilities, employee dress and behavior; institute visible safety procedures; give online access to order status; offer <strong>service guarantees</strong>.</p>
+
+        <h4>Service expectations: four components</h4>
+        <div class="terms">
+          <div><div class="k">Desired service</div><div class="v">The "wished for" level, a combination of what customers believe <em>can</em> and <em>should</em> be delivered, given their personal needs. Influenced by explicit and implicit promises, word of mouth and past experience.</div></div>
+          <div><div class="k">Adequate service</div><div class="v">The minimum level of service customers will accept <em>without being dissatisfied</em>.</div></div>
+          <div><div class="k">Predicted service</div><div class="v">The level customers actually <em>anticipate</em> receiving. It directly affects how customers define "<span class="term" tabindex="0"><mark>adequate service</mark><span class="tip" role="tooltip"><b>The minimum level of service a customer will accept without being dissatisfied.</b>The floor, not the target. The examinable bit is the asymmetry: adequate moves easily with circumstance, desired barely shifts.</span></span>" on that occasion, and is often situation-specific.</div></div>
+          <div><div class="k">Zone of tolerance</div><div class="v">The range between desired and adequate service, the extent to which customers are willing to accept variation. Performing below it causes frustration; exceeding the desired level should surprise and delight. Within the zone, customers don't pay explicit attention to performance.</div></div>
+        </div>
+        <p>The zone widens or narrows with competition, price and importance of specific attributes. <strong>Adequate</strong> service levels move readily; <strong>desired</strong> levels move up only slowly. Predicted service is probably the most important level for the consumer choice process.</p>
+        <p><strong>Purchase decision:</strong> after comparing attributes, assessing perceived risk and forming desired, adequate and predicted expectations, the customer selects the preferred option. Frequently purchased services are decided quickly; complex decisions involve trade-offs, with price often the key factor.</p>
+
+        <h3 id="s-encounter">Stage 2 · The service encounter <span class="mark key"><i class="st" aria-hidden="true">✱✱✱</i>must know</span></h3>
+        <div class="note">
+          <span class="lbl">The one cluster the teacher bracketed and starred</span>
+          <p>Five concepts, boxed together in the margin of Figure 2.2: <strong>moments of truth · service encounters · <span class="term" tabindex="0"><mark>servuction system</mark><span class="tip" role="tooltip"><b>A model of the service as a visible front stage plus an invisible technical core, with other customers inside it.</b>Service plus production, from the French. It is static and describes one encounter only, which is exactly why role and script theories follow it.</span></span> · role and script theories · theater as metaphor</strong>. If one long question appears from Lovelock, it is almost certainly from here.</p>
+        </div>
+        <p>A <strong><span class="term" tabindex="0"><mark>service encounter</mark><span class="tip" role="tooltip"><b>Any period in which a customer interacts directly with a service provider.</b>Duration is irrelevant to the definition: a 15-second call and a four-day hospital stay both qualify.</span></span></strong> is a period of time during which a customer interacts directly with a service provider. Some are very brief (a taxi ride, a phone call); others extend over a longer time frame and involve multiple actions (a hospital visit lasting several days). High-contact services supply a greater array of clues to service quality than low-contact services.</p>
+
+        <h4>1 · Service encounters are "moments of truth"</h4>
+        <p><strong>Richard Normann</strong> borrowed the metaphor from bullfighting: <em>perceived quality is realized at the <span class="term" tabindex="0"><mark>moment of truth</mark><span class="tip" role="tooltip"><b>The instant of contact at which the customer forms their judgement of quality.</b>Normann took it from bullfighting, where the phrase means the kill. Quote Carlzon&#x27;s arithmetic: 10 million customers, 5 staff, 15 seconds.</span></span>, when the service provider and the service customer confront one another in the arena.</em> At that moment they are very much on their own: it is the skill, motivation and tools of the firm's representative and the expectations and behavior of the client which together create the service delivery process.</p>
+        <p>In bullfighting the life of the bull or the matador is at stake; in services it is the <strong>life of the relationship</strong>. The goal of <span class="term" tabindex="0"><mark>relationship marketing</mark><span class="tip" role="tooltip"><b>Building and retaining long-term customer ties rather than maximising individual transactions.</b>Always define it against transactional marketing. In gap 1 the failure is chasing new customers over current ones.</span></span> is to prevent one unfortunate (mis)encounter from destroying a mutually valued long-term relationship.</p>
+        <p><strong>Jan Carlzon (SAS)</strong> used the metaphor to transform SAS from an operations-driven business into a customer-driven airline: 10 million customers × 5 employees × 15 seconds = <strong>50 million "moments of truth" a year</strong>, the moments that ultimately determine whether SAS succeeds or fails.</p>
+
+        <h4>2 · Levels of customer contact <span class="mark key"><i class="st" aria-hidden="true">✱✱✱</i>must know</span></h4>
+        <p>Figure 2.7 groups services into <strong>three levels of customer contact</strong>, representing how much customers interact with <strong>service personnel</strong>, <strong>physical service elements</strong>, or both. Contact level is really a <em>spectrum</em>, but it is useful to examine the high and low ends.</p>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Level</th><th>What it means</th><th>Examples</th></tr></thead>
+            <tbody>
+              <tr><td class="k">High contact</td><td>Interaction throughout delivery; exposure to the provider is physical and tangible. Emphasizes encounters with <em>service personnel</em>.</td><td>Nursing home · haircut · four-star hotel · good restaurant · airline travel</td></tr>
+              <tr><td class="k">Medium contact</td><td>Partial interaction: the customer may drop off, collect, or meet the provider briefly, without being present throughout.</td><td>Retail banking · budget hotel · dry cleaning · car repair · movie theater · management consulting</td></tr>
+              <tr><td class="k">Low contact</td><td>Little if any physical contact; contact at arm's length through electronic or physical distribution channels. Emphasizes encounters with <em>physical service elements</em>.</td><td>Telephone banking · insurance · cable TV · internet banking · mail-based repairs · internet-based services</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="terms">
+          <div><div class="k">High-contact services</div><div class="v">Customers enter a service <em>"factory"</em>: a motel is a lodging factory, a hospital a health treatment factory, an airplane a flying transportation factory, a restaurant a food service factory. Because each industry "processes" people rather than inanimate objects, the marketing challenge is making the experience appealing in terms of both the <em>physical environment</em> and <em>interactions with personnel</em>. Customers are exposed to many physical clues: exterior and interior of buildings, equipment and furnishings, appearance and behavior of personnel, and other customers.</div></div>
+          <div><div class="k">Low-contact services</div><div class="v">Contact takes place at arm's length through electronic or physical distribution channels, a fast-growing trend in a convenience-oriented society. Many high- and medium-contact services are transforming into low-contact ones as customers undertake more self-service, transact by mail, telephone and internet, or buy information-based services from websites rather than brick-and-mortar facilities.</div></div>
+        </div>
+        <div class="note">
+          <span class="lbl">The point of the chart</span>
+          <p>Traditional retail banking, person-to-person phone banking and internet banking deliver <strong>the same basic transactions</strong>, such as a funds transfer, yet sit in very different parts of the chart. Contact level is a design choice, not a property of the service itself. The same customer may alternate between high- and low-contact channels of one provider, and the nature of their encounters varies accordingly.</p>
+        </div>
+
+        <h4>3 · The servuction system</h4>
+        <p>Coined by <strong>Pierre Eiglier and Eric Langeard</strong> (service + production) to describe that part of the service organization's physical environment that is visible to and experienced by customers. It consists of a <strong><span class="term" tabindex="0"><mark>technical core</mark><span class="tip" role="tooltip"><b>The back-stage part of the operation where inputs are processed and the service is produced.</b>Customers do not care what happens here until it leaks forward, which is why the misread kitchen order is the textbook illustration.</span></span>, invisible</strong> to the customer, and a <strong><span class="term" tabindex="0"><mark>service delivery system</mark><span class="tip" role="tooltip"><b>The visible front stage where the service is assembled and handed over: premises, equipment, staff, other customers.</b>High-contact services have a large one; low-contact services push nearly everything backstage. How much is visible is the design lever.</span></span>, visible</strong> to and experienced by the customer.</p>
+        <div class="terms">
+          <div><div class="k">Technical core</div><div class="v">Where inputs are processed and the elements of the service product are created, such as the restaurant kitchen. Typically <em>back-stage</em> (back office) and invisible. What goes on back-stage usually does not interest customers, but if it affects front-stage quality they notice: a kitchen that reads orders wrongly upsets diners.</div></div>
+          <div><div class="k">Service delivery system</div><div class="v">Where the final "assembly" takes place and the product is delivered, the visible part of the operations system: buildings, equipment, personnel, and possibly other customers. The <em>front-stage</em> (front office) is like a live theater where the experience is staged.</div></div>
+        </div>
+        <p>The model also shows <strong>Customer A and Customer B</strong> interacting: other customers present during the encounter can create value (a pleasant environment, interesting people) or destroy it (someone blocking your view in a movie theatre). Firms have to "engineer" all interactions.</p>
+        <p>The proportion visible to customers varies with contact level: high-contact services have a substantial visible component and many moments of truth to manage; low-contact services keep most of the operations back-stage, with front-stage limited to mail and telecommunications.</p>
+
+        <h4>4 · Theater as metaphor for service delivery</h4>
+        <p>Because service delivery is a series of events customers experience as a <strong>performance</strong>, theater is a good metaphor, particularly for high-contact providers and businesses serving many people at once.</p>
+        <ul>
+          <li><strong>Service facilities</strong> are the <em>stage</em> on which the drama unfolds. The setting can change from one act to another: airline passengers move from terminal entrance to check-in to boarding gate to aircraft. Some stages have minimal <em>props</em> (a taxi), others elaborate ones (resort hotels).</li>
+          <li><strong>Personnel</strong> are the <em>cast</em>, playing roles as <em>actors</em> in a drama, supported by a back-stage production team. Costumes matter: hotel doormen's uniforms, UPS brown, Disney's grooming standards and its rule against beards except in costumed roles.</li>
+        </ul>
+
+        <h4>5 · Role and script theories</h4>
+        <p>The servuction model is <strong>static</strong>: it describes a single encounter, one moment of truth. Real service processes are a <em>series</em> of encounters (reserving → checking in → flying → collecting bags), so role and script theories are needed to understand, design and manage both employee and customer behavior.</p>
+        <div class="terms">
+          <div><div class="k">Role theory</div><div class="v">Grove and Fisk define a <strong>role</strong> as "a set of behavior patterns learned through experience and communication, to be performed by an individual in a certain social interaction in order to attain maximum effectiveness in goal accomplishment." Satisfaction and productivity depend on <strong><span class="term" tabindex="0"><mark>role congruence</mark><span class="tip" role="tooltip"><b>The degree to which each party performs the role the encounter expects of them.</b>Grove and Fisk. It cuts both ways: a customer who will not play their role damages quality as surely as an employee who will not.</span></span></strong>, the extent to which each person acts out his or her prescribed role. Customers too must "play by the rules."</div></div>
+          <div><div class="k">Script theory</div><div class="v">A <strong><span class="term" tabindex="0"><mark>service script</mark><span class="tip" role="tooltip"><b>The learned sequence of actions staff and customers follow through an encounter.</b>Why switching providers feels costly: an unfamiliar script is a genuine barrier. Useful in a loyalty question.</span></span></strong> specifies the sequence of behavior employees and customers are expected to learn and follow. Employees receive formal training; customers learn scripts through experience, communication and designed education. The more experience, the more familiar the script, and unwillingness to learn a new script can be a reason <em>not</em> to switch providers. Deviations frustrate both sides.</div></div>
+        </div>
+        <p>Tightly scripted dramas (formal upscale restaurants) reduce variability and ensure uniform quality; scripts are more flexible for highly customized services: designers, educators, consultants. The dental example (Figure 2.9) scripts 31 steps across three players: patient, receptionist and dental hygienist.</p>
+        <p><strong>The two complement each other:</strong> role theory says what a professor and a student <em>are</em>; script theory says what specific actions each takes and in what order. Excellent service marketers proactively define, communicate and train employees and customers in both.</p>
+
+        <h3 id="s-postencounter">Stage 3 · Post-encounter</h3>
+        <p>Customers evaluate the service performance they experienced and compare it with their prior expectations.</p>
+        <p><strong>Satisfaction</strong> is an attitude-like judgment following a consumption experience. The essential determinant is the <strong>confirmation or disconfirmation of preconsumption expectations</strong>, measured against the <em>predicted</em> service level:</p>
+        <div class="terms">
+          <div><div class="k">Positive disconfirmation</div><div class="v">Service is <em>better</em> than expected.</div></div>
+          <div><div class="k">Simple confirmation</div><div class="v">Service is <em>as</em> expected.</div></div>
+          <div><div class="k">Negative disconfirmation</div><div class="v">Service is <em>worse</em> than expected.</div></div>
+        </div>
+        <p>Customers are reasonably satisfied as long as perceived performance falls <strong>within the <span class="term" tabindex="0"><mark>zone of tolerance</mark><span class="tip" role="tooltip"><b>The band between desired and adequate service within which variation passes unnoticed.</b>Widens and narrows by customer and occasion. Price narrows it sharply — a premium fare buys a much thinner zone.</span></span></strong>, above the adequate service level. As perceptions approach or exceed desired levels customers are very pleased, leading to repeat purchase, loyalty and positive <strong>word of mouth</strong>. Falling short leads to complaints, suffering in silence, or switching providers.</p>
+        <h4>Are expectations always the right comparison standard?</h4>
+        <p>No. In noncompetitive markets, or where switching costs are prohibitive, defining satisfaction against prior expectations is risky: if expectations are low and delivery meets that dismal level, customers hardly feel they received good quality. Better then to use <strong>needs or wants</strong> as the comparison standard. With high-credence services, customers use tangible cues and experience factors as proxies, producing a <strong><span class="term" tabindex="0"><mark>halo effect</mark><span class="tip" role="tooltip"><b>Letting one attribute the customer can judge colour their assessment of the quality they cannot.</b>Why hospital food ratings track perceived clinical quality: customers judge what they are able to, then generalise.</span></span></strong> where perceptions of quality are driven by process and tangibles rather than core attributes.</p>
+        <h4>Customer delight</h4>
+        <p>Oliver, Rust and Varki: delight is a function of three components: <strong>(1) unexpectedly high levels of performance, (2) arousal</strong> (surprise, excitement) <strong>and (3) positive affect</strong> (pleasure, joy, happiness). High satisfaction alone is only positively disconfirmed expectations plus positive affect. Delight therefore requires focusing on what is currently <em>unexpected</em>, more than the "zero defects" strategy of just avoiding problems.</p>
+        <p>The caution: once customers have been delighted, their expectations are raised, and it takes more effort to delight them next time. Fornell and colleagues warn that continually trying to exceed expectations reaches the point of diminishing returns.</p>
+
+        <div class="recall">
+          <span class="lbl">Recall in one line each</span>
+          <ul>
+            <li>Three stages: pre-purchase → service encounter → post-encounter.</li>
+            <li>Attributes: search (before) · experience (during) · credence (never fully).</li>
+            <li>Three levels of customer contact: high · medium · low; personnel at one end, physical elements at the other.</li>
+            <li>Seven risks: functional, financial, temporal, physical, psychological, social, sensory.</li>
+            <li>Expectations: desired · adequate · predicted, with the zone of tolerance between desired and adequate.</li>
+            <li>Encounter cluster: moments of truth · high/low contact · servuction system · theater metaphor · role and script theories.</li>
+            <li>Servuction = technical core (back-stage, invisible) + service delivery system (front-stage, visible) + Customer A and B.</li>
+            <li>Satisfaction = confirmation/disconfirmation; delight = high performance + arousal + positive affect.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 30 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>4 characteristics of services</summary><ol><li>Intangible</li><li>Heterogeneous</li><li>Simultaneous production &amp; consumption</li><li>Perishable</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>7 Ps</summary><ol><li>Product</li><li>Place</li><li>Promotion</li><li>Price</li><li>People</li><li>Physical evidence</li><li>Process</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 forces transforming services</summary><ol><li>Government policies</li><li>Social changes</li><li>Business trends</li><li>Advances in IT</li><li>Globalization</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 nonownership categories</summary><ol><li>Rented goods</li><li>Defined space &amp; place</li><li>Labor &amp; expertise</li><li>Shared physical environments</li><li>Systems &amp; networks</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 process categories</summary><ol><li>People processing</li><li>Possession processing</li><li>Mental stimulus processing</li><li>Information processing</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 provider gaps</summary><ol><li>Listening</li><li>Service design &amp; standards</li><li>Service performance</li><li>Communication</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 levels of customer contact</summary><ol><li>High</li><li>Medium</li><li>Low</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 new-service buckets</summary><ol><li>Technology-focused</li><li>Sustainability &amp; wellness</li><li>Convenience &amp; lifestyle</li><li>Specialized skill development</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 service attributes</summary><ol><li>Search</li><li>Experience</li><li>Credence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>7 perceived risks</summary><ol><li>Functional</li><li>Financial</li><li>Temporal</li><li>Physical</li><li>Psychological</li><li>Social</li><li>Sensory</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Encounter concepts <i class="st" aria-hidden="true">✱✱✱</i></summary><ol><li>Moments of truth</li><li>Service encounters</li><li>Servuction system</li><li>Role &amp; script theories</li><li>Theater as metaphor</li></ol></details>
+        </div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4101 &middot; Services Marketing &middot; Midterm study guide</b>
+          Compiled from books/, slides/ and the OCR'd handwritten marks in suggestions/ &middot;
+          Terminology preserved as printed in Zeithaml and Lovelock</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

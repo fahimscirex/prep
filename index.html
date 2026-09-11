@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam Prep</title>
+<meta name="description" content="Exam revision guides, one per course.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Home page. Same tokens and type as the guides, no rail: there is
+   nothing to navigate to on one screen.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#8b857d;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:64ch;
+}
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#8b857d;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+
+.lbl,.nav-h{font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px}
+
+/* ═══════ shell ═══════ */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule)}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;
+  display:flex;align-items:baseline;gap:6px;margin:0;color:var(--ink);text-decoration:none}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.inner{padding:clamp(40px,8vw,96px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* theme button, identical to the guides */
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+@media (hover:none){.themebtn{width:40px;height:40px}}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:56px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0;max-width:22ch}
+
+/* ═══════ course list ═══════ */
+.grp{margin-bottom:52px}
+.grp .lbl{display:block;margin:0 0 14px}
+.courses{list-style:none;margin:0;padding:0;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.courses li{margin:0;border-bottom:1px solid var(--rule)}
+.courses li:last-child{border-bottom:0}
+.row{display:flex;align-items:baseline;gap:8px 22px;flex-wrap:wrap;
+  padding:19px 0;min-height:56px;text-decoration:none;color:var(--ink)}
+.code{flex:none;width:82px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  color:var(--ink-3);text-transform:uppercase}
+.nm{flex:1 1 12ch;min-width:0;font-size:1.06rem;line-height:1.4}
+.meta{display:block;color:var(--ink-3);font-size:.88rem;margin-top:4px}
+.go{flex:none;margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+a.row .t{text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){
+  a.row:hover .t{text-decoration-color:var(--ink)}
+  a.row:hover .go{color:var(--ink)}
+}
+@media (max-width:639px){
+  .code{width:auto}
+  .row{gap:6px 14px}
+}
+
+/* ═══════ highlighter, ported from the guide ═══════ */
+mark{background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+/* ═══════ footer ═══════ */
+footer{max-width:var(--measure);padding-top:26px;border-top:1px solid var(--rule)}
+footer p{margin:0;color:var(--ink-3);font-size:.9rem;line-height:1.6}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+@media print{
+  :root{--paper:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;--rule:#ccc;--rule-strong:#999}
+  .topbar,.skip{display:none!important}
+  .inner{padding:0;max-width:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to courses</a>
+
+<header class="topbar">
+  <p class="brand">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></p>
+  <input type="checkbox" id="flip" class="sr-only">
+  <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+</header>
+
+<div class="inner">
+
+  <header class="mast">
+    <p class="eyebrow">Revision</p>
+    <h1>Exam <mark>study guides</mark></h1>
+  </header>
+
+  <main id="main">
+    <section class="grp">
+      <h2 class="lbl">Midterm</h2>
+      <ol class="courses">
+        <li>
+          <a class="row" href="MKT4101.html">
+            <span class="code">MKT4101</span>
+            <span class="nm"><span class="t">Services Marketing</span><span class="meta">3 chapters &middot; &asymp; 35 min</span></span>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Personal revision notes. Terminology is kept as printed in the set texts.</p>
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+    </footer>
+  </main>
+
+</div>
+
+</body>
+</html>

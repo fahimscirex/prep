@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4102 International Marketing</title>
+<meta name="description" content="Midterm study guide for MKT4102 International Marketing, covering Cateora, Gilly and Graham chapters 1 to 4 with all sixteen case boxes.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#8b857d;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:64ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#8b857d;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.02rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style, content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
+  font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink-2);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top left;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0}
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
+@media (hover:none),(max-width:760px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
+    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+.cases .card .num{letter-spacing:.08em;white-space:nowrap}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+body:has(#ch1:target) .nav a[href="#ch1"],
+body:has(#s1-why:target) .nav a[href="#s1-why"],
+body:has(#s1-defined:target) .nav a[href="#s1-defined"],
+body:has(#s1-task:target) .nav a[href="#s1-task"],
+body:has(#s1-adapt:target) .nav a[href="#s1-adapt"],
+body:has(#s1-src:target) .nav a[href="#s1-src"],
+body:has(#s1-aware:target) .nav a[href="#s1-aware"],
+body:has(#s1-stages:target) .nav a[href="#s1-stages"],
+body:has(#s1-orient:target) .nav a[href="#s1-orient"],
+body:has(#s1-cases:target) .nav a[href="#s1-cases"],
+body:has(#ch2:target) .nav a[href="#ch2"],
+body:has(#s2-century:target) .nav a[href="#s2-century"],
+body:has(#s2-bop:target) .nav a[href="#s2-bop"],
+body:has(#s2-protect:target) .nav a[href="#s2-protect"],
+body:has(#s2-barriers:target) .nav a[href="#s2-barriers"],
+body:has(#s2-easing:target) .nav a[href="#s2-easing"],
+body:has(#s2-cases:target) .nav a[href="#s2-cases"],
+body:has(#ch3:target) .nav a[href="#ch3"],
+body:has(#s3-history:target) .nav a[href="#s3-history"],
+body:has(#s3-subjective:target) .nav a[href="#s3-subjective"],
+body:has(#s3-geography:target) .nav a[href="#s3-geography"],
+body:has(#s3-population:target) .nav a[href="#s3-population"],
+body:has(#s3-routes:target) .nav a[href="#s3-routes"],
+body:has(#s3-cases:target) .nav a[href="#s3-cases"],
+body:has(#ch4:target) .nav a[href="#ch4"],
+body:has(#s4-pervasive:target) .nav a[href="#s4-pervasive"],
+body:has(#s4-origins:target) .nav a[href="#s4-origins"],
+body:has(#s4-elements:target) .nav a[href="#s4-elements"],
+body:has(#s4-sensitivity:target) .nav a[href="#s4-sensitivity"],
+body:has(#s4-change:target) .nav a[href="#s4-change"],
+body:has(#s4-cases:target) .nav a[href="#s4-cases"],
+body:has(#sheet:target) .nav a[href="#sheet"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:none;
+    width:40px;padding:0;
+    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--ink);
+    padding:9px 12px;min-height:40px;background:var(--paper)}
+  .menubtn .bars{width:13px;height:9px;flex:none;
+    border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+    position:relative}
+  .menubtn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;
+    border-top:1.5px solid var(--ink)}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to contents</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">The Scope and Challenge</span><span class="dots" aria-hidden="true">·········</span></summary>
+            <ul><li><a href="#s1-why"><span class="ht">Why international markets</span></a></li><li><a href="#s1-defined"><span class="ht">Marketing defined</span></a></li><li><a href="#s1-task"><span class="ht">The marketing task</span></a></li><li><a href="#s1-adapt"><span class="ht">Environmental adaptation</span></a></li><li><a href="#s1-src"><span class="ht">SRC and ethnocentrism</span></a></li><li><a href="#s1-aware"><span class="ht">Global awareness</span></a></li><li><a href="#s1-stages"><span class="ht">Five stages of involvement</span></a></li><li><a href="#s1-orient"><span class="ht">Three strategic orientations</span></a></li><li><a href="#s1-cases"><span class="ht">Cases</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">The Environment of Trade</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s2-century"><span class="ht">20th to 21st century</span></a></li><li><a href="#s2-bop"><span class="ht">Balance of payments</span></a></li><li><a href="#s2-protect"><span class="ht">Protectionism</span></a></li><li><a href="#s2-barriers"><span class="ht">Trade barriers</span></a></li><li><a href="#s2-easing"><span class="ht">GATT, WTO and the IMF</span></a></li><li><a href="#s2-cases"><span class="ht">Cases</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">History and Geography</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s3-history"><span class="ht">History and behavior</span></a></li><li><a href="#s3-subjective"><span class="ht">History is subjective</span></a></li><li><a href="#s3-geography"><span class="ht">Geography and markets</span></a></li><li><a href="#s3-population"><span class="ht">Population dynamics</span></a></li><li><a href="#s3-routes"><span class="ht">Trade routes and communication</span></a></li><li><a href="#s3-cases"><span class="ht">Cases</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Cultural Dynamics</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s4-pervasive"><span class="ht">Culture's pervasive impact</span></a></li><li><a href="#s4-origins"><span class="ht">Origins of culture</span></a></li><li><a href="#s4-elements"><span class="ht">Elements of culture</span></a></li><li><a href="#s4-sensitivity"><span class="ht">Sensitivity and tolerance</span></a></li><li><a href="#s4-change"><span class="ht">Cultural change</span></a></li><li><a href="#s4-cases"><span class="ht">Cases</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 30 minutes</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Midterm &nbsp;/&nbsp; </span><b aria-current="page">MKT4102</b></nav>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4102</p>
+    <h1>International Marketing</h1>
+    <p class="lede">Midterm study guide. Covers Cateora, Gilly and Graham, <i>International Marketing</i>, chapters 1 to 4. Every topic in the four chapters is covered, and all sixteen case boxes are summarised at the end of their chapter. Book terminology is kept as printed.</p>
+    <div class="mast-meta">
+      <span>Midterm</span>
+      <span>4 chapters</span>
+      <span>16 cases</span>
+      <span>≈ 50 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ CHAPTER 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>The Scope and Challenge of International Marketing</h2></div>
+        <p class="src">Cateora, Chapter 1</p>
+
+        <h3 id="s1-why">Why international markets matter </h3>
+        <p>LO1-1. The book opens by admitting that when it first predicted "a one-world economic and market system" almost 25 years ago, nobody foresaw 9/11, SARS, the 2008 housing collapse, Brexit, Trump, COVID-19 or the war in Ukraine. World trade fell 11 percent in 2009, 13 percent between 2014 and 2016, and about 10 percent in 2020. The lesson the chapter draws is blunt: <strong>expect the unexpected</strong>. You still plan and forecast, but markets, especially international ones, are ultimately unpredictable. Flexibility means survival, and it is best managed through strong relationships and broad portfolios of businesses.</p>
+        <p>Four trends are singled out as the ones that will shape international business beyond today's "bumpy roads":</p>
+        <ul>
+          <li>The rapid growth of the <strong><span class="term" tabindex="0"><mark>World Trade Organization</mark><span class="tip" role="tooltip"><b>The institution created at Marrakech in 1994 that encompasses GATT and extends it, sets trade rules for 164 members, hears disputes and issues binding decisions.</b>Institution versus agreement is the contrast to draw with GATT. No enforcement arm, but the winner may retaliate. Doha Round cancelled 2016.</span></span></strong> and new free trade agreements around the world.</li>
+          <li>The trend toward acceptance of the <strong>free market system</strong> among developing countries in Latin America, Asia and eastern Europe.</li>
+          <li>The burgeoning impact of the <strong>Internet, mobile phones and other global media</strong> on the dissolution of national borders.</li>
+          <li>The mandate to <strong>manage the resources and global environment</strong> properly for the generations to come.</li>
+        </ul>
+        <p>The consequence for any firm: <em>every American company is international</em>, at least to the extent that its performance is conditioned in part by events abroad. Being international "is no longer a luxury but a necessity for economic survival."</p>
+        <h4>The internationalization of U.S. business</h4>
+        <p>LO1-2. Competition now arrives on all fronts. Familiar "American" names are foreign owned: 7-Eleven and Firestone (Japan), Budweiser (Belgium), Ben &amp; Jerry's and Smith &amp; Wesson (U.K.), Purina and Gerber (Switzerland), Smithfield Foods and the Waldorf Astoria (China). Foreign direct investment in the United States exceeds $4.6 trillion, led by the U.K., Japan, the Netherlands, Canada and France. The flow runs both ways: a Conference Board study of 1,250 U.S. manufacturers found multinationals grew twice as fast in sales as purely domestic firms and earned higher returns on equity and assets. Firms such as Intel (78 percent), Exxon and Apple (about 60 percent) earn most of their revenue outside the United States.</p>
+
+        <h3 id="s1-defined">International marketing defined </h3>
+        <p><span class="term" tabindex="0"><mark>International marketing</mark><span class="tip" role="tooltip"><b>Business activities, including pricing, promotion, product and distribution decisions, carried out across national borders.</b>Cateora&#x27;s full definition adds &quot;for a profit&quot; and &quot;to consumers or users in more than one nation.&quot; The exam trap is claiming the concepts differ abroad; only the environment does.</span></span> is <strong>the performance of business activities, including pricing, promotion, product, and distribution decisions, across national borders</strong>. The only difference from domestic marketing is the phrase <em>in more than one country</em>. Marketing concepts, processes and principles are universally applicable; the marketer's task is the same "whether doing business in Dimebox, Texas, or Dar es Salaam, Tanzania."</p>
+        <p>So where does the difficulty come from? Not from different concepts of marketing but from <strong>the environment within which marketing plans must be implemented</strong>. The uniqueness of foreign marketing comes from the range of unfamiliar problems and the variety of strategies needed to cope with different levels of uncertainty. The marketer molds the <strong><span class="term" tabindex="0"><mark>controllable elements</mark><span class="tip" role="tooltip"><b>The marketing decision variables the manager can alter: product, price, promotion, channels of distribution and research.</b>Cateora lists five, not four: research is the fifth. Adjustable in the long run and usually the short run.</span></span></strong> (product, price, promotion, distribution, research) within the framework of the <strong><span class="term" tabindex="0"><mark>uncontrollable elements</mark><span class="tip" role="tooltip"><b>Environmental forces the marketer cannot influence and must adapt to: competition, politics, laws, consumer behavior, level of technology, and so on.</b>The international marketer faces at least two sets, home and each host country. Question 2 in the book is really about this.</span></span></strong> (competition, politics, laws, consumer behavior, level of technology) so that objectives are achieved.</p>
+        <div class="note"><span class="lbl">Question 2 in the book</span>"The marketer's task is the same whether applied in Dimebox, Texas, or Dar es Salaam, Tanzania." Discuss. The answer is yes and no: the <strong>task</strong> and the <strong>principles</strong> are the same; the <strong>environment</strong> is not, and the environment is what the international marketer must adapt to.</div>
+
+        <h3 id="s1-task">The international marketing task </h3>
+        <p>LO1-3. The international marketer deals with <strong>at least two levels of uncontrollable uncertainty</strong> instead of one: the home environment plus a unique set of uncontrollables for every foreign country entered. Exhibit 1.3 draws this as concentric circles.</p>
+        <figure><div class="figbox">
+<svg viewBox="0 0 640 400" role="img" aria-label="Exhibit 1.3, the international marketing task: an inner circle of controllable elements, a second ring of domestic environment uncontrollables, and outer rings of foreign environment uncontrollables, one per country market.">
+  <defs><marker id="ar2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--accent)"/></marker></defs>
+  <!-- foreign environment rings, three country markets -->
+  <circle cx="230" cy="200" r="190" fill="var(--bg)" stroke="var(--line)" stroke-width="1"/>
+  <circle cx="230" cy="200" r="150" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+  <circle cx="230" cy="200" r="108" fill="var(--bg)" stroke="var(--ink)" stroke-width="1"/>
+  <circle cx="230" cy="200" r="58" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.2"/>
+  <text x="230" y="192" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Controllable</text>
+  <text x="230" y="208" text-anchor="middle" font-family="Newsreader,serif" font-size="11" fill="var(--ink-2)">the marketing decision area</text>
+  <text x="230" y="108" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="600" fill="var(--ink)">Domestic environment</text>
+  <text x="230" y="122" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" fill="var(--ink-2)">uncontrollables</text>
+  <text x="230" y="66" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="600" fill="var(--ink)">Foreign environment</text>
+  <text x="230" y="80" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" fill="var(--ink-2)">uncontrollables, country market A</text>
+  <text x="230" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" fill="var(--ink-3)">country market B, C, and so on, each its own ring</text>
+  <!-- legend, right -->
+  <g font-family="Newsreader,serif" font-size="11.5" fill="var(--ink-2)">
+    <text x="440" y="118" font-weight="600" fill="var(--ink)">Inner circle</text>
+    <text x="440" y="134">Product · Price · Promotion</text>
+    <text x="440" y="149">Channels of distribution · Research</text>
+    <text x="440" y="186" font-weight="600" fill="var(--ink)">Second circle</text>
+    <text x="440" y="202">Political and legal forces</text>
+    <text x="440" y="217">Economic climate · Competition</text>
+    <text x="440" y="254" font-weight="600" fill="var(--ink)">Outer circles</text>
+    <text x="440" y="270">Political and legal · Economic</text>
+    <text x="440" y="285">Competitive · Level of technology</text>
+    <text x="440" y="300">Structure of distribution</text>
+    <text x="440" y="315">Geography and infrastructure</text>
+    <text x="440" y="330">Cultural forces</text>
+  </g>
+  <!-- leaders leave each ring at its lower-right edge so they never cross the labels -->
+  <line x1="288" y1="200" x2="432" y2="130" stroke="var(--accent)" stroke-width="1" marker-end="url(#ar2)"/>
+  <line x1="318" y1="262" x2="432" y2="196" stroke="var(--accent)" stroke-width="1" marker-end="url(#ar2)"/>
+  <line x1="386" y1="309" x2="432" y2="264" stroke="var(--accent)" stroke-width="1" marker-end="url(#ar2)"/>
+</svg></div>
+<figcaption>Exhibit 1.3, the international marketing task</figcaption></figure>
+        <div class="terms"><div><div class="k">Controllable elements</div><div class="v">The marketing decision area: price, product, promotion, channels of distribution and research activities. They can be altered in the long run and usually in the short run to adjust to changing conditions.</div></div><div><div class="k">Domestic environment uncontrollables</div><div class="v">Home-country elements with a direct effect on a foreign venture: <em>political and legal forces</em>, the <em>economic climate</em>, and <em>competition</em>. Examples: U.S. trade bans on Libya, Iraq and apartheid South Africa; PNTR status granted to China paving its way into the WTO; Fuji cutting film prices at home so that Kodak lost the profit base that funded its foreign programmes.</div></div><div><div class="k">Foreign environment uncontrollables</div><div class="v">One set per country: <em>political and legal forces, economic forces, competitive forces, level of technology, structure of distribution, geography and infrastructure, and cultural forces</em>. Evaluating them often involves "substantial doses of cultural, political, and economic shock".</div></div></div>
+        <p>Two illustrations the book dwells on. <strong>Level of technology</strong>: you cannot assume that preventive maintenance means the same thing everywhere; local people may need training or the firm must provide support. <strong>Political and legal forces</strong>: a foreign firm carries an <strong><span class="term" tabindex="0"><mark>alien status</mark><span class="tip" role="tooltip"><b>The condition of a foreign firm being controlled by foreigners and managed by people to whom the host <span class="term" tabindex="0"><mark>culture</mark><span class="tip" role="tooltip"><b>The sum of the values, <span class="term" tabindex="0"><mark>rituals</mark><span class="tip" role="tooltip"><b>Patterns of behavior and interaction that are learned and repeated, from weddings and funerals to dinner and shopping.</b>The book&#x27;s job for them: they coordinate interaction and let people know what to expect. Business negotiation is treated as a ritual in the final chapter.</span></span>, symbols, beliefs and thought processes learned and shared by a group of people and transmitted across generations.</b>Chapter 3 gives a shorter version: a society&#x27;s accepted basis for responding to events. Learn both; the five-element version is the one that structures Chapter 4.</span></span> is alien.</b>Two dimensions, and both invite the &quot;foreign exploiter&quot; label. It is why political risk is amplified abroad even when the law is the same.</span></span></strong> with two dimensions, foreigners control it and the host culture is alien to its management, so it can be cast as an exploiter and treated unfairly. India gave Coca-Cola the choice of revealing its formula or leaving; it left. In China a contract binds only if signed by a "legal representative" of a registered "legal person", and the government blocked Coca-Cola's new plant for being "too successful". The more foreign markets a company operates in, the greater the variety of factors to contend with, and a solution in country A is frequently not applicable in country B.</p>
+
+        <h3 id="s1-adapt">Environmental adaptation</h3>
+        <p>In a broad sense the uncontrollable elements <em>constitute the culture</em>; the difficulty lies in recognising its impact. At home our reaction to cultural influence is automatic, part of <span class="term" tabindex="0"><mark>socialization</mark><span class="tip" role="tooltip"><b>Learning culture from <span class="term" tabindex="0"><mark>social institutions</mark><span class="tip" role="tooltip"><b>Family, religion, school, the media, government and corporations: the structures that shape how people relate, organize, teach the next generation and govern themselves.</b>A key term. The four that most strongly shape values are schools, churches, families and, most recently, the media; government matters least because values are set before adulthood.</span></span> while growing up.</b>Paired with <span class="term" tabindex="0"><mark>acculturation</mark><span class="tip" role="tooltip"><b>Adjusting to a new culture, as immigrants and indigenous peoples do in reaction to one another.</b>Not the same as socialization, which is growing up inside a culture. Chapter 1 uses the word for the marketer&#x27;s own home conditioning.</span></span>, adjusting to a new culture, and role modeling, imitating peers. Together they are how Exhibit 4.4 says culture gets into a person.</span></span>. Abroad the marketer must be aware of the <strong>frame of reference</strong> being used, because judgments are derived from experience that is the result of acculturation in the home country. Cultural conditioning is like an iceberg: we are not aware of nine-tenths of it. Time-conscious Americans misread a "long waiting period" in a Latin American outer office as an insult. The thumb-and-forefinger circle means fine in the United States, zero in France, money in Japan and a sexual insult in Sardinia and Greece.</p>
+
+        <h3 id="s1-src">The self-reference criterion and ethnocentrism </h3>
+        <p>LO1-4. The key to success is <strong>adaptation</strong>: a conscious effort to anticipate the influences of both foreign and domestic uncontrollables on a marketing mix and then adjust the mix to minimise their effects. The primary obstacles are two related habits of mind.</p>
+        <div class="terms"><div><div class="k">Self-reference criterion (SRC)</div><div class="v">An <em>unconscious</em> reference to one's own <span class="term" tabindex="0"><mark>cultural values</mark><span class="tip" role="tooltip"><b>The importance a culture places on things and ideas; the first of the five elements of culture.</b>Hofstede&#x27;s dimensions are the measurement tool. A key term, so be able to say why values sit under the other four elements.</span></span>, experiences and knowledge as a basis for decisions. Faced with a problem in another culture we react instinctively and refer to our <span class="term" tabindex="0"><mark>SRC</mark><span class="tip" role="tooltip"><b>An unconscious reference to one&#x27;s own cultural values, experiences and knowledge as a basis for decisions.</b>The single most examined term in Chapter 1 and the root of Chapter 3&#x27;s &quot;history is subjective.&quot; Note the word unconscious: you cannot just decide not to have one, hence the four-step analysis.</span></span> for a solution, and such decisions are often not good ones.</div></div><div><div class="k">Ethnocentrism</div><div class="v">The notion that people in one's own company, culture or country know best how to do things. A particular problem for American managers after the 1990s boom, and generally when managers from affluent countries work with less affluent markets.</div></div></div>
+        <p>The personal-space example: Americans keep a distance that feels right without thinking; someone from a closer-standing culture approaches, the American backs away, and each concludes the other is rude. Both are victims of their SRC. The SRC can stop you noticing a difference, make you discount it, or make you react offensively: refusing food or drink is polite in the United States and an insult in Asia or the Middle East.</p>
+        <p>Failures traced to the SRC: <strong>Starbucks</strong> in the Forbidden City (six years to correct); <strong>Zara's</strong> striped blouse with a yellow six-pointed star. Successes from setting it aside: <strong>McVitie's</strong> biscuits individually wrapped in gift boxes at three times the price for Japan; <strong>Unilever</strong> reformulating and repackaging detergent for Brazil (simpler formula, plastic not paper because clothes are washed in rivers, small low-priced packs); the two-mutton-patty <strong>Maharaja Mac</strong>; <strong>Vicks</strong> renamed Wicks because the original is crude German slang.</p>
+        <h4>Cross-cultural analysis, the four steps</h4>
+        <div class="cards"><div class="card"><span class="num">01</span><div class="bd"><h4>Define the problem or goal in home-country cultural traits, habits or norms</h4><p>Write down what you assume, as your own culture frames it.</p></div></div><div class="card"><span class="num">02</span><div class="bd"><h4>Define it in foreign-country traits, habits or norms</h4><p>Through consultation with natives of the target country. <strong>Make no value judgments.</strong></p></div></div><div class="card"><span class="num">03</span><div class="bd"><h4>Isolate the SRC influence</h4><p>Examine carefully how your own assumptions complicate the problem.</p></div></div><div class="card"><span class="num">04</span><div class="bd"><h4>Redefine the problem without the SRC influence</h4><p>Solve for the optimum business goal situation.</p></div></div></div>
+        <p>The book's own illustration is the American sales manager in Tokyo who cancelled the daily early-morning meeting because that is how things are done at home. Sales fell sharply; Japanese sales representatives are motivated mostly by peer pressure. Restoring the meetings restored performance. Note the warning that closes the section: undetected <em>similarities</em> cause no problems, but "the one difference that goes undetected can create a marketing failure."</p>
+
+        <h3 id="s1-aware">Developing a global awareness </h3>
+        <p>LO1-5. To be globally aware is to have <strong>(1) tolerance of and a willingness to learn about cultural differences</strong> and <strong>(2) knowledge</strong> of cultures, history, world market potential, and global economic, social and political trends. Closely akin is what others call <strong><span class="term" tabindex="0"><mark>cultural intelligence</mark><span class="tip" role="tooltip"><b>Also CQ: the capability to relate and work effectively across cultures.</b>The book treats it as closely akin to global awareness and notes research showing it enhances international marketing efforts.</span></span>, or CQ</strong>.</p>
+        <ul>
+          <li><strong>Tolerance</strong> is understanding differences and accepting and working with others whose behaviors may differ. You need not adopt another culture's ways, "but you must allow others to be different and equal." Less punctual does not mean less productive, only different.</li>
+          <li><strong>Knowledge of cultures and history</strong> explains behavior in the marketplace and the boardroom; Latin American reluctance toward foreign investment or Chinese reluctance to open fully make sense with a historical perspective.</li>
+          <li><strong>Knowledge of market potentials and trends</strong> lets the marketer identify opportunities long before they are evident to others.</li>
+        </ul>
+        <p>Building it into an organization: select managers for demonstrated <span class="term" tabindex="0"><mark>global awareness</mark><span class="tip" role="tooltip"><b>Tolerance of and willingness to learn about cultural differences, plus knowledge of cultures, history, world market potential and global trends.</b>Two components, and the book says the most effective way to build it into a firm is a culturally diverse senior staff or board, the approach American managers value least.</span></span>; build personal relationships abroad (market entry is often facilitated through prior social ties); and, "perhaps the most effective approach", a culturally diverse senior executive staff or board. American managers see relatively less value in this last one than managers elsewhere.</p>
+
+        <h3 id="s1-stages">Stages of international marketing involvement </h3>
+        <p>LO1-6. Once a company decides to go international it must decide its degree of involvement and commitment. Research finds three factors favor faster internationalization: high-technology or marketing-based resources; a small home market with large production capacity; and key managers who are well networked internationally. Five stages describe involvement, but they are <strong>not a ladder</strong>: a firm may begin at any stage or be in more than one at once. High-tech firms with short product life cycles often treat the whole world, home included, as a single market from day one.</p>
+        <div class="cards"><div class="card"><span class="num">01</span><div class="bd"><h4>No direct foreign marketing</h4><p>The company does not actively cultivate customers abroad, but its products may reach foreign markets through trading companies, foreign buyers who make contact, or domestic wholesalers who sell abroad without its knowledge. An unsolicited order from a website often piques the interest that starts everything.</p></div></div><div class="card"><span class="num">02</span><div class="bd"><h4>Infrequent foreign marketing</h4><p>Temporary surpluses from swings in production or demand are sold abroad as goods become available, with no intention of continuous representation. As domestic demand absorbs the surplus, foreign sales are withdrawn. Little change in organization or product lines. Few firms fit this today because customers want long-term relationships, and returns are limited.</p></div></div><div class="card"><span class="num">03</span><div class="bd"><h4>Regular foreign marketing</h4><p>Permanent productive capacity is devoted to foreign markets, served through intermediaries or the firm's own sales force or subsidiaries. Focus is still domestic, but products may be adapted and profit expectations move from "a bonus" to dependence on foreign sales. Meter-Man, a 25-person Minnesota maker of agricultural measuring devices, went from exploring exports in 1989 to a third of sales in 35 countries: "going international has become critical to our existence."</p></div></div><div class="card"><span class="num">04</span><div class="bd"><h4>International marketing</h4><p>Fully committed and involved. The firm seeks markets all over the world and sells products that result from planned production for markets in various countries, generally including production outside the home market. It becomes an international or multinational marketing firm. Fedders, the largest U.S. room air-conditioner maker, faced a seasonal, mature home market and entered China through the joint venture Fedders Xinle, redesigning a lightweight split-type unit because in China an air conditioner is a status symbol, not a box that cools a room.</p></div></div><div class="card"><span class="num">05</span><div class="bd"><h4>Global marketing</h4><p>The most profound change is orientation: the company treats the world, including its home market, as <strong>one market</strong>. Segments are defined by income levels, usage patterns or other factors that span countries, not by national borders. The transition is often catalysed when more than half of revenue comes from abroad. Coca-Cola's mid-1990s redesign made the U.S. business just part of one of six international divisions: almost half of revenue but only about 20 percent of profit.</p></div></div></div>
+        <p>The first two stages are <strong>reactive</strong> and often reflect no strategic thinking about expansion. Stages three to five correspond to the three strategic orientations below.</p>
+
+        <h3 id="s1-orient">The three strategic orientations </h3>
+        <p>The consensus of researchers is three relatively distinct approaches to strategic decisions in firms involved abroad. The book's own summary of them is the cleanest exam answer:</p>
+        <div class="terms"><div><div class="k">Regular foreign marketing</div><div class="v">International marketing is seen as <em>ancillary</em> to domestic operations. Foreign sales are welcome but secondary.</div></div><div><div class="k">Multidomestic or international marketing</div><div class="v">International marketing is a crucial source of revenue, but the firm <em>treats each market as a separate entity</em>, with its own adapted product, promotion and plan.</div></div><div><div class="k">Global marketing</div><div class="v">The globe is the marketplace. Market segments are no longer based solely on national borders; common consumer characteristics and behaviors are applied as segmentation variables across countries. The marketing mix is <em>standardized where culturally feasible and cost effective</em>.</div></div></div>
+        <p>A global orientation does not mean strict adherence to one strategy. Procter &amp; Gamble pursues a global strategy for disposable diapers but a multidomestic strategy for detergents in Asian markets; the choice depends on product and market. The book's own stance is an <strong>environmental/cultural approach to international strategic marketing</strong>: it does not teach marketing principles, it shows how the cultural environment changes the task. It notes that on the <span class="term" tabindex="0"><mark>KOF Globalization Index</mark><span class="tip" role="tooltip"><b>A 23-variable index of countries&#x27; economic, social and political links to the rest of the world.</b>The U.S. ranks 24th overall, 14th on political globalization but 66th on economic. Low international tourism is the gap the book says it exists to fill.</span></span> the United States ranks only 24th, strong on political globalization (14th) and connectivity but weak on economic globalization (66th) and international tourism. Americans, it says, generally have little contact with other cultures, "the very gap on which this book focuses."</p>
+        <div class="note"><span class="lbl">Question 6 versus question 7</span>The book asks you to differentiate a <strong>global company from a multinational company</strong> (a multinational treats each country separately; a global company treats the world as one market) and separately to differentiate the <strong>three international marketing concepts</strong> (the three orientations above). Keep the two questions apart.</div>
+
+        <h3 id="s1-cases">Cases </h3>
+        <div class="cards cases"><div class="card"><span class="num">GP</span><div class="bd"><h4>Global Commerce Causes Peace</h4><p>The chapter opener. Boeing counts customers in more than 150 countries and 140,000 employees in more than 65; the 787 uses parts from Australia, France, India, Italy, Japan, Russia and Sweden. Five billion people own mobile phones, led by Samsung, Apple and Huawei. SodaStream's plant in Rahat, Israel, employs Jews, Palestinians, Bedouins and Druze together; PepsiCo bought the firm for $3.2 billion in 2019. Postage stamps in France and the United States, and Adam Smith in 1776, made the same point.</p><p><strong>What it illustrates.</strong> International marketing as a producer of peace, not just profit: commerce requires people from many countries to work together, and the personal relationships and mutual understanding that result are the foundations of peace and prosperity.</p><p><strong>If it is the question.</strong> It would ask you to argue that trade promotes peace, or to critique the claim. Use Boeing as the large-firm case and SodaStream as the small-firm case, and add the book's honest caveat that Boeing's military sales are 20 to 30 percent of its business.</p></div></div><div class="card"><span class="num">CB 1.1</span><div class="bd"><h4>Blanca Nieves, La Cenicienta, y Bimbo</h4><p>Bimbo, Mexico's most popular bread and the logo of a little white bear, is a disparaging word in English. Grupo Bimbo, with 130,000 employees in 33 countries, has bought Sara Lee, Oroweat and Mrs. Baird's. Anaheim, home of Disneyland, refused permission for the Mexican supermarket chain Gigante to open near the park, before being forced to relent. Meanwhile French culture minister Jack Lang called the Cartoon Network "American aggression", Americans stoned Toyotas but not BMWs in the 1980s, and after NAFTA the signage of Tijuana became McDonald's and Costco.</p><p><strong>What it illustrates.</strong> Brand names do not travel; more importantly, the resistance foreign firms meet is often <strong>nationalism</strong>, <strong>xenophobia</strong> or outright <strong>racism</strong> rather than commercial logic, and every country does it, including the United States.</p><p><strong>If it is the question.</strong> Distinguish the three: nationalism (PEMEX barring American oil investment), xenophobia (fear of "Japanese colonization"), racism (CEMEX buying Southdown is a problem while BP buying ARCO is not). Then link it to alien status in the marketing task.</p></div></div><div class="card"><span class="num">CB 1.2</span><div class="bd"><h4>Cell Phones and Kids, a Bad Combination?</h4><p>Cell phones make the global economy work, but Robert Lustig's research links their use to lower GPA, anxiety and lost happiness in children; fourth and seventh graders who sleep with phones sleep less. Two large Apple shareholders, Jana Partners and the California teachers' pension fund, urged Apple to help parents restrict children's access. France banned smartphones in primary and middle schools. BlackRock's Larry Fink told firms they must serve a social purpose as well as make profits.</p><p><strong>What it illustrates.</strong> The uncontrollable environment includes social pressure on the marketer's own product. Multinationals face demands to account for the consequences of what they sell, a theme the book returns to in Chapter 4 as the marketer's responsibility as a <strong><span class="term" tabindex="0"><mark>change agent</mark><span class="tip" role="tooltip"><b>The role a marketer plays whenever an innovative product or idea is introduced and its use begins to change the culture.</b>Question 2 of Chapter 4 asks exactly this. Companies are the primary conduit for diffusion of innovations, hence the responsibility the chapter ends on.</span></span></strong>.</p><p><strong>If it is the question.</strong> Expect a question on whether a multinational is responsible for consequences beyond its product's safety and performance. This case is the evidence that investors and governments increasingly say yes.</p></div></div><div class="card"><span class="num">CB 1.3</span><div class="bd"><h4>Risks and Payoffs in International Marketing</h4><p>After the 2009 crash the U.S. ATVM programme lent half a billion dollars each to Tesla and Fisker. Fisker built about 2,400 Karmas and went bankrupt in 2013; a Chinese buyer revived the brand as the $130,000 Karma Revero. Tesla posted its first profit in 2014, has sold over a million vehicles, opened stores in Europe and China, launched right-hand-drive models for the U.K., Hong Kong, Japan and Australia, and repaid its loan early. It sells through company-owned stores and cannot sell in dealership-only states like Texas and Maryland except online.</p><p><strong>What it illustrates.</strong> Same programme, same product category, opposite outcomes. International expansion carries real risk and real payoff, and channel structure (company stores versus dealers) is itself constrained by local law, an uncontrollable.</p><p><strong>If it is the question.</strong> A question would ask why one succeeded and one failed, or what uncontrollable elements Tesla faces abroad: battery and charging infrastructure, dealer laws, and vulnerability of luxury goods to a downturn.</p></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>International marketing = business activities (pricing, promotion, product, distribution) across national borders; same principles, different environment.</li><li>Two levels of uncontrollables: domestic (political and legal, economic climate, competition) and one foreign set per country (political and legal, economic, competitive, technology, distribution, geography and infrastructure, culture).</li><li>SRC = unconscious reference to own culture; <span class="term" tabindex="0"><mark>ethnocentrism</mark><span class="tip" role="tooltip"><b>The notion that people in one&#x27;s own company, culture or country know best how to do things.</b>Paired with the SRC but not identical: the SRC is a habit of perception, ethnocentrism is a belief about superiority. Worst when affluent-country managers work in less affluent markets.</span></span> = we know best. Fix: four-step cross-cultural analysis, no value judgments.</li><li>Global awareness = tolerance plus knowledge (cultures and history, market potential, global trends). Also called cultural intelligence, CQ.</li><li>Five stages: no direct · infrequent · regular · international · global. Not a ladder.</li><li>Three orientations: ancillary · each market separate (multidomestic) · one world market (global, standardize where feasible).</li><li>Four dynamic trends: WTO and FTAs · free markets in developing countries · Internet and mobile · managing the global environment.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>The Dynamic Environment of International Trade</h2></div>
+        <p class="src">Cateora, Chapter 2</p>
+
+        <h3 id="s2-century">The twentieth to the twenty-first century </h3>
+        <p>LO2-1. The first half of the twentieth century was marred by a worldwide depression between two world wars; the second by the split between Marxist and capitalist approaches that disrupted traditional trade patterns. After World War II the United States set out to infuse capitalism as a way to dampen communism: the <strong><span class="term" tabindex="0"><mark>Marshall Plan</mark><span class="tip" role="tooltip"><b>The post-war U.S. programme to rebuild Europe, part of the effort to spread capitalism and dampen communism.</b>The book&#x27;s point is that aid flowed both ways: every dollar invested returned hundreds in purchases of U.S. goods and absorbed America&#x27;s surplus wartime capacity.</span></span></strong> rebuilt Europe, assistance rebuilt Japan, and funds flowed through the Agency for International Development. The benefits flowed both ways: for every dollar invested abroad, hundreds returned in purchases of U.S. goods, absorbing a wartime production capacity far beyond domestic needs.</p>
+        <p>The cautionary tale is the <strong><span class="term" tabindex="0"><mark>Smoot-Hawley Act of 1930</mark><span class="tip" role="tooltip"><b>U.S. legislation raising average tariffs on more than 20,000 imported goods to over 60 percent.</b>Sixty countries retaliated and world trade stalled, turning recession into depression. It is the origin story of <span class="term" tabindex="0"><mark>GATT</mark><span class="tip" role="tooltip"><b>The post-war multilateral agreement, signed by the U.S. and 22 others, providing a process to reduce tariffs and a watchdog agency for world trade.</b>An agreement, not an institution, with advisory panels and no enforcement. Eight rounds; folded into the WTO in 1995.</span></span> and the strongest single argument against <span class="term" tabindex="0"><mark>protectionism</mark><span class="tip" role="tooltip"><b>Government restriction of trade through tariffs, quotas and <span class="term" tabindex="0"><mark>nontariff barriers</mark><span class="tip" role="tooltip"><b>Restrictions on imports other than tariffs: quotas, boycotts, monetary barriers, standards, antidumping actions and market barriers.</b>The Tokyo Round of GATT was the first to address them. Standards and antidumping are the growth areas since tariffs fell.</span></span> to protect domestic markets from foreign firms.</b>Nations use legal, exchange and psychological barriers; businesses add private ones. Politically popular in downturns, but it saves jobs at $170,000 each.</span></span> in the chapter.</span></span></strong>, which raised average U.S. tariffs on more than 20,000 goods above 60 percent. Sixty countries retaliated with <span class="term" tabindex="0"><mark>tariff</mark><span class="tip" role="tooltip"><b>A tax imposed by a government on goods entering at its borders, to raise revenue, discourage imports, or both.</b>Three U.S. duty types: ad valorem, specific, compound. The book&#x27;s effects list (increase, weaken, restrict) is a ready-made essay skeleton.</span></span> walls, trade stalled, and the recession became the Great Depression. Determined not to repeat it, world leaders created <strong>GATT</strong>, and with the Uruguay Round agreements GATT became part of the <strong>WTO</strong> in 1995 with 117 original members.</p>
+        <h4>World trade and U.S. multinationals</h4>
+        <p>U.S. firms poured into Europe and Latin America in the 1950s and 1960s; Latin America expropriated or forced sales to nationals, Europe demanded limits on foreign investment. J. J. Servan-Schreiber's <i>The American Challenge</i> (1968) predicted the world's third industrial power would be "American industry in Europe". It did not happen, because competition resurged everywhere: Japan, Germany, the <strong><span class="term" tabindex="0"><mark>newly industrialized countries (NICs)</mark><span class="tip" role="tooltip"><b>Countries reclassified from less developed after rapid industrialization in select industries.</b>Brazil, Mexico, South Korea, Taiwan, Singapore, Hong Kong. Their rise is why Servan-Schreiber&#x27;s prediction of American industrial domination failed.</span></span></strong> such as Brazil, Mexico, South Korea, Taiwan, Singapore and Hong Kong, and <strong>state-owned enterprises (SOEs)</strong> from Venezuela, Chile and Bangladesh operating abroad. The U.S. share of world GNP fell from 39 percent in 1950 to under 25 percent in 2017, though the pie grew far larger. Of the world's 100 largest industrial corporations the United States had 67 in 1963 and 35 in 2021; China went from none to 30.</p>
+        <p>The <strong>balance of merchandise trade</strong> tells the same story: a U.S. surplus every year from 1888 to 1971, then a deficit that reached $160 billion in 1987, passed $700 billion in 2007, halved in the 2009 crisis, and exceeded $1 trillion in 2021. Since 2006 China has been the largest partner in goods and the largest deficit ($335 billion in 2021, three times Mexico's). The book's caveat: trade statistics are distorted because an iPhone "imported from China" contains only $8.46 of Chinese value; most components come from the United States, Japan, Taiwan and Korea.</p>
+        <p>Looking ahead, the OECD expects member economies to grow 3 percent a year and developing economies 6 percent, their share of world output rising from one-sixth to nearly one-third. Trading blocs (EU, NAFTA now USMCA, APEC) are expected to dominate future patterns, and with Hong Kong and Macao returned to China, all of Asia is managed by Asians for the first time in 400 years.</p>
+
+        <h3 id="s2-bop">Balance of payments </h3>
+        <p>LO2-2. The <strong><span class="term" tabindex="0"><mark>balance of payments</mark><span class="tip" role="tooltip"><b>The system of accounts recording all financial transactions between a nation&#x27;s residents and the rest of the world over a period, usually a year.</b>Double entry, so it always balances. &quot;A record of condition, not a determinant of condition&quot; is the phrase to quote.</span></span></strong> is the system of accounts that records a nation's international financial transactions with the rest of the world over a period, usually a year. It is kept by <strong>double-entry bookkeeping, so it always must be in balance</strong>. That it balances says nothing about whether the nation is in good or poor condition: "a balance of payments is a record of condition, not a determinant of condition."</p>
+        <div class="terms"><div><div class="k">Plus side</div><div class="v">Merchandise export sales; money spent by foreign tourists; payments for insurance, transportation and similar services; dividends and interest on investments abroad; new foreign investment in the United States; foreign government payments.</div></div><div><div class="k">Minus side</div><div class="v">Cost of goods imported; spending by American tourists overseas; new overseas investments; the cost of foreign military and economic aid.</div></div><div><div class="k">Current account</div><div class="v">A record of all merchandise exports, imports and services plus unilateral transfers of funds. <em>Of primary interest to international business</em> because it covers all trade in goods and services and all receipts and payments from investments and overseas employment.</div></div><div><div class="k">Capital account</div><div class="v">Direct investment, portfolio investment and short-term capital movements to and from countries.</div></div><div><div class="k">Official reserves account</div><div class="v">Exports and imports of gold, changes in foreign exchange, and changes in liabilities to foreign central banks.</div></div></div>
+        <div class="scroller"><table><thead><tr><th>U.S. current account, 2020</th><th>$ billions</th></tr></thead><tbody><tr><td class="k">Exports of goods</td><td>1,440</td></tr><tr><td class="k">Exports of services</td><td>692</td></tr><tr><td class="k">Income receipts</td><td>958</td></tr><tr><td class="k">Imports of goods</td><td>−2,350</td></tr><tr><td class="k">Imports of services</td><td>−458</td></tr><tr><td class="k">Income payments</td><td>−737</td></tr><tr><td class="k">Unilateral current transfers, net</td><td>−147</td></tr><tr><td class="k">Current account balance</td><td><strong>−669</strong></td></tr></tbody></table></div>
+        <p>Since 1971 the United States has had a favorable <span class="term" tabindex="0"><mark>current account</mark><span class="tip" role="tooltip"><b>The balance-of-payments account recording merchandise exports and imports, services, and unilateral transfers.</b>The one of primary interest to international business. The 2020 U.S. balance was minus $669 billion; goods alone were minus $910 billion.</span></span> in only a few years, driven by demand for oil, cars and consumer durables. A deficit is reduced by increasing receipts (more exports, more inbound tourists) or reducing spending abroad. Persistent imbalance forces adjustment through exchange rates, prices or incomes: once a country's wealth is exhausted, it must reduce its standard of living, and if its residents do not do so voluntarily the exchange rate falls. A weaker dollar makes U.S. exports cheaper for foreigners and imports dearer at home, but also makes dollar assets less attractive and the dollar less useful as a global currency.</p>
+        <div class="note"><span class="lbl">Question 8</span>Why does the balance of payments always balance, even though the balance of trade does not? Because it is a double-entry record of <strong>all</strong> transactions, including capital flows and reserves that offset a trade deficit. The balance of trade is only the goods line within the current account.</div>
+
+        <h3 id="s2-protect">Protectionism </h3>
+        <p>LO2-3. Executives live in "a world of tariffs, quotas, and nontariff barriers designed to protect a country's markets." Nations use <strong>legal barriers, exchange barriers and psychological barriers</strong>; businesses erect <strong>private market barriers</strong>; and the market structure itself can be a barrier, as with Japan's complex distribution system, which keeps products out but cannot legally be called a trade barrier. China has been accused of holding its currency artificially low to boost exports.</p>
+        <h4>Protection logic and illogic</h4>
+        <p>Protectionists offer countless reasons, but they reduce to twelve: (1) protection of an infant industry, (2) protection of the home market, (3) need to keep money at home, (4) encouragement of capital accumulation, (5) maintenance of the standard of living and real wages, (6) conservation of natural resources, (7) industrialization of a low-wage nation, (8) maintenance of employment, (9) national defense, (10) enhancement of business size, (11) retaliation and bargaining, and, in the current climate of authoritarianism, (12) the corrupt goals of despots.</p>
+        <div class="note"><span class="lbl">Which arguments economists accept</span>Only three: <strong>infant industry</strong>, <strong>national defense</strong>, and <strong>industrialization of underdeveloped countries</strong>. <strong>Resource conservation</strong> is becoming increasingly valid. Temporary protection for an orderly transition can be defended, but it usually becomes permanent and breeds inefficiency. Question 10 asks you to support or refute each argument; this paragraph is the answer key.</div>
+        <p>The cost is paid by consumers who do not know they are paying it. A study of 21 protected U.S. industries found consumers pay about <strong>$70 billion a year</strong> in higher prices, and the cost of saving one job averaged <strong>$170,000</strong>, more than the worker's wages and benefits. The Trump tariffs cost the average household an extra $250 in 2019. Protectionism is politically popular during high unemployment but "rarely leads to renewed growth in a declining industry."</p>
+        <p>The counter-evidence in Exhibit 2.6: consumer purchasing power grew over 40 percent in the United States and Canada from 1990 to 2020, 19 percent in Mexico, and over 1,000 percent in China. The two U.S. free-trade breakthroughs were <strong>NAFTA (1994)</strong> and <strong>PNTR for China (2000)</strong>, followed by China's WTO entry in 2001. The authors find no evidence that NAFTA cost American jobs; the economic divide, they argue, came from internal decisions about wealth distribution, taxes and labor relations.</p>
+
+        <h3 id="s2-barriers">Trade barriers </h3>
+        <p>LO2-4. Barriers are imposed against imports and against foreign businesses, encouraged by local industry, and whether or not they are economically logical, they exist. The U.S. Trade Representative's categories (Exhibit 2.7):</p>
+        <div class="scroller"><table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td class="k">Import policies</td><td>Tariffs and other import charges, quantitative restrictions (quotas), import prohibitions and licensing, customs barriers, boycotts, embargoes</td></tr><tr><td class="k">Sanitary, phytosanitary and technical barriers</td><td>Health, safety and product standards used to restrict trade</td></tr><tr><td class="k">Government procurement</td><td>"Buy national" policies and closed bidding</td></tr><tr><td class="k">Investment barriers</td><td>Limits on foreign equity, local content requirements, technology transfer and export performance requirements, restrictions on repatriating earnings</td></tr><tr><td class="k">Export subsidies</td><td>Preferential export financing; agricultural export subsidies that displace others' exports in third markets</td></tr><tr><td class="k">Lack of intellectual property protection</td><td>Inadequate patent, copyright and trademark regimes and enforcement</td></tr><tr><td class="k">Services barriers</td><td>Limits on foreign financial services, regulation of data flows, barriers to foreign professionals</td></tr><tr><td class="k">Anticompetitive conduct</td><td>Government-tolerated conduct by state-owned or private firms that restricts sales of foreign goods</td></tr><tr><td class="k">Electronic commerce</td><td>Discriminatory regulations, standards and taxation</td></tr><tr><td class="k">Other</td><td>Bribery and corruption, or barriers affecting a single sector</td></tr></tbody></table></div>
+        <h4>Tariffs</h4>
+        <p>A <strong>tariff</strong> is a tax imposed by a government on goods entering at its borders, used to raise revenue, to discourage imports, or both. U.S. customs duties come in three types:</p>
+        <div class="terms"><div><div class="k">Ad valorem duties</div><div class="v">A percentage of the determined value of the imported goods.</div></div><div><div class="k">Specific duties</div><div class="v">A stipulated amount per unit of weight or other measure of quantity.</div></div><div><div class="k">Compound duty</div><div class="v">Both together: a tax per pound plus a percentage of value.</div></div></div>
+        <p>Tariffs <strong>increase</strong> inflationary pressures, special-interest privileges, government control of economic matters, and the number of tariffs (they beget others via reciprocity). They <strong>weaken</strong> balance-of-payments positions, supply-and-demand patterns, and international relations (they can start trade wars). They <strong>restrict</strong> manufacturers' supply sources, consumer choice, and competition. They are arbitrary, discriminatory and need constant administration. The "pasta war": the United States raised tariffs 40 percent on European spaghetti over export subsidies; Europe hit U.S. walnuts and lemons, then fertilizer, paper and beef tallow, until it dropped the subsidies.</p>
+        <h4>Nontariff barriers</h4>
+        <div class="terms"><div><div class="k">Quotas and import licenses</div><div class="v">A <strong><span class="term" tabindex="0"><mark>quota</mark><span class="tip" role="tooltip"><b>A specific unit or dollar limit applied to a particular type of imported good.</b>An absolute restriction, unlike a license which limits case by case. U.S. textile quotas add about 50 percent to wholesale clothing prices.</span></span></strong> is a specific unit or dollar limit on a type of good: an absolute restriction on quantity. The U.S. has quotas on sugar, textiles and peanuts; textile quotas add an estimated 50 percent to wholesale clothing prices. An <strong>import license</strong> is more flexible: quotas permit importing until filled, licensing limits quantities case by case.</div></div><div><div class="k">Voluntary export restraints (VERs)</div><div class="v">Also <strong>orderly market agreements (OMAs)</strong>. An agreement between importer and exporter to restrict export volume, common in textiles, steel, agriculture and cars. Japan's OMA capped colour TV exports at 1.56 million a year; Japanese firms responded by building plants in the U.S. and Mexico and eventually took the whole market. "Voluntary" because the exporter sets the limit, but under threat of stiffer quotas and tariffs.</div></div><div><div class="k">Boycotts and embargoes</div><div class="v">A <strong><span class="term" tabindex="0"><mark>boycott</mark><span class="tip" role="tooltip"><b>An absolute restriction against purchasing and importing certain goods or services from another country.</b>Distinguish from an <span class="term" tabindex="0"><mark>embargo</mark><span class="tip" role="tooltip"><b>A refusal to sell to a specific country.</b>The Cuba embargo, now codified in legislation, is why Obama in Chapter 3 could only ask Congress to lift it.</span></span>, which is a refusal to sell to a country. Boycotts can be governmental or civic, like the Nestlé formula campaign.</span></span></strong> is an absolute restriction against purchasing and importing certain goods or services from another country, and can include travel bans (China refused to list Canada as an approved tourist destination). An <strong>embargo</strong> is a refusal to sell to a specific country. Long-standing U.S. sanctions cover Iran, North Korea and Russia. Citizens boycott too: Nestlé over baby formula promotion.</div></div><div><div class="k">Monetary barriers</div><div class="v">Exchange-control restrictions. <strong><span class="term" tabindex="0"><mark>Blocked currency</mark><span class="tip" role="tooltip"><b>A monetary barrier that stops importing by refusing to let an importer exchange local currency for the seller&#x27;s currency.</b>Used as a political weapon or in balance-of-payments trouble. The gentler cousin is the exchange permit with its deposit requirement, Brazil&#x27;s 360 days.</span></span></strong> cuts off importing by refusing to let an importer exchange local for foreign currency. <strong>Government approval</strong> to secure foreign exchange requires an exchange permit, which may stipulate an unfavorable rate or a deposit period: Brazil has required funds deposited 360 days before import.</div></div><div><div class="k">Standards</div><div class="v">Health, safety and quality standards applied in an unduly stringent or discriminating way, and simply too numerous (a jam exporter "needs a computer"). Knothole size in plywood decides acceptance in Japan; the EU resists genetically modified foods; Kinder eggs are banned in the U.S. as a choking hazard. <strong>Local content</strong> rules: NAFTA requires 62.5 percent North American content in cars.</div></div><div><div class="k">Antidumping penalties</div><div class="v">A newer nontariff barrier. Antidumping laws target <strong>predatory pricing</strong>, selling below cost to destroy competition. Violators pay <strong><span class="term" tabindex="0"><mark>antidumping duties</mark><span class="tip" role="tooltip"><b>Penalties assessed on foreign producers found selling below cost to undermine competition, alongside countervailing duties against subsidised goods.</b>Meant as antitrust for trade, now a de facto barrier: investigations are slow and costly and the threat alone deters entry. Allowed under WTO rules.</span></span></strong>, and <strong>countervailing duties</strong> offset foreign government subsidies. Allowed under WTO rules, but 700 notices in one year, 82 foreign steelmakers sued at once, and duties of up to 78 percent on China and Taiwan show how they have become de facto barriers: costly, slow, and the threat alone keeps firms out.</div></div><div><div class="k">Domestic subsidies and economic stimuli</div><div class="v">U.S. and European agricultural subsidies draw complaints from developing countries. The 2008 bailouts of banks and automakers were challenged at the WTO as "industrial subsidies", which would give trading partners the right to retaliate.</div></div></div>
+
+        <h3 id="s2-easing">Easing trade restrictions: the Omnibus Act, GATT, WTO, IMF and World Bank </h3>
+        <h4>The Omnibus Trade and Competitiveness Act of 1988</h4>
+        <p>LO2-5. Written when Japan was the number one "trade problem" (China has since taken over), the act addresses trade deficits, protectionism and the fairness of trading partners, on the realization that "we must deal with our trading partners based on how they actually operate, not on how we want them to behave." It covers three critical areas:</p>
+        <div class="terms"><div><div class="k">Market access</div><div class="v">The president may restrict a country's sales in the U.S. if it imposes unfair restrictions on U.S. products, and may ban U.S. government procurement from nations whose procurement rules discriminate against U.S. firms.</div></div><div><div class="k">Export expansion</div><div class="v">Recognizes that some problems are self-inflicted: export controls, the Foreign Corrupt Practices Act (FCPA) and export promotion. Export licenses became easier and faster; computer-based license tracking and the National Trade Data Bank (NTDB) were created.</div></div><div><div class="k">Import relief</div><div class="v">A menu of remedies for U.S. businesses seriously injured by <em>fairly traded</em> imports: temporary relief while they adjust and regain competitiveness.</div></div></div>
+        <h4>General Agreement on Tariffs and Trade</h4>
+        <p>LO2-6. Treaties had been bilateral and tended to raise barriers. The United States and 22 other countries signed GATT shortly after World War II, the first effective worldwide tariff agreement, with a process to reduce tariffs and an agency to watch over world trade. Disputes go to bilateral talks, then advisory GATT panels with no enforcement power. Three basic elements: <strong>(1) trade conducted on a nondiscriminatory basis; (2) protection through customs tariffs, not through quotas; (3) consultation as the primary method to solve problems.</strong></p>
+        <p>Eight rounds. The <strong>Tokyo Round (1974)</strong> was the first to tackle nontariff barriers: subsidies, antidumping, procurement, standards, customs valuation and import licensing. The <strong>Uruguay Round (1986 to 1994)</strong>, begun at Punta del Este, went far beyond its one-third tariff-cut goal:</p>
+        <div class="terms"><div><div class="k">Market access</div><div class="v">Virtually all tariffs eliminated in ten vital industrial sectors; 50 to 100 percent cuts on electronics and scientific equipment; chemicals harmonized at 5.5 to 0 percent.</div></div><div><div class="k">GATS</div><div class="v">The <span class="term" tabindex="0"><mark>General Agreement on Trade in Services</mark><span class="tip" role="tooltip"><b>The first multilateral, legally enforceable agreement covering trade and investment in services.</b>A U.S. priority in the Uruguay Round because services and intellectual property had been unprotected. Question 16 asks about GATS, <span class="term" tabindex="0"><mark>TRIMs</mark><span class="tip" role="tooltip"><b>The Uruguay Round principle that investment restrictions can be major trade barriers and therefore fall under GATT procedures.</b>Makes Indonesia&#x27;s ban on foreign-owned distribution and Brazil&#x27;s local-sourcing rules challengeable.</span></span> and <span class="term" tabindex="0"><mark>TRIPs</mark><span class="tip" role="tooltip"><b>The agreement setting substantially higher standards of protection for patents, copyrights, trademarks, trade secrets, industrial designs and chip mask works, with enforcement internally and at the border.</b>The book lists lack of IP protection as its own category of trade barrier in Exhibit 2.7.</span></span> together.</span></span>: the first multilateral, legally enforceable agreement covering trade and investment in services.</div></div><div><div class="k">TRIMs</div><div class="v">Trade-Related Investment Measures: established that investment restrictions can be trade barriers, so rules like Indonesia's ban on foreign-owned distribution or Brazil's local-sourcing and export-surplus requirements can be challenged.</div></div><div><div class="k">TRIPs</div><div class="v">Trade-Related Aspects of Intellectual Property Rights: substantially higher protection for patents, copyrights, trademarks, trade secrets, industrial designs and chip mask works, enforceable internally and at the border.</div></div><div><div class="k">Rules</div><div class="v">Improved rules on antidumping, standards, safeguards, customs valuation, rules of origin and import licensing.</div></div></div>
+        <h4>World Trade Organization</h4>
+        <p>Created at Marrakech in April 1994, the WTO is <strong>an institution, not an agreement</strong> as GATT was. It has 164 members, all with equal representation in a ministerial conference that meets at least every two years to elect a director general. It sets rules, hears disputes through panels of experts, and <strong>issues binding decisions</strong>: the winner may retaliate with sanctions if the loser does not change. It has no means of enforcement, but international pressure is expected to force compliance, and members must accept all agreements, not just the ones they like. Ratification was contested in the U.S. over loss of sovereignty and lack of a veto. China joined in 2001, Russia in 2012. The <strong>Doha Round</strong>, begun 2001, was cancelled in 2016; President Trump was the WTO's biggest critic even as Canada filed complaints against U.S. tariffs.</p>
+        <p><strong>Skirting the spirit.</strong> To join, China cut tariffs on 5,000 product lines and dropped quotas and licenses; U.S. firms then noticed a surge in technical standards and inspection requirements (safety inspections on jigsaw puzzles; certification requiring paid on-site visits by Chinese officials for foreign but not domestic goods). Frustrated with Doha, countries turned to <strong>bilateral free trade agreements</strong>: the U.S. has 20, including Peru, Colombia, Panama and South Korea.</p>
+        <h4>The International Monetary Fund and World Bank Group</h4>
+        <p>LO2-7. Two institutions created to help nations become and remain economically viable. Inadequate monetary reserves and unstable currencies were the market barriers that plagued pre-war trade.</p>
+        <div class="terms"><div><div class="k">International Monetary Fund (IMF)</div><div class="v">Formed by 29 countries, now 188. Objectives: stabilization of foreign exchange rates and establishment of freely convertible currencies to facilitate the expansion and balanced growth of trade. Lends to members struggling to meet obligations (Argentina, Greece, Turkey, with mixed results). In the 1997 Asian crisis its $60 billion to South Korea and loans to Indonesia and Thailand likely averted a global recession.</div></div><div><div class="k">Special drawing rights (SDRs)</div><div class="v">"Paper gold": an average base of value derived from a group of major currencies, used because gold and the dollar lost their utility as the basic media of exchange. Trade contracts are often written in <span class="term" tabindex="0"><mark>SDRs</mark><span class="tip" role="tooltip"><b>The IMF&#x27;s unit of value derived from a basket of major currencies, used because gold and the dollar lost their utility as basic media of exchange.</b>&quot;Paper gold.&quot; Contracts written in SDRs suffer less from exchange-rate swings. Pair with clean versus dirty float.</span></span> because they are less susceptible to exchange-rate swings.</div></div><div><div class="k">Clean float versus dirty float</div><div class="v">Some countries let their currency float without manipulation (clean); others systematically manipulate its value (dirty), distorting the monetary marketplace.</div></div><div><div class="k">World Bank Group</div><div class="v">A separate institution, often confused with the <span class="term" tabindex="0"><mark>IMF</mark><span class="tip" role="tooltip"><b>The institution formed to stabilize exchange rates and establish freely convertible currencies, and to lend to members struggling to meet obligations.</b>Created at Bretton Woods in 1944; 29 founding members, now 188. Its 1997 Asian rescue is the book&#x27;s proof of value; Argentina, Greece and Turkey its mixed record.</span></span>, whose goal is <em>reducing poverty and improving living standards</em> through sustainable growth and investment in people. Five institutions: (1) lending to developing-country governments for education, health and infrastructure; (2) assistance for the poorest countries (per capita income of $925 or less); (3) direct lending and equity to strengthen the private sector; (4) investment guarantees against noncommercial risk such as <span class="term" tabindex="0"><mark>expropriation</mark><span class="tip" role="tooltip"><b>Government confiscation of foreign investments.</b>Leaders are cheered for it even when the investment helped the economy: Mexico 1938, Chavez in the Orinoco. Chapter 2 lists Latin American expropriations as the 1960s reaction to U.S. multinationals.</span></span> and war; (5) conciliation and arbitration of disputes between governments and foreign investors.</div></div></div>
+        <p><strong>Protests against global institutions.</strong> From the WTO meeting in Seattle in November 1999 onward, "anticapitalist protesters" have targeted the unintended consequences of globalization: environmental damage, worker exploitation, job losses, cultural extinction, higher oil prices and diminished sovereignty. Some have shaped policy: student-led antisweatshop campaigns and a lawsuit over Saipan working conditions led 17 clothing importers including Calvin Klein and The Gap to settle and promise better conditions.</p>
+
+        <h3 id="s2-cases">Cases </h3>
+        <div class="cards cases"><div class="card"><span class="num">GP</span><div class="bd"><h4>Trade Barriers, an International Marketer's Minefield</h4><p>Japan claimed "unique" Japanese snow requires Japanese skis and that U.S. baseballs are not good enough; California rice had to be blended with inferior Japanese grades. France limits American TV shows, songs and films. Britain's courts ruled a Pringle is legally a potato chip, costing Procter &amp; Gamble $160 million in VAT. China restricted rare earth exports in 2010 and lost at the WTO. The Trump administration's 30 to 50 percent tariffs on Chinese solar panels and washing machines and 10 percent on steel and aluminum reduced U.S. real income and GDP; Biden later ended the EU steel tariffs.</p><p><strong>What it illustrates.</strong> Barriers come in every form, tariff and nontariff, and the reasons range from rational to absurd. Every country does it, including the United States, and nationalist politics is reversing decades of reduction.</p><p><strong>If it is the question.</strong> Classify each example by barrier type: standards (snow, baseballs, rice blending), quotas (French media), a tax dispute used as protection (Pringles), export restriction (rare earths), tariffs (solar, washers, steel). Then say what the WTO can do about each.</p></div></div><div class="card"><span class="num">CB 2.1</span><div class="bd"><h4>Running in Different Directions, with Scissors</h4><p>New Balance, paying Maine workers over $15 an hour, wants to keep tariffs of up to 60 percent on shoes from Vietnam, where wages are 46 cents an hour. Nike wants them cut, arguing lower prices for consumers and high-paying U.S. jobs in design, marketing and engineering. At the same time the U.S. imposed 24 to 36 percent antidumping duties on Chinese solar panels; U.S. panel makers cheered, but installers, developers and consumers lost cheap panels, and solar power became more expensive while fossil fuels dodged the trade-off.</p><p><strong>What it illustrates.</strong> Protection <strong>always has winners and losers within the same country</strong>. The protected industry gains; consumers, downstream industries and other exporters pay. The solar case adds a policy contradiction: trade goals versus climate goals.</p><p><strong>If it is the question.</strong> A question would ask who benefits and who is harmed by a tariff, using the book's numbers. New Balance versus Nike is the cleanest pairing in the chapter for showing that "saving jobs" saves some jobs at the expense of others.</p></div></div><div class="card"><span class="num">CB 2.2</span><div class="bd"><h4>Crossing Borders with Monkeys in His Pants</h4><p>Robert Cusack arrived at LAX from Thailand with two pygmy monkeys in his trousers, four endangered birds and 50 orchids; 57 days in jail. A Canadian was caught with 51 turtles in his pants in the Detroit-Windsor tunnel. Corporations do it too: Amway paid Canada $38.1 million for undervaluing exports to avoid customs duties. Kipling's "A Smuggler's Song" shows the practice is centuries old. The modern twist is fentanyl smuggled from China, ironic because Britain fought two wars to force opium <em>into</em> China.</p><p><strong>What it illustrates.</strong> "As long as there have been trade barriers, smuggling has been a common response." Barriers create the incentive to evade them, by individuals and by multinationals.</p><p><strong>If it is the question.</strong> Use it to argue that barriers have enforcement costs and unintended consequences, and to connect Chapter 2 (barriers) with Chapter 3 (the Opium Wars as history that still shapes China's view of foreign traders).</p></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Smoot-Hawley 1930 (tariffs over 60 percent, 60 countries retaliated) turned recession into the Great Depression; GATT was built so it would not recur.</li><li>Balance of payments always balances (double entry); it is a record of condition, not a determinant. Three accounts: current, capital, official reserves. Current account matters most.</li><li>Twelve protectionist arguments; economists accept infant industry, national defense, industrialization of underdeveloped countries (plus, increasingly, resource conservation).</li><li>Protection costs U.S. consumers about $70 billion a year and $170,000 per job saved.</li><li>Tariff types: ad valorem · specific · compound. Nontariff: quotas and licenses · <span class="term" tabindex="0"><mark>VERs</mark><span class="tip" role="tooltip"><b>Agreements between importing and exporting countries restricting export volume, also called orderly market agreements.</b>&quot;Voluntary&quot; only under threat of worse. Japan&#x27;s TV OMA backfired: Japanese firms built U.S. plants and took the whole market.</span></span> and OMAs · boycotts and embargoes · monetary barriers (blocked currency, exchange permits) · standards and local content · antidumping and countervailing duties · subsidies.</li><li><span class="term" tabindex="0"><mark>Omnibus Act</mark><span class="tip" role="tooltip"><b>U.S. legislation addressing trade deficits, protectionism and trading-partner fairness across market access, export expansion and import relief.</b>Aimed at Japan when passed; China is now the target the book has in mind. Its export-control provisions were re-tightened after a 1999 espionage report.</span></span> 1988: market access · export expansion · import relief.</li><li>GATT's three elements: nondiscrimination · protect only by tariffs · consultation. Uruguay Round gave GATS, TRIMs, TRIPs and the WTO.</li><li>WTO is an institution with binding decisions and 164 members; GATT was an agreement with advisory panels.</li><li>IMF stabilizes exchange rates and lends (SDRs = paper gold). <span class="term" tabindex="0"><mark>World Bank Group</mark><span class="tip" role="tooltip"><b>A separate institution from the IMF whose goal is reducing poverty and improving living standards through sustainable growth and investment in people.</b>Five institutions, five services; the one students forget is investment guarantees against expropriation and war.</span></span> fights poverty through five institutions.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>History and Geography: The Foundations of Culture</h2></div>
+        <p class="src">Cateora, Chapter 3</p>
+
+        <h3 id="s3-history">Historical perspective in global business </h3>
+        <p>LO3-1, LO3-2. Here culture is defined as <strong>a society's accepted basis for responding to external and internal events</strong>. To interpret behavior in a country a marketer needs its history and geography. History helps define a nation's "mission": how it perceives its neighbors, its place in the world and itself, and it shapes attitudes toward the role of government and business, relations between managers and managed, and attitudes toward foreign corporations. History also influences business decisions: foreign direct investment, market entry, even personnel choices.</p>
+        <h4>China: why the leadership is wary of foreign influence</h4>
+        <p>American history "really begins with China": the Boston Tea Party was a protest at Britain's ban on Yankee traders dealing directly with Canton. Three episodes the book insists you know:</p>
+        <div class="terms"><div><div class="k">First Opium War and the Treaty of Nanjing, 1839 to 1842</div><div class="v">British tea drinking created a huge deficit paid in silver. The East India Company's answer was <strong>opium</strong> from British India: easy to ship, high value to weight, addictive. When the emperor destroyed the Canton inventories, Britain blockaded the ports. At Nanjing China ceded <strong>Hong Kong</strong> and $21 million and opened Xiamen, Fuzhou, Ningbo and Shanghai to foreigners. Most important, China recognized for the first time its loss of great-power status.</div></div><div><div class="k">Second Opium War, 1857 to 1860</div><div class="v">British and French forces destroyed the summer palace in Beijing; the treaty gave foreign traders more freedom and specifically permitted Christian evangelism throughout the realm.</div></div><div><div class="k">Taiping Rebellion, 1851 to 1864</div><div class="v">Hong Xiuquan, a failed civil-service candidate who met Protestant missionaries and declared himself Christ's brother, was crowned "Heavenly King" and marched north with religious zealots. Foreigners raised an army against him. The death toll was <strong>20 to 40 million</strong>, the most horrific civil war in history (the 1949 revolution killed "only" 2 million). Hence Chinese wariness of foreign influence in general and religious movements in particular.</div></div></div>
+        <h4>Japan: loyalty, consensus and Confucian philosophy</h4>
+        <p>Seven centuries of the shogun feudal system, isolation until Commodore Perry in 1853, the threat of colonial domination, World War II. <strong><span class="term" tabindex="0"><mark>Confucian philosophy</mark><span class="tip" role="tooltip"><b>The teaching emphasizing loyalty of friend to friend, wife to husband, child to parent, brother to brother, and above all of subject to lord.</b>The book&#x27;s explanation for Japanese company loyalty, consensus decision-making and closed distribution systems. Also the exam Hong Xiuquan failed four times.</span></span></strong> emphasizes loyalty "of friend to friend, of wife to husband, of child to parent, of brother to brother, but, above all, of subject to lord." The premise is cooperation for the collective good; the Japanese achieve consensus by uniting against outside pressures. That is why company loyalty is strong, distribution-system loyalty is hard for outsiders to earn, and decisions are made by consensus.</p>
+
+        <h3 id="s3-subjective">History is subjective </h3>
+        <p>LO3-3, LO3-4. Historical events are always viewed through one's own biases and <strong>self-reference criteria</strong>; maps sold in the United States put the United States at the centre, maps in Britain put Britain there. The worked example is Mexico's love-hate relationship with the United States. General Porfirio Díaz: "Poor Mexico, so far from God, so near the United States." Kennedy said "Geography has made us neighbors, tradition has made us friends"; Mexicans found it more accurate to say "Geography has made us closer, tradition has made us far apart."</p>
+        <div class="scroller"><table><thead><tr><th>Event</th><th>As the United States tells it</th><th>As Latin America tells it</th></tr></thead><tbody><tr><td class="k">Monroe Doctrine</td><td>Protection of Latin America from European colonization and intervention</td><td>An offensive expression of U.S. influence: "Europe, keep your hands off; Latin America is only for the United States"</td></tr><tr><td class="k">"Halls of Montezuma"</td><td>Marine Corps pride</td><td>U.S. troops marched to the centre of Mexico City and extracted 890,000 square miles that became Arizona, California, New Mexico and Texas; <em>Los Niños Heroes</em> jumped to their deaths rather than surrender, commemorated every 13 September as the <em>despojo territorial</em></td></tr><tr><td class="k">Panama Canal Zone, 1903</td><td>Justifiable foreign policy</td><td>Whatever is good for the United States is justifiable</td></tr><tr><td class="k">Interventions since 1945</td><td>Each one justified</td><td>Reinforcement that the "good neighbor" throws its weight around when it wants something</td></tr></tbody></table></div>
+        <div class="terms"><div><div class="k">Manifest Destiny</div><div class="v">Broadly, that Americans were a chosen people ordained by God to create a model society; specifically, the territorial expansion of the United States from the Atlantic to the Pacific. Used to justify annexing Texas, Oregon, New Mexico and California, and later involvement in Cuba, Alaska, Hawaii and the Philippines.</div></div><div><div class="k">Monroe Doctrine</div><div class="v">President James Monroe's three dicta: <strong>no further European colonization</strong> in the New World; <strong>U.S. abstention</strong> from European political affairs; <strong>nonintervention</strong> by European governments in Western Hemisphere governments.</div></div><div><div class="k">Roosevelt Corollary</div><div class="v">Theodore Roosevelt's extension: the United States would not only prohibit non-American intervention in Latin America but would <strong>police the area</strong> and guarantee that Latin American nations met their international obligations. Applied in the Dominican Republic (1905), the Panama Canal Zone taken from Colombia (1903) and a provisional government in Cuba (1906).</div></div><div><div class="k">Expropriation</div><div class="v">Confiscation of foreign investments. Mexico's 1938 oil expropriation is celebrated annually; President Zedillo used its anniversary to attack Washington and praise Pemex as "a symbol of our historical struggles for sovereignty". Hugo Chavez nationalized foreign oil assets in the Orinoco basin. Leaders are <em>cheered</em> for it even when the investments were helping the economy.</div></div></div>
+        <p>Three Mexican voices close the section: "the United States robbed us but we are portrayed in U.S. textbooks as bandits"; "the world is dividing into commercial blocks, and we are handcuffed to each other for better or worse"; "we always have been and we continue to be a colony of the United States." The drug policy coda: President Fox passed decriminalization in 2006, then withdrew it after talks with the Bush administration; Calderon signed an almost identical bill in 2009.</p>
+
+        <h3 id="s3-geography">Geography and global markets </h3>
+        <p>LO3-5, LO3-6. Geography, "the study of Earth's surface, climate, continents, countries, peoples, industries, and resources," is an uncontrollable that receives scant attention. It is more than memorizing capitals: it is understanding how a society's culture and economy are shaped as a nation supplies its needs within the limits of its physical makeup.</p>
+        <h4>Climate and topography</h4>
+        <ul>
+          <li>Altitude, humidity and temperature extremes change product function: U.S. construction equipment needs extensive modification for the Sahara; a Taiwanese shipment of glasses packed in hay arrived in shards because the hay dried and shrivelled in the Middle East.</li>
+          <li>Within one market: Ghana runs from desert heat to rainforest humidity. Bosch-Siemens washing machines need a 1,600 rpm spin in sunless Germany and Scandinavia but only 500 rpm in Italy and Spain.</li>
+          <li>Seasons: JCPenney's Chilean expansion failed because when it bought winter stock for North America it needed summer stock south of the equator. It sold its one store.</li>
+          <li>Barriers: the Andes run 4,500 miles at 13,000 feet, precluding Pacific-to-Atlantic trade routes. Once prosperity comes, barriers are overcome: the Channel Tunnel (resisted for decades as protection), the 21-mile Lötschberg and 36-mile Gotthard tunnels under the Alps.</li>
+        </ul>
+        <h4>Geography, nature and economic growth</h4>
+        <p>Poor countries suffer disproportionately from catastrophe: compare Haiti's slow recoveries (2010, 2021) with Japan's after 2011. Dams show the double edge: the Three Gorges Dam displaced 1.3 million people and traps the silt that replenished downstream soil; India's Narmada project displaced tens of thousands. Gigantic projects "must be measured against their social and environmental costs."</p>
+        <h4>Social responsibility and environmental management</h4>
+        <p>Environmental protection "is not an optional extra"; it is a global issue that cannot be addressed by nations in isolation. China is the world's top polluter (greenhouse gases more than double the U.S.; 21 percent of rivers and lakes toxic). Hazardous waste exceeds 300 million tons a year; the <strong><span class="term" tabindex="0"><mark>Basel Convention</mark><span class="tip" role="tooltip"><b>The treaty among developed nations governing export of hazardous wastes, revised from prior approval to a total ban.</b>Cited as raising general business awareness of pollution. Hazardous waste exceeds 300 million tons a year, and disposal that merely moves the problem is the issue.</span></span></strong> moved from prior approval to a total ban on export of hazardous wastes by developed nations. The U.S. has one of the highest per-capita <strong><span class="term" tabindex="0"><mark>greenhouse-gas emission</mark><span class="tip" role="tooltip"><b>Emissions of gases such as carbon dioxide that trap heat; measured per capita, the U.S. has among the highest rates.</b>A key term in Chapter 3. China&#x27;s total is more than double the U.S.; from 2013 to 2018 the U.S. cut per capita emissions 7.6 percent while China&#x27;s rose 4.5 percent.</span></span></strong> rates, left the Paris Climate Agreement in 2017 and rejoined in February 2021; the Paris goal of a 45 percent global cut by 2030 "seems unattainable." <strong><span class="term" tabindex="0"><mark>Sustainable development</mark><span class="tip" role="tooltip"><b>A joint approach among governments, business and others seeking economic growth with wise resource management, equitable distribution of benefits and reduced negative effects on people and the environment.</b>The book insists it is not about environment or economy or society but the balance of all three. Increasingly framed by companies as win-win.</span></span></strong> is the joint approach seeking economic growth with "wise resource management, equitable distribution of benefits and reduction of negative effects on people and the environment": not about the environment or the economy or society, but a lasting balance between all of them.</p>
+        <h4>Resources</h4>
+        <p>The locations of minerals and energy are geographic accidents; no nation's demand coincides with its supply. Oil and gas provide over 60 percent of world energy. The U.S. was self-sufficient until 1942 and 66 percent import-dependent by 2011; with fracking, dependence should fall to 50 to 60 percent by mid-century. Efficiency varies: Japan needs under 5 ounces of oil to generate $1 of GNP, China about 80, mainly from outdated technology. New contests: lithium in Bolivia, nickel in New Caledonia. Renewables grew tenfold in three years.</p>
+
+        <h3 id="s3-population">Dynamics of global population trends </h3>
+        <p>LO3-7. World population passed 8 billion and is expected to reach about 9.8 billion by 2050, though one UN scenario has it peaking near 8 billion and declining after 2040. All scenarios agree that <strong>85 percent will live in less-developed regions by 2050</strong>; the ILO says 1.2 billion jobs must be created by 2025, mostly in cities.</p>
+        <div class="terms"><div><div class="k">Controlling population growth</div><div class="v">Procreation is one of the most culturally sensitive, uncontrollable factors. Prerequisites: adequate incomes, higher literacy, education for women, universal healthcare, family planning, improved nutrition, and above all a change in beliefs about large families. India's population will exceed China's by 2050; Indira Gandhi's mass sterilization campaign reportedly cost her the election; Nigeria's Muslim north and Catholic east both favour large families. Some economists hold that fertility falls only with prosperity: Spain went from six children to 1.5 as its economy grew.</div></div><div><div class="k">Rural/urban migration</div><div class="v">Driven by access to education, healthcare and jobs; a manual worker in urban Brazil earns almost five times a rural farm labourer. Over half the world is now urban, 61 percent by 2030, with 27 cities over 10 million, 23 of them in less-developed regions; Tokyo has 37 million. Unregulated growth breaks sanitation and water: Mexico City consumes 16,000 gallons a second against 2,640 from its aquifers; 768 million people lack clean water, almost 3 billion lack sanitation. IKEA is shifting from suburban big boxes to smaller urban stores.</div></div><div><div class="k">Population decline, aging and disease</div><div class="v">The industrialized world is shrinking and aging. Replacement needs about <strong>2.1 children per woman</strong>; no major industrialized country reaches it. Over-65s were 2 to 3 percent of population before the Industrial Revolution, 14 percent in the developed world today, 25 percent in 30 countries by 2030. The 85-plus group grows sixfold to 175 million by 2050. In 1998 Japan crossed the threshold where pension withdrawals exceeded contributions. Kenya's young pyramid means education costs; Britain's top-heavy one means pensions with fewer earners. COVID-19 killed about 6 million; the U.S. rate is over 260 per 100,000, China's under one. Two American epidemics: opioids (20 per 100,000 a year, partly from aggressive pharmaceutical marketing) and metabolic syndrome from a diet of 126.4 grams of sugar a day, subsidized by government.</div></div><div><div class="k">Worker shortage and immigration</div><div class="v">The UN's strongest argument: free immigration eases both the population explosion in poor countries and the worker shortage in rich ones. Europe's over-60s go from 20 percent (1998) to 35 percent (2050); Spain opened its borders to South Americans of Spanish descent. Europe needs 1.4 billion immigrants over 50 years, Japan and the United States 600 million by 2050. But the Syrian refugee flow was a key catalyst for Brexit and other nativist policies.</div></div></div>
+
+        <h3 id="s3-routes">World trade routes and communication links </h3>
+        <p>LO3-8. Trade routes bind the world together, minimizing distance, natural barriers, lack of resources and differences between peoples. Routes established by the 1500s still matter: Spanish galleons carried silver to Manila and returned with Chinese silk, offloaded in Mexico and carried overland to the Atlantic; today the Panama Canal (being widened) does the crossing, and Latin America's ties to Europe and Asia date from that era. Most trade still runs among Europe, North America and Asia, but the <strong>fastest-growing routes are among developing nations</strong>, and China plans an overland Silk Road to Europe. Arctic melt is opening a Northwest Passage that may compete with the canal.</p>
+        <p>Communication is the underpinning of all commerce: knowing where goods exist and are needed, and communicating instantly across distance. Telegraph, telephone, television, satellites, mobile phones, the computer, the Internet, now blockchain. Each revolution spawned new business models; firms that failed to respond ceased to exist. The Internet and mobile revolutions "will be no different", and the biggest changes are yet to come. The Corinth canal (1893) replaced dragging ships across a 6-kilometre isthmus.</p>
+
+        <h3 id="s3-cases">Cases </h3>
+        <div class="cards cases"><div class="card"><span class="num">GP</span><div class="bd"><h4>Do You Remember President Obama's Speech to the Cuban People?</h4><p>17 December 2014: "every Cuban does." Obama reopened diplomatic relations severed since January 1961, ordered an embassy in Havana, reviewed Cuba's terrorism designation, eased travel, allowed U.S. credit cards and bank accounts, and lifted telecommunications restrictions. He noted the U.S. had normalized relations with China and Vietnam decades earlier. "Change is even harder when we carry the heavy weight of history on our shoulders." The Trump administration reversed parts of it: "two steps forward, apparently a tiny one back."</p><p><strong>What it illustrates.</strong> History as an uncontrollable that outlasts its causes: a 50-year embargo rooted in events "before most of us were born", and the way a date becomes a cultural marker on one side of a border and is forgotten on the other.</p><p><strong>If it is the question.</strong> A question would ask how history constrains market entry and what changes when policy shifts. Link the embargo to Chapter 2 (embargo as a trade barrier) and to the subjectivity of history.</p></div></div><div class="card"><span class="num">CB 3.1</span><div class="bd"><h4>Microsoft Adapts Encarta to "Local History"</h4><p>Microsoft published nine editions of Encarta with different facts for different countries. The telephone was invented by Bell in the U.S., U.K. and German editions and by Antonio Meucci in the Italian one; the light bulb by Edison or by Joseph Swan. Nationalizing the Suez Canal was "decisive intervention" in the U.S. edition and a "humiliating reversal" in the French and British ones. Korea protested that Ullung-do was placed inside Japan; Thailand that Bangkok was called a sex centre; Turkey stopped distribution over the word Kurdistan; Chile and Argentina settled a disputed Andes border by agreeing to no line at all. Wikipedia killed Encarta in 2009.</p><p><strong>What it illustrates.</strong> <strong>History is subjective</strong>, and a product built on facts must be adapted to each culture's version of them. It also shows the cost of adaptation and how governments lobby over content.</p><p><strong>If it is the question.</strong> The best single illustration for LO3-3. Pair it with the U.S. versus Latin American reading of the <span class="term" tabindex="0"><mark>Monroe Doctrine</mark><span class="tip" role="tooltip"><b>President Monroe&#x27;s declaration of three dicta: no new European colonization in the New World, U.S. abstention from Europe&#x27;s affairs, and European nonintervention in the Western Hemisphere.</b>Protection to Americans, &quot;Latin America is only for the United States&quot; to Latin Americans. The single best example of history being subjective.</span></span>.</p></div></div><div class="card"><span class="num">CB 3.2</span><div class="bd"><h4>Innovation and the Water Shortage, from Fog to Kid Power</h4><p>Chungungo, Chile: 86 fog-catching nets on El Tofo Hill collect 1,900 gallons a day at a fifth the cost of trucked water, copying what the local eucalyptus trees had always done. Sub-Saharan Africa: the PlayPump, a children's merry-go-round that pumps water into a 2,500-litre tank with billboard sides, won a World Bank award and celebrity funding. Then the correction, which the authors print against themselves: at $14,000 a unit it cost four times a conventional pump, needed trained maintenance and scarce parts, and children would have to "play" 27 hours a day to meet targets; WaterAid called it reliance on child labour. Its inventory went to Water for People as one option among many. Cook stoves, now 400 million in use, succeeded where it failed.</p><p><strong>What it illustrates.</strong> Geography (aridity) drives innovation, but an innovation must fit the culture and economics of the place. A brilliant idea celebrated abroad can be a <strong>dysfunctional innovation</strong> on the ground.</p><p><strong>If it is the question.</strong> Question 17 in Chapter 4 asks for functional versus dysfunctional innovations. PlayPump is your dysfunctional example; the fog catchers and cook stoves are functional. Note that the book models intellectual honesty by publishing its own mistake.</p></div></div><div class="card"><span class="num">CB 3.3</span><div class="bd"><h4>Where Have All the Women Gone?</h4><p>Three converging factors in China: the one-child policy, traditional male preference, and prenatal scanning that allows aborting female fetuses. The result was about 118 boys per 100 girls in 2005, six bachelors for every five brides. Responses: buying infant girls as future brides for as little as $100 (cheaper than a teenage bride and than the fines for extra births), marrying cousins, and government incentives for daughters. It became a business: a Shanghai school called Love Emotional School teaches dating skills.</p><p><strong>What it illustrates.</strong> Population policy meets cultural values with consequences that ripple for decades. Chapter 4 adds the 2021 figures (113 in India, 116 in China, 30 million bachelors) and a policy discussion of allowing one woman to marry more than one man.</p><p><strong>If it is the question.</strong> Use it for LO3-7 on the economic effects of controlling population growth, and for the point that procreation is the most culturally sensitive of the uncontrollables.</p></div></div><div class="card"><span class="num">CB 3.4</span><div class="bd"><h4>History, Geography, and Population Collide in America</h4><p>As pensions and healthcare buckle under Baby Boom numbers, 64 million Americans now live in multigenerational households, and the number is growing fast. The American obsession with independence, rooted in the Declaration of 1776 and taught by making children make their own beds and lunches, stigmatizes boomerang kids and co-resident grandparents. Three problems with it: it stigmatizes smart family reunions, it has not worked anyway, and "there is really no such thing as independence, only interdependence." Bill George, ex-CEO of Medtronic, lists his own family among a CEO's six constituencies.</p><p><strong>What it illustrates.</strong> Aging (Chapter 3) plus a cultural value (Chapter 4's individualism, U.S. score 91) plus history (1776) produce a market shift: housing, care and consumption patterns that marketers must serve.</p><p><strong>If it is the question.</strong> A question could ask how aging populations change markets in developed countries. Answer with the pension arithmetic and then this case as the household-level consequence.</p></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Culture (Ch. 3 definition) = a society's accepted basis for responding to external and internal events. History defines a nation's mission.</li><li>China: First Opium War and <span class="term" tabindex="0"><mark>Treaty of Nanjing</mark><span class="tip" role="tooltip"><b>The 1842 settlement ending the First Opium War: China ceded Hong Kong and $21 million and opened Xiamen, Fuzhou, Ningbo and Shanghai to foreigners.</b>&quot;Perhaps most important, China recognized for the first time its loss of great power status.&quot; That sentence is the point of the whole passage.</span></span> (1839 to 1842, Hong Kong ceded) · Second Opium War (1857 to 1860) · <span class="term" tabindex="0"><mark>Taiping Rebellion</mark><span class="tip" role="tooltip"><b>The 1851 to 1864 uprising led by Hong Xiuquan, self-declared brother of Christ, that killed 20 to 40 million people.</b>The most horrific civil war in history, and the book&#x27;s explanation for Chinese wariness of religious movements and foreign influence today.</span></span> (1851 to 1864, 20 to 40 million dead). Hence wariness of foreign and religious influence.</li><li>Japan: Confucian philosophy, loyalty above all to lord and country, consensus by uniting against outside pressure.</li><li>History is subjective: SRC filters it. <span class="term" tabindex="0"><mark>Manifest Destiny</mark><span class="tip" role="tooltip"><b>The belief that Americans were a chosen people ordained by God to create a model society; specifically, the territorial expansion of the U.S. from Atlantic to Pacific.</b>Used to justify Texas, Oregon, New Mexico, California, then Cuba, Alaska, Hawaii and the Philippines. Question 14 asks how a Latin American would read it.</span></span> · Monroe Doctrine (three dicta) · <span class="term" tabindex="0"><mark>Roosevelt Corollary</mark><span class="tip" role="tooltip"><b>Theodore Roosevelt&#x27;s extension of the Monroe Doctrine: the U.S. would police Latin America and guarantee that its nations met international obligations.</b>&quot;Whatever is good for the United States is justifiable.&quot; Applied in the Dominican Republic 1905, Panama 1903, Cuba 1906.</span></span> (police the area). Mexico's love-hate; 890,000 square miles; Los Niños Heroes; 1938 expropriation.</li><li>Geography = uncontrollable: climate and topography change products (spin cycles, seasons, Andes); prosperity overcomes barriers (Chunnel, Gotthard).</li><li>Sustainable development = growth with wise resource management, equitable benefits, reduced harm; a balance of environment, economy and society. Basel Convention bans hazardous waste exports.</li><li>Population: 85 percent in less-developed regions by 2050 · replacement 2.1 · Japan 1998 pension threshold · Europe needs 1.4 billion immigrants · fastest-growing trade routes are among developing nations.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 4 ══════════ -->
+      <section id="ch4">
+        <div class="chap"><h2>Cultural Dynamics in Assessing Global Markets</h2></div>
+        <p class="src">Cateora, Chapter 4</p>
+
+        <h3 id="s4-pervasive">Culture's pervasive impact </h3>
+        <p>LO4-1. Culture deals with a people's design for living. Three definitions the book offers, each useful in a different answer:</p>
+        <div class="terms"><div><div class="k">The traditional definition</div><div class="v"><strong>Culture</strong> is the sum of the <em>values, rituals, symbols, beliefs and thought processes</em> that are learned and shared by a group of people, then transmitted from generation to generation. It resides in the individual's mind, but large collectives can be like-minded.</div></div><div><div class="k">The anthropological definition</div><div class="v">Culture is the human-made part of the human environment: the sum total of knowledge, beliefs, art, morals, laws, customs, and any other capabilities and habits acquired by humans as members of society.</div></div><div><div class="k">Three metaphors</div><div class="v">Hofstede: the <em>software of the mind</em>, a problem-solving tool. Edward Hall: an <em>invisible barrier</em> that managers keep bumping their heads against. Ambassador James Day Hodgson: a <em>thicket</em>, tough to get through, but effort and patience often lead to success.</div></div></div>
+        <p>Culture is pervasive in all marketing activities: pricing, research, promotion, channels, product, packaging, styling, and the marketer's efforts become part of the fabric of culture. <strong>Markets are the result of the three-way interaction of a marketer's efforts, economic conditions, and all other elements of the culture.</strong> Marketers adjust to cultural demands but also act as <strong>agents of change</strong> whenever a product is innovative: "the use of something new is the beginning of cultural change."</p>
+        <h4>Evidence that culture shapes consumption</h4>
+        <ul>
+          <li><strong>Birthrates.</strong> Singapore's spikes in 1976, 1988 and 2000 are Years of the Dragon, considered lucky, with implications for sellers of diapers, toys and schools in successive years. Japan's fertility fell 20 percent in 1966, the Year of the Fire Horse, because women born then are believed to lead unhappy lives and perhaps murder their husbands; it happens every 60 years and returns in 2026.</li>
+          <li><strong>Consumption patterns (Exhibit 4.2).</strong> The Dutch spend most on cut flowers; Germans, British and Japanese eat the most chocolate; Spaniards and Japanese the most fish; Italians the most pasta (brought from China by Marco Polo in 1270); the French and Italians drink the most wine. Spain halved cigarette consumption in six years after its 2011 smoking ban, "a huge cultural shift that the world seldom sees."</li>
+          <li><strong>Consequences (Exhibit 4.3).</strong> Fish versus red meat shows in heart disease. Japan has the highest stomach cancer death rate (salty foods such as soy sauce, plus the bacterium <em>Helicobacter pylori</em> from post-war conditions) and therefore the world's most advanced treatment: culture affects <strong>production</strong> as well as consumption.</li>
+        </ul>
+        <h4>The Dutch and flowers: origins to elements in one story</h4>
+        <p><strong>Geography</strong>: rivers and bays made a trading nation; rain or snow 200 days a year made a gray one, so Dutch ships brought tulips from the Ottoman Empire in 1561 as "spice for the eyes." <strong>History</strong>: tulip mania priced a single black bulb at a million dollars in today's money and produced the first futures market and the first great market bust when the government intervened in 1637; today a black tulip costs a dollar. <strong>Technology and economics</strong>: botanist Carolus Clusius learned to manipulate colours and the trade went international. <strong>Social institutions</strong>: every Easter the Pope says "Bedankt voor bloemen"; the government sponsors the Floriade every ten years (next 2032); the Aalsmeer auction, 150 football fields and 20 million stems a day, sets world flower prices with the descending-price "Dutch auction", and the Netherlands holds 60 percent of world exports. <strong>Cultural values</strong>: the high value placed on flowers shows in consumption. <strong><span class="term" tabindex="0"><mark>Aesthetics</mark><span class="tip" role="tooltip"><b>A culture&#x27;s arts, folklore, music, drama, dance, dress and cosmetics, read as a symbolic system.</b>A key term. Product styling, packaging and advertising must match or they offend; the tartan, the teacups in fives and the Air Max sole are the cases.</span></span> as symbols</strong>: Rembrandt and Van Gogh painted in the dark palette of their surroundings; in the sunny south of France Van Gogh's colours exploded, and he painted flowers.</p>
+
+        <h3 id="s4-origins">Definitions and origins of culture </h3>
+        <p>LO4-2. The best marketers understand not only cultural differences but their <strong>origins</strong>, because that deeper knowledge lets them notice differences in new markets and foresee changes in current ones. Exhibit 4.4 shows the causal chain: humans adapt to changing environments through <em>innovation</em>; individuals learn culture from social institutions through <em>socialization</em> (growing up) and <em>acculturation</em> (adjusting to a new culture, as immigrants and indigenous people do) and through <em>role modeling</em>, imitation of peers. Five origins:</p>
+        <div class="terms"><div><div class="k">Geography</div><div class="v">Broadly defined to include climate, topography, flora, fauna and microbiology. Jared Diamond: innovations spread faster east to west than north to south (the Silk Road, not the Sahara or Panama), which with more virulent germs explains Euro-Asian dominance. Philip Parker: strong correlations between latitude and per capita GDP, so ambient temperature can be a segmentation variable. New rituals evolve almost immediately after HIV, SARS or COVID-19.</div></div><div><div class="k">History</div><div class="v">Tobacco as the Virginia colony's cash crop shaped U.S. trade policy; the Declaration of Independence was influenced by the same-year publication of <i>The Wealth of Nations</i>; the 2003 Iraq conflict bred Mecca Cola, Muslim Up and ColaTurka; Germany's mistrust of propaganda after World War II limits marketing practices; the post-war baby boom still drives consumption.</div></div><div><div class="k">The political economy</div><div class="v">Four approaches competed for the twentieth century: colonialism, fascism, communism, and democracy/free enterprise. Fascism fell in 1945, colonialism after the war, communism in the 1990s. Politics and law shape institutions and values; Chapters 6 and 7 develop it.</div></div><div><div class="k">Technology</div><div class="v">Which innovation most changed U.S. institutions and values in a century? Not jets, television or the Internet: <strong>the Pill</strong>. Birth control freed women for careers and men for children; over half of U.S. marketing majors are women. The Catholic Church forbade it in 1930 and 1968. Technology does not solve everything: U.S. healthcare leads in technology yet trails in longevity.</div></div><div><div class="k">Social institutions</div><div class="v"><strong>Family, religion, school, the media, government and corporations</strong>: how people relate, organize, teach the next generation and govern themselves. Detail below.</div></div></div>
+        <h4>The social institutions, one by one</h4>
+        <ul>
+          <li><strong>Family.</strong> Women postpone marriage (over 25 percent of Japanese women aged 35 to 39 never married; Japan pays $900 a month per child and one province runs the Fukui Marriage Hunting Cafe). Nepotism is a problem in American firms and an organizing principle in Chinese and Mexican ones. Sex ratios: 113 boys per 100 girls aged 1 to 14 in India, 116 in China, 30 million Chinese bachelors. Individualism is taught the first night an American infant sleeps in her own bassinette. In collectivist cultures a promotion aimed at the family or friendship group beats one aimed at individuals; Canadian travel ads show a woman alone for English speakers and a couple or group for French speakers.</li>
+          <li><strong>Religion.</strong> The first institution outside the home. Protestants confess directly through prayer, Catholics through priests, so some scholars argue Protestantism engenders egalitarian thinking. Ignorance offends: South Africa banned an Axe ad of angels tossing halos; Chanel destroyed dresses embroidered with Quran verses copied from a book on the Taj Mahal; Chevrolet's logo was deemed to resemble a cross. Over a billion people embrace Islam.</li>
+          <li><strong>School.</strong> Literacy is a potent force: per the World Bank no country has succeeded economically with under 50 percent literacy. Communicating with a literate market is far easier than through symbols and pictures. Days in school: 180 in the U.S., 245 in China, 220 in South Korea, 210 in Japan; PISA leaders are China, Singapore, Macao and Hong Kong. Chinese officials now worry that too much school produces narrow minds.</li>
+          <li><strong>The media.</strong> Media time has replaced family time. Children aged 0 to 8 averaged nearly an hour a day on a mobile device in 2021, up from 5 minutes in 2011; 39 percent of Black parents versus 19 percent of white parents see educational benefit in it.</li>
+          <li><strong>Government.</strong> Holds relatively little sway compared with the early, direct institutions; values are set before and during adolescence. Governments try anyway: France's $800 birth bonus, Japan's $225 million for day care, bans on hijabs, burkas and minarets, Ireland tightening alcohol laws because drinking costs 2 percent of GDP. Some own the media and use propaganda; Iran is ruled by clerics.</li>
+          <li><strong>Corporations.</strong> Most innovations are introduced to societies by companies, often multinationals; merchants have been the primary conduit for the diffusion of innovations since the Silk Road. This makes companies change agents, the subject of the chapter's last section.</li>
+        </ul>
+
+        <h3 id="s4-elements">Elements of culture </h3>
+        <p>LO4-3. Five elements: <strong>values, rituals, symbols, beliefs and thought processes</strong>. Products, distribution systems and promotional programs must be designed with due consideration of each.</p>
+        <h4>Cultural values: Hofstede</h4>
+        <p><strong>Cultural values</strong> are the importance of things and ideas. Geert Hofstede studied more than 90,000 people in 66 countries and found four primary dimensions: the <strong><span class="term" tabindex="0"><mark>Individualism/Collectivism Index</mark><span class="tip" role="tooltip"><b>Hofstede&#x27;s measure of preference for self-interested behavior: an &quot;I&quot; versus a &quot;we&quot; mentality.</b>U.S. 91 is the highest score of all. As <span class="term" tabindex="0"><mark>linguistic distance</mark><span class="tip" role="tooltip"><b>A measure of how far apart two languages sit on the linguistic family tree.</b>From English: German 1, Danish 2, Spanish 3, Japanese 4, Hebrew 5, Chinese 6, Thai 7. Predicts trade volume and value differences. A key term.</span></span> from English increases, individualism decreases.</span></span> (IDV)</strong>, self-orientation; the <strong><span class="term" tabindex="0"><mark>Power Distance Index</mark><span class="tip" role="tooltip"><b>Hofstede&#x27;s measure of tolerance for inequality between superiors and subordinates.</b>High PDI: hierarchy, power as coercive, privileges for power-holders, distrust of outsiders. Guatemala 95, Mexico 81, Great Britain and Germany 35.</span></span> (PDI)</strong>, authority orientation; the <strong><span class="term" tabindex="0"><mark>Uncertainty Avoidance Index</mark><span class="tip" role="tooltip"><b>Hofstede&#x27;s measure of tolerance for uncertainty and ambiguity.</b>Greece 112 and Guatemala 101 are the extremes; Great Britain 35 the lowest. High UAI seeks absolute truth, low UAI is empirical. This is what predicted Japan&#x27;s aversion to equities.</span></span> (UAI)</strong>, risk orientation; and the <strong>Masculinity/Femininity Index (MAS)</strong>, assertiveness and achievement. Later work added <strong>Long-Term Orientation</strong> and <strong>Indulgence</strong>. The book focuses on IDV, PDI and UAI. Robert House's GLOBE study produced comparable data 25 years later.</p>
+        <div class="terms"><div><div class="k">Individualism/Collectivism Index</div><div class="v">Preference for behavior that promotes self-interest. High IDV is an "I" mentality that rewards individual initiative; low IDV is a "we" mentality that subjugates the individual to the group. Collectivism: people are integrated from birth into strong cohesive groups that protect them in exchange for unquestioning loyalty.</div></div><div><div class="k">Power Distance Index</div><div class="v">Tolerance of social inequality between superiors and subordinates. High PDI cultures are hierarchical, cite social roles, manipulation and inheritance as sources of power, distrust outsiders, and believe power-holders are entitled to privileges. Low PDI values equality and cites knowledge and achievement.</div></div><div><div class="k">Uncertainty Avoidance Index</div><div class="v">Tolerance of uncertainty and ambiguity. High UAI is intolerant of ambiguity, distrustful of new ideas, anxious, rule-following, and seeks absolute truth. Low UAI tolerates deviance and dissent, takes risks, and approaches knowledge empirically.</div></div></div>
+        <div class="scroller"><table><thead><tr><th>Country</th><th>IDV</th><th>PDI</th><th>UAI</th><th>Linguistic distance from English</th></tr></thead><tbody><tr><td class="k">United States</td><td>91</td><td>40</td><td>46</td><td>0</td></tr><tr><td class="k">Great Britain</td><td>89</td><td>35</td><td>35</td><td>0</td></tr><tr><td class="k">Netherlands</td><td>80</td><td>38</td><td>53</td><td>1</td></tr><tr><td class="k">France</td><td>71</td><td>68</td><td>86</td><td>3</td></tr><tr><td class="k">Germany</td><td>67</td><td>35</td><td>65</td><td>1</td></tr><tr><td class="k">India</td><td>48</td><td>77</td><td>40</td><td>3</td></tr><tr><td class="k">Japan</td><td>46</td><td>54</td><td>92</td><td>4</td></tr><tr><td class="k">Arab countries</td><td>38</td><td>80</td><td>68</td><td>5</td></tr><tr><td class="k">Brazil</td><td>38</td><td>69</td><td>76</td><td>3</td></tr><tr><td class="k">Greece</td><td>35</td><td>60</td><td>112</td><td>3</td></tr><tr><td class="k">Mexico</td><td>30</td><td>81</td><td>82</td><td>3</td></tr><tr><td class="k">South Korea</td><td>18</td><td>60</td><td>85</td><td>4</td></tr><tr><td class="k">Indonesia</td><td>14</td><td>78</td><td>48</td><td>7</td></tr><tr><td class="k">Guatemala</td><td>6</td><td>95</td><td>101</td><td>3</td></tr></tbody></table></div>
+        <p>The e-trading opener explained: the U.S. scores highest of all on individualism (91) against Japan (46) and France (71), so sitting alone at a computer is most acceptable in America. Japan (92) and France (86) score high on uncertainty avoidance against the U.S. (46), so postal deposits beat equities. Cultures higher on individualism and lower on uncertainty avoidance are more innovative. A twist: American and Chinese students shown self-focused versus other-focused ads each preferred the <em>opposite</em> of what their culture predicted, because they liked novelty. "The complexity of human behavior, values, and culture is manifest."</p>
+        <h4>Rituals</h4>
+        <p>Patterns of behavior and interaction that are learned and repeated. Big ones: weddings (<i>Monsoon Wedding</i>, grooms on white horses in Delhi), funerals, graduation, the hajj (2 million a year), Varanasi's puja (60 to 80 million pilgrims). Small ones: dinner in Madrid starts at midnight and lasts three hours; Japanese store staff bow at the door; in Spain the doctor sees you at her desk. Rituals coordinate interaction and "let people know what to expect." Business negotiation is a ritual too.</p>
+        <h4>Symbols: language and aesthetics</h4>
+        <p>Edward T. Hall: <strong>culture is communication</strong>, with "languages" of time, space, things, friendships and agreements. Learning to interpret symbols begins at birth.</p>
+        <div class="terms"><div><div class="k">Language</div><div class="v">For some a social institution with political weight: France's agency against Franglais, Canada's secession disputes. Copywriters must worry about idiomatic and symbolic meaning, not literal translation: <em>tambo</em> is a roadside inn in Bolivia, a dairy farm in Argentina and a brothel in Chile; Papua New Guinea has 750 mutually unintelligible languages.</div></div><div><div class="k">Linguistic distance</div><div class="v">Languages form family trees. Counting from English: German 1, Danish 2, Spanish 3, Japanese 4, Hebrew 5, Chinese 6, Thai 7. Crossing wider distance raises transaction costs and predicts lower trade and different values; as distance from English grows, individualism falls. English has one word for "you" where Mandarin (<em>ni</em>/<em>nin</em>) and Spanish (<em>tu</em>/<em>usted</em>) encode status, so as English spreads, egalitarianism spreads with it.</div></div><div><div class="k">Aesthetics</div><div class="v">The arts, folklore, music, drama, dance, dress and cosmetics: a symbolic system customers use to define identity. Japanese earth tones versus Chinese red and yellow. Missteps: McDonald's chose the Lindsay tartan and outraged Clan Donald; the crane is lucky in Japan but four (<em>shi</em>) means death, so teacups sell in fives; Migros printed Hitler on coffee creamers; Nike's "Black and Tan" shoe was named for a paramilitary group that suppressed the Irish, and an Air Max sole resembled the word Allah; a UK Krispy Kreme promotion was called the KKK. Gannon's cultural metaphors (American Football, the Spanish Bullfight, India's Dance of Shiva, the Japanese Garden) are "fine fodder for advertising."</div></div></div>
+        <h4>Beliefs</h4>
+        <p>Much comes from religion, but many beliefs are secular, and what Westerners call superstition can be integral elsewhere: ghosts, fortune telling, palmistry, blood types, phases of the moon. Chinese prices end in 8, the number connoting prosperity; the Beijing Olympics opened 8-8-08 at 8:08. <strong><span class="term" tabindex="0"><mark>Feng shui</mark><span class="tip" role="tooltip"><b>The Chinese practice linking humans and the universe to ch&#x27;i, the life-sustaining energy, to enhance luck and health and minimize the negative sha ch&#x27;i.</b>Requires a feng shui master; avoids buildings facing northwest and southwest. Disney applied it to every ride in Hong Kong and Shanghai.</span></span></strong> links humans and the universe to <em>ch'i</em>, the energy that sustains life, harnessing it and minimizing the negative <em>sha ch'i</em>; buildings avoid facing northwest (the "devil's entrance") and southwest (the "devil's backdoor"); Disney feng-shuied every ride in Hong Kong and Shanghai. The book's warning: "one person's beliefs are another person's funny story," and the Westerner who mocks the Year of the Fire Horse still avoids the 13th floor.</p>
+        <h4>Thought processes</h4>
+        <p>Ways of thinking vary across cultures; culture matters more in snap judgments than in long deliberations, and even affects perception of aromas. Richard Nisbett's <i>The Geography of Thought</i>: Asians see the whole picture and report background and foreground; Westerners focus on the foreground and see little behind it. Focus versus big picture predicts differences in values, preferences and expectations, "pertinent to Japanese selling in Jacksonville or Belgians selling in Beijing."</p>
+
+        <h3 id="s4-sensitivity">Cultural sensitivity and tolerance </h3>
+        <p>Successful foreign marketing begins with <strong><span class="term" tabindex="0"><mark>cultural sensitivity</mark><span class="tip" role="tooltip"><b>Being attuned to the nuances of culture so that a new culture can be viewed objectively, evaluated and appreciated; also called cultural empathy.</b>A key term. The book pairs it with tolerance and says the more exotic the situation, the more of it you need.</span></span></strong>, also called <strong>cultural empathy</strong>: being attuned to the nuances of culture so a new culture can be viewed objectively, evaluated and appreciated. For every trait we find amusing, annoying or repulsive abroad, others see one in ours; our daily bathing and deodorizing ritual looks compulsive to many cultures. <strong>"Just because a culture is different does not make it wrong."</strong> Marketers must understand how their own culture shapes their assumptions about another; the more exotic the situation, the more sensitive, tolerant and flexible one must be.</p>
+
+        <h3 id="s4-change">Cultural change </h3>
+        <p>LO4-4, LO4-5. Culture is dynamic, "a living process", yet also conservative and resistant to change, which seems paradoxical. Cultures more open to change belong to more successful economies. Change comes from war (Japan after 1945), disaster, or most often from a society solving problems created by changes in its environment; culture is "the accumulation of a series of the best solutions to problems faced in common." Societies find answers by accident, by invention, and above all by borrowing.</p>
+        <div class="terms"><div><div class="k">Cultural borrowing</div><div class="v">A responsible effort to learn from others' cultural ways in the quest for better solutions. The American breakfast: an orange from the Mediterranean, a cantaloupe from Persia, waffles by a Scandinavian technique from Asia Minor wheat, maple syrup from Native Americans, eggs of a bird domesticated in Indochina, bacon cured by a northern European process, news in Semitic characters on Chinese paper, thanks to a Hebrew deity in an Indo-European language that she is "100 percent American." She is right: each borrowing was adapted and molded into uniquely American habits. Culture is <em>learned</em>; heritage is what separates humans from other animals.</div></div><div><div class="k">Similarities: an illusion</div><div class="v">Shared language or heritage does not mean a product or message transfers. British and Americans both speak English: lift versus elevator, a bathroom is where you bathe, one hoovers rather than vacuums, <i>The Spy Who Shagged Me</i> means nothing to Americans. Edward Hall warns the two have a <em>harder</em> time because similarity is assumed. There is no "European consumer"; U.S. regions and reunified Germany still differ. Never rely on "if it sells in one country it will sell in another."</div></div><div><div class="k">Resistance to change</div><div class="v">Acceptance depends on the <strong>degree of interest</strong> in the subject and <strong>how disruptive</strong> the innovation is to present values and behavior. Rapid industrialization in Europe changed attitudes to time and working women, so instant foods and labor-saving devices that would have been resisted are accepted. Leaders resist too: Hu Jintao urged "Chinese cultural production" against Western dominance; Xi and Putin scorn Western values.</div></div></div>
+        <h4>Planned and unplanned cultural change</h4>
+        <p>Historically most change was unplanned. Increasingly it results from purposeful attempts by an acceptable institution to bring it about: <strong><span class="term" tabindex="0"><mark>planned change</mark><span class="tip" role="tooltip"><b>A deliberate strategy to change the aspects of a culture that resist a predetermined marketing goal.</b>Two steps: find the conflicting cultural factors, then turn obstacles into stimulants. Carries a responsibility for consequences. A key term.</span></span></strong>. The method social planners use for hybrid grains and sanitation works for marketers: first determine which cultural factors conflict with the innovation and create resistance, then work to change those factors from obstacles into stimulants. Marketers have two options when introducing an innovation: <em>wait</em> for change or <em>spur</em> it. Fidelity pitched a tent outside Tokyo's Shinjuku station and showered commuters with brochures and demonstrations of Japanese-language online trading; the change still came too slowly for most foreign firms.</p>
+        <div class="cards"><div class="card"><span class="num">01</span><div class="bd"><h4>Cultural congruence</h4><p>Market products similar to ones already on the market in a manner as congruent as possible with existing norms, thereby minimizing resistance. Much successful, highly competitive marketing needs no change at all.</p></div></div><div class="card"><span class="num">02</span><div class="bd"><h4>Unplanned change</h4><p>Introduce a product and hope for the best. The Japanese diet: U.S. occupation forces introduced bread, milk and steak; fat and protein now exceed vegetable intake; Burger King bought the Morinaga Love chain, home of the salmon burger, and now sells Whoppers; the Japanese became overweight and flocked to health clubs and low-fat foods. Nobody intended any of it.</p></div></div><div class="card"><span class="num">03</span><div class="bd"><h4>Planned change</h4><p>Deliberately set out to change the aspects of the culture offering resistance to predetermined marketing goals: identify the resistance to dietary change, then overcome it, accelerating acceptance.</p></div></div></div>
+        <p>Marketing strategy is judged culturally in terms of acceptance, resistance or rejection. "All too often, marketers are not aware of the scope of their impact on a host culture." If planned change is implemented, <strong>the marketer has some responsibility to determine the consequences</strong>. Question 17 asks for <strong>functional</strong> versus <strong>dysfunctional</strong> innovations; question 18 asks you to defend the proposition that a multinational has no responsibility beyond safety and performance, and question 19 asks for a product whose introduction may cause dysfunctional consequences and how to eliminate them profitably.</p>
+
+        <h3 id="s4-cases">Cases </h3>
+        <div class="cards cases"><div class="card"><span class="num">GP</span><div class="bd"><h4>Equities and eBay, Culture Gets in the Way</h4><p>Two trillion dollars in Japanese ten-year postal deposits were about to mature, yielding about 2 percent (bank savings near zero, even negative 0.1 percent in 2021). Fidelity, Goldman Sachs and Merrill Lynch rushed products to catch the flood into equities. It was a dribble. Japanese stock trading volume is a tenth of America's; 10 percent of household assets are in stocks and 7 percent in mutual funds, against half of U.S. households owning stock; "most of the population doesn't know what a mutual fund is." A Mizuho trader sold 610,000 shares for 1 yen instead of 1 share for 610,000 yen, losing $344 million and the TSE president his job. The French see stock markets as schemes to enrich insiders. eBay struggled in both: Japanese find it embarrassing to sell castoffs or buy from strangers (no garage sales), and French law limits auctions to government-certified auctioneers.</p><p><strong>What it illustrates.</strong> Cultural values predict diffusion. Hofstede's numbers do the work: IDV United States 91, France 71, Japan 46; UAI Japan 92, France 86, United States 46. Higher individualism and lower uncertainty avoidance mean faster adoption of impersonal, risky innovations.</p><p><strong>If it is the question.</strong> This is the model answer for "how can Hofstede's dimensions predict consumer behavior." Quote the three scores for each country and map them to the two products, then add the institutional barrier in France (auction law) as a non-cultural uncontrollable.</p></div></div><div class="card"><span class="num">CB 4.1</span><div class="bd"><h4>Human Universals: The Myth of Diversity?</h4><p>Anthropologist Donald Brown lists hundreds of traits all humans share: we use metaphors, have status and roles, are ethnocentric, create art, form groups antagonistic to outsiders, imitate and resist outside influences, keep sexuality private, express emotion with the face, reciprocate, use mood-altering drugs, overestimate the objectivity of our thought, fear snakes, recognize economic obligations in exchange, and trade and transport goods. The last two make us "the exchanging animal."</p><p><strong>What it illustrates.</strong> A counterweight to the chapter: culture's influence is pervasive, but we are one species. Universals are why marketing principles travel even when their implementation does not.</p><p><strong>If it is the question.</strong> Use it to balance any "everything is culturally relative" answer, and to explain why the book says principles are universal but environments differ (Chapter 1's definition).</p></div></div><div class="card"><span class="num">CB 4.2</span><div class="bd"><h4>Culture, Genes, and Take-out Slides</h4><p>Neuroscientist Joan Chiao found about 80 percent of East Asians carry the short serotonin-transporter allele linked to depression in whites, yet without ill effect. Across 29 countries, nations where the allele flourished were twice as likely to be collectivist, and those were the places where infectious disease historically ran rampant: staying with the pack protected carriers. Separately, three of four Japanese middle infielders in Major League Baseball suffered serious injury from American take-out slides; Japanese runners are taught to slide low so as not to hurt the fielder.</p><p><strong>What it illustrates.</strong> Geography (pathogens) shapes genes and cultural values together; culture is not nurture alone. The baseball vignette is collectivism versus "anything goes" individualism enacted on a diamond.</p><p><strong>If it is the question.</strong> Cite it for the origins of culture (geography including microbiology) and as evidence that values differ in physically consequential ways, not just in surveys.</p></div></div><div class="card"><span class="num">CB 4.3</span><div class="bd"><h4>How Social Media Changes Language</h4><p>France has a government agency fighting Franglais; a minister deleted a tweet over a spelling mistake. French law demands every foreign advertising slogan be literally translated, so Nespresso's "What else?" carries <em>Quoi d'autre?</em>; brands dodge it with microscopic fonts or Franglais names like Givenchy's <em>Very Irrésistible</em>. Twitter's character limit hurts French, which needs more words, so tweets abbreviate (<em>koi</em> for <em>quoi</em>) and "Twitter" became a French verb. The agency proposes <em>informatique en nuage</em> for the cloud and <em>mot-dièse</em> for hashtag; few believe it will catch on. Emoji, from the Japanese for picture and character, spread everywhere. Macron himself says "start-up nation". The 1789 Declaration's first article was 136 characters, under the tweet limit.</p><p><strong>What it illustrates.</strong> Language as a social institution and as a symbol system, changing under technology and <span class="term" tabindex="0"><mark>cultural borrowing</mark><span class="tip" role="tooltip"><b>A responsible effort to learn from others&#x27; cultural ways in the quest for better solutions to a society&#x27;s problems.</b>Common to all cultures. The point of the breakfast passage is that borrowed elements are adapted until they are uniquely one&#x27;s own, which is also why similarities deceive.</span></span> while an institution resists. Also a live regulatory constraint on advertising copy.</p><p><strong>If it is the question.</strong> A question on "troublesome problems caused by language in foreign marketing" (question 13) can be answered almost entirely from this box plus tambo and linguistic distance.</p></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Culture = values, rituals, symbols, beliefs and thought processes, learned, shared, transmitted. Markets = marketer's efforts × economic conditions × culture. The marketer is a change agent.</li><li>Five origins: geography · history · political economy · technology · social institutions (family, religion, school, media, government, corporations).</li><li>Five elements: values · rituals · symbols (language, aesthetics) · beliefs · thought processes.</li><li>Hofstede: IDV (self) · PDI (authority) · UAI (risk) · MAS, plus Long-Term Orientation and Indulgence. Book uses the first three. U.S. 91/40/46, Japan 46/54/92, France 71/68/86.</li><li>Linguistic distance from English: German 1 · Danish 2 · Spanish 3 · Japanese 4 · Hebrew 5 · Chinese 6 · Thai 7.</li><li>Cultural sensitivity = empathy; different does not mean wrong.</li><li>Change: borrowing is universal; similarities are an illusion; resistance depends on interest and disruptiveness.</li><li>Three strategies: <span class="term" tabindex="0"><mark>cultural congruence</mark><span class="tip" role="tooltip"><b>A strategy of marketing products similar to those already on the market in a manner as congruent as possible with existing cultural norms, minimizing resistance.</b>One of three change strategies and the one that needs no change at all. A key term; do not confuse with unplanned change.</span></span> · unplanned change · planned change (identify resistance, turn obstacles into stimulants). The marketer is responsible for consequences; functional versus dysfunctional innovations.</li></ul></div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 30 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>5 stages of international marketing involvement</summary><ol><li>No direct foreign marketing</li><li>Infrequent foreign marketing</li><li>Regular foreign marketing</li><li>International marketing</li><li><span class="term" tabindex="0"><mark>Global marketing</mark><span class="tip" role="tooltip"><b>Treating the world, including the home market, as one market, with segments defined by income, usage and other factors that span countries rather than by national borders.</b>Often triggered when foreign revenue passes half of the total. Coca-Cola&#x27;s six-division redesign is the textbook case; P&amp;G shows a global strategy can coexist with a multidomestic one by product.</span></span></li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 strategic orientations</summary><ol><li>Regular foreign marketing (ancillary)</li><li>Multidomestic or international (each market separate)</li><li>Global (one world market)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 steps of cross-cultural analysis</summary><ol><li>Define the problem in home-country norms</li><li>Define it in foreign-country norms, no value judgments</li><li>Isolate the SRC influence</li><li>Redefine without the SRC and solve</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>2 components of global awareness</summary><ol><li>Tolerance of and willingness to learn about cultural differences</li><li>Knowledge of cultures, history, market potential and global trends</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 dynamic trends shaping international business</summary><ol><li>Growth of the WTO and free trade agreements</li><li>Acceptance of the free market system in developing countries</li><li>Internet, mobile phones and global media dissolving borders</li><li>Managing resources and the global environment</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 balance-of-payments accounts</summary><ol><li>Current account</li><li>Capital account</li><li>Official reserves account</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 types of customs duty</summary><ol><li>Ad valorem</li><li>Specific</li><li>Compound</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 arguments for protection economists accept</summary><ol><li>Infant industry</li><li>National defense</li><li>Industrialization of underdeveloped countries (plus resource conservation, increasingly)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Nontariff barriers</summary><ol><li>Quotas and import licenses</li><li>Voluntary export restraints (VERs) and orderly market agreements</li><li>Boycotts and embargoes</li><li>Monetary barriers: blocked currency, exchange permits</li><li>Standards and local content</li><li>Antidumping and countervailing duties</li><li>Domestic subsidies and stimuli</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 areas of the Omnibus Trade and Competitiveness Act 1988</summary><ol><li>Market access</li><li>Export expansion</li><li>Import relief</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>GATT's 3 basic elements</summary><ol><li>Nondiscrimination</li><li>Protection only through customs tariffs, not quotas</li><li>Consultation to solve problems</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Uruguay Round's 4 named agreements</summary><ol><li>Market access tariff cuts</li><li>GATS (services)</li><li>TRIMs (investment)</li><li>TRIPs (intellectual property)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>World Bank Group's 5 services</summary><ol><li>Lend to governments for education, health, infrastructure</li><li>Assist the poorest countries (under $925 per capita)</li><li>Lend directly to the private sector</li><li>Guarantee investors against noncommercial risk</li><li>Conciliate and arbitrate investor-state disputes</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Monroe Doctrine's 3 dicta</summary><ol><li>No further European colonization in the New World</li><li>U.S. abstention from European political affairs</li><li>Nonintervention by Europe in Western Hemisphere governments</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 Chinese episodes that explain wariness of foreigners</summary><ol><li>First Opium War and Treaty of Nanjing, 1839 to 1842</li><li>Second Opium War, 1857 to 1860</li><li>Taiping Rebellion, 1851 to 1864</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 origins of culture</summary><ol><li>Geography</li><li>History</li><li>The political economy</li><li>Technology</li><li>Social institutions</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>6 social institutions</summary><ol><li>Family</li><li>Religion</li><li>School</li><li>The media</li><li>Government</li><li>Corporations</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 elements of culture</summary><ol><li>Cultural values</li><li>Rituals</li><li>Symbols</li><li>Beliefs</li><li>Thought processes</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Hofstede's 6 dimensions</summary><ol><li>Individualism/Collectivism (IDV)</li><li>Power Distance (PDI)</li><li>Uncertainty Avoidance (UAI)</li><li>Masculinity/Femininity (MAS)</li><li>Long-Term Orientation</li><li>Indulgence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 cultural change strategies</summary><ol><li>Cultural congruence</li><li>Unplanned change</li><li>Planned change</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>16 cases</summary><ol><li>Global Commerce Causes Peace</li><li>Bimbo and Gigante</li><li>Cell Phones and Kids</li><li>Tesla versus Fisker</li><li>Trade Barriers Minefield</li><li>New Balance versus Nike and solar panels</li><li>Monkeys in His Pants (smuggling)</li><li>Obama's Cuba speech</li><li>Encarta local history</li><li>Fog catchers and PlayPump</li><li>Where Have All the Women Gone</li><li>Multigenerational America</li><li>Equities and eBay</li><li>Human Universals</li><li>Culture, Genes and Take-out Slides</li><li>Social Media Changes Language</li></ol></details>
+        </div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4102 &middot; International Marketing &middot; Midterm study guide</b>
+          Compiled from books/CH01-04.pdf: Cateora, Gilly and Graham, <i>International Marketing</i>, 16th edition, chapters 1 to 4 &middot;
+                    Terminology preserved as printed</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -406,6 +406,7 @@ footer b{display:block;color:var(--ink-2);font-weight:400}
 }
 
 /* current section, marked with the same highlighter as the prose */
+@supports not selector(:target-current){
 body:has(#key:target) .nav a[href="#key"],
 body:has(#s-what:target) .nav a[href="#s-what"],
 body:has(#s-senses:target) .nav a[href="#s-senses"],
@@ -426,6 +427,15 @@ body:has(#s-postencounter:target) .nav a[href="#s-postencounter"],
 body:has(#sheet:target) .nav a[href="#sheet"] {
   color:var(--ink);font-weight:500;border-left-color:var(--ink)
 }
+}
+/* scroll-aware sidebar, no script: CSS scroll-target-group (Chromium 135+) marks the
+   link whose section is on screen as the reader scrolls; browsers without it keep the
+   click-based :target rule above */
+@supports selector(:target-current){
+  .nav{scroll-target-group:auto}
+  .navgrp ul a:target-current,.nav > a:target-current{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+}
+
 
 /* ═══════ mobile navigation: :target drawer, no JS ═══════ */
 .menubtn,.menuclose{display:none}

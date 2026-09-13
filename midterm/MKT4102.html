@@ -423,6 +423,7 @@ footer b{display:block;color:var(--ink-2);font-weight:400}
 }
 
 /* current section, marked with the same highlighter as the prose */
+@supports not selector(:target-current){
 body:has(#ch1:target) .nav a[href="#ch1"],
 body:has(#s1-why:target) .nav a[href="#s1-why"],
 body:has(#s1-defined:target) .nav a[href="#s1-defined"],
@@ -458,6 +459,15 @@ body:has(#sheet:target) .nav a[href="#sheet"],
 body:has(#timeline:target) .nav a[href="#timeline"] {
   color:var(--ink);font-weight:500;border-left-color:var(--ink)
 }
+}
+/* scroll-aware sidebar, no script: CSS scroll-target-group (Chromium 135+) marks the
+   link whose section is on screen as the reader scrolls; browsers without it keep the
+   click-based :target rule above */
+@supports selector(:target-current){
+  .nav{scroll-target-group:auto}
+  .navgrp ul a:target-current,.nav > a:target-current{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+}
+
 
 /* ═══════ mobile navigation: :target drawer, no JS ═══════ */
 .menubtn,.menuclose{display:none}

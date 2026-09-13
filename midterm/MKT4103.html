@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4103 Pricing Strategies</title>
+<meta name="description" content="Midterm study guide for MKT4103 Pricing Strategies: the five lecture decks with the matching chapters of Hanna and Dodge, in plain language.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#8b857d;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:72ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#87817a;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#8b857d;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.02rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style, content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
+  font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink-2);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top left;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0}
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
+@media (hover:none),(max-width:1039px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
+    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+.lede .mark{vertical-align:middle;margin:0 2px}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+body:has(#ch1:target) .nav a[href="#ch1"],
+body:has(#s1-why:target) .nav a[href="#s1-why"],
+body:has(#s1-4a:target) .nav a[href="#s1-4a"],
+body:has(#s1-who:target) .nav a[href="#s1-who"],
+body:has(#s1-factors:target) .nav a[href="#s1-factors"],
+body:has(#s1-approaches:target) .nav a[href="#s1-approaches"],
+body:has(#s1-constraints:target) .nav a[href="#s1-constraints"],
+body:has(#s1-ethics:target) .nav a[href="#s1-ethics"],
+body:has(#ch2:target) .nav a[href="#ch2"],
+body:has(#s2-roles:target) .nav a[href="#s2-roles"],
+body:has(#s2-mix:target) .nav a[href="#s2-mix"],
+body:has(#s2-information:target) .nav a[href="#s2-information"],
+body:has(#s2-stimulus:target) .nav a[href="#s2-stimulus"],
+body:has(#s2-consumer:target) .nav a[href="#s2-consumer"],
+body:has(#s2-quality:target) .nav a[href="#s2-quality"],
+body:has(#s2-range:target) .nav a[href="#s2-range"],
+body:has(#s2-lines:target) .nav a[href="#s2-lines"],
+body:has(#s2-reference:target) .nav a[href="#s2-reference"],
+body:has(#s2-oddeven:target) .nav a[href="#s2-oddeven"],
+body:has(#ch3:target) .nav a[href="#ch3"],
+body:has(#s3-environment:target) .nav a[href="#s3-environment"],
+body:has(#s3-objectives:target) .nav a[href="#s3-objectives"],
+body:has(#s3-strategies:target) .nav a[href="#s3-strategies"],
+body:has(#s3-discounts:target) .nav a[href="#s3-discounts"],
+body:has(#ch4:target) .nav a[href="#ch4"],
+body:has(#s4-characteristics:target) .nav a[href="#s4-characteristics"],
+body:has(#s4-decisions:target) .nav a[href="#s4-decisions"],
+body:has(#s4-strategies:target) .nav a[href="#s4-strategies"],
+body:has(#s4-tactics:target) .nav a[href="#s4-tactics"],
+body:has(#ch5:target) .nav a[href="#ch5"],
+body:has(#s5-why:target) .nav a[href="#s5-why"],
+body:has(#s5-costs:target) .nav a[href="#s5-costs"],
+body:has(#s5-accounting:target) .nav a[href="#s5-accounting"],
+body:has(#s5-absorb:target) .nav a[href="#s5-absorb"],
+body:has(#s5-protection:target) .nav a[href="#s5-protection"],
+body:has(#s5-reduction:target) .nav a[href="#s5-reduction"],
+body:has(#s5-relations:target) .nav a[href="#s5-relations"],
+body:has(#s5-policy:target) .nav a[href="#s5-policy"],
+body:has(#sheet:target) .nav a[href="#sheet"],
+body:has(#formulas:target) .nav a[href="#formulas"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:none;
+    width:40px;padding:0;
+    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--ink);
+    padding:9px 12px;min-height:40px;background:var(--paper)}
+  .menubtn .bars{width:13px;height:9px;flex:none;
+    border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+    position:relative}
+  .menubtn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;
+    border-top:1.5px solid var(--ink)}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to contents</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">The Pricing Process</span><span class="dots" aria-hidden="true">·······</span></summary>
+            <ul><li><a href="#s1-why"><span class="ht">Why pricing matters</span></a></li><li><a href="#s1-4a"><span class="ht">The 4 A's</span></a></li><li><a href="#s1-who"><span class="ht">Who sets price</span></a></li><li><a href="#s1-factors"><span class="ht">Five critical factors</span></a></li><li><a href="#s1-approaches"><span class="ht">Three approaches</span></a></li><li><a href="#s1-constraints"><span class="ht">Constraints</span></a></li><li><a href="#s1-ethics"><span class="ht">Ethics</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Market Interpretations</span><span class="dots" aria-hidden="true">··········</span></summary>
+            <ul><li><a href="#s2-roles"><span class="ht">Two roles of price</span></a></li><li><a href="#s2-mix"><span class="ht">Price in the mix</span></a></li><li><a href="#s2-information"><span class="ht">Price as information</span></a></li><li><a href="#s2-stimulus"><span class="ht">Price as stimulus</span></a></li><li><a href="#s2-consumer"><span class="ht">Consumer interpretations</span></a></li><li><a href="#s2-quality"><span class="ht">Price and quality</span></a></li><li><a href="#s2-range"><span class="ht">Acceptable ranges</span></a></li><li><a href="#s2-lines"><span class="ht">Price lines</span></a></li><li><a href="#s2-reference"><span class="ht">Reference prices</span></a></li><li><a href="#s2-oddeven"><span class="ht">Odd-even pricing</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Manufacturers' Pricing</span><span class="dots" aria-hidden="true">····</span></summary>
+            <ul><li><a href="#s3-environment"><span class="ht">Pricing environment</span></a></li><li><a href="#s3-objectives"><span class="ht">Pricing objectives</span></a></li><li><a href="#s3-strategies"><span class="ht">Six strategies</span></a></li><li><a href="#s3-discounts"><span class="ht">Discounts and allowances</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Pricing of Services</span><span class="dots" aria-hidden="true">····</span></summary>
+            <ul><li><a href="#s4-characteristics"><span class="ht">Six characteristics</span></a></li><li><a href="#s4-decisions"><span class="ht">Pricing decisions</span></a></li><li><a href="#s4-strategies"><span class="ht">Five strategies</span></a></li><li><a href="#s4-tactics"><span class="ht">Five tactics</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Inflation and Shortages</span><span class="dots" aria-hidden="true">········</span></summary>
+            <ul><li><a href="#s5-why"><span class="ht">Why it is a problem</span></a></li><li><a href="#s5-costs"><span class="ht">Cost and information</span></a></li><li><a href="#s5-accounting"><span class="ht">Accounting</span></a></li><li><a href="#s5-absorb"><span class="ht">Absorb or pass on</span></a></li><li><a href="#s5-protection"><span class="ht">Price protection</span></a></li><li><a href="#s5-reduction"><span class="ht">Cost reduction</span></a></li><li><a href="#s5-relations"><span class="ht">Government and channels</span></a></li><li><a href="#s5-policy"><span class="ht">A deliberate policy</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 30 minutes</span></a>
+          <a href="#formulas"><span class="ht">Numbers</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Midterm &nbsp;/&nbsp; </span><b aria-current="page">MKT4103</b></nav>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4103</p>
+    <h1>Pricing Strategies</h1>
+    <p class="lede">Midterm study guide built on the five lecture decks, with the matching chapters of Hanna and Dodge, <i>Pricing: Policies and Procedures</i>, read alongside them. Slide topics get full treatment. Topics the book covers but the slides skip are included briefly and tagged <span class="mark">book only</span>: know them to a sentence or two. Every term is kept as the book and slides print it, explained in plain words where it first appears; the harder ones have a hover definition.</p>
+    <div class="mast-meta">
+      <span>Midterm</span>
+      <span>5 decks, 5 chapters</span>
+      <span>16 worked numbers</span>
+      <span>≈ 70 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ CHAPTER 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>The Nature of the Pricing Process</h2></div>
+        <p class="src">Slides: Chapter 01, Introduction to pricing strategies and practices &middot; Book: Hanna and Dodge, Chapter 1 &middot; plus Kotler on value-based pricing and Smith on who sets price</p>
+        <p>This chapter answers three questions. What is a price, and who in the company decides it? What five things must you know before setting one? And what are the three basic ways to arrive at a number?</p>
+
+        <h3 id="s1-why">Why pricing matters</h3>
+        <p>The book opens with a quote from McKinsey consultants Marn and Rosiello: "The fastest and most effective way for a company to realize its maximum profit is to get its pricing right." The right price raises profit faster than selling more units would. The wrong price shrinks it just as fast. Many managers, without realizing it, leave money "on the table" at the point where the product meets the customer.</p>
+        <p>Pricing is the most visible decision management makes, because it hits performance and profit directly. Getting it wrong in either direction costs money. Too high a price deflates demand, and, as IBM found, it can create a <strong><span class="term" tabindex="0"><mark>price umbrella</mark><span class="tip" role="tooltip"><b>When a leader&#x27;s high price leaves room underneath it for competitors to come in cheaper and take customers.</b>IBM is the book&#x27;s example. A price that is too high does not just lose sales; it invites competition.</span></span></strong>: a gap underneath your price where competitors can enter cheaper and take share. Too low a price creates an <strong><span class="term" tabindex="0"><mark>opportunity cost</mark><span class="tip" role="tooltip"><b>Money you could have had but gave up. In pricing: the gap between what the market would have paid and the lower price you actually charged.</b>Setting a price too low does not show up as a loss on any statement, which is why the book calls it money &#x27;left on the table&#x27;.</span></span></strong>: the difference between what the market would have paid and what you actually charged. That money is gone and never shows up in any account.</p>
+        <p>Firms have won with opposite approaches. Fort Howard Paper, Dell Computer and MCI built a <strong><span class="term" tabindex="0"><mark>positional advantage</mark><span class="tip" role="tooltip"><b>A position in the market that competitors find hard to copy, won either by low price or by being different.</b>Dell and MCI won it with low prices; Maytag, John Deere and Federal Express won it with differentiation and charge a premium. Both routes work.</span></span></strong> on low prices. Maytag, John Deere and Federal Express built one on being different, and charge a substantial premium. The book's summary: successful pricing "bridges the gap between internal costs and external market demand." Four things define a firm's options: its <strong>cost structure</strong>, its <strong>competitive status</strong>, its <strong>marketing strategies</strong> (especially what it competes on) and its <strong>organizational capabilities</strong>.</p>
+
+        <h3 id="s1-4a">Price from the customer's side: the 4 A's</h3>
+        <p>The slides open with a table that reads the marketing mix three ways. The seller sees the 4 P's. The customer sees four questions. Sheth and Sisodia's book <i>The 4 A's of Marketing</i> turns those questions into four tests of value:</p>
+        <div class="scroller"><table><thead><tr><th>Seller's perspective</th><th>Customer's perspective</th><th>Value perspective</th></tr></thead><tbody><tr><td class="k">Product</td><td>Customer solution</td><td>Acceptability: does it solve my problem well enough?</td></tr><tr><td class="k">Price</td><td>Customer cost</td><td>Affordability: can I pay for it, and is it worth it?</td></tr><tr><td class="k">Place</td><td>Convenience</td><td>Accessibility: can I get it easily?</td></tr><tr><td class="k">Promotion</td><td>Communication</td><td>Awareness: do I know it exists and what it does?</td></tr></tbody></table></div>
+        <p>The point for this course: price is only one of the four costs a customer weighs, and "price versus value" is the real comparison. A product wins when what the customer gets is worth more than the whole of what they give up.</p>
+
+        <h3 id="s1-who">Who is responsible for setting price</h3>
+        <p>Pricing is a <strong><span class="term" tabindex="0"><mark>cross-functional</mark><span class="tip" role="tooltip"><b>Involving several departments at once.</b>Pricing is cross-functional because finance, operations and marketing all have a stake, and each is biased by how its performance is measured. That is why many CEOs now employ pricing professionals.</span></span></strong> task: several departments have a stake in it, and each sees it through the lens of how its own performance is measured. Tim Smith's <i>Pricing Strategy</i> describes the three viewpoints:</p>
+        <div class="terms"><div><div class="k">Finance executives</div><div class="v">Trained in accounting, they know the costs, understand break-even and <span class="term" tabindex="0"><mark>cost-plus pricing</mark><span class="tip" role="tooltip"><b>Charging the cost of the service plus a fixed percentage.</b>Common in professional services and where material or equipment costs dominate. It ignores what the customer would pay.</span></span>, and see clearly that higher prices mean higher profit and higher shareholder value. They argue for higher prices and bigger margins. Their blind spot: they are rarely the ones who know whether customers will actually pay.</div></div><div><div class="k">Operations executives</div><div class="v">They think about <span class="term" tabindex="0"><mark>economies of scale</mark><span class="tip" role="tooltip"><b>Lower cost per unit because you are producing more.</b>Operations executives think about this, which is why they tend to want lower prices and higher volume.</span></span>, <span class="term" tabindex="0"><mark>economies of scope</mark><span class="tip" role="tooltip"><b>Lower cost per unit because you make several related products with shared resources.</b>Scale is about making more of one thing; scope is about making more different things together.</span></span> and learning. Their performance is measured on cost efficiency, so they tend to want lower prices to drive volume and fill capacity.</div></div><div><div class="k">Marketing and sales executives</div><div class="v">Customer-oriented. They know market share, competitors' moves and what customers want, and they understand how far the firm can shape willingness to pay. But they are rewarded for winning share, hitting revenue targets and landing accounts, so they are pushed toward lower prices and away from profit.</div></div></div>
+        <p>Because each function is biased, many firms make pricing a chief-executive-level decision. To help, CEOs have built what Smith calls "a new organizational capability": the <strong>pricing professional</strong>, someone who understands both what customers will pay and what the firm needs to earn.</p>
+
+        <h3 id="s1-factors">Critical factors in the pricing decision</h3>
+        <p>The book names five things a marketer must understand before setting a price. The slides list the same five.</p>
+        <h4>1 · Effective cost information</h4>
+        <p>You need to know where costs come from and how they are shared out, and not only manufacturing costs: marketing, distribution, design and technology costs too. Many companies still use old cost-allocation systems that spread overhead on the basis of direct labour, which distorts the picture now that factory support, marketing and design cost so much more than labour. One better approach treats every activity in the company as support for making and delivering products, so all costs are product costs. Another separates <strong><span class="term" tabindex="0"><mark>scale-related costs</mark><span class="tip" role="tooltip"><b>Costs that fall as you make more of the same thing.</b>The book&#x27;s rule of thumb: they drop 15 to 25 percent per unit every time volume doubles. Contrast with variety-related costs, which rise 20 to 25 percent each time variety doubles.</span></span></strong>, which fall as you make more (down 15 to 25 percent per unit each time volume doubles), from <strong><span class="term" tabindex="0"><mark>variety-related costs</mark><span class="tip" role="tooltip"><b>Costs that rise as you offer more different versions, models or options.</b>Every time variety doubles, these rise 20 to 25 percent. Old accounting systems hide this by spreading overhead on direct labour, so a busy product line looks cheaper than it is.</span></span></strong>, which rise as you offer more versions (up 20 to 25 percent each time variety doubles). A company that does not separate them will think its crowded product line is cheaper than it is.</p>
+        <h4>2 · Customer valuation</h4>
+        <p>Do not compete on price alone. Think in terms of <strong><span class="term" tabindex="0"><mark>total value</mark><span class="tip" role="tooltip"><b>Everything the customer gets for the price, not just the physical product: installation, delivery, support, after-sale service, and symbolic things like prestige.</b>The book&#x27;s point: customers pay for the whole package, so a marketer should compete on total value rather than on price alone.</span></span></strong> as the customer perceives it: the whole package. That includes complementary features such as installation, delivery, technical support and after-sale service, and symbolic features such as prestige and status. Customers pay for the package, and different <span class="term" tabindex="0"><mark>market targets</mark><span class="tip" role="tooltip"><b>The customer groups a company chooses to serve. Also called segments.</b>Different groups value the product differently and will pay different prices, which is where the profit from pricing separately comes from.</span></span> weigh the pieces differently. Measuring perceived value is hard, for three reasons: differences between competing offers are hard to measure objectively, product qualities keep changing, and customers systematically distort features and benefits into their own perception of value. The answer is to accept the criteria customers actually use, and to monitor them continuously.</p>
+        <h4>3 · Market targets</h4>
+        <p>The total market can be split into segments because groups of customers differ. Those differences allow product and pricing differentials: no segment need buy the same product or pay the same price as another. This is where extra profit comes from, since some segments will pay more for a version of the package. The book's example is the San Luis Sourdough Company, which sells bread to supermarkets and speciality stores on three tiers: 97 cents wholesale for plain delivery (level 1); $1.02 if the store may return unsold day-old bread (level 2); another 3 cents if the company also stocks the shelf, bar-codes each bag and accepts returns (level 3).</p>
+        <p>The limit is the <strong><span class="term" tabindex="0"><mark>Robinson-Patman Act</mark><span class="tip" role="tooltip"><b>A U.S. law that makes it illegal to charge different buyers different prices for the same product, unless the difference can be justified.</b>The three defences: the products are different, the costs of serving the buyers are different, or the buyers do not compete with each other. It comes up again with quantity, seasonal and promotional discounts in Chapter 7.</span></span></strong>, which makes it unlawful to charge different buyers different prices for the same product. To avoid a charge of price discrimination you must show one of three things: the products are different; the same product costs different amounts to sell to different customer groups; or the customers do not compete with each other.</p>
+        <h4>4 · Competitive dynamics</h4>
+        <p>Competitors' reactions can stop you adjusting a price at all. The most common case: you cut your price, competitors follow, and a <strong><span class="term" tabindex="0"><mark>price war</mark><span class="tip" role="tooltip"><b>A cycle in which one firm cuts its price, competitors match, and everyone keeps cutting.</b>The most common competitor reaction the book warns about. Nobody wins except the customer, and only for a while.</span></span></strong> starts. The opposite case: you want to raise your price, and you need to know whether competitors will follow or hold. If they follow, the increase sticks. If they hold, you have created a <strong><span class="term" tabindex="0"><mark>competitive differential</mark><span class="tip" role="tooltip"><b>A gap between your price and competitors&#x27; prices, created when you raise your price and they do not follow.</b>The risk is losing market share if customers are price sensitive. The formula for X tells you how much of a rise the lost volume can absorb.</span></span></strong> and may lose share, especially if customers are price sensitive.</p>
+        <p>So you also need to know competitors' cost structures and their <strong><span class="term" tabindex="0"><mark>capacity utilization</mark><span class="tip" role="tooltip"><b>How much of a factory&#x27;s possible output is actually being used.</b>A competitor with spare capacity can absorb the customers you lose when you raise prices. A competitor running flat out cannot. That is why the formula uses competitors&#x27; excess capacity.</span></span></strong>. A competitor with spare capacity can absorb the customers you lose; one running flat out cannot. With this information you can estimate how large a price increase is needed to make up for the volume you expect to lose to competitors still selling at the old price. The book's formula, assuming no change in product or market size:</p>
+        <div class="note"><span class="lbl">The price-increase formula, worked</span><p>X = (Cc × Pm) ÷ (V − Cc), where X is the price increase in dollars, Cc is competitors' excess capacity in units, Pm is your present profit margin per unit in dollars, and V is your present volume. Example: Company A sells a $200 product with a $60 margin. The total market is 100,000 units, A sells 70,000 and competitors 30,000. Competitors have 10,000 units of spare capacity. X = (10,000 × 60) ÷ (70,000 − 10,000) = 600,000 ÷ 60,000 = <strong>$10</strong>, a 5 percent increase. In words: if A raises its price and loses 10,000 units to competitors' spare capacity, it needs $10 more on each of the remaining 60,000 units to earn the same total margin.</p></div>
+        <h4>5 · Pricing strategies</h4>
+        <p>Price is part of the marketing mix and serves the marketing objectives, which come from the firm's overall objectives. The question is which pricing strategy fits the situation. The book offers six questions as a guide for choosing:</p>
+        <div class="terms"><div><div class="k">Scale</div><div class="v">Are purchases big enough to justify pricing separately for individual customers?</div></div><div><div class="k">Consumer knowledge</div><div class="v">Can customers judge the product's value in money terms and tell price levels apart?</div></div><div><div class="k">Demand</div><div class="v">Does price play an important role in the customer's decision?</div></div><div><div class="k">Information</div><div class="v">Can the marketer accurately measure how customers value the product and how much they will buy?</div></div><div><div class="k">Competitive substitute</div><div class="v">Are there close substitutes in the category that customers compare prices against?</div></div><div><div class="k">Patronage</div><div class="v">Will customers favour competitors for reasons that have nothing to do with price?</div></div></div>
+        <p>Two warnings go with the list. First, tactics that pay in the short run are discarded in favour of long-run customer relationships: raising prices on products in short supply, for example, is replaced by pricing that keeps customers loyal, because replacing a lost customer costs about five times what keeping one costs. Second, price should be related to the other elements of the mix so they reinforce each other. The book names three kinds of fit, which Chapter 2 develops: the elements are <strong><span class="term" tabindex="0"><mark>synergistic</mark><span class="tip" role="tooltip"><b>Working together so that the combined effect is bigger than the sum of the parts.</b>The book says the marketing mix is synergistic: price, product, promotion and distribution reinforce each other when they fit, and undercut each other when they do not.</span></span></strong> (premium price with a top-quality product), they can be <strong>integrated</strong> (<strong><span class="term" tabindex="0"><mark>front-end loading</mark><span class="tip" role="tooltip"><b>Charging a higher initial price that includes things the customer will get later, like several years of &#x27;free&#x27; servicing.</b>An example of integration in the marketing mix: price and customer service designed together.</span></span></strong>: a higher initial price that includes five years of "free" servicing), and they should be <strong>leveraged</strong> (put money into whichever element gives the biggest return, treating a price cut as an expense like advertising). The slides call the three <strong>consistency, integration and <span class="term" tabindex="0"><mark>leverage</mark><span class="tip" role="tooltip"><b>Putting your money into whichever marketing element gives the biggest return per dollar.</b>A price cut costs the firm money just as advertising does, so compare them on equal terms. Beer and soft drinks are examples where price is the element that gets leveraged.</span></span></strong>.</p>
+
+        <h3 id="s1-approaches">Three major pricing approaches</h3>
+        <p>The slides group all pricing methods into three families. The first two come from Kotler's <i>Principles of Marketing</i>; the book's own treatment of <span class="term" tabindex="0"><mark>cost-based pricing</mark><span class="tip" role="tooltip"><b>Setting price by adding a desired profit to what the product costs to make and sell.</b>Simple and common with small firms and regulated utilities, but it ignores what customers will pay, so the price can end up too high or too low.</span></span> is folded in below.</p>
+        <h4>Cost-based pricing</h4>
+        <p><strong>Cost-based pricing</strong> starts from what the product costs and adds the profit you want. You need three cost ideas. <strong><span class="term" tabindex="0"><mark>Fixed cost</mark><span class="tip" role="tooltip"><b>A cost that stays the same no matter how much you produce, such as rent or salaries. Also called overhead.</b>Spread over more units it gets smaller per unit, which is why volume matters so much to cost-based prices.</span></span></strong>, also called overhead, does not change with output: rent, salaries. <strong><span class="term" tabindex="0"><mark>Variable cost</mark><span class="tip" role="tooltip"><b>A cost that rises and falls directly with how much you produce, such as materials.</b>Fixed plus variable equals total cost.</span></span></strong> changes directly with output: materials, packaging. <strong>Total cost</strong> is the two added together at a given level of output. Spread the fixed cost over more units and the cost per unit falls, which is why volume assumptions matter so much to a cost-based price.</p>
+        <p>The book explains why this approach is risky for most companies. It ignores the market. Cost plus a desired return can land too high, so volume is lower than it should be and customers drift to cheaper substitutes, or too low, so the firm earns less than it could. Either way the firm misses its profit potential because it never asked how the market would respond. Cost-based pricing survives where it fits: small firms, regulated industries like utilities and car insurance, where a government body approves price changes and acts as a stand-in for the market, and price-inelastic markets like petrol, where a rise in crude oil is simply passed through at the pump.</p>
+        <h4>Value-based pricing</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Value-based pricing</mark><span class="tip" role="tooltip"><b>Setting price from what the buyer thinks the product is worth, not from what it cost to make.</b>From the Kotler slides. It comes in two forms: good-value pricing (fair price for good quality) and value-added pricing (add features so you can charge more).</span></span></strong> reverses the order. It starts from the buyer's perception of value, not the seller's cost, and sets a price that captures that value. Customer-oriented pricing means understanding how much value customers place on the benefits they receive. Two versions:</p>
+        <div class="terms"><div><div class="k">Good-value pricing</div><div class="v">Offering the right combination of quality and good service at a fair price. Existing brands do it by offering more quality for the same price, or the same quality for less. Two ways to run it: <strong><span class="term" tabindex="0"><mark>everyday low pricing</mark><span class="tip" role="tooltip"><b>Charging one constant low price every day, with few or no temporary discounts.</b>Walmart is the usual example. The opposite is high-low pricing.</span></span> (EDLP)</strong>, one constant low price with few or no temporary discounts; and <strong><span class="term" tabindex="0"><mark>high-low pricing</mark><span class="tip" role="tooltip"><b>Charging higher prices day to day but running frequent promotions that cut prices on selected items.</b>Department stores are the classic case. Compare with EDLP.</span></span></strong>, higher everyday prices with frequent promotions that cut prices on selected items for a while.</div></div><div><div class="k">Value-added pricing</div><div class="v">Attaching <span class="term" tabindex="0"><mark>value-added</mark><span class="tip" role="tooltip"><b>Adding features and services that make your offer different, so you can charge more and stay out of price competition.</b>The goal is pricing power.</span></span> features and services to differentiate the offer, support higher prices and build <strong><span class="term" tabindex="0"><mark>pricing power</mark><span class="tip" role="tooltip"><b>The ability to raise or hold prices without losing market share.</b>Escaping price competition is the whole point of value-added pricing.</span></span></strong>: the ability to escape price competition and justify higher prices and margins without losing market share.</div></div></div>
+        <h4>Competition-based pricing</h4>
+        <p><strong>Competition-based pricing</strong> sets price by looking at what competitors charge for similar products, then positioning at, above or below them. Chapter 7 covers it as the "meeting competition" objective: when price is a given, the firm works backwards and manages its costs to fit.</p>
+        <h4>Defining price: the book's own version <span class="mark">book only</span></h4>
+        <p>What is a price? From the marketplace, customers see price as a monetary expression of value for the quality, features and benefits they get, compared with other products. The book writes it as <strong>Price = Quality ÷ Value</strong>: price is the payment for quality as the market values it. Psychologically, a price is an estimate or image of the benefits from a set of features, which is why psychological prices act as expected prices or reference points. The bundle of features being valued includes performance, reliability, convenience, flexibility and appearance, plus complementary features like serviceability and symbolic ones like prestige. That is why a Lexus or a Mercedes carries a high price tag without complaint.</p>
+        <p>From the standpoint of costs, management ignores the market and covers cost plus a return, as above. The book also names <strong><span class="term" tabindex="0"><mark>administrative prices</mark><span class="tip" role="tooltip"><b>Prices set by a company&#x27;s own decision, with little regard for supply and demand.</b>An old term. It was once used as an accusation against big business for squeezing out smaller rivals.</span></span></strong>, set by company decision with no regard for the market, an old term once used to accuse big business of squeezing out small rivals. And it notes that governments step in when price does not reflect value or when a product should be controlled for the public good: directly through ownership and subsidies (state liquor distribution, farm subsidies), indirectly through regulatory boards, research funding and public policy.</p>
+        <h4>Price structures <span class="mark">book only</span></h4>
+        <p>A <strong><span class="term" tabindex="0"><mark>price structure</mark><span class="tip" role="tooltip"><b>A set of related price levels for one product, varying by model, type of customer, quantity bought and so on.</b>Almost nothing is sold at one price to everyone any more. Airlines are the extreme case: price depends on route, time, class, length of stay and when you booked.</span></span></strong> is a series of price levels showing how one product will be priced for different models, customer types (wholesale, retail, commercial) and quantities. Almost nothing is sold at one price to everyone any more; the fixed-price dinner at an exclusive restaurant is the book's rare exception. Airlines are the extreme case, pricing by route, time of day, class, length of stay and when you booked. Benefits: flexibility, fast response to competitors, and better segmentation through objective differences between customer types. The cost: structures can be used to hide the true price, as airlines, car-rental firms and phone companies do with "frequent flyer" style gimmicks, so that repeated calls to a travel agent produce different prices for the same trip.</p>
+        <p>Three reasons for adopting a structure. First, responding to competition: a <strong><span class="term" tabindex="0"><mark>list price</mark><span class="tip" role="tooltip"><b>The published or quoted price before any discounts.</b>Discounts are taken off it in a chain. In the book&#x27;s example a $10 list price with discounts of 40-20-10-10-5 ends at $3.69.</span></span></strong> is quoted with a <strong><span class="term" tabindex="0"><mark>chain of discounts</mark><span class="tip" role="tooltip"><b>A series of percentage discounts applied one after another, each to the price left by the previous one.</b>40 percent off $10 gives $6; 20 percent off $6 gives $4.80; and so on. The percentages do not simply add up.</span></span></strong>, each taken off the price left by the last. A $10 list price with discounts of 40-20-10-10-5 gives five possible prices: $6.00, $4.80, $4.32, $3.89 and finally $3.69. (Meeting a competitor's price is legal; pricing below it is often judged discrimination.) Second, recognizing that segments value the product differently, as when a concert seat under cover costs more than one in the open. Third, building in customer incentives that save the seller money: a lower price for buying by the case, for collecting instead of having it delivered, or for buying car options as a package rather than separately.</p>
+
+        <h3 id="s1-constraints">Constraints on pricing practices</h3>
+        <p>Costs and market valuations are the main determinants, but four other things limit what a firm can do: the industry it is in, the structure of the market, general economic conditions, and the law. A surprising rule from the book: <strong>the more competitive the industry, the easier the pricing decision</strong>, because the market sets the price. That is why firms in competitive industries turn to <strong><span class="term" tabindex="0"><mark>nonprice competition</mark><span class="tip" role="tooltip"><b>Competing on anything other than price: advertising, positioning, customer satisfaction, selection.</b>The book&#x27;s observation: the more competitive an industry, the more firms turn to this, because competing on price alone leads nowhere.</span></span></strong>, advertising to position the product and, more recently, competing on customer satisfaction. <strong><span class="term" tabindex="0"><mark>Category-busting</mark><span class="tip" role="tooltip"><b>A retailer offering so huge a selection in one category that customers stop comparing on price.</b>Selection and availability take the pressure off price. Think of a store with 200 kinds of running shoe.</span></span></strong> is a retail form of this: offer a bewildering selection in one category so that choice and availability take the pressure off price.</p>
+        <p>Economic conditions amplify pricing choices. It is hard to resist raising prices in good times and cutting them in a recession, but doing either weakens the firm's relationship with the market. Global firms face several economies at once. And the legal framework has spread from preserving competition into foreign trade, public policy and national interests.</p>
+
+        <h3 id="s1-ethics">Ethics in pricing</h3>
+        <p>Setting a price can conflict with social values because the seller wants the best long-run return, which may be higher or lower than the market would set at that moment. High prices attract more comment, since they suggest excess profit. Low prices are questioned too, since they suggest less value or a trick. The dispute is really about the gap between cost and price, and critics quote profits in absolute rather than relative terms. Four practices the book says the public questions:</p>
+        <ul>
+          <li>Price steps within a product line that are not justified by steps in value (a proliferation of models).</li>
+          <li>Branded goods priced far above generic equivalents (pharmaceuticals).</li>
+          <li>Disproportionately high prices for replacement parts (foreign cars).</li>
+          <li>"New" products priced above the value of what actually changed (<strong><span class="term" tabindex="0"><mark>false obsolescence</mark><span class="tip" role="tooltip"><b>Making a product seem out of date so people buy the &#x27;new&#x27; one, when the change is worth less than the extra price.</b>One of the four pricing practices the book says the public questions.</span></span></strong>).</li>
+        </ul>
+        <p>Two practices are plainly wrong rather than debatable. A <strong><span class="term" tabindex="0"><mark>false reference</mark><span class="tip" role="tooltip"><b>Quoting an &#x27;original price&#x27; or &#x27;comparable value&#x27; that misleads, or was never real, to make the current price look like a bargain.</b>Unlike arguments about profit, this one is clear cut: it is deceptive and often illegal.</span></span></strong> uses "original price," "previously priced at" or "comparable value" to mislead, and the reference may simply be invented. <strong><span class="term" tabindex="0"><mark>Bait and switch</mark><span class="tip" role="tooltip"><b>Advertising a low price to bring customers in, then pushing them toward a more expensive product.</b>Illegal when that is the purpose. The book&#x27;s answer to both this and false reference is that customers can stop buying from firms that do it.</span></span></strong> advertises a low price to bring customers in, then steers them to something dearer; it is illegal when that is the purpose. The book's remedy for both: customers can stop buying from firms that do it, and firms can publish a statement of pricing principles.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Too high a price creates a price umbrella for competitors; too low creates an opportunity cost. Both lose money.</li><li>4 A's: acceptability, affordability, accessibility, awareness. Price is only one of the customer's costs.</li><li>Pricing is cross-functional: finance wants margin, operations wants volume, marketing wants share. Hence CEO involvement and pricing professionals.</li><li>Five critical factors: cost information · customer valuation (total value) · market targets (Robinson-Patman) · competitive dynamics (X formula) · pricing strategy (six questions).</li><li>Three approaches: cost-based (fixed, variable, total cost) · value-based (<span class="term" tabindex="0"><mark>good-value</mark><span class="tip" role="tooltip"><b>Offering the right mix of quality and service at a fair price.</b>Two ways to run it: everyday low pricing (one steady low price) or high-low pricing (higher everyday prices with frequent sales).</span></span>: EDLP or high-low; value-added: pricing power) · competition-based.</li><li>Price = Quality ÷ Value. A price structure is a set of levels; discounts come off list price in a chain.</li><li>The more competitive the industry, the easier the pricing decision, so firms turn to nonprice competition and category-busting.</li><li>Ethics: four questionable practices, plus false reference and bait and switch, which are simply deceptive.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>Market Interpretations of Price</h2></div>
+        <p class="src">Slides: Chapter 2 &middot; Book: Hanna and Dodge, Chapter 2. The slides follow the book section by section.</p>
+        <p>Chapter 1 looked at price from the company's side. This chapter looks at it from the customer's side: what a price <em>tells</em> people, and how they use it to judge quality, sort products and spot bargains. Everything here rests on one idea: price is information, not just a cost.</p>
+
+        <h3 id="s2-roles">Two roles of price: allocation and information</h3>
+        <p>The chapter opens with a sports economist's finding: there is "no relationship whatsoever between ticket prices and owners' costs." Ticket prices are set by what the market will bear. Owners cannot pass on star salaries until fans' perception of the game rises. Price, in other words, is set by perception, and price has two jobs.</p>
+        <div class="terms"><div><div class="k">Allocation role</div><div class="v">Price decides who can buy a product and how much, which means it sets total demand. This has a social edge. Effective pricing that expands the market lets more people enjoy what society produces. Ineffective pricing can split society into haves and have-nots and shut out the poor.</div></div><div><div class="k">Information role</div><div class="v">Price sends signals. It positions a product by quality and by the social status of owning it, and it often shows what the buyer wants to be recognized for. Together with deals and promotions, price is therefore a powerful stimulus that can trigger buying.</div></div></div>
+
+        <h3 id="s2-mix">Price as part of the marketing mix</h3>
+        <p>Price is the only element of the mix that brings money in. Product, promotion and distribution all cost money. (Pricing below competitors to win sales is an implicit expense too, since it gives up profit.) Competition forces firms to serve customers better through superior products, more service and more effective pricing, and effective pricing is judged by product positioning and total profit over the product's life.</p>
+        <p>Table 2.1 in the book shows how quality and price combine to affect <span class="term" tabindex="0"><mark>return on investment</mark><span class="tip" role="tooltip"><b>Profit as a percentage of the money invested.</b>Finance executives judge prices by it. Target return pricing in Chapter 7 is built around hitting a set ROI.</span></span>. Firms with <strong>high relative quality and low relative price</strong> earn the highest returns. Firms with high quality and high price come a close second, with a 34 percent return, more than twice the 15 percent of low-quality, low-price firms. The worst performers are medium quality at a medium price: 2 percent. The lesson is that quality is what pays, and combining it with a competitive price pays most.</p>
+        <p>The elements of the mix are <strong>synergistic</strong>: together they produce more than the sum of the parts, provided each supports the others. Three kinds of fit:</p>
+        <div class="terms"><div><div class="k">Consistency</div><div class="v">The logical fit between elements. A low price on a premium product is inconsistent, and so is selling a premium product through cheap stores. Premium products have excellent quality, prices above competitors and selective distribution through high-quality outlets; ordinary products have less quality, lower prices and mass distribution.</div></div><div><div class="k">Integration</div><div class="v">Elements actively working together. Heavy advertising plus a high price: the margin pays for the advertising, and the advertising creates the positioning that justifies the price (Ralph Lauren, Cadillac, Pella windows, Perrier). Also <span class="term" tabindex="0"><mark>promotional pricing</mark><span class="tip" role="tooltip"><b>Temporary price cuts, rebates, cash-back deals and similar incentives used to boost sales for a while.</b>Retailers use it for store traffic; manufacturers use it to win market share and get people to switch brands.</span></span>, where a lower price is combined with advertising, and front-load pricing, where the initial price includes the product plus extended service.</div></div><div><div class="k">Leverage</div><div class="v">Using each element where it earns the most. If rebates build share better than advertising or better distribution, invest in rebates. If price cuts start giving diminishing returns, shift the money elsewhere. A price discount is an investment measured in sales dollars not collected. Beer and soft drinks are markets where price is the element that gets leveraged.</div></div></div>
+
+        <h3 id="s2-information">Price as purchasing information</h3>
+        <p>A price looks like the one concrete, objective fact about a product. To the customer it is neither: it is interpreted, and the interpretation is subjective. Customers use price psychologically in three ways: to signal quality, value and status; to sort products into categories; and to form impressions, especially the impression of getting a bargain.</p>
+        <p>The value a customer sees can be written as a formula, and it is on the slides:</p>
+        <div class="note"><span class="lbl">The value formula</span><p><strong>Features and benefits − Price = Value.</strong> The more value, the more likely the purchase. Notice that price is the only concrete part of the equation. So the seller's job is to make the features and benefits as concrete as possible, by demonstrating quality and special features. <strong><span class="term" tabindex="0"><mark>Value pricing</mark><span class="tip" role="tooltip"><b>Keeping the price the same, or cutting it, while giving the customer a bigger package of features.</b>Car makers use it a lot. It is the marketer&#x27;s way of making the value formula come out better without dropping the price.</span></span></strong>, which car makers use heavily, means keeping the price the same, or cutting it, for a model with a bigger package of features, so the formula comes out better. BMW is the book's example of a shift in what price signals: from "what he or she has" to "how astute the buyer is in getting the most value for the money."</p></div>
+        <p>Does price actually carry information? Only if the customer believes there is a dependable link between price and the product. A customer who relies on that link ignores other information and makes a <strong><span class="term" tabindex="0"><mark>price-seeking choice</mark><span class="tip" role="tooltip"><b>Choosing the higher-priced option on purpose because you assume the higher price means higher quality.</b>The customer ignores other information and lets price do the judging.</span></span></strong>: picks the dearer option to get the best expected quality. The book gives three reasons customers infer quality from price: past experience has taught them that higher price went with higher quality; they reason that higher prices come from firms spending more to supply quality; and they trust the market, assuming other people would not pay more unless the product were better.</p>
+        <p>How strong and how reliable the link is depends on the type of product, as Figure 2.1 shows:</p>
+        <div class="scroller"><table><thead><tr><th>Product type</th><th>Price as a quality signal</th><th>Examples</th></tr></thead><tbody><tr><td class="k">Staples</td><td>Almost none. Bought by habit.</td><td>Basic groceries</td></tr><tr><td class="k">Homogeneous shopping goods</td><td>Weak. Brands are much alike, so customers judge by use and buy on price.</td><td>Frozen foods (taste, freshness), underwear (fit, feel), towels, bedding, china</td></tr><tr><td class="k">Heterogeneous shopping goods</td><td>Strong. Brands differ visibly, so customers trust price and pay more for an identifiable characteristic.</td><td>Clothing, stereo sets, video recorders, tennis rackets</td></tr><tr><td class="k">Positional goods (premium and luxury)</td><td>Strongest. A high price excludes most buyers, which is what creates status.</td><td>Luxury cars, designer labels</td></tr><tr><td class="k">Speciality goods</td><td>Not on the scale. Brand insistence means price barely matters; demand is <span class="term" tabindex="0"><mark>price inelastic</mark><span class="tip" role="tooltip"><b>Demand that changes little when price changes.</b>Speciality goods, petrol and innovations at launch are inelastic. Skimming only works with inelastic demand.</span></span>.</td><td>A perfume the customer will accept no substitute for</td></tr></tbody></table></div>
+
+        <h3 id="s2-stimulus">Price as a marketing stimulus</h3>
+        <p>Price cuts, and new products launched at low prices, raise sales. <strong>Promotional pricing</strong> is a major competitive tool: short-term price cuts, cash-back offers and rebates, value pricing, and merchandising incentives such as premiums and contests. Its effect is most obvious with <span class="term" tabindex="0"><mark>homogeneous shopping goods</mark><span class="tip" role="tooltip"><b>Products that are much the same from brand to brand, like frozen food or plain underwear.</b>Customers judge them on use, not price. Price is a poor quality signal.</span></span> advertised as <strong><span class="term" tabindex="0"><mark>loss leaders</mark><span class="tip" role="tooltip"><b>Products sold at a loss to draw customers into the store, where they buy other things at full price.</b>Usually homogeneous shopping goods like coffee or soft drinks.</span></span></strong>. It serves two purposes at once. The retailer discounts coffee, soft drinks or pet food for a limited time to build store traffic, expecting shoppers to buy other things while they are there. The manufacturer discounts to build market share, expecting that some of the customers who switched brands to get the low price will not switch back when it ends.</p>
+        <p>Response to price cuts is also a way of segmenting a market. Customers who react to price cuts are the price-sensitive segment, and defining them ties segmentation to profit: resources can be allocated according to how each group responds. Take-home soft drinks are a price-sensitive market; <span class="term" tabindex="0"><mark>off-price retailers</mark><span class="tip" role="tooltip"><b>Stores that sell brand-name goods at deep discounts.</b>They succeed because their prices fall inside customers&#x27; acceptable ranges, which lag behind the real prices in the market.</span></span> built their whole business on price-sensitive consumers.</p>
+
+        <h3 id="s2-consumer">Consumer interpretations of price</h3>
+        <p>People's Express airline and MCI both changed their industries with drastically discounted, no-frills service. Competitors answered not with lower prices but by packaging price with quality and customer service. People's Express went out of business and MCI had to change repeatedly to match AT&amp;T's service. What both forgot is that customers see several differences between competing offers, of which price is only one, and that price has more than economic meaning. Low prices attract customers, but competing only on low price is rarely sustainable.</p>
+        <h4>Time implications</h4>
+        <p>Customers, individual and industrial, treat delay in getting a product as a <strong>time cost</strong>. So products that are readily available command a premium. Atlas Door gets a premium for industrial doors by delivering in weeks instead of the industry's four months. Norwalk Furniture grew sales and its dealer network by cutting delivery to three weeks against a norm of two to three months. Industrial customers running <strong><span class="term" tabindex="0"><mark>just-in-time</mark><span class="tip" role="tooltip"><b>A system where a customer keeps almost no stock and relies on suppliers delivering exactly when needed.</b>It makes fast, reliable delivery worth more than a low price to industrial buyers.</span></span> (JIT)</strong> systems, keeping almost no stock and relying on suppliers, now rank on-time delivery of quality goods above price. A firm can win by shortening delivery time instead of cutting price.</p>
+        <h4>Psychological implications</h4>
+        <p>Because customers use price to tell products apart and judge quality, a genuinely better product must be priced higher than lesser ones, or it will be read as lesser. Wilson Sporting Goods learned this with its Sting tennis racket. It looked and played like the Prince Graphite, but a manufacturing innovation let Wilson price it $100 lower, and the low price told buyers it was worse. Sales were poor until Wilson repositioned it for people who wanted graphite but thought they could only afford aluminium.</p>
+        <p>Some customers pay more for quality. Others pay more to avoid the risk of a cheap brand turning out badly: the higher price is a form of insurance when they cannot judge quality themselves. This matters more as the product concept broadens from physical features to customer service, and firms known for high service can charge more. Customers also sort brands into <strong><span class="term" tabindex="0"><mark>price lines</mark><span class="tip" role="tooltip"><b>Groups of prices that customers sort products into, such as economy, mid-range and premium.</b>Chapter 2 gives four: economy, moderate, prestigious, luxurious.</span></span></strong>, and hold a range of prices they consider "fair" or "normal" for a product; a price pushed above or below that range works less well than expected. Even the form of a price matters: $9.95 or $1,299 says bargain, $10 or $1,300 says quality and prestige.</p>
+
+        <h3 id="s2-quality">The price-quality relationship</h3>
+        <p>With more products to choose from, and more complex ones, judging which to buy has become hard. Comparing brands at different prices is harder still because the customer does not have complete information about quality. Where quality <em>can</em> be measured, the quality difference can be compared with the price difference. That is the <strong><span class="term" tabindex="0"><mark>comparative value</mark><span class="tip" role="tooltip"><b>A ratio comparing how much more quality you get against how much more you pay when you choose the dearer of two products.</b>Above 1 the dearer product is the better deal; below 1 you are paying more than the extra quality is worth.</span></span></strong> ratio:</p>
+        <div class="note"><span class="lbl">Comparative value, worked</span><p><strong>Cv = [(Q<sub>H</sub> − Q<sub>L</sub>) ÷ Q<sub>L</sub>] ÷ [(P<sub>H</sub> − P<sub>L</sub>) ÷ P<sub>L</sub>]</strong>, where H is the higher-priced product and L the lower-priced one, Q is a quality rating and P is price. In words: the percentage gain in quality divided by the percentage rise in price. Cv above 1 means the dearer product gives more extra quality than it costs in extra price, so it is the better value. Cv equal to 1 means quality and price rise in step. Cv below 1 means you are paying more than the extra quality is worth. The book's example compares four cars. Brand M is rated 67 and lists at $22,790; brand S is rated 63 and lists at $22,167. Quality gain: (67 − 63) ÷ 63 = 0.0635. Price rise: (22,790 − 22,167) ÷ 22,167 = 0.0281. Cv = 0.0635 ÷ 0.0281 = <strong>2.26</strong>: every extra dollar spent on M rather than S buys $2.26 of comparable value. Buying M is clearly the better decision. In every other pairing of the four cars, though, Cv was below 1 (0.67 down to 0.38): more quality, but not enough to justify the price gap.</p></div>
+        <p>Because a direct price-quality link is hard to see, customers shop for "value for the money" and use price as a clue. The link is stronger for expensive, infrequently bought items that often come with service arrangements (cars, major appliances) than for cheap frequent purchases (hosiery, towels, cleaners). Most customers accept that higher quality costs more, though not proportionately more. A 1985 Gallup survey found people willing to pay about a third more for a better car, half more for a better dishwasher, almost two-thirds more for a better sofa and over twice as much for good shoes.</p>
+        <p>The clearest price-quality link is in major appliances, where customers understand the extra cost of quality and use the terms <strong><span class="term" tabindex="0"><mark>top-of-the-line</mark><span class="tip" role="tooltip"><b>The single brand or model that occupies the highest price position in its category.</b>Only one brand can hold it. Pricing above the dividing line signals it; the book&#x27;s examples are KitchenAid, Pella and Haagen-Dazs.</span></span></strong>, competitive and economy. Contrast bedding, where retailers' special orders make comparison almost impossible even within one brand. Market leaders in appliances protect their position by offering above-average quality at less than the price the market would allow. The book's general rule: the price-quality relationship is most pronounced when the item is expensive and a poor choice is risky, when the customer sees links between price, product and place of purchase, and when familiar relationships are carried over to unfamiliar products or suppliers. Competing on price and specifications alone is no longer enough even for technical products.</p>
+
+        <h3 id="s2-range">Acceptable price levels and price ranges</h3>
+        <p>Customers also use price to set expectations. An <strong><span class="term" tabindex="0"><mark>acceptable price level</mark><span class="tip" role="tooltip"><b>The price a customer expects to pay for a certain quality of product: the minimum that still signals real value.</b>Below it the customer suspects something is wrong.</span></span></strong> is the amount a customer expects to pay for a given quality of a product: the minimum that still signals value. Below it, value is being sacrificed; well above it, the quality is being overvalued. An <strong><span class="term" tabindex="0"><mark>acceptable price range</mark><span class="tip" role="tooltip"><b>The band between the lowest and highest prices a customer is willing to pay for a product.</b>Below the range signals defects or old stock; above it feels overpriced. Within it, the customer barely thinks about price.</span></span></strong> extends this into a band with a lower and an upper limit. Willingness to buy is higher inside the band than outside it. The band narrows the seller's options but simplifies the customer's decision.</p>
+        <p>The book's example is men's dress shirts with a psychological range of $35 to $60. A shirt priced under $35 is not seen as a bargain. It is seen as a warning: something is wrong, a defect or an out-of-date style, so buying it feels risky. A shirt priced over $60 is seen as expensive without a matching rise in quality; most customers feel no shirt is worth it, and the seller's market shrinks sharply. <strong>Off-price retailers</strong> succeed by discounting national brands that were priced above the range back down into it.</p>
+        <p>Ranges apply to convenience and shopping goods rather than speciality or luxury items. Some products once had a single <strong><span class="term" tabindex="0"><mark>customary price</mark><span class="tip" role="tooltip"><b>A single price that people have come to expect for a product, like the old five-cent candy bar.</b>When costs force a change, sellers often change size or quality to distract from the price.</span></span></strong>: five cents, then ten, for a candy bar or a phone call. For brands, the dimension is usually a <strong><span class="term" tabindex="0"><mark>dividing price</mark><span class="tip" role="tooltip"><b>A price threshold for brands rather than a range: above it means top of the line, below it means something less.</b>The sports car example: European cars priced above it, American and Japanese below, and crossing the line in either direction confuses buyers.</span></span></strong> rather than a range: above it means top of the line, below it means something less, and usually only one brand can hold the top position (KitchenAid in dishwashers, Pella in windows, Del Monte in canned goods, Godiva in chocolate, Haagen-Dazs in ice cream). Sports cars show how rigid this can be. European cars sit above the dividing price, American and Japanese cars below it. Price an American car above the line and buyers say "for that money I would buy a European car." Price a European car below it and they ask "what did they leave off?" Acceptable levels lag behind real prices, which is why candy bars changed size and quality as they moved from five cents to a dollar, and why off-price retailers feel like bargains.</p>
+
+        <h3 id="s2-lines">Price lines</h3>
+        <p><strong><span class="term" tabindex="0"><mark>Price lining</mark><span class="tip" role="tooltip"><b>Setting a few fixed price levels for a product type and pricing each brand or item into one of them.</b>It lets a seller reach several segments and invites customers to trade up. The risk is inconsistency that damages the image.</span></span></strong> is a variation on acceptable ranges: the seller sets a few price levels for a product type and prices each brand or item into one of them. Men's neckties might come in lines at $15 to 20, $25 to 30, $40 to 50 and $60 and up. J. Crew prices into the lower two, Countess Mara and Neiman-Marcus into the upper two, Saks only into the top one. Men's fragrances split the same way: an expensive line in department stores ($30 to 75), a mass-prestige line sold selectively ($28 and up), a higher line on mass distribution (Old Spice, English Leather, $8 to 20) and a popular line in food and drug stores (Brut, Aqua Velva, under $7).</p>
+        <p>Offering more than one line lets a seller appeal to more segments and creates the chance of <strong><span class="term" tabindex="0"><mark>trading up</mark><span class="tip" role="tooltip"><b>Persuading a customer to buy from the next higher price line.</b>One of the reasons for having more than one price line.</span></span></strong> to the next line. The risk is inconsistency between prices that damages the image. A convenient way to think about lines is four levels: <strong>economy, moderate, prestigious and luxurious</strong>. In the book's hypothetical market the moderate line is by far the largest, then prestigious, then economy, then luxurious.</p>
+        <p>Closely related is <strong><span class="term" tabindex="0"><mark>price resistance</mark><span class="tip" role="tooltip"><b>A psychological ceiling above which customers refuse to pay for a type of product.</b>Haircuts hit it at $5, then $10. The fix was to rename the service hair styling.</span></span></strong>: customers fixing a price in their minds for a service and refusing to pay more. Haircuts met resistance at $5, then at $10. The way past it was to repackage and relabel the service as "hair styling": barbers now charge $7 or $8 for a haircut and over $10 for styling. Push a price over the resistance level without a new label and customers look for another way to satisfy the need, which is how rising cinema prices pushed people to video rentals and cheap cinemas. One last point: at retail, customers with different valuations all see one price. In industrial buying, several prices reached by negotiation are normal, and multiple prices work when the different valuations line up with some feature of the buying process. They can also confuse, as when the furniture chain Levitz quoted different prices depending on delivery and payment options.</p>
+
+        <h3 id="s2-reference">Reference prices</h3>
+        <p>A <strong><span class="term" tabindex="0"><mark>reference price</mark><span class="tip" role="tooltip"><b>The price a customer remembers and compares the current price against.</b>Sellers show the &#x27;original&#x27; price next to the sale price to create a sense of savings. It works even when the reference price is inaccurate.</span></span></strong> is the price a customer remembers and uses to judge a new price. Whether a customer has one depends on how much attention they pay to prices, how memorable the price was, and whether they use price in deciding. Sellers exploit this by showing the original price beside the discounted one, so the customer can see the saving. The response depends on the size of the discount: the bigger the dollar gap, the stronger the sense of a bargain. And the reference price works whether it is accurate or not, believed or not: it still shapes perceived value. The managerial lesson is that a well-used reference price increases perceived value and stimulates sales through promotional pricing, which is also why false references are an ethics problem in Chapter 1.</p>
+
+        <h3 id="s2-oddeven">Odd-even pricing</h3>
+        <p><strong><span class="term" tabindex="0"><mark>Odd-even pricing</mark><span class="tip" role="tooltip"><b>Ending prices in odd numbers like $9.99 to seem cheaper, or in round numbers like $100 to seem premium.</b>Rule of thumb: end in 5 or 9 below $50; in 5, 6, 7, 8 or 9 above $50.</span></span></strong> assumes that prices ending in odd numbers read as bargains. Customers perceive $3.99 as "about $3" rather than $4, although the real difference is tiny. The rule of thumb: below $50, end prices in 5 or 9 ($24.95, $19.99); above $50, end in 5, 6, 7, 8 or 9 ($495, $2,499). The effect is not universal: it appears for some products and situations and not others. The other half of the rule is that even prices ($100, $500) read as quality and prestige. So use odd prices to stress value and discounts, and even prices to reinforce a premium image.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Two roles of price: allocation (who gets it, how much) and information (quality, status).</li><li>ROI by quality and price: high quality with low price earns most; high quality with high price 34 percent; low and low 15 percent; medium and medium 2 percent.</li><li>Mix fit: consistency · integration · leverage. Price is the only element that earns revenue.</li><li>Value = Features and benefits − Price. Price is the only concrete term, so make the benefits concrete.</li><li>Price as a quality signal: none for <span class="term" tabindex="0"><mark>staples</mark><span class="tip" role="tooltip"><b>Everyday basic goods bought often without much thought, like bread or salt.</b>Price tells you almost nothing about quality here.</span></span> · weak for homogeneous shopping goods · strong for heterogeneous · strongest for <span class="term" tabindex="0"><mark>positional goods</mark><span class="tip" role="tooltip"><b>Premium and luxury products bought partly for the status they give.</b>A high price is part of the product: it keeps most people out, which is what makes owning it a signal.</span></span> · irrelevant for <span class="term" tabindex="0"><mark>speciality goods</mark><span class="tip" role="tooltip"><b>Products the customer insists on by brand and will search for, like a particular perfume.</b>Price barely matters because of brand loyalty; demand is price inelastic.</span></span>.</li><li>Cv = percent quality gain ÷ percent price rise. Above 1, the dearer product is better value. Cars M versus S: 2.26.</li><li>Acceptable range: below it signals defects, above it signals overpricing (shirts $35 to $60). Dividing price for brands; only one top-of-the-line.</li><li>Price lines: economy, moderate, prestigious, luxurious. Price resistance: $5 and $10 haircuts became hair styling.</li><li>Reference prices work even when inaccurate. Odd prices say bargain; even prices say quality.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>Pricing Decisions by Manufacturers</h2></div>
+        <p class="src">Slides: Lecture 03, Manufacturers' Pricing &middot; Book: Hanna and Dodge, Chapter 7. The slides follow the book closely.</p>
+        <p>This chapter is about the manufacturer, the company that makes the product and sells it to distributors and retailers. Three questions: where does a product's price sit within the company's range of products? What is the company trying to achieve with price? And what are the six named strategies and five named discounts a manufacturer can use?</p>
+
+        <h3 id="s3-environment">The pricing environment</h3>
+        <p>The chapter opens with Jack Welch of General Electric: globalization is a fact of life, growth is slower, "value buying is everywhere," and "if you're going to have the lowest cost and the highest quality product available, you've got to engage every mind that you have." Industry has changed: global competition, sharper focus on customers, more flexible operations, and changing customers and markets.</p>
+        <p>A manufacturer's prices affect the whole of society: consumers, government, labour, distributors and financial markets. Oil price rises moved world economies; the pricing of Procter &amp; Gamble, DuPont, Unilever, Mitsubishi and Nestlé sends signals about economic expectations to everyone else. Pricing and product decisions are tied together. Companies now try to carve out a niche, a small viable segment served with a unique strategy, and price becomes a positioning tool that differs from segment to segment.</p>
+        <p>For any product the <strong>lower limit</strong> of the price range is set by costs and the <strong>upper limit</strong> by what the market will bear. Where the product actually sits between those limits is a management decision made product by product, and two things decide it: the segment or segments the company chooses to serve, and the product's position in the company's <span class="term" tabindex="0"><mark>portfolio</mark><span class="tip" role="tooltip"><b>All of a company&#x27;s products seen together, each playing a different role.</b>Not every product has to earn the same profit. Some generate cash, some use it.</span></span>.</p>
+        <h4>Pricing and segmentation strategy</h4>
+        <p>Customers differ in what they need, how much they are willing to pay and how much they are able to pay. So a manufacturer may serve several segments. <strong><span class="term" tabindex="0"><mark>Market segmentation</mark><span class="tip" role="tooltip"><b>Dividing customers into groups that respond differently, so each group can be served, and priced, differently.</b>The two purposes: focus effort and build an advantage that lasts.</span></span></strong> is the process of sorting customers, products or markets into distinct groups on the basis of characteristics that make them respond differently. It has two purposes: to focus effort, and to build an advantage that can be sustained. Segments can be defined by customer characteristics (location, lifestyle, size of firm, demographics, type of industry) or by product-related ones (benefits sought, how much and how the product is used). The price structure for each segment must fit the rest of the marketing mix and, above all, sustain the advantage the firm started with, which means knowing how each segment values the product and watching for changes in customers and competitors.</p>
+        <h4>Pricing and the product portfolio</h4>
+        <p>A company's products play different roles. Strategic planning no longer expects every product to "carry its own weight" in profit. Each product differs in its stage of the life cycle, its market share and its market's growth, so some produce cash and others use it. The word <strong>portfolio</strong> describes this. The Boston Consulting Group's <strong><span class="term" tabindex="0"><mark>growth-share matrix</mark><span class="tip" role="tooltip"><b>The Boston Consulting Group&#x27;s grid that sorts products by market growth and market share into cash cows, stars, problem children and dogs.</b>The slides call problem children &#x27;question marks&#x27;. Same box.</span></span></strong> gives each product a role based on market growth and relative market share, and the slides attach a pricing strategy to each:</p>
+        <div class="terms"><div><div class="k">Cash cows</div><div class="v">Dominant share of a slow-growing market. Keep prices stable and maximize cash flow.</div></div><div><div class="k">Stars</div><div class="v">High share of a fast-growing market. Price competitively to sustain growth and leadership.</div></div><div><div class="k">Problem children (question marks)</div><div class="v">Low share of a fast-growing market. <span class="term" tabindex="0"><mark>Penetration pricing</mark><span class="tip" role="tooltip"><b>Launching at a low price to win a large market share fast.</b>Needs elastic demand, spare capacity and strong distribution. Risks: competitors match you, and a low price can signal low quality.</span></span> to build share while the market is still growing.</div></div><div><div class="k">Dogs</div><div class="v">Low share of a slow-growing market. <span class="term" tabindex="0"><mark>Harvest</mark><span class="tip" role="tooltip"><b>Letting a product&#x27;s market share decline on purpose while squeezing out the remaining profit. Also called harvesting.</b>The strategy for dogs.</span></span>, or <strong>milk</strong>: let share fall while taking the remaining profit, or cut prices to squeeze out what is left.</div></div></div>
+        <p>Texas Instruments runs a related system called <strong><span class="term" tabindex="0"><mark>design-to-cost</mark><span class="tip" role="tooltip"><b>Texas Instruments&#x27; method of planning a product around a target cost, relying on cost savings from learning and volume.</b>A pricing system built on high volume for a small product line.</span></span></strong>: high volume on a limited product line, with costs planned around the savings that come from learning. More broadly, in the 1970s <strong><span class="term" tabindex="0"><mark>flexible pricing</mark><span class="tip" role="tooltip"><b>Adjusting prices across products in the short run, raising some and lowering others, to get the best overall mix of sales and profit.</b>It replaced long-run target-return pricing in the 1970s when competition and unused capacity made fixed targets unworkable. Chapter 14 brings it back for inflation.</span></span></strong> began replacing traditional target-return pricing. Setting prices to hit long-run profit targets suited the steady growth of the 25 years after World War II. When competition intensified, capacity sat idle and costs and demand became unpredictable, companies had to juggle prices across their products, raising some and lowering others, to get the best total mix of sales and profit.</p>
+
+        <h3 id="s3-objectives">Pricing objectives</h3>
+        <p>Logically, pricing should start from the company's objectives. In practice many firms have no formal pricing objectives at all, only unstated, intuitive ones. Pressed, an executive will name profit, but investigation often reveals other implicit aims such as holding market share or keeping the factory busy. And companies that say they maximize profit are usually <em>satisfiers</em>, not maximizers. A landmark study of twenty large U.S. corporations (Lanzillotti) found five main pricing goals:</p>
+        <h4>1 · Achieve a target return on investment or on net sales</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Target return pricing</mark><span class="tip" role="tooltip"><b>Setting price by adding to cost the markup needed to hit a set return on investment or on sales, assuming a standard sales volume.</b>Works as a measure for a whole product line, not for single products, because different products deserve different returns.</span></span></strong> works out the markup per unit needed to reach an overall profit goal, then adds that markup to each product's cost. Both the costs and the profit goal are based on <strong><span class="term" tabindex="0"><mark>standard volume</mark><span class="tip" role="tooltip"><b>The normal, expected level of sales used to spread costs and set targets.</b>Target return pricing bases both its cost figures and its profit goal on it.</span></span></strong>, the expected level of sales. "Investment" means net worth plus long-term debt. It is popular, and it works well as a measure of a whole product line. It does not work for individual products, because strategy may require pricing one item high (to lend prestige or a quality image to the line) and another low (to draw traffic), so each earns a different rate. Two problems: how to value capital assets, at book value or present value; and how to split the target return among products that differ in capital invested, market share, image, life-cycle stage and competitive pressure. Expecting the same return from every product every year is a strategic error.</p>
+        <h4>2 · Maintain or enhance market share</h4>
+        <p>Firms seek share because large-share companies are generally more profitable. Share strategies are <strong>offensive</strong> or <strong>defensive</strong>. An offensive strategy aims to raise profitability by cutting price to win share: Henry Ford priced the Model T low against his engineers' advice, took half the market, and the volume drove costs down through scale and experience until the low price was profitable. Black &amp; Decker did the same in hand-held power tools, cutting prices as experience cut costs, which grew both share and total demand. A defensive strategy is for a firm far behind the leader: hold enough share to survive. Reducing share can also be a strategy, for "<span class="term" tabindex="0"><mark>dogs</mark><span class="tip" role="tooltip"><b>Products with a low share of a slow-growing market.</b>Pricing objective: harvest, meaning let share fall while taking the short-term profit.</span></span>" in declining markets: let share fall and harvest short-term earnings.</p>
+        <h4>3 · Meet or prevent competition</h4>
+        <p>The firm prices at about the industry average, adjusted for any special features of its product, company or distributors. A firm that follows the leader has no real price policy: price is a given and the firm works backwards, tailoring costs to fit it, which in turn dictates materials, features and marketing methods. Typical users are smaller firms that prefer to follow a leader, and large firms selling standardized or commodity products with no differentiation to exploit.</p>
+        <h4>4 · Maximize profits <span class="mark">book only</span></h4>
+        <p>Economic theory assumes firms maximize profit, and in competitive industries that is even socially useful, since high profits attract entrants who bring prices down. Firms may pursue it but rarely admit it, because the phrase sounds bad to the public. Cyert and March argue that firms actually practise <strong><span class="term" tabindex="0"><mark>satisficing</mark><span class="tip" role="tooltip"><b>Aiming for a satisfactory profit rather than the maximum possible.</b>Cyert and March&#x27;s term. The book argues most firms that claim to maximize profit actually satisfice, because true maximizing is impossible to calculate.</span></span></strong>: they aim for a satisfactory profit, not the maximum. The book agrees that maximization is non-operational in the real world. A multi-product firm cannot even know what a change in output does to the cost of one product in the line, let alone which of countless actions would maximize profit.</p>
+        <h4>5 · Stabilize prices</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Price stabilization</mark><span class="tip" role="tooltip"><b>Keeping prices steady over the long run despite small changes in costs, and not charging all the market will bear.</b>Used by big, visible companies to build public trust. Price changes are rare and moderate.</span></span></strong> keeps prices steady over the long run despite small changes in material, labour or other costs. The firm charges what it considers socially fair, not what the market will bear, and changes prices rarely and moderately. This suits large, publicly visible corporations: it builds trust and goodwill and shows the company as concerned for the public.</p>
+
+        <h3 id="s3-strategies">Pricing strategies</h3>
+        <p>A pricing strategy is the firm's price position relative to competitors. A <strong>high-price strategy</strong> differentiates the product and builds a quality image; it goes with profit maximization. A <strong>low-price strategy</strong> aims for a larger market share by penetrating new or existing markets. Whichever is chosen shapes the rest of the mix: product features, distribution, advertising and promotion. Six named strategies follow. The first two are high-price, the other four are low-price, in increasing order of aggression.</p>
+        <div class="cards"><div class="card"><span class="num">01</span><div class="bd"><h4>Skimming</h4><p>Charge the highest possible price in the short run. The product is an innovation or a desirable variation on what exists, so it enjoys a temporary monopoly and demand is <strong>price inelastic</strong> at first. It is short-run because competitors will arrive with similar products and end the premium. Why do it: R&amp;D and launch promotion are expensive and small early production runs cost more per unit, so high margins recover the investment fast; the high price builds a quality image; and it is easier to lower a price later than to raise it. <span class="term" tabindex="0"><mark>Skimming</mark><span class="tip" role="tooltip"><b>Launching at the highest price the market will bear, then lowering it over time as competitors arrive.</b>Works for innovative products with inelastic demand. It recovers R&amp;D fast, builds a quality image, and it is easier to cut a price later than to raise one.</span></span> also segments the market: cut the price in steps and each cut brings in the next segment. Dealers like it because a high price means a high markup for them. It works best for conspicuous products (digital watches at launch), where quality differences are large or hard to judge, and for designer labels.</p></div></div><div class="card"><span class="num">02</span><div class="bd"><h4>Prestige pricing</h4><p>Unlike skimming, the high price is meant to stay high for the product's whole life, because the price itself carries prestige and quality and is part of why people buy. Luxury cars, cameras, perfumes and liquor: much of the satisfaction is the prestige of owning something expensive. Cutting the price has repeatedly <em>reduced</em> sales, because the volume gained from new buyers is smaller than the volume lost from upper-income buyers for whom the image is gone. Rising incomes and the quest for quality have dulled price sensitivity, and the book suggests the term should become <strong>quality pricing</strong>, which focuses the customer on how the product satisfies expectations rather than on status.</p></div></div><div class="card"><span class="num">03</span><div class="bd"><h4>Penetration pricing</h4><p>A low price to infiltrate a market and win a large share. It works only if demand is <strong><span class="term" tabindex="0"><mark>price elastic</mark><span class="tip" role="tooltip"><b>How much the quantity sold changes when price changes.</b>Elastic: a small price cut brings a big jump in sales, which penetration pricing needs. Inelastic: sales barely move, which skimming needs.</span></span></strong> enough that the low price brings a large jump in volume. Volume then lowers cost through economies of scale and experience, which justifies the low price; Ford's Model T again. Requirements: a market that rewards low prices, and the production and distribution capacity to meet the demand you create. Dangers: competitors match the price and cancel the advantage unless the product is differentiated; and a low price can damage the product's image where customers link price with quality.</p></div></div><div class="card"><span class="num">04</span><div class="bd"><h4>Expansionistic pricing</h4><p>An exaggerated form of penetration: a very low price to build a mass market, sometimes at competitors' expense, where demand is highly elastic. Toyota and Honda entered the United States with standardized low-cost versions of the Corolla and Civic, then added more expensive models once accepted. Magazines and newspapers expand circulation with low subscription rates and earn it back from advertisers, whose rates are tied to circulation; book and record clubs do the same. Taken to the extreme it becomes <strong><span class="term" tabindex="0"><mark>dumping</mark><span class="tip" role="tooltip"><b>Selling abroad below the cost of making the product.</b>The extreme case of expansionistic pricing. Illegal under antidumping laws because it can wipe out the host country&#x27;s producers.</span></span></strong>, selling abroad below production cost, which can wipe out the host country's producers and is banned by antidumping laws.</p></div></div><div class="card"><span class="num">05</span><div class="bd"><h4>Preemptive pricing (stay-out pricing)</h4><p>A low price set to make the market unattractive to would-be competitors, so they stay out. Best when the firm has no patent, no differential advantage and entry is easy. Delaying rivals gives the firm time to build share, cut costs through scale and experience, and become the recognized original. RCA chose it in 1955 for colour television: the low price bought time to improve the colour-tube technology, cut costs and establish leadership before competitors rushed in.</p></div></div><div class="card"><span class="num">06</span><div class="bd"><h4>Extinction pricing</h4><p>A price set low, usually below cost, to eliminate competitors. The firm accepts losses to harm rivals financially; once they are gone, prices go back up to profitable levels. Standard Oil did it at the end of the 1800s: prices in local markets cut to half of cost, competitors bankrupted and bought for next to nothing, losses recovered by charging above normal elsewhere. The term <strong>cut-throat predation</strong> describes it. It needs a dominant position and deep pockets. Today it is <strong><span class="term" tabindex="0"><mark>predatory pricing</mark><span class="tip" role="tooltip"><b>Pricing below cost to destroy competitors.</b>To prove it in court, the price has to be shown to be below the seller&#x27;s average cost. The book also calls it cut-throat predation.</span></span></strong>, treated as illegal price discrimination if it substantially lessens competition or tends to create a monopoly; to prove it, the price must be shown to be below the seller's average cost. A mild modern form is selective: a camera maker prices its cheapest model at a loss to boost sales of the profitable rest of the line.</p></div></div></div>
+
+        <h3 id="s3-discounts">Discounts and allowances</h3>
+        <p>A manufacturer depends on good relationships with its distributors, who negotiate hard for the best price and terms. To pay them for their services and keep their cooperation, manufacturers offer discounts off the list price. There are five: <strong>quantity, trade (functional), seasonal, promotional and cash</strong>. Each is granted for a specific purpose, and a buyer who meets all the conditions can receive all five in a single transaction.</p>
+        <h4>Quantity discounts</h4>
+        <p>A <strong><span class="term" tabindex="0"><mark>quantity discount</mark><span class="tip" role="tooltip"><b>A lower price for buying more, based on units or on dollar value.</b>Saves the seller shipping, billing and handling costs. Legal only if it can be justified by those cost savings.</span></span></strong> is a reduction from list price to encourage buying in volume, based on the number of units or the dollar value bought. It can be stated as a percentage off, as free extra units, or as a fixed amount off. The manufacturer gains savings in shipping, order filling and billing, better use of production capacity, less capital tied up in stock, and lower insurance and administration. The buyer gains a lower price per unit. There are two kinds:</p>
+        <div class="terms"><div><div class="k">Noncumulative quantity discount</div><div class="v">Based on the size of a single order. Purpose: bigger orders. The savings are in selling, storage, order processing and delivery, and the discount builds goodwill, meets competition and satisfies large buyers. The book's schedule, from a linoleum maker: 1 to 5 tons, no discount; 6 to 10, 2 percent; 11 to 20, 3 percent; 21 to 30, 4 percent; over 30, 5 percent. The first break should sit where the seller's saving from a larger order equals the discount that pays the buyer for holding more stock. Schedules skewed to benefit a few big buyers, with too many or too widely spaced breaks, invite legal trouble.</div></div><div><div class="k">Cumulative quantity discount</div><div class="v">Based on total purchases over a period, usually a year. Purpose: loyalty and continued patronage. The discount rises as the year's total rises. It suits products where buyers resist large single orders: fast-changing styles or models, technology that quickly dates old stock, perishables, and goods with high inventory cost. The manufacturer focuses on the distributor's yearly volume, not the size of each order.</div></div></div>
+        <p>Both are subject to the <strong>Robinson-Patman Act</strong>. Unlike ordinary pricing, where the manufacturer is free to set any level, a discount schedule can be challenged even when offered equally to all comparable buyers. Quantity discounts are legal only as far as they can be justified by <strong>cost savings</strong>, and in practice the Federal Trade Commission accepts savings in selling and physical distribution, backed by shipping records. Savings in manufacturing are almost impossible to defend, because courts reject arbitrary allocation: overhead must be spread evenly, so a firm cannot load all fixed costs onto the first batch and claim only variable cost on the rest. The second defence, the <strong><span class="term" tabindex="0"><mark>good-faith defence</mark><span class="tip" role="tooltip"><b>Arguing that you cut your price for one buyer only to match an equally low price a competitor offered that buyer.</b>Accepted case by case, but it cannot justify a whole discount system.</span></span></strong> (I cut my price to this buyer only to match a competitor's equally low price), works only case by case and cannot justify a whole discount system. <span class="term" tabindex="0"><mark>Cumulative discounts</mark><span class="tip" role="tooltip"><b>A discount based on total purchases over a period, such as a year.</b>Its purpose is loyalty and repeat business. Harder to defend legally because many small orders save the seller little.</span></span> are the hardest to defend, because many small orders save the seller almost nothing, so firms use them cautiously. Price discrimination through discounts is not illegal in itself: the plaintiff must show that the schedule lessened competition or injured other suppliers.</p>
+        <h4>Trade discounts</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Trade discounts</mark><span class="tip" role="tooltip"><b>A discount given to wholesalers and retailers for the marketing jobs they do: selling, storing, delivering, serving customers. Also called a functional discount.</b>Stated as a chain, for example 40 and 20 percent. Modern retailers do several channel jobs at once, so trade discounts are giving way to stocking and slotting allowances.</span></span></strong>, also called functional discounts, are reductions from list price given to each class of reseller according to its place in the channel. They pay for the marketing functions performed at each level: selling, warehousing, distribution, customer service. They are usually stated as a chain. A calculator maker with a $10 suggested retail price offers 40 and 20 percent to retailers and wholesalers. Work backwards: the retailer pays $6.00 (40 percent off $10) and keeps a $4.00 markup; the wholesaler pays $4.80 (20 percent off $6.00) and keeps $1.20; the manufacturer receives $4.80. Traditionally the discount depended on trade classification (broker, wholesaler, retailer). That is breaking down: big retailers buy direct and do their own warehousing, Walmart has Procter &amp; Gamble manage its inventory for it, and distributors buy or franchise retail outlets. So the usefulness of trade discount structures is questioned, and many manufacturers now use <strong>stocking allowances</strong> and <strong><span class="term" tabindex="0"><mark>slotting allowances</mark><span class="tip" role="tooltip"><b>A payment a manufacturer makes to a retailer for shelf space.</b>Along with stocking allowances, the modern replacement for traditional trade discounts.</span></span></strong> instead: payments for carrying the product and for shelf space.</p>
+        <h4>Seasonal discounts</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Seasonal discounts</mark><span class="tip" role="tooltip"><b>A lower price for buying early or out of season.</b>Keeps the factory running all year and shifts the cost of holding stock onto the reseller. Bigger the earlier you buy.</span></span></strong> encourage buyers to order early in the season or out of season. Toys, air conditioners, snow tyres and lawn mowers have slack months when sales nearly stop, but manufacturers cannot afford to shut the factory, so they discount to resellers instead. In effect the manufacturer shifts the job and the cost of holding inventory to the reseller. The discount must be big enough to cover the dealer's storage for several months and the opportunity cost of the money tied up in stock. Since the discount divides the market by time, the longer before the season the buyer orders, the bigger the discount, falling progressively as the season approaches. The Robinson-Patman Act allows seasonal discounts if the same discount is given equally to comparable buyers, meaning buyers who order in the same time frame, and if it does not exceed the seller's cost savings.</p>
+        <h4>Promotional discounts</h4>
+        <p>A <strong><span class="term" tabindex="0"><mark>promotional discount</mark><span class="tip" role="tooltip"><b>A price reduction or allowance given to dealers who promote the manufacturer&#x27;s product locally.</b>Implicit: a straight price cut or extra goods. Explicit: paying back actual advertising costs, as in cooperative advertising.</span></span></strong> pays dealers for promoting the manufacturer's product. National advertising alone fails to tell customers where to buy locally, so manufacturers want local advertising that names local dealers, and local rates are cheaper. The discount may be a percentage (say 2 percent off list), a money amount per case, or extra units per case. Two forms:</p>
+        <div class="terms"><div><div class="k">Implicit discount</div><div class="v">A reduction in the price of the goods, or extra goods, that lowers the reseller's cost. Because it changes the price paid, it falls under the Robinson-Patman Act.</div></div><div><div class="k">Explicit allowance</div><div class="v">Reimbursing the reseller for some or all of the actual advertising or promotion spent on the manufacturer's product, as in <strong><span class="term" tabindex="0"><mark>cooperative advertising</mark><span class="tip" role="tooltip"><b>The manufacturer paying part of a dealer&#x27;s local advertising cost.</b>The classic explicit promotional allowance. Proof of spending is usually required first.</span></span></strong>. Usually paid only on proof of spending. It does not change the price, so it is treated as a trade practice under the Federal Trade Commission Act rather than as pricing.</div></div></div>
+        <p>Robinson-Patman requires promotional discounts to be offered on <strong><span class="term" tabindex="0"><mark>proportionately equal terms</mark><span class="tip" role="tooltip"><b>The Robinson-Patman rule that promotional discounts must be offered to all competing dealers in proportion to how much they buy.</b>The law did not define &#x27;proportionately&#x27;; the courts tied it to units or dollars purchased.</span></span></strong>. The Act never defined "proportionately"; the courts decided it means in proportion to the volume each dealer buys, in units or in dollars, applied uniformly to all competing buyers.</p>
+        <h4>Cash discounts</h4>
+        <p>A <strong><span class="term" tabindex="0"><mark>cash discount</mark><span class="tip" role="tooltip"><b>A small discount for paying an invoice early.</b>Written as 2/10, n/30: 2 percent off if paid within 10 days, full amount due in 30. Giving up that 2 percent to keep the money 20 more days works out to about 36 percent a year.</span></span></strong> rewards prompt payment of an invoice, although it can also be a way to give resellers an extra discount. It has three elements: a discount rate, a period during which the rate applies, and a deadline for paying the full bill if the discount is not taken. The familiar terms <strong>2/10, n/30</strong> mean 2 percent off if paid within 10 days, with the full amount due in 30 days. The amount follows industry practice and the seller's competitive position; where cash discounts are customary, a manufacturer that refuses them loses business.</p>
+        <div class="note"><span class="lbl">Why 2 percent is worth 36 percent a year</span><p>A buyer who skips the discount keeps the money for 20 extra days (day 10 to day 30) and pays 2 percent for the privilege. There are about 18 such 20-day periods in a year, and 18 × 2 percent = 36 percent. That is the effective annual interest rate of not taking the discount, which is why buyers take it and why sellers can afford to offer it: early payment turns <strong><span class="term" tabindex="0"><mark>accounts receivable</mark><span class="tip" role="tooltip"><b>Money customers owe the company for goods already delivered.</b>Cash discounts turn it into cash faster and cut the risk of bad debts.</span></span></strong> into cash sooner, cuts credit risk and bad debts, and lowers the cost of chasing overdue accounts.</p></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Price range: costs set the floor, what the market will bear sets the ceiling. Position within it depends on the segment served and the product's role in the portfolio.</li><li>BCG pricing: <span class="term" tabindex="0"><mark>cash cows</mark><span class="tip" role="tooltip"><b>Products with a dominant share of a slow-growing market.</b>They throw off cash. Pricing objective: keep prices stable and milk the cash flow.</span></span> stable · stars competitive · <span class="term" tabindex="0"><mark>problem children</mark><span class="tip" role="tooltip"><b>Products with a low share of a fast-growing market. Also called question marks.</b>Pricing objective: penetration pricing to build share while the market is still growing.</span></span> (question marks) penetration · dogs harvest.</li><li>Five objectives (Lanzillotti): target return · market share (offensive or defensive) · meet competition · maximize profit (really satisficing) · stabilize prices.</li><li>Six strategies: skimming and prestige (high); penetration, <span class="term" tabindex="0"><mark>expansionistic</mark><span class="tip" role="tooltip"><b>An extreme form of penetration pricing: a very low price to create a mass market quickly.</b>Toyota and Honda entering the U.S.; magazines with cheap subscriptions. Taken too far it becomes dumping.</span></span>, <span class="term" tabindex="0"><mark>preemptive</mark><span class="tip" role="tooltip"><b>A low price set to make the market unattractive to would-be competitors. Also called stay-out pricing.</b>Best when you have no patent, little differentiation and easy entry. RCA used it for colour TV in 1955.</span></span>, <span class="term" tabindex="0"><mark>extinction</mark><span class="tip" role="tooltip"><b>A price set below cost with the aim of driving competitors out of business, after which prices go back up.</b>Standard Oil did it in the 1800s. Today it is called predatory pricing and can be illegal if it lessens competition or creates a monopoly.</span></span> (low, in rising aggression). Dumping = extreme expansionistic; predatory = extinction.</li><li>Five discounts: quantity (<span class="term" tabindex="0"><mark>noncumulative</mark><span class="tip" role="tooltip"><b>A discount based on the size of one single order.</b>Its purpose is bigger orders. Easier to defend legally because the cost savings from one large shipment are measurable.</span></span> per order, cumulative per year) · trade (chain, 40 and 20) · seasonal · promotional (implicit discount or explicit allowance) · cash (2/10, n/30 = 36 percent a year).</li><li>Robinson-Patman: discounts must be justified by cost savings (logistics, not manufacturing); good-faith defence only case by case; promotional terms proportionately equal.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 4 ══════════ -->
+      <section id="ch4">
+        <div class="chap"><h2>Pricing of Services</h2></div>
+        <p class="src">Slides: Lecture 04 &middot; Book: Hanna and Dodge, Chapter 13. The slides follow the book closely.</p>
+        <p>Services are priced differently from goods because they <em>are</em> different: you cannot see one before you buy, store one for later, or make two exactly alike. This chapter covers the six characteristics that cause the trouble, how to cost a service, and the five strategies and five tactics for pricing one.</p>
+
+        <h3 id="s4-characteristics">Characteristics of services</h3>
+        <p>The chapter opens with Marshall McLuhan: "The process is the product. We say airline when we mean air transportation... The use of nouns obscures the fundamental nature of services, which are processes, not objects." A service cannot be grasped mentally or identified physically; it has to be experienced. It is not made and shipped; it is sold first and then produced and consumed. Its qualities can only be judged after purchase, during the experience. Goods and services combine: goods give tangibility to services (a souvenir from a show), and services augment goods (customer service with a car). Both create value, but six differences create special problems that need special marketing effort.</p>
+        <div class="terms"><div><div class="k">Intangibility</div><div class="v">The fundamental difference. Every product mixes tangible and intangible elements; a service is <em>dominated</em> by the intangible. Compare travel counselling with a diamond. A diamond's worth is in cut, clarity, colour and carat, and the customer can picture it. Travel service is information and arrangements; the only tangible parts are tickets and forms. Products sit on a scale (Figure 13.1): travel is more intangible than interior decorating, which is more intangible than a home security system; among goods, cosmetics are less tangible than appliances. <strong>Pricing implication:</strong> the more intangible a service, the less customers can compare it with competitors, so the seller has more latitude in pricing. A financial database has more pricing freedom than a maintenance service. The cost of that freedom is that value is harder to communicate and the price harder to justify.</div></div><div><div class="k">Simultaneous production and consumption</div><div class="v">Goods are produced, sold, then consumed. Services are sold, then produced and consumed at the same time. So there is usually no inventory (information services are the exception), and the customer is part of the production process. The delivery system either goes to the customer or brings the customer to a location. <strong>Pricing implication:</strong> when the service travels, fixed costs are recovered through a standard service-call charge or hookup fee; when the customer travels, location costs are handled as in a factory.</div></div><div><div class="k">Perishability</div><div class="v">Services cannot be stored. An empty airline seat or a vacant motel room tonight cannot be sold tomorrow, so supply and demand are hard to synchronize. For peak demand (a convention at a motel): hire part-timers, work overtime, serve regular customers first and make others wait, turn business away, subcontract. For low demand (a lawn service in winter): cut prices, offer other services that use the idle resources, sell and advertise harder. Each of these adds direct cost and lowers profit contribution, and the extra cost of handling a peak rarely equals the extra cost of building up a trough. <strong>Pricing implication:</strong> the service marketer works with two estimates of profit contribution. For market-oriented pricing, use the lower one to find the <span class="term" tabindex="0"><mark>break-even point</mark><span class="tip" role="tooltip"><b>The sales volume at which total revenue just covers total cost, so profit is zero.</b>Fixed costs divided by the contribution each unit makes. Above it you profit, below it you lose.</span></span>; for cost-plus pricing, use the higher direct cost.</div></div><div><div class="k">Heterogeneity</div><div class="v">Service performance varies from provider to provider, customer to customer and day to day: health care, a phone line, a beautician's attention. The more labour-intensive the service, the more it varies, because staff exercise judgment. Hair stylists have wide latitude; airlines and spectator sports are standardized. <strong>Pricing implication:</strong> the more customized the service, the less its direct costs can be standardized. One answer is standard costs for a menu of options, priced by the package chosen. But the value customers put on the price-value trade-off is theirs to decide, and no two customized services look alike to them: lawn treatment options are standard across companies, but the advice, care, call-backs and little extras of the person doing it are not, and those add value in the customer's mind. Where staff influence is low, as with software, price options separately and in packages (Table 13.1 below).</div></div><div><div class="k">Complexity</div><div class="v">The number of steps, options and sequences in a service. Medical services are highly complex; lawn care is simple. Services must be seen as interdependent systems, not disconnected parts.</div></div><div><div class="k">Divergence</div><div class="v">How much those steps vary because staff use discretion and adapt to the situation. Pricing thinks in terms of raising or lowering each.</div></div></div>
+        <h4>Complexity and divergence: four moves and their prices</h4>
+        <div class="scroller"><table><thead><tr><th>Move</th><th>What it means</th><th>Pricing implication</th></tr></thead><tbody><tr><td class="k">Increase complexity</td><td>Add services or enhance current ones to earn more from each customer, as barbers and salons have done</td><td>The added service, sold as part of the package, must cost less than at a specialist competitor</td></tr><tr><td class="k">Decrease complexity</td><td>Specialize in fewer services</td><td>A premium price fits the image of expertise through specialization</td></tr><tr><td class="k">Increase divergence</td><td>More customization and flexibility for each customer</td><td>A higher price, set by what the market will pay for customization over the standard alternative</td></tr><tr><td class="k">Decrease divergence</td><td>A uniform, standardized service</td><td>A lower price and wider availability; volume positioning and economies of scale, especially with equipment (airlines, dry cleaning)</td></tr></tbody></table></div>
+        <div class="scroller"><table><thead><tr><th>Business analysis software (Table 13.1)</th><th>Licence</th></tr></thead><tbody><tr><td class="k">Bought separately: basic package, trends module, financial ratios, industry standards, training, annual subscription</td><td>$2,300 total</td></tr><tr><td class="k">Total system package (all six)</td><td>$1,820</td></tr><tr><td class="k">Credit package (five items)</td><td>$1,670</td></tr><tr><td class="k">Accounting package (five items)</td><td>$1,470</td></tr><tr><td class="k">Business analysis package (three items)</td><td>$1,300</td></tr></tbody></table></div>
+        <p>That table is <strong>mixed bundling</strong>: each item is available alone, and every package costs well below the sum of its parts, so customers are pulled toward buying more.</p>
+
+        <h3 id="s4-decisions">Pricing decisions in services</h3>
+        <p>Like goods marketers, service marketers must deliver features and benefits at an attractive price. Attractive means one of two things: a <strong>competitive price</strong>, lower than competitors' for the same level of service, or a <strong>premium price</strong> that is more than offset by added value. Whatever the service, customers evaluate three things: <strong>quality</strong> (does it achieve the promised or expected result?), <strong>consistency</strong> (is it the same every time?) and <strong>reliability</strong> (does the provider always deliver what was promised?). An attractive price is not simply a low one; it is strong value against those three.</p>
+        <h4>Cost considerations</h4>
+        <p>Service pricing has traditionally been cost-based rather than market-oriented. Because ordinary accounting does not measure the value of the people who deliver a service, service firms developed human-resource costing formulas. The <strong><span class="term" tabindex="0"><mark>job-jacket</mark><span class="tip" role="tooltip"><b>A costing method that charges each client for the time actually spent on their account, plus a share of overhead and idle time.</b>Common in law and consulting. The weakness: time is a poor measure of skill, since a better lawyer may take fewer hours.</span></span></strong> method allocates people costs to each account by the time actually spent on it, and adds overhead plus the cost of unused time in proportion to that time.</p>
+        <div class="note"><span class="lbl">The job-jacket example, worked</span><p>A lawyer earns $100,000 a year and has 2,000 <strong><span class="term" tabindex="0"><mark>chargeable hours</mark><span class="tip" role="tooltip"><b>The hours a professional can bill to clients in a year.</b>Yearly salary divided by chargeable hours gives the hourly cost rate. $100,000 over 2,000 hours is $50 an hour.</span></span></strong> (50 weeks × 40 hours), so the hourly rate is $100,000 ÷ 2,000 = <strong>$50</strong>. The partnership's overheads plus unused time come to $195,000, and all the firm's lawyers together charged 13,000 hours to accounts, so the overhead rate is $195,000 ÷ 13,000 = <strong>$15</strong> an hour. Four hours on a client's account therefore cost (4 × $50) + (4 × $15) = <strong>$260</strong>.</p></div>
+        <p>Two difficulties. First, is a time charge based on salary a fair measure of the effort in a service? People differ in education and experience, so a more competent person who finishes faster charges <em>less</em> than a less competent one who takes longer. Time standards, as in car repair, help a little, but service tasks vary too much. Second, fixed costs are hard to allocate when volume swings. Many people-intensive firms avoid both problems by charging a <strong>multiple of direct time costs</strong>. The deeper limitation is that a cost-based price may not match what the customer thinks the service is worth: too high and sales are lost, too low and profit is lost, and perhaps sales too, because customers expected more. Even equipment-intensive services, where allocation is easier, must match supply to demand, and the book lists the ways they fail: buying the wrong kind of capacity (airlines and jumbo jets), not adding overall capacity, creating imbalance between primary and support activities at a resort, or undercutting themselves with cheaper services that parallel dearer ones.</p>
+        <h4>Market considerations</h4>
+        <p>Because service costs are hard to tie to units of service, and because price strongly affects how often a service is used, a service price is more often based on the market's perception of value than on cost. The answer many successful service firms have found is to <strong>innovate constantly</strong>: each new feature adds value, and adding associated goods adds tangibility and identity (Walt Disney does both). <strong>Value pricing</strong> for services means estimating what the market feels the service is worth, so innovations must match the target market's main concerns. ServiceMaster, a contract housekeeping and maintenance provider, keeps enhancing its service for cost-conscious hospitals, controlling cost and price without cutting quality. Rural/Metro, a fire-protection and emergency-medical provider, competes on price and service level with remote-controlled equipment, non-union firefighters and an emphasis on prevention. Where possible, break the service into parts and analyse the benefit of each: which parts are essential, which can go, which additions would add value. Holiday Inns decided quality was essential, removed the extras found at expensive hotels, and improved quality through consistency.</p>
+
+        <h3 id="s4-strategies">Service pricing strategies</h3>
+        <p>Price is "undoubtedly the most troublesome aspect" of marketing services, because both value and cost are hard to pin down. So service firms often just follow their major competitors, matching or slightly undercutting them. In many industries this produces price tiers: an upscale restaurant and an economy restaurant. Beyond following, the book gives five strategies.</p>
+        <h4>Cost-based pricing</h4>
+        <p><strong>Cost-plus pricing</strong> charges the client the cost of the service plus a set percentage. It is common in professional services such as law, consulting and medicine, where the firm assumes it delivers distinctly better quality to its existing clients than competitors do, and that clients choose it for that reason; a law firm sells its staff's expertise and success rate. Costs also dominate over market considerations when the service has <strong>high material content</strong>, which makes it more tangible and dilutes the share of the bill that is for performance (repair, installation and maintenance are priced labour plus materials), and when the service is <strong>equipment-intensive</strong> rather than people-intensive, since equipment brings economies of scale and capacity considerations (multi-screen cinemas, jumbo jets, 24-hour data processing). <strong><span class="term" tabindex="0"><mark>Entry barriers</mark><span class="tip" role="tooltip"><b>Things that make it hard for new competitors to enter a market, such as heavy equipment costs or technology.</b>Where barriers are high, costs matter more than the market in setting service prices.</span></span></strong> push the same way: where heavy equipment (excavation), many locations (airport car rental) or technology (data processing) keep competitors out, cost plays a bigger role than the market. A data-processing firm will use some form of cost-plus; a dry cleaner will not. The limitation is the usual one: it ignores what customers will pay and what competitors charge.</p>
+        <h4>Demand fluctuation pricing</h4>
+        <p>Demand for services swings up and down largely outside the firm's control. <strong><span class="term" tabindex="0"><mark>Differential pricing</mark><span class="tip" role="tooltip"><b>Charging different prices to different customers or at different times for the same service.</b>For services it appears twice: lower off-peak prices to shift demand, and different prices by willingness to pay as a tactic.</span></span></strong> charges lower prices in non-peak periods to shift demand out of the peaks and possibly raise total demand: cinema matinees, evening and weekend phone rates, weekend hotel rates, off-peak electricity. The risk is that the lower price cuts total profit: creating off-peak demand can produce incremental <em>losses</em> if the cost of handling the shifted demand exceeds the extra revenue, as with airlines' cheaper Sunday fares.</p>
+        <p><strong><span class="term" tabindex="0"><mark>Developmental pricing</mark><span class="tip" role="tooltip"><b>A special low-priced version of a service created for off-peak periods to bring in extra demand.</b>Market-oriented, not cost-oriented. Only the extra costs of serving the extra guests need to be covered. The risk is that peak business just moves to the cheap period.</span></span></strong> creates a special version of the service for off-peak times, such as a resort's off-season vacation package. It is market-oriented, not cost-oriented: its purpose is to increase demand. Since the basic lodging costs are already covered by peak-season prices, the off-season price need only cover the incremental cost of the package. The added profit (package price less incremental cost, plus what guests spend while there) can raise the resort's profitability or be used to lower peak prices and become more competitive. The risk is a <strong>flip-flop</strong>: if the conventions that filled July and August simply move to the cheap season, the resort does the same business for much less revenue. The slides' summary: off-peak pricing should create or shift demand, but only if the extra contribution exceeds the incremental cost, and demand that merely shifts without growing is a loss.</p>
+        <h4>Capacity pricing</h4>
+        <p>In equipment-based services, demand swings make the unit cost swing too. Data-processing equipment may handle anywhere from 4,000 to 20,000 transactions in a day. If the required return on the equipment is $1,000 a day, 4,000 transactions cost 25 cents each and 20,000 cost 5 cents each. An airline may fly 30 passengers in 120 seats. Price on either extreme and you overprice or underprice. <strong><span class="term" tabindex="0"><mark>Capacity pricing</mark><span class="tip" role="tooltip"><b>Setting a price for an equipment-based service that earns the desired return on the equipment while staying competitive, given how much of the capacity gets used.</b>Steps: find the competitive price, split costs into equipment return and people costs, then work out how many units you need to sell at that price.</span></span></strong> finds a price that earns the desired return on the equipment while staying competitive. Three steps. First, find the competitive price for equivalent service, usually a range rather than one number. Second, split the service into its equipment-return and people-cost components, and ask which costs are essential, which could go, and which could fall through higher productivity; the minimum acceptable return and the desired return give a range too. Third, divide return plus personnel cost by the competitive price to find the number of units needed to break even at that price.</p>
+        <div class="note"><span class="lbl">Table 13.3, worked</span><p>Desired return $1,000 a day, minimum acceptable $900. Personnel costs $200 a day, with a possible 10 percent productivity saving to $180. Competitors charge 7.5 to 9 cents a transaction, the main one 8.2 cents. Daily cost to cover is therefore between $1,080 ($900 + $180) and $1,200 ($1,000 + $200). At 9 cents, the fewest transactions needed is $1,080 ÷ 0.09 = <strong>12,000</strong>. At 7.5 cents, the most is $1,200 ÷ 0.075 = <strong>16,000</strong>. Management now knows the whole feasible range, and the book's resort example (Table 13.2) shows the same thinking applied to a golf course: open earlier, lease a nearby course, run a shuttle, discount morning play.</p></div>
+        <h4>Benefit pricing</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Benefit pricing</mark><span class="tip" role="tooltip"><b>Pricing a service by what its benefits are worth to the customer, with no link to what it costs to provide.</b>If the benefit price is too low to pay, add features that justify more. Customers judge benefits through two things they can see: the physical setting and the contact staff.</span></span></strong> assumes that what a customer will pay for a service is unrelated to what it costs to provide. The benefit price disconnects price from cost. If it does not produce the desired return, or is below cost, then features and benefits must be added until the service commands a higher, even a premium, price. One financial services firm did this by adding free consultations and a high level of data accuracy to its information service. The method: first define the service and why it satisfies customers; then define the customer's relationship with it, meaning what the customer does during the service and what parts of it they can observe. Two observable parts, the <strong>physical support</strong> or environment (equipment, materials, decor, layout, location) and the <strong><span class="term" tabindex="0"><mark>contact personnel</mark><span class="tip" role="tooltip"><b>The employees a customer actually deals with during a service.</b>One of the two visible parts of a service, with the physical setting. They shape most of the customer&#x27;s sense of value.</span></span></strong>, are almost wholly responsible for the customer's perception of value, so both must match the price: an up-market restaurant needs decor and service to match. Define what each person does and how they relate, and educate customers when equipment replaces people, as banks had to with ATMs. Then compare each value activity with competitors: a feature with a clear advantage is priced at a premium, one with no advantage at the market price, one at a disadvantage below market. Estimate a price for each feature (a motel that includes breakfast can price the difference), add them up, and if the total gives too thin a margin, either raise productivity and find cheaper ways to deliver the features, or seek volume, remembering that volume can strain scheduling and add cost.</p>
+        <h4>Price bundling</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Price bundling</mark><span class="tip" role="tooltip"><b>Selling two or more services together at a price below what they would cost separately.</b>Pure bundling: only sold as a package. Mixed bundling: buy separately or as a package with a discount.</span></span></strong> combines two or more services in one package at a price below the total of buying them separately: travel packages (flights, lodging, meals, excursions, car rental), banking packages (account, free cashier's and traveller's cheques, insurance, loans, credit card), software packages (programs, instruction, installation, consultation), convention packages. Objectives: raise perceived value, <span class="term" tabindex="0"><mark>cross-sell</mark><span class="tip" role="tooltip"><b>Getting a customer who buys one service to buy another from you.</b>The main reason for bundling. If one segment is much larger, put the discount on the service that segment buys.</span></span>, increase spending and demand. Two types, with two sub-types:</p>
+        <div class="terms"><div><div class="k">Pure bundling</div><div class="v">The services are available only as a package. Purpose: create a differentiated product and add value to the core service.</div></div><div><div class="k">Mixed bundling</div><div class="v">Customers may buy each service alone or take the package at a price incentive (Table 13.1). <strong><span class="term" tabindex="0"><mark>Mixed-leader bundling</mark><span class="tip" role="tooltip"><b>One service at its regular price, another at a discount when bought with it.</b>A form of mixed bundling. The other form, mixed-joint bundling, sets a single price for the pair.</span></span></strong> prices one service at its regular price and the other at a discount when bought together. <strong>Mixed-joint bundling</strong> sets one price for the two bought jointly.</div></div></div>
+        <p>The pricing rule, from Guiltinan: the discount should make customers who buy one service buy the other, and convert non-customers of either into customers of the bundle. If the two groups who buy only one service are about equal in size, discount the total. If one group is much larger, put the discount on the service that group buys, conditional on buying the other: a photo lab with more prints-only customers than enlargements-only customers should discount prints when bought with enlargements.</p>
+
+        <h3 id="s4-tactics">Pricing tactics for services</h3>
+        <p>Tactics are essentially the same for services as for goods. Five are named:</p>
+        <div class="terms"><div><div class="k">Differential pricing</div><div class="v">Different prices for the same work according to each customer's willingness to pay. The most common tactic in pest control.</div></div><div><div class="k">Discount pricing</div><div class="v">Temporary reductions to increase business, attract trial or build a low-cost image. A restaurant discounts early meals so new customers sample the food and, it hopes, return at full price.</div></div><div><div class="k">Guaranteed pricing</div><div class="v">Payment is linked to achieving specified results.</div></div><div><div class="k">Loss-leader pricing</div><div class="v">A reduced price to win the first order, hoping for further business at the regular price.</div></div><div><div class="k">Offset pricing</div><div class="v">A low price on the core service and relatively high prices on the necessary extras.</div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Six characteristics: <span class="term" tabindex="0"><mark>intangibility</mark><span class="tip" role="tooltip"><b>A service cannot be touched, seen or tried before it is bought. It has to be experienced.</b>The more intangible the service, the harder it is for customers to compare prices, and so the more freedom the seller has in pricing.</span></span> · <span class="term" tabindex="0"><mark>simultaneous production and consumption</mark><span class="tip" role="tooltip"><b>A service is produced and used at the same moment, so it cannot be made in advance or stored.</b>The customer is part of the production. Either the provider goes to the customer (service call charge) or the customer comes to the provider (location costs).</span></span> · customer participation · <span class="term" tabindex="0"><mark>perishability</mark><span class="tip" role="tooltip"><b>Unused service capacity is lost for good. An empty seat on today&#x27;s flight cannot be sold tomorrow.</b>This is why service firms work so hard to move demand around, and why they should use the lower of two profit contributions when setting a break-even price.</span></span> · <span class="term" tabindex="0"><mark>heterogeneity</mark><span class="tip" role="tooltip"><b>Service quality varies from one provider, customer, day or situation to the next.</b>The more labour-intensive and customized the service, the more it varies, and the harder it is to set standard costs.</span></span> · <span class="term" tabindex="0"><mark>complexity</mark><span class="tip" role="tooltip"><b>The number of steps, options and sequences in delivering a service.</b>Medical care is complex; lawn care is simple. Adding services increases complexity; specializing reduces it.</span></span> and <span class="term" tabindex="0"><mark>divergence</mark><span class="tip" role="tooltip"><b>How much a service varies because staff use judgment and adapt to each customer.</b>More divergence means more customization at a higher price; less means uniform service at a lower price and higher volume.</span></span>.</li><li>More intangible = fewer comparisons = more pricing latitude, but harder to justify the price.</li><li>Perishability: two profit contributions; use the lower for market-based break-even, the higher direct cost for cost-plus.</li><li>Complexity up: bundle cheaper. Complexity down: premium for expertise. Divergence up: higher price for customization. Divergence down: lower price, volume.</li><li>Customers judge quality, consistency, reliability. Job-jacket: $100,000 ÷ 2,000 h = $50; + $15 overhead; 4 hours = $260.</li><li>Five strategies: cost-based (professional, material-heavy, equipment-heavy, high entry barriers) · demand fluctuation (differential, developmental; flip-flop risk) · capacity (12,000 to 16,000 transactions) · benefit (physical support + contact personnel) · bundling (pure, mixed; mixed-leader, mixed-joint).</li><li>Five tactics: differential · discount · guaranteed · loss-leader · offset.</li></ul></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 5 ══════════ -->
+      <section id="ch5">
+        <div class="chap"><h2>Pricing During Inflationary and Shortage Conditions</h2></div>
+        <p class="src">Slides: Module 05, Bangladesh context &middot; Book: Hanna and Dodge, Chapter 14. The slides follow the book and add Bangladesh examples.</p>
+        <p>Everything before this chapter assumed costs were roughly stable. This chapter asks what a manager does when costs are rising fast and inputs are scarce. The answer is not simply "raise prices." It is a whole programme: better information, honest accounting, a deliberate decision about who absorbs the cost, protection built into contracts, cost cutting, and careful handling of government, customers and dealers.</p>
+
+        <h3 id="s5-why">Why inflation and shortages are a marketing problem</h3>
+        <p>The chapter opens with Kotler and Levy on <strong><span class="term" tabindex="0"><mark>demarketing</mark><span class="tip" role="tooltip"><b>Marketing designed to reduce demand, used when a firm cannot supply everyone.</b>Kotler and Levy&#x27;s term, in the chapter&#x27;s opening quote: excess demand is as much a marketing problem as excess supply.</span></span></strong>: "excess demand is as much a marketing problem as excess supply." When there is not enough to go round, a company still faces hard decisions about which customers to serve and how to serve them. Inflation and scarcity, the book says, are a permanent part of the business environment, because world demand for raw materials keeps growing, mineral and commodity prices spiral, and developed countries depend on developing ones for basics like oil. The overriding worry is the upward push on inflation, which governs the pace of economic activity.</p>
+        <p>Two explanations of inflation. <strong><span class="term" tabindex="0"><mark>Cost-push inflation</mark><span class="tip" role="tooltip"><b>Prices rise because the cost of materials, labour or capital rises and gets passed on.</b>One of the two explanations of inflation. The other is demand-pull.</span></span></strong>: rising costs of capital, materials or labour push prices up, and those higher prices raise other costs in an endless cycle. <strong><span class="term" tabindex="0"><mark>Demand-pull inflation</mark><span class="tip" role="tooltip"><b>Prices rise because total demand is bigger than what the economy can supply.</b>Too much money chasing too few goods.</span></span></strong>: total demand for products exceeds what existing resources can supply. Both views see inflation as a main cause of recession, because it cuts <strong><span class="term" tabindex="0"><mark>real income</mark><span class="tip" role="tooltip"><b>What your money can actually buy after allowing for inflation.</b>Inflation cuts real income, so sales fall, which is why the book says inflation is a major cause of recession.</span></span></strong>, what money can actually buy, so sales fall, unemployment rises and unrest follows.</p>
+        <p>For pricing, inflation is a trap. Wages and materials rise, so some firms feel they have no choice but to pass the increases into prices, and then discover that volume falls. If competitors delay their increases, the firm loses customers. If every supplier raises prices together, customers switch to substitutes or other materials. Shortages add uncertainty about future costs and availability. Traditional pricing based on stable historical costs stops working. A firm's survival depends on how quickly it recognizes the changes and how well it adapts. The rest of the chapter is the list of responses.</p>
+
+        <h3 id="s5-costs">Cost and information management</h3>
+        <p>The first response is better information, not higher prices.</p>
+        <h4>Continuous monitoring of costs</h4>
+        <p>A costing system that worked in stable times fails when costs change quickly. Extrapolating from historical costs distorts the profit picture. The firm needs a system that spots cost changes for each product, product group, market, key customer and operation, tracking the actual flow of expenses in each <strong><span class="term" tabindex="0"><mark>cost centre</mark><span class="tip" role="tooltip"><b>A part of the business whose costs are tracked separately.</b>Under inflation you need to see costs move in each centre, not rely on old averages.</span></span></strong>. A manufacturer should monitor material usage, output, direct wages, labour productivity and machine utilization regularly. The slides' Bangladesh example: a food manufacturer separately tracks packaging, edible inputs, transport and production costs before revising a price.</p>
+        <h4>Dynamic costing and rolling budgets</h4>
+        <p>Computer systems can compare the current purchase price of every component and material with its last purchase price, daily or monthly. These reappraisals lead either to revised price lists or to a decision to accept lower margins for a while. Some firms build a <strong><span class="term" tabindex="0"><mark>multiplier factor</mark><span class="tip" role="tooltip"><b>A number built into the base price that can be adjusted regularly as costs change.</b>A simple price-protection device. Change the multiplier, not the whole price list.</span></span></strong> into the base price and adjust it periodically. Others use <strong>rolling or progressive budgets</strong>, extended every month so that new cost and demand information is always included. In Bangladesh, monthly or shorter rolling reviews beat relying on an annual budget during volatile periods.</p>
+        <h4>Information systems to monitor the environment</h4>
+        <p>Economic and marketing intelligence matter more under inflation. Management needs to know where the economy is heading (indexes, indicators, price measures) to decide whether to expand, cut back or diversify; and it needs information on the expected supply and cost of materials, labour and energy, which may point to substituting one material or process for another. Companies must also watch changes in how customers behave: demands for more quality, greater price consciousness, preference for energy-saving products, interest in product information and safety. Flexibility in manufacturing, shorter production runs, just-in-time inventory and close monitoring of competitors' prices, discounts and promotions all take on special importance; the book cites car rebates, airline fare changes and grocery's shift from promotional discounts to price discounts. The slides add a Bangladesh checklist with five sides: input (supplier quotes, import costs, exchange-rate exposure, fuel, wages), market (demand, purchasing power, substitution, basket size), competition (prices, promotions, pack sizes, channel margins), operations (capacity utilization, wastage, productivity, inventory, lead times), and decision (does this change need a price change, a cost reduction, a product change, or nothing?).</p>
+
+        <h3 id="s5-accounting">Accounting and profitability</h3>
+        <p>Inflation makes reported profit look better than economic reality. Firms adjust their accounting to show a truer picture, changing depreciation allocation, inventory costing and budget periods, and paying more attention to tax credits and the tax benefits of acquisitions. During inflation the <strong><span class="term" tabindex="0"><mark>replacement cost</mark><span class="tip" role="tooltip"><b>What it would cost to buy an asset again today.</b>Traditional depreciation assumes the replacement will cost what the original did. Under inflation it costs far more, so the firm is not setting enough aside.</span></span></strong> of an asset can be far above its historical cost, and management must separate accounting profit from the firm's real ability to replace its resources and keep operating.</p>
+        <h4>Inventory costing and paper profits</h4>
+        <p>Costing stock by <strong><span class="term" tabindex="0"><mark>FIFO</mark><span class="tip" role="tooltip"><b>First in, first out: the oldest stock is treated as sold first.</b>Logical, but under inflation it charges old, cheap costs against today&#x27;s high prices, so profit looks bigger than it really is.</span></span></strong> (first in, first out) is logical and matches the physical movement of stock, but under inflation it charges old, cheap costs against today's high selling prices, so reported profit is overstated. <strong><span class="term" tabindex="0"><mark>LIFO</mark><span class="tip" role="tooltip"><b>Last in, first out: the newest stock is treated as sold first.</b>It charges production with costs close to today&#x27;s, so it removes the paper profits that FIFO creates.</span></span></strong> (last in, first out) charges production with costs as close as possible to current ones, which eliminates the <strong><span class="term" tabindex="0"><mark>paper profits</mark><span class="tip" role="tooltip"><b>Profit that appears in the accounts only because inventory was bought cheaply before prices rose, not because the business did better.</b>The book&#x27;s teaching point: the question is not which method is best but how inventory costing changes how profitable the firm looks.</span></span></strong> that come from selling finished goods at today's prices while charging yesterday's input costs. The slides' teaching point: the question is not which method is best, but how inventory costing changes how profitable the firm appears. Ask yourself what happens to apparent profit when stock bought at an old price is sold after the replacement cost has jumped.</p>
+        <h4>Inflationary accounting and asset valuation</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Inflationary accounting</mark><span class="tip" role="tooltip"><b>Adjusting the accounts so that assets, liabilities and profit reflect today&#x27;s prices, not what things cost years ago.</b>Without it, assets are understated and return on capital looks unrealistically high.</span></span></strong> aims for an accurate, up-to-date picture of assets, liabilities and profit, with realistic values for fixed assets, stocks and work in progress. Traditional depreciation assumes a new asset will cost what the old one did. Under inflation it costs much more, so unless assets are revalued periodically the firm's profitability and return on capital look unrealistically high. Budgets normally cover a year in quarters; the longer the period, the more inaccurate it becomes as conditions change, which is why shorter <span class="term" tabindex="0"><mark>rolling budgets</mark><span class="tip" role="tooltip"><b>A budget that is extended by a month every month, so it always looks the same distance ahead. Also called a progressive budget.</b>Annual budgets go stale fast under inflation. Shorter, rolling ones stay accurate.</span></span> predict costs, output and sales better under inflation.</p>
+
+        <h3 id="s5-absorb">Absorb costs or pass them on?</h3>
+        <p>The central decision. <strong>Absorb</strong> the cost increases and accept a lower <strong><span class="term" tabindex="0"><mark>gross margin</mark><span class="tip" role="tooltip"><b>The difference between the selling price and the cost of the goods sold.</b>Absorbing a cost increase means accepting a thinner gross margin to protect price and volume.</span></span></strong>, protecting price and volume. Or <strong>pass them on</strong> as higher prices, protecting margin but risking demand and market share. Three dangers of passing them on: if competitors do not follow, the firm loses ground; if the whole industry raises prices together, customers may leave for substitute materials or products; and firms raising prices to keep up with inflation are themselves feeding it, as when rising health-care costs raise insurance costs, which raise business costs, which raise prices charged back to the health-care industry. The book's judgment: the best decision under inflation may be to absorb at least part of the increase to hold market position.</p>
+        <p>Industries with heavy fixed overheads may find <strong>flexible pricing</strong> useful: the willingness to cut prices aggressively to hold market share. Unlike traditional pricing, which sets a price expected to deliver a long-run target return, flexible pricing is a short-run system based on accurate, complete information about the market and the firm's position in it. When a price increase is being considered, the severity of competition and the presence or absence of unused capacity matter most. The Bangladesh example: a manufacturer with idle capacity protects key accounts with selective temporary price adjustments instead of a blanket increase.</p>
+        <div class="note"><span class="lbl">How should a manager decide on a price increase? The slides' six questions</span><p>How severe is the increase in the firm's cost base? How price-sensitive is the target customer? How strong is competition, and how fast are competitors changing prices? Does the firm have unused capacity? Can costs be reduced, inputs substituted or specifications simplified instead? And would the increase damage long-term customer relationships more than it protects short-term margin?</p></div>
+
+        <h3 id="s5-protection">Price protection systems</h3>
+        <p>When there is a long gap between quoting a price and delivering, as in construction and commercial aircraft, costs can change in between. Several systems protect profit:</p>
+        <div class="terms"><div><div class="k">Surcharge</div><div class="v">An extra charge that builds increases in specified primary-material costs into the price at delivery, usually calculated from a weighted index of wholesale prices for that material.</div></div><div><div class="k">Indexed price</div><div class="v">Part of the price is tied to movements in an index of the relevant material costs.</div></div><div><div class="k">Open-end prices</div><div class="v">No firm price is quoted until after delivery; the final price reflects material and labour cost changes since the quotation. Phrases such as "price subject to change without notice" do the same job for firms that print catalogues and price lists in advance.</div></div><div><div class="k">Multiplier factor</div><div class="v">A factor built into base prices and adjusted periodically. Relatively easy to run, and it protects profit without reprinting every price.</div></div><div><div class="k">Escalation clause</div><div class="v">A contract clause allowing the price to change under specified inflationary conditions. Especially valuable when manufacturing needs a long lead time between sale and delivery.</div></div></div>
+        <p>Bangladesh applications from the slides: construction projects, where quotation, procurement and completion are far apart; industrial equipment with imported components whose cost changes before delivery; institutional and business-to-business contracts, where <span class="term" tabindex="0"><mark>escalation clauses</mark><span class="tip" role="tooltip"><b>A contract clause that lets the price rise if specified costs rise before delivery.</b>Vital when there is a long gap between sale and delivery, as in construction or aircraft.</span></span> allocate clearly defined input-cost risks; and large orders, where a formula-based adjustment is more transparent than an unexpected revision. Any mechanism should state the trigger, the reference index or input, and the adjustment method clearly.</p>
+
+        <h3 id="s5-reduction">Cost reduction</h3>
+        <p>In normal times profit is maintained through higher prices, lower costs, more volume, or a mix. Under inflation, cost increases cannot be fully passed on and prices cannot be raised fast enough to keep up, so cost reduction becomes the main pricing strategy, especially if the goal is to hold price and protect volume. The book's list:</p>
+        <ul>
+          <li><strong>Shorten the product line.</strong> Drop the "losers" and marginal products so their materials and components go into profitable items. Weak products contribute a little profit but consume a disproportionate share of resources, including management time. General Electric competes only in markets where its position allows a given level of profit.</li>
+          <li><strong>Find lower-cost substitutes</strong>, as long as the quality reputation is protected. Car makers replaced steel with aluminium, plastics and rubber; many firms have raised R&amp;D spending on substitute materials.</li>
+          <li><strong>Simplify the product.</strong> "Tune it down," redesign around standard components, and reduce model changes. The Bangladesh example: a furniture or consumer-goods producer redesigning around standard, locally available components when imports get expensive. The aim is not the cheapest possible product but lower total cost while protecting customer value.</li>
+          <li><strong>Keep customers rather than chase new ones.</strong> It costs about $1 to keep a customer and about $6, mostly advertising, to win a new one. Reduce personal selling and become selective, limiting customers to those with the highest long-term potential (<strong><span class="term" tabindex="0"><mark>selective selling</mark><span class="tip" role="tooltip"><b>Concentrating sales effort on the customers with the best long-term potential and dropping the rest.</b>Part of cost reduction under inflation. It rests on the rule that keeping a customer costs about a sixth of winning a new one.</span></span></strong>).</li>
+          <li><strong>Improve quality.</strong> Contrary to popular belief, better quality lowers cost. Motorola found that improving product and process quality gave the lowest manufacturing cost, by shrinking the <strong><span class="term" tabindex="0"><mark>hidden plant</mark><span class="tip" role="tooltip"><b>The people, floor space and equipment tied up in fixing things that should have been done right the first time.</b>Motorola estimated it at 25 to 35 percent of total production cost. Improving quality shrinks it, which is why quality lowers cost.</span></span></strong>: the people, floor space and equipment devoted to fixing what should have been done right first time, estimated at 25 to 35 percent of production cost. Quality also cuts the ill-defined cost of a lost customer, and high-quality firms achieve differentiation competitors cannot match. So cost reduction must never mean cutting quality indiscriminately; reducing defects and returns protects margin better.</li>
+          <li><strong>Review packaging and sales aids</strong> critically: inner wraps, colourful packaging, outer cartons, fibre cases.</li>
+        </ul>
+
+        <h3 id="s5-relations">Government, communication and channel relationships</h3>
+        <p>Pricing during inflation is also a matter of institutions and relationships.</p>
+        <h4>Government policies and regulations</h4>
+        <p>Regulation matters more in turbulent times. <strong><span class="term" tabindex="0"><mark>Price controls</mark><span class="tip" role="tooltip"><b>Government limits on how much prices may rise.</b>They can stop a firm passing on the full cost increase, for example allowing only the rise in certain approved costs.</span></span></strong> or guidelines can stop a firm pricing above the expected rate of cost inflation, for example allowing increases only for certain approved costs such as materials, components or salaries. Allocation of strategic commodities and quantity restrictions affect operations directly. Export controls shrink the firm's geographic market; import controls may open domestic opportunities; environmental controls raise manufacturing costs and reduce the supply of basic resources. Monetary and fiscal policy affect demand indirectly. The pricing executive must know the rules, anticipate changes and prepare contingency plans.</p>
+        <h4>Centralizing pricing decisions</h4>
+        <p><strong><span class="term" tabindex="0"><mark>Centralizing pricing</mark><span class="tip" role="tooltip"><b>Making pricing decisions at head office rather than leaving them to individual salespeople or regions.</b>Gives control and speed, which flexible pricing needs. A price response to a competitor may have to be made in days.</span></span></strong> gives greater control, less deviation from the firm's objectives, and faster response to the market. It matters most under flexible pricing, because a decision to cut prices aggressively to follow a competitor must be made promptly or share is lost. The Bangladesh version: a national company sets central pricing rules and gives field teams limited, clearly defined authority for local conditions.</p>
+        <h4>Public information and customer communication</h4>
+        <p>Customers and the public resist change and want explanations, especially for prices. Explain the firm's actions promptly and give advance notice of changes wherever possible; this builds the image of a concerned participant in the economy. Advertising can show customers how to get more use from the product and how to make the best use of scarce materials, which reduces resistance to higher prices. Explain, rather than let customers rely on rumours; in Bangladesh, communicate significant price and pack changes consistently through retailers, official channels and customer-facing materials.</p>
+        <h4>Closer relationships with resellers</h4>
+        <p>Monitor the movement of goods through the channel and tell dealers about policy changes promptly, which is essential in good times and mandatory in turbulent ones. The salesperson carries the price change to resellers: explaining how costs rose, showing how the company cut its own costs to limit the increase, and offering cheaper substitutes from the range. Counselling resellers on their own problems turns shortages and price rises into a chance to build goodwill. Review cooperative advertising allowances, credit terms, discounts, freight charges and service policies; inflation may be the moment to negotiate longer contracts, better payment terms, and fewer discounts and services. And listen to what dealers report about customer and competitor reactions to price changes; that information shapes the next pricing decision.</p>
+        <h4>Avoiding scarcity tactics</h4>
+        <p>Some manufacturers are tempted to exploit the <strong><span class="term" tabindex="0"><mark>psychology of scarcity</mark><span class="tip" role="tooltip"><b>The way buyers change behaviour when they believe a product is running short: hoarding, panic buying, paying more.</b>Using it deliberately can create a real shortage and damage inventories, sales and trust. The book says avoid it.</span></span></strong>: when buyers believe a product is running short they hoard and panic-buy, which can create a real shortage and drive prices above normal. Using this deliberately is dangerous and in the long run damages inventories, production, sales and profitability. The slides pose the class discussion: is a higher price always unethical during a shortage, and when does legitimate cost recovery become exploitative pricing?</p>
+
+        <h3 id="s5-policy">A need for a pricing strategy during inflation</h3>
+        <p>A firm without a deliberate inflation and shortage pricing policy is "at the mercy of every shortage" and every cost change. Without one, firms short of scarce materials scramble to buy at any price and hope to recover it by charging more, and the result is lost volume, or restrictive government legislation to curb the trend. It is hard to resist "demanding what the traffic will bear," but the cumulative effect can endanger the economic system itself, causing collapse and unrest. So every company needs an inflation pricing plan, and the book goes further: producers of essential materials may need industry-wide cooperation on pricing designed to serve the social needs of the economy. The final principle on the slides: develop a deliberate policy rather than react opportunistically to each shortage.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Two causes of inflation: cost-push (costs push prices up) and demand-pull (demand exceeds supply). Both cut real income and cause recession.</li><li>First response is information: monitor costs by cost centre, dynamic costing, multiplier factors, rolling budgets, environmental intelligence.</li><li>FIFO overstates profit under inflation (paper profits); LIFO charges near-current costs. Inflationary accounting revalues assets; traditional depreciation assumes replacement costs the same.</li><li>Absorb (protect volume, thinner margin) or pass on (protect margin, risk share). Often absorb part. Flexible pricing = short-run, aggressive cuts to hold share, where fixed overhead is high.</li><li>Price protection: <span class="term" tabindex="0"><mark>surcharge</mark><span class="tip" role="tooltip"><b>An extra charge added at delivery to cover increases in specified material costs since the quote.</b>One of the price-protection systems, usually tied to a weighted index of material prices.</span></span> · indexed price · <span class="term" tabindex="0"><mark>open-end price</mark><span class="tip" role="tooltip"><b>No price is fixed until after delivery; the final price reflects cost changes since the quote.</b>Useful when catalogues are printed far in advance. &#x27;Price subject to change without notice&#x27; is the same idea.</span></span> · multiplier factor · escalation clause. For long lead times.</li><li>Cost reduction: shorten the line · substitutes · simplify · keep customers ($1 versus $6) · improve quality (hidden plant 25 to 35 percent) · review packaging.</li><li>Also: watch government, centralize pricing, explain changes to the public, work closely with resellers, avoid scarcity tactics, and have a deliberate policy.</li></ul></div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 30 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open it to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>The 4 A's</summary><ol><li>Acceptability (product)</li><li>Affordability (price)</li><li>Accessibility (place)</li><li>Awareness (promotion)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 functions with a stake in price, and their bias</summary><ol><li>Finance: costs, ROI, break-even; pushes prices up</li><li>Operations: scale, scope, learning; pushes prices down for volume</li><li>Marketing and sales: share, competitors, customers; pushes prices down for share</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 critical factors in the pricing decision</summary><ol><li>Effective cost information</li><li>Customer valuation</li><li>Market targets</li><li>Competitive dynamics</li><li>Pricing strategies</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>6 questions for choosing a pricing strategy</summary><ol><li>Scale</li><li>Consumer knowledge</li><li>Demand</li><li>Information</li><li>Competitive substitute</li><li>Patronage</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 pricing approaches</summary><ol><li>Cost-based</li><li>Value-based (good-value: EDLP or high-low; value-added: pricing power)</li><li>Competition-based</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 kinds of fit in the marketing mix</summary><ol><li>Consistency</li><li>Integration</li><li>Leverage</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 questionable pricing practices, plus 2 deceptive ones</summary><ol><li>Product-line price steps not justified by value</li><li>Branded far above generic</li><li>Overpriced replacement parts</li><li>False obsolescence</li><li>False reference</li><li>Bait and switch</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>2 roles of price</summary><ol><li>Allocation</li><li>Information</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Price as a quality signal, weakest to strongest</summary><ol><li>Staples: none</li><li>Homogeneous shopping goods: weak</li><li><span class="term" tabindex="0"><mark>Heterogeneous shopping goods</mark><span class="tip" role="tooltip"><b>Products that differ visibly between brands, like clothing, stereos or tennis rackets.</b>Here customers trust price as a quality signal, because the differences are real and visible.</span></span>: strong</li><li>Positional goods: strongest</li><li>Speciality goods: off the scale, brand insistence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 reasons customers infer quality from price</summary><ol><li>Past experience</li><li>Higher price means the firm spent more on quality</li><li>Trust that others would not pay more unless it were better</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 price lines</summary><ol><li>Economy</li><li>Moderate</li><li>Prestigious</li><li>Luxurious</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>ROI by quality and price (Table 2.1)</summary><ol><li>High quality, low price: highest</li><li>High quality, high price: 34 percent</li><li>Low quality, low price: 15 percent</li><li>Medium quality, medium price: 2 percent</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>BCG categories and their pricing</summary><ol><li>Cash cows: stable prices, milk the cash</li><li>Stars: competitive prices, sustain growth</li><li>Problem children (question marks): penetration</li><li>Dogs: harvest</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 pricing objectives (Lanzillotti)</summary><ol><li>Target return on investment or sales</li><li>Maintain or enhance market share</li><li>Meet or prevent competition</li><li>Maximize profits</li><li>Stabilize prices</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>6 pricing strategies, high to low</summary><ol><li>Skimming</li><li>Prestige (quality) pricing</li><li>Penetration</li><li>Expansionistic (extreme: dumping)</li><li>Preemptive (stay-out)</li><li>Extinction (predatory)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 discounts</summary><ol><li>Quantity (noncumulative, cumulative)</li><li>Trade (functional)</li><li>Seasonal</li><li>Promotional (implicit discount, explicit allowance)</li><li>Cash</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 elements of a cash discount</summary><ol><li>Discount rate (2 percent)</li><li>Discount period (10 days)</li><li>Final payment deadline (30 days)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>6 characteristics of services</summary><ol><li>Intangibility</li><li>Simultaneous production and consumption</li><li>Customer participation</li><li>Perishability</li><li>Heterogeneity</li><li>Complexity and divergence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 things service customers evaluate</summary><ol><li>Quality</li><li>Consistency</li><li>Reliability</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 service pricing strategies</summary><ol><li>Cost-based (cost-plus)</li><li>Demand fluctuation (differential, developmental)</li><li>Capacity pricing</li><li>Benefit pricing</li><li>Price bundling (pure, mixed)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 service pricing tactics</summary><ol><li>Differential</li><li>Discount</li><li>Guaranteed</li><li>Loss-leader</li><li>Offset</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>2 explanations of inflation</summary><ol><li>Cost-push</li><li>Demand-pull</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 price protection systems</summary><ol><li>Surcharge</li><li>Indexed price</li><li>Open-end price</li><li>Multiplier factor</li><li>Escalation clause</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>6 cost-reduction moves under inflation</summary><ol><li>Shorten the product line</li><li>Lower-cost substitutes</li><li>Simplify the product, standard components</li><li>Keep customers ($1 versus $6), selective selling</li><li>Improve quality (hidden plant)</li><li>Review packaging and sales aids</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Inflation chapter, the full response list</summary><ol><li>Monitor costs continuously</li><li>Information systems for the environment</li><li>Adjust accounting (LIFO, inflationary accounting, rolling budgets)</li><li>Absorb or pass on; flexible pricing</li><li>Price protection systems</li><li>Cost reduction</li><li>Watch government</li><li>Centralize pricing</li><li>Public information</li><li>Closer reseller relationships</li><li>Avoid scarcity tactics</li><li>Have a deliberate policy</li></ol></details>
+        </div>
+      </section>
+
+      <!-- ══════════ FORMULAS ══════════ -->
+      <section id="formulas">
+        <div class="chap"><h2>Numbers</h2></div>
+        <p class="src">Every formula and worked example in the five chapters, in one place</p>
+        <p>The exam can ask you to reproduce any of these. Each entry gives the formula, the book's own numbers, and what the answer means in words.</p>
+        <div class="terms"><div><div class="k">Price increase to offset lost volume (Ch. 1)</div><div class="v">X = (Cc × Pm) ÷ (V − Cc). Competitors' excess capacity 10,000 units; your margin $60; your volume 70,000. X = 600,000 ÷ 60,000 = <strong>$10</strong>, 5 percent on a $200 price. The extra $10 on the 60,000 units you keep replaces the margin on the 10,000 you lose.</div></div><div><div class="k">Chain of discounts (Ch. 1)</div><div class="v">List $10, discounts 40-20-10-10-5. $10 → $6.00 → $4.80 → $4.32 → $3.89 → <strong>$3.69</strong>. Each percentage comes off the price left by the last one, so the chain is not 85 percent off.</div></div><div><div class="k">Value (Ch. 2)</div><div class="v"><strong>Features and benefits − Price = Value.</strong> Price is the only concrete term.</div></div><div><div class="k">Price as payment for quality (Ch. 1)</div><div class="v"><strong>Price = Quality ÷ Value</strong>, the book's way of saying price is what the market pays for quality as it values it.</div></div><div><div class="k">Comparative value (Ch. 2)</div><div class="v">Cv = [(Q<sub>H</sub> − Q<sub>L</sub>) ÷ Q<sub>L</sub>] ÷ [(P<sub>H</sub> − P<sub>L</sub>) ÷ P<sub>L</sub>]. Cars M (67, $22,790) and S (63, $22,167): 0.0635 ÷ 0.0281 = <strong>2.26</strong>. Above 1, the dearer car is the better value; each extra dollar buys $2.26 of comparable value. All other pairs of the four cars were below 1.</div></div><div><div class="k">Break-even (Ch. 1 and the book's Ch. 6)</div><div class="v">Break-even units = Fixed costs ÷ Unit contribution. $2,000,000 ÷ $30.02 = <strong>66,622 units</strong>. Expected sales of 100,000 exceed it by 33,378 units, so expected profit = 33,378 × $30.02 ≈ <strong>$1,002,000</strong>. Same answer by the other route: total contribution 100,000 × $30.02 = $3,002,000, less $2,000,000 fixed.</div></div><div><div class="k">Trade discount chain (Ch. 7)</div><div class="v">Retail $10, discounts 40 and 20 to retailer and wholesaler. Retailer pays <strong>$6.00</strong> (keeps $4.00, 40 percent). Wholesaler pays <strong>$4.80</strong> (keeps $1.20, 20 percent). Manufacturer receives <strong>$4.80</strong>.</div></div><div><div class="k">Quantity discount schedule (Ch. 7)</div><div class="v">1 to 5 tons 0 percent · 6 to 10 tons 2 percent · 11 to 20 tons 3 percent · 21 to 30 tons 4 percent · over 30 tons 5 percent. The first break sits where the seller's saving equals the buyer's extra holding cost.</div></div><div><div class="k">Cash discount (Ch. 7)</div><div class="v">2/10, n/30: 2 percent off within 10 days, full amount by day 30. Skipping the discount costs 2 percent for 20 days; 365 ÷ 20 ≈ 18 periods; 18 × 2 percent ≈ <strong>36 percent a year</strong>.</div></div><div><div class="k">Job-jacket costing (Ch. 13)</div><div class="v">Hourly rate = salary ÷ chargeable hours = $100,000 ÷ 2,000 = <strong>$50</strong>. Overhead rate = (overheads + unused time) ÷ hours charged by all staff = $195,000 ÷ 13,000 = <strong>$15</strong>. Four hours on an account = 4 × ($50 + $15) = <strong>$260</strong>.</div></div><div><div class="k">Capacity pricing (Ch. 13)</div><div class="v">Unit cost swings with volume: $1,000 return over 4,000 transactions = 25 cents each; over 20,000 = 5 cents. Units needed = (return + personnel cost) ÷ competitive price. Lowest case $1,080 ÷ $0.09 = <strong>12,000</strong>; highest case $1,200 ÷ $0.075 = <strong>16,000</strong>. Competitors charge 7.5 to 9 cents; the main one 8.2.</div></div><div><div class="k">Mixed bundling (Ch. 13, Table 13.1)</div><div class="v">Six items separately $2,300. Full package <strong>$1,820</strong>; credit package $1,670; accounting package $1,470; business analysis package $1,300. Every package is well below the sum of its parts.</div></div><div><div class="k">Keeping versus winning a customer (Ch. 1 and 14)</div><div class="v">Replacing a lost customer costs about <strong>five times</strong> retaining one (Ch. 1); about <strong>$1 to keep versus $6 to win</strong>, mostly advertising (Ch. 14).</div></div><div><div class="k">Cost behaviour (Ch. 1)</div><div class="v">Scale-related costs fall <strong>15 to 25 percent</strong> per unit each time volume doubles. Variety-related costs rise <strong>20 to 25 percent</strong> each time variety doubles.</div></div><div><div class="k">Hidden plant (Ch. 14)</div><div class="v">Motorola: the cost of fixing what should have been done right first time is <strong>25 to 35 percent</strong> of production cost. Quality lowers cost.</div></div><div><div class="k">Willingness to pay for quality, Gallup 1985 (Ch. 2)</div><div class="v">About a third more for a better car, half more for a dishwasher, almost two-thirds more for a sofa, over twice as much for shoes.</div></div></div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4103 &middot; Pricing Strategies &middot; Midterm study guide</b>
+          Compiled from the five lecture decks in slides/ and books/Pricing_ Policies and Procedures.pdf: Hanna and Dodge, <i>Pricing: Policies and Procedures</i> (Macmillan, 1995), chapters 1, 2, 7, 13 and 14; the cross-functional passage from Smith, <i>Pricing Strategy</i> (2011), chapter 1 &middot;
+                    Terminology preserved as printed</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

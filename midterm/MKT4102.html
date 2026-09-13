@@ -205,6 +205,8 @@ mark strong,strong mark{font-weight:600;color:var(--ink)}
 
 /* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
 .term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
 .term:focus{outline:none}
 .term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
 .tip{
@@ -249,7 +251,7 @@ td:last-child .tip{left:auto;right:0}
    click (and therefore focus) to a non-interactive element that looks
    clickable, so cursor:help alone leaves the tip unopenable by tap. */
 @media (hover:none){.term{cursor:pointer}}
-@media (hover:none),(max-width:760px){
+@media (hover:none),(max-width:1039px){
   .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
     width:auto;max-width:none;font-size:15px;padding:14px 16px;
     transform-origin:bottom center;
@@ -319,11 +321,11 @@ td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-hei
 .tl li{position:relative;padding:.5em 0 .5em 1.1rem}
 .tl li::before{content:"";position:absolute;left:-4px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
 .tl li.key::before{background:var(--ink)}
-.tl .yr{position:absolute;right:calc(100% + 1rem);top:.55em;width:4.4rem;text-align:right;font-family:var(--mono);font-size:.76rem;line-height:1.35;color:var(--ink-2)}
+.tl .yr{position:absolute;right:calc(100% + 1rem);top:1.05em;width:4.4rem;text-align:right;font-family:var(--mono);font-size:.76rem;line-height:1.35;color:var(--ink-2)}
 .tl .ev{color:var(--ink)}
 .tl li.key .ev{font-weight:600}
 .tl .why{display:block;color:var(--ink-2);font-size:.94rem;margin-top:.15em}
-@media (max-width:759px){.tl ol{margin-left:3.6rem}.tl .era{padding-left:4.7rem}.tl .yr{width:3rem;font-size:.7rem;right:calc(100% + .8rem)}.tl li{padding-left:.9rem}}
+@media (max-width:759px){.tl ol{margin-left:3.6rem}.tl .era{padding-left:4.7rem}.tl .yr{width:3rem;font-size:.7rem;top:1.2em;right:calc(100% + .8rem)}.tl li{padding-left:.9rem}}
 @media print{.tl li{break-inside:avoid}}
 
 /* ═══════ callout ═══════ */

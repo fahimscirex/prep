@@ -205,6 +205,8 @@ mark strong,strong mark{font-weight:600;color:var(--ink)}
 
 /* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
 .term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
 .term:focus{outline:none}
 .term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
 .tip{
@@ -249,7 +251,7 @@ td:last-child .tip{left:auto;right:0}
    click (and therefore focus) to a non-interactive element that looks
    clickable, so cursor:help alone leaves the tip unopenable by tap. */
 @media (hover:none){.term{cursor:pointer}}
-@media (hover:none),(max-width:760px){
+@media (hover:none),(max-width:1039px){
   .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;
     width:auto;max-width:none;font-size:15px;padding:14px 16px;
     transform-origin:bottom center;

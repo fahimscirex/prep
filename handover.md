@@ -12,7 +12,7 @@ GitHub Pages.
 ## 1. What this is
 
 A self-contained exam revision guide for a university services-marketing course (MKT4101).
-One HTML file, ~104 KB, **zero JavaScript**, one external request (Google Fonts). It is a
+One HTML file, ~104 KB, **zero JavaScript** apart from the print button's one-line `onclick="print()"`, one external request (Google Fonts). It is a
 personal study document for one student — not a product, not multi-user, no analytics, no
 backend. Nothing is live yet.
 
@@ -64,7 +64,7 @@ Things that are already correct for Pages and need no change:
 - Relative/no asset paths — nothing to break under a `/repo-name/` subpath.
 - No `<base>` tag, no absolute local paths.
 - Fonts load over `https://` from Google Fonts, so no mixed-content warning.
-- No JS, so no CSP/nonce concerns.
+- No JS except the inline `onclick="print()"` on the print button; a strict CSP would block that one handler and the button would silently do nothing.
 
 Add a `.nojekyll` file at the repo root. Not strictly required here (no underscore-prefixed
 paths), but it removes an entire class of surprise from Jekyll preprocessing and costs nothing.
@@ -118,7 +118,7 @@ plus spec-sheet furniture (black table header bars, hairline frames, a stamped f
 | `--rule` / `--rule-strong` | `#e7e1da` / `#cec6bc` | `#2c2a26` / `#403c37` |
 | `--hi` (highlighter) | `#fbefa2` | `rgba(245,214,106,.26)` |
 
-`--measure: 64ch` is the reading width; almost every block is capped to it.
+`--measure: 72ch` is the reading width; almost every block is capped to it.
 `--ease-out: cubic-bezier(.23,1,.32,1)`.
 
 **Aliases exist for the SVG only:** `--bg`, `--surface`, `--line`, `--line-2`, `--accent`,
@@ -233,7 +233,7 @@ Driven through chrome-devtools MCP. Re-run after any layout change:
   style generic semantic HTML, when ~70% of this page is custom structure a classless
   framework would style wrong and then need overriding. The only thing worth taking —
   `<details>`/`<summary>` — is native HTML, not a library.
-- **No JavaScript, at all.** Every interaction is `:target`, `:has()`, `:focus-within` or
+- **No JavaScript**, with one exception: the print button's `onclick="print()"`. Every other interaction is `:target`, `:has()`, `:focus-within` or
   `<details>`. Keep it that way; it is why the file needs no build and no CSP thought.
 - **Serif body, not mono.** Considered and rejected — unreadable over a 35-minute document.
 - **Em dashes are banned** in the prose (user preference). 95 were removed and replaced with

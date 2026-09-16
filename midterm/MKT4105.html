@@ -314,6 +314,18 @@ td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-hei
 
 .lede .mark{vertical-align:middle;margin:0 2px}
 
+/* the one nav entry that leaves the page: a mode switch, so it sits above the
+   contents list rather than at the end of it, where the sidebar scroll hides it */
+.nav a.navout{display:flex;align-items:center;gap:8px;margin:0 0 14px;
+  padding-bottom:14px;border-left-color:transparent;border-bottom:1px solid var(--rule);
+  color:var(--ink-2)}
+.nav a.navout .go{margin-left:auto;color:var(--ink-3);
+  transition:transform 160ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .nav a.navout:hover{color:var(--ink)}
+  .nav a.navout:hover .go{transform:translateX(3px)}
+}
+
 /* phone redraw of every diagram: one column, text at full size */
 .figbox svg.dn{display:none}
 @media (max-width:759px){
@@ -617,6 +629,7 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
     <hr class="rule">
     <p class="nav-h">Contents</p>
     <nav class="nav" aria-label="Contents">
+          <a class="navout" href="MKT4105-cards.html"><span class="ht">Flashcards</span><span class="go" aria-hidden="true">&rarr;</span></a>
           <details class="navgrp" open>
             <summary><span class="tog" aria-hidden="true"></span><span class="t">Role of Selling</span><span class="dots" aria-hidden="true">·······</span></summary>
             <ul><li><a href="#s1-what"><span class="ht">What is selling</span></a></li><li><a href="#s1-strengths"><span class="ht">Strengths and weaknesses</span></a></li><li><a href="#s1-modern"><span class="ht">Modern selling</span></a></li><li><a href="#s1-success"><span class="ht">Success factors</span></a></li><li><a href="#s1-types"><span class="ht">Types of selling</span></a></li><li><a href="#s1-marketing"><span class="ht">The marketing concept</span></a></li><li><a href="#s1-relationship"><span class="ht">Sales and marketing</span></a></li></ul>

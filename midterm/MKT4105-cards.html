@@ -142,7 +142,7 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
 .prbtn:active{transform:scale(.96)}
 @media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
 @media (hover:none){.prbtn{width:40px;height:40px}}
-@media (hover:hover) and (pointer:fine){.menubtn:hover{background:var(--ink);color:var(--paper)}.menuclose:hover{border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.menubtn:hover{color:var(--ink);border-color:var(--ink)}.menuclose:hover{border-color:var(--ink)}}
 @media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
 .themebtn:active{transform:scale(.96)}
 #flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
@@ -320,6 +320,12 @@ td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-hei
    reveal, where the answer box growing keeps the button row from jumping under
    the cursor. The template's global prefers-reduced-motion rule flattens all of
    it to .01ms, so there is no separate reduced-motion block here. */
+
+/* The shell's mobile drawer opens via href="#menu", and on this page the
+   fragment is the card state, so opening it would throw away the card you were
+   on. Everything in that drawer (the deck list, the way back to the guide) is
+   one tap away on the deck screen, so the button goes rather than the state. */
+.menubtn{display:none!important}
 
 /* One card is usually far shorter than the viewport, so let the document column
    fill the scroll area and push the footer to the bottom edge instead of leaving
@@ -557,16 +563,22 @@ body:has(#q94:target) .nav a[href="#q94"] {
   /* the label goes once the print control joins the bar: three 40px squares
      plus "CONTENTS" no longer fit at 390px */
   .menubtn .lbltxt{display:none}
-  .menubtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:none;
-    width:40px;padding:0;
-    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--ink);text-decoration:none;border:1px solid var(--ink);
-    padding:9px 12px;min-height:40px;background:var(--paper)}
-  .menubtn .bars{width:13px;height:9px;flex:none;
-    border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
-    position:relative}
-  .menubtn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;
-    border-top:1.5px solid var(--ink)}
+  /* sized and coloured like the print and theme buttons beside it */
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:40px;height:40px;padding:0;cursor:pointer;
+    color:var(--ink-2);text-decoration:none;
+    border:1px solid var(--rule-strong);background:var(--paper);
+    transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),
+               transform 150ms var(--ease-out)}
+  .menubtn:active{transform:scale(.96)}
+  /* the middle bar is the element itself, so the three sit evenly and the set
+     is centred by the button's own align-items rather than by hand */
+  .menubtn .bars{position:relative;flex:none;width:17px;height:1.5px;
+    background:currentColor}
+  .menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;
+    left:0;width:17px;height:1.5px;background:currentColor}
+  .menubtn .bars::before{top:-5px}
+  .menubtn .bars::after{top:5px}
 
   .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -700,6 +712,18 @@ body:has(#q94:target) .nav a[href="#q94"] {
       <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
       <input type="checkbox" id="flip" class="sr-only">
       <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+      <script>/* The checkbox inverts the system theme, and CSS cannot remember
+      anything, so the choice would reset on every load. Store the resulting
+      theme rather than the inversion: if the OS later switches to dark on its
+      own, a stored "inverted" would hand back light. Runs inline, right after
+      the control, so the theme is settled before the page below it paints. */
+      (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+      sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+      saved=localStorage.getItem(k);
+      if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+      f.addEventListener('change',function(){
+        localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+      }catch(e){}})();</script>
     </header>
 
     <div class="scrollarea">
@@ -720,6 +744,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
         <div class="chap"><h2>Pick a deck</h2></div>
         <p class="src">Cards come straight from the guide, so nothing here is new material.</p>
         <div class="decks"><a class="deck" href="#q1"><span class="dn">Role of Selling</span><span class="dc">14 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a><a class="deck" href="#q15"><span class="dn">Sales Strategies</span><span class="dc">12 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a><a class="deck" href="#q27"><span class="dn">Buyer Behaviour</span><span class="dc">23 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a><a class="deck" href="#q50"><span class="dn">Sales Settings</span><span class="dc">18 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a><a class="deck" href="#q68"><span class="dn">International Selling</span><span class="dc">26 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a><a class="deck" href="#q94"><span class="dn">Recall lists</span><span class="dc">40 cards</span><span class="dg" aria-hidden="true">&rarr;</span></a></div>
+        <p class="esc"><a href="MKT4105.html">&larr; Back to the guide</a></p>
         <div class="note"><span class="lbl">How it works</span>
           <p>Reading the answer before trying to produce it feels like learning and is not. Say your answer out loud, or write it, <em>then</em> reveal. The card counts nothing and grades nothing on purpose: the only signal that matters is whether you could produce the answer unprompted.</p>
         </div>
@@ -738,7 +763,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <span class="btn off" aria-hidden="true">&larr; Prev</span>
           <a class="btn" href="#q2">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q2" tabindex="-1">
         <i class="ax" id="a2"></i><i class="ax" id="p2"></i>
@@ -754,7 +779,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p1">&larr; Prev</a>
           <a class="btn" href="#q3">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q3" tabindex="-1">
         <i class="ax" id="a3"></i><i class="ax" id="p3"></i>
@@ -770,7 +795,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p2">&larr; Prev</a>
           <a class="btn" href="#q4">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q4" tabindex="-1">
         <i class="ax" id="a4"></i><i class="ax" id="p4"></i>
@@ -786,7 +811,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p3">&larr; Prev</a>
           <a class="btn" href="#q5">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q5" tabindex="-1">
         <i class="ax" id="a5"></i><i class="ax" id="p5"></i>
@@ -802,7 +827,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p4">&larr; Prev</a>
           <a class="btn" href="#q6">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q6" tabindex="-1">
         <i class="ax" id="a6"></i><i class="ax" id="p6"></i>
@@ -818,7 +843,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p5">&larr; Prev</a>
           <a class="btn" href="#q7">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q7" tabindex="-1">
         <i class="ax" id="a7"></i><i class="ax" id="p7"></i>
@@ -834,7 +859,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p6">&larr; Prev</a>
           <a class="btn" href="#q8">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q8" tabindex="-1">
         <i class="ax" id="a8"></i><i class="ax" id="p8"></i>
@@ -850,7 +875,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p7">&larr; Prev</a>
           <a class="btn" href="#q9">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q9" tabindex="-1">
         <i class="ax" id="a9"></i><i class="ax" id="p9"></i>
@@ -866,7 +891,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p8">&larr; Prev</a>
           <a class="btn" href="#q10">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q10" tabindex="-1">
         <i class="ax" id="a10"></i><i class="ax" id="p10"></i>
@@ -882,7 +907,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p9">&larr; Prev</a>
           <a class="btn" href="#q11">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q11" tabindex="-1">
         <i class="ax" id="a11"></i><i class="ax" id="p11"></i>
@@ -898,7 +923,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p10">&larr; Prev</a>
           <a class="btn" href="#q12">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q12" tabindex="-1">
         <i class="ax" id="a12"></i><i class="ax" id="p12"></i>
@@ -914,7 +939,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p11">&larr; Prev</a>
           <a class="btn" href="#q13">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q13" tabindex="-1">
         <i class="ax" id="a13"></i><i class="ax" id="p13"></i>
@@ -930,7 +955,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p12">&larr; Prev</a>
           <a class="btn" href="#q14">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q14" tabindex="-1">
         <i class="ax" id="a14"></i><i class="ax" id="p14"></i>
@@ -946,7 +971,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p13">&larr; Prev</a>
           <a class="btn" href="#q15">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q15" tabindex="-1">
         <i class="ax" id="a15"></i><i class="ax" id="p15"></i>
@@ -962,7 +987,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p14">&larr; Prev</a>
           <a class="btn" href="#q16">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q16" tabindex="-1">
         <i class="ax" id="a16"></i><i class="ax" id="p16"></i>
@@ -978,7 +1003,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p15">&larr; Prev</a>
           <a class="btn" href="#q17">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q17" tabindex="-1">
         <i class="ax" id="a17"></i><i class="ax" id="p17"></i>
@@ -994,7 +1019,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p16">&larr; Prev</a>
           <a class="btn" href="#q18">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q18" tabindex="-1">
         <i class="ax" id="a18"></i><i class="ax" id="p18"></i>
@@ -1010,7 +1035,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p17">&larr; Prev</a>
           <a class="btn" href="#q19">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q19" tabindex="-1">
         <i class="ax" id="a19"></i><i class="ax" id="p19"></i>
@@ -1026,7 +1051,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p18">&larr; Prev</a>
           <a class="btn" href="#q20">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q20" tabindex="-1">
         <i class="ax" id="a20"></i><i class="ax" id="p20"></i>
@@ -1042,7 +1067,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p19">&larr; Prev</a>
           <a class="btn" href="#q21">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q21" tabindex="-1">
         <i class="ax" id="a21"></i><i class="ax" id="p21"></i>
@@ -1058,7 +1083,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p20">&larr; Prev</a>
           <a class="btn" href="#q22">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q22" tabindex="-1">
         <i class="ax" id="a22"></i><i class="ax" id="p22"></i>
@@ -1074,7 +1099,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p21">&larr; Prev</a>
           <a class="btn" href="#q23">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q23" tabindex="-1">
         <i class="ax" id="a23"></i><i class="ax" id="p23"></i>
@@ -1090,7 +1115,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p22">&larr; Prev</a>
           <a class="btn" href="#q24">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q24" tabindex="-1">
         <i class="ax" id="a24"></i><i class="ax" id="p24"></i>
@@ -1106,7 +1131,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p23">&larr; Prev</a>
           <a class="btn" href="#q25">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q25" tabindex="-1">
         <i class="ax" id="a25"></i><i class="ax" id="p25"></i>
@@ -1122,7 +1147,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p24">&larr; Prev</a>
           <a class="btn" href="#q26">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q26" tabindex="-1">
         <i class="ax" id="a26"></i><i class="ax" id="p26"></i>
@@ -1138,7 +1163,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p25">&larr; Prev</a>
           <a class="btn" href="#q27">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q27" tabindex="-1">
         <i class="ax" id="a27"></i><i class="ax" id="p27"></i>
@@ -1154,7 +1179,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p26">&larr; Prev</a>
           <a class="btn" href="#q28">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q28" tabindex="-1">
         <i class="ax" id="a28"></i><i class="ax" id="p28"></i>
@@ -1170,7 +1195,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p27">&larr; Prev</a>
           <a class="btn" href="#q29">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q29" tabindex="-1">
         <i class="ax" id="a29"></i><i class="ax" id="p29"></i>
@@ -1186,7 +1211,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p28">&larr; Prev</a>
           <a class="btn" href="#q30">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q30" tabindex="-1">
         <i class="ax" id="a30"></i><i class="ax" id="p30"></i>
@@ -1202,7 +1227,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p29">&larr; Prev</a>
           <a class="btn" href="#q31">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q31" tabindex="-1">
         <i class="ax" id="a31"></i><i class="ax" id="p31"></i>
@@ -1218,7 +1243,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p30">&larr; Prev</a>
           <a class="btn" href="#q32">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q32" tabindex="-1">
         <i class="ax" id="a32"></i><i class="ax" id="p32"></i>
@@ -1234,7 +1259,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p31">&larr; Prev</a>
           <a class="btn" href="#q33">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q33" tabindex="-1">
         <i class="ax" id="a33"></i><i class="ax" id="p33"></i>
@@ -1250,7 +1275,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p32">&larr; Prev</a>
           <a class="btn" href="#q34">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q34" tabindex="-1">
         <i class="ax" id="a34"></i><i class="ax" id="p34"></i>
@@ -1266,7 +1291,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p33">&larr; Prev</a>
           <a class="btn" href="#q35">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q35" tabindex="-1">
         <i class="ax" id="a35"></i><i class="ax" id="p35"></i>
@@ -1282,7 +1307,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p34">&larr; Prev</a>
           <a class="btn" href="#q36">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q36" tabindex="-1">
         <i class="ax" id="a36"></i><i class="ax" id="p36"></i>
@@ -1298,7 +1323,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p35">&larr; Prev</a>
           <a class="btn" href="#q37">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q37" tabindex="-1">
         <i class="ax" id="a37"></i><i class="ax" id="p37"></i>
@@ -1314,7 +1339,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p36">&larr; Prev</a>
           <a class="btn" href="#q38">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q38" tabindex="-1">
         <i class="ax" id="a38"></i><i class="ax" id="p38"></i>
@@ -1330,7 +1355,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p37">&larr; Prev</a>
           <a class="btn" href="#q39">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q39" tabindex="-1">
         <i class="ax" id="a39"></i><i class="ax" id="p39"></i>
@@ -1346,7 +1371,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p38">&larr; Prev</a>
           <a class="btn" href="#q40">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q40" tabindex="-1">
         <i class="ax" id="a40"></i><i class="ax" id="p40"></i>
@@ -1362,7 +1387,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p39">&larr; Prev</a>
           <a class="btn" href="#q41">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q41" tabindex="-1">
         <i class="ax" id="a41"></i><i class="ax" id="p41"></i>
@@ -1378,7 +1403,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p40">&larr; Prev</a>
           <a class="btn" href="#q42">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q42" tabindex="-1">
         <i class="ax" id="a42"></i><i class="ax" id="p42"></i>
@@ -1394,7 +1419,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p41">&larr; Prev</a>
           <a class="btn" href="#q43">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q43" tabindex="-1">
         <i class="ax" id="a43"></i><i class="ax" id="p43"></i>
@@ -1410,7 +1435,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p42">&larr; Prev</a>
           <a class="btn" href="#q44">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q44" tabindex="-1">
         <i class="ax" id="a44"></i><i class="ax" id="p44"></i>
@@ -1426,7 +1451,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p43">&larr; Prev</a>
           <a class="btn" href="#q45">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q45" tabindex="-1">
         <i class="ax" id="a45"></i><i class="ax" id="p45"></i>
@@ -1442,7 +1467,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p44">&larr; Prev</a>
           <a class="btn" href="#q46">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q46" tabindex="-1">
         <i class="ax" id="a46"></i><i class="ax" id="p46"></i>
@@ -1458,7 +1483,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p45">&larr; Prev</a>
           <a class="btn" href="#q47">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q47" tabindex="-1">
         <i class="ax" id="a47"></i><i class="ax" id="p47"></i>
@@ -1474,7 +1499,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p46">&larr; Prev</a>
           <a class="btn" href="#q48">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q48" tabindex="-1">
         <i class="ax" id="a48"></i><i class="ax" id="p48"></i>
@@ -1490,7 +1515,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p47">&larr; Prev</a>
           <a class="btn" href="#q49">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q49" tabindex="-1">
         <i class="ax" id="a49"></i><i class="ax" id="p49"></i>
@@ -1506,7 +1531,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p48">&larr; Prev</a>
           <a class="btn" href="#q50">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q50" tabindex="-1">
         <i class="ax" id="a50"></i><i class="ax" id="p50"></i>
@@ -1522,7 +1547,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p49">&larr; Prev</a>
           <a class="btn" href="#q51">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q51" tabindex="-1">
         <i class="ax" id="a51"></i><i class="ax" id="p51"></i>
@@ -1538,7 +1563,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p50">&larr; Prev</a>
           <a class="btn" href="#q52">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q52" tabindex="-1">
         <i class="ax" id="a52"></i><i class="ax" id="p52"></i>
@@ -1554,7 +1579,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p51">&larr; Prev</a>
           <a class="btn" href="#q53">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q53" tabindex="-1">
         <i class="ax" id="a53"></i><i class="ax" id="p53"></i>
@@ -1570,7 +1595,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p52">&larr; Prev</a>
           <a class="btn" href="#q54">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q54" tabindex="-1">
         <i class="ax" id="a54"></i><i class="ax" id="p54"></i>
@@ -1586,7 +1611,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p53">&larr; Prev</a>
           <a class="btn" href="#q55">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q55" tabindex="-1">
         <i class="ax" id="a55"></i><i class="ax" id="p55"></i>
@@ -1602,7 +1627,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p54">&larr; Prev</a>
           <a class="btn" href="#q56">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q56" tabindex="-1">
         <i class="ax" id="a56"></i><i class="ax" id="p56"></i>
@@ -1618,7 +1643,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p55">&larr; Prev</a>
           <a class="btn" href="#q57">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q57" tabindex="-1">
         <i class="ax" id="a57"></i><i class="ax" id="p57"></i>
@@ -1634,7 +1659,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p56">&larr; Prev</a>
           <a class="btn" href="#q58">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q58" tabindex="-1">
         <i class="ax" id="a58"></i><i class="ax" id="p58"></i>
@@ -1650,7 +1675,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p57">&larr; Prev</a>
           <a class="btn" href="#q59">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q59" tabindex="-1">
         <i class="ax" id="a59"></i><i class="ax" id="p59"></i>
@@ -1666,7 +1691,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p58">&larr; Prev</a>
           <a class="btn" href="#q60">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q60" tabindex="-1">
         <i class="ax" id="a60"></i><i class="ax" id="p60"></i>
@@ -1682,7 +1707,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p59">&larr; Prev</a>
           <a class="btn" href="#q61">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q61" tabindex="-1">
         <i class="ax" id="a61"></i><i class="ax" id="p61"></i>
@@ -1698,7 +1723,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p60">&larr; Prev</a>
           <a class="btn" href="#q62">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q62" tabindex="-1">
         <i class="ax" id="a62"></i><i class="ax" id="p62"></i>
@@ -1714,7 +1739,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p61">&larr; Prev</a>
           <a class="btn" href="#q63">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q63" tabindex="-1">
         <i class="ax" id="a63"></i><i class="ax" id="p63"></i>
@@ -1730,7 +1755,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p62">&larr; Prev</a>
           <a class="btn" href="#q64">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q64" tabindex="-1">
         <i class="ax" id="a64"></i><i class="ax" id="p64"></i>
@@ -1746,7 +1771,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p63">&larr; Prev</a>
           <a class="btn" href="#q65">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q65" tabindex="-1">
         <i class="ax" id="a65"></i><i class="ax" id="p65"></i>
@@ -1762,7 +1787,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p64">&larr; Prev</a>
           <a class="btn" href="#q66">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q66" tabindex="-1">
         <i class="ax" id="a66"></i><i class="ax" id="p66"></i>
@@ -1778,7 +1803,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p65">&larr; Prev</a>
           <a class="btn" href="#q67">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q67" tabindex="-1">
         <i class="ax" id="a67"></i><i class="ax" id="p67"></i>
@@ -1794,7 +1819,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p66">&larr; Prev</a>
           <a class="btn" href="#q68">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q68" tabindex="-1">
         <i class="ax" id="a68"></i><i class="ax" id="p68"></i>
@@ -1810,7 +1835,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p67">&larr; Prev</a>
           <a class="btn" href="#q69">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q69" tabindex="-1">
         <i class="ax" id="a69"></i><i class="ax" id="p69"></i>
@@ -1826,7 +1851,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p68">&larr; Prev</a>
           <a class="btn" href="#q70">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q70" tabindex="-1">
         <i class="ax" id="a70"></i><i class="ax" id="p70"></i>
@@ -1842,7 +1867,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p69">&larr; Prev</a>
           <a class="btn" href="#q71">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q71" tabindex="-1">
         <i class="ax" id="a71"></i><i class="ax" id="p71"></i>
@@ -1858,7 +1883,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p70">&larr; Prev</a>
           <a class="btn" href="#q72">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q72" tabindex="-1">
         <i class="ax" id="a72"></i><i class="ax" id="p72"></i>
@@ -1874,7 +1899,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p71">&larr; Prev</a>
           <a class="btn" href="#q73">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q73" tabindex="-1">
         <i class="ax" id="a73"></i><i class="ax" id="p73"></i>
@@ -1890,7 +1915,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p72">&larr; Prev</a>
           <a class="btn" href="#q74">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q74" tabindex="-1">
         <i class="ax" id="a74"></i><i class="ax" id="p74"></i>
@@ -1906,7 +1931,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p73">&larr; Prev</a>
           <a class="btn" href="#q75">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q75" tabindex="-1">
         <i class="ax" id="a75"></i><i class="ax" id="p75"></i>
@@ -1922,7 +1947,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p74">&larr; Prev</a>
           <a class="btn" href="#q76">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q76" tabindex="-1">
         <i class="ax" id="a76"></i><i class="ax" id="p76"></i>
@@ -1938,7 +1963,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p75">&larr; Prev</a>
           <a class="btn" href="#q77">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q77" tabindex="-1">
         <i class="ax" id="a77"></i><i class="ax" id="p77"></i>
@@ -1954,7 +1979,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p76">&larr; Prev</a>
           <a class="btn" href="#q78">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q78" tabindex="-1">
         <i class="ax" id="a78"></i><i class="ax" id="p78"></i>
@@ -1970,7 +1995,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p77">&larr; Prev</a>
           <a class="btn" href="#q79">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q79" tabindex="-1">
         <i class="ax" id="a79"></i><i class="ax" id="p79"></i>
@@ -1986,7 +2011,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p78">&larr; Prev</a>
           <a class="btn" href="#q80">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q80" tabindex="-1">
         <i class="ax" id="a80"></i><i class="ax" id="p80"></i>
@@ -2002,7 +2027,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p79">&larr; Prev</a>
           <a class="btn" href="#q81">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q81" tabindex="-1">
         <i class="ax" id="a81"></i><i class="ax" id="p81"></i>
@@ -2018,7 +2043,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p80">&larr; Prev</a>
           <a class="btn" href="#q82">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q82" tabindex="-1">
         <i class="ax" id="a82"></i><i class="ax" id="p82"></i>
@@ -2034,7 +2059,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p81">&larr; Prev</a>
           <a class="btn" href="#q83">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q83" tabindex="-1">
         <i class="ax" id="a83"></i><i class="ax" id="p83"></i>
@@ -2050,7 +2075,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p82">&larr; Prev</a>
           <a class="btn" href="#q84">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q84" tabindex="-1">
         <i class="ax" id="a84"></i><i class="ax" id="p84"></i>
@@ -2066,7 +2091,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p83">&larr; Prev</a>
           <a class="btn" href="#q85">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q85" tabindex="-1">
         <i class="ax" id="a85"></i><i class="ax" id="p85"></i>
@@ -2082,7 +2107,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p84">&larr; Prev</a>
           <a class="btn" href="#q86">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q86" tabindex="-1">
         <i class="ax" id="a86"></i><i class="ax" id="p86"></i>
@@ -2098,7 +2123,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p85">&larr; Prev</a>
           <a class="btn" href="#q87">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q87" tabindex="-1">
         <i class="ax" id="a87"></i><i class="ax" id="p87"></i>
@@ -2114,7 +2139,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p86">&larr; Prev</a>
           <a class="btn" href="#q88">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q88" tabindex="-1">
         <i class="ax" id="a88"></i><i class="ax" id="p88"></i>
@@ -2130,7 +2155,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p87">&larr; Prev</a>
           <a class="btn" href="#q89">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q89" tabindex="-1">
         <i class="ax" id="a89"></i><i class="ax" id="p89"></i>
@@ -2146,7 +2171,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p88">&larr; Prev</a>
           <a class="btn" href="#q90">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q90" tabindex="-1">
         <i class="ax" id="a90"></i><i class="ax" id="p90"></i>
@@ -2162,7 +2187,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p89">&larr; Prev</a>
           <a class="btn" href="#q91">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q91" tabindex="-1">
         <i class="ax" id="a91"></i><i class="ax" id="p91"></i>
@@ -2178,7 +2203,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p90">&larr; Prev</a>
           <a class="btn" href="#q92">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q92" tabindex="-1">
         <i class="ax" id="a92"></i><i class="ax" id="p92"></i>
@@ -2194,7 +2219,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p91">&larr; Prev</a>
           <a class="btn" href="#q93">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q93" tabindex="-1">
         <i class="ax" id="a93"></i><i class="ax" id="p93"></i>
@@ -2210,7 +2235,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p92">&larr; Prev</a>
           <a class="btn" href="#q94">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q94" tabindex="-1">
         <i class="ax" id="a94"></i><i class="ax" id="p94"></i>
@@ -2226,7 +2251,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p93">&larr; Prev</a>
           <a class="btn" href="#q95">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q95" tabindex="-1">
         <i class="ax" id="a95"></i><i class="ax" id="p95"></i>
@@ -2242,7 +2267,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p94">&larr; Prev</a>
           <a class="btn" href="#q96">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q96" tabindex="-1">
         <i class="ax" id="a96"></i><i class="ax" id="p96"></i>
@@ -2258,7 +2283,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p95">&larr; Prev</a>
           <a class="btn" href="#q97">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q97" tabindex="-1">
         <i class="ax" id="a97"></i><i class="ax" id="p97"></i>
@@ -2274,7 +2299,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p96">&larr; Prev</a>
           <a class="btn" href="#q98">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q98" tabindex="-1">
         <i class="ax" id="a98"></i><i class="ax" id="p98"></i>
@@ -2290,7 +2315,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p97">&larr; Prev</a>
           <a class="btn" href="#q99">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q99" tabindex="-1">
         <i class="ax" id="a99"></i><i class="ax" id="p99"></i>
@@ -2306,7 +2331,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p98">&larr; Prev</a>
           <a class="btn" href="#q100">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q100" tabindex="-1">
         <i class="ax" id="a100"></i><i class="ax" id="p100"></i>
@@ -2322,7 +2347,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p99">&larr; Prev</a>
           <a class="btn" href="#q101">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q101" tabindex="-1">
         <i class="ax" id="a101"></i><i class="ax" id="p101"></i>
@@ -2338,7 +2363,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p100">&larr; Prev</a>
           <a class="btn" href="#q102">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q102" tabindex="-1">
         <i class="ax" id="a102"></i><i class="ax" id="p102"></i>
@@ -2354,7 +2379,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p101">&larr; Prev</a>
           <a class="btn" href="#q103">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q103" tabindex="-1">
         <i class="ax" id="a103"></i><i class="ax" id="p103"></i>
@@ -2370,7 +2395,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p102">&larr; Prev</a>
           <a class="btn" href="#q104">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q104" tabindex="-1">
         <i class="ax" id="a104"></i><i class="ax" id="p104"></i>
@@ -2386,7 +2411,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p103">&larr; Prev</a>
           <a class="btn" href="#q105">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q105" tabindex="-1">
         <i class="ax" id="a105"></i><i class="ax" id="p105"></i>
@@ -2402,7 +2427,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p104">&larr; Prev</a>
           <a class="btn" href="#q106">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q106" tabindex="-1">
         <i class="ax" id="a106"></i><i class="ax" id="p106"></i>
@@ -2418,7 +2443,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p105">&larr; Prev</a>
           <a class="btn" href="#q107">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q107" tabindex="-1">
         <i class="ax" id="a107"></i><i class="ax" id="p107"></i>
@@ -2434,7 +2459,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p106">&larr; Prev</a>
           <a class="btn" href="#q108">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q108" tabindex="-1">
         <i class="ax" id="a108"></i><i class="ax" id="p108"></i>
@@ -2450,7 +2475,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p107">&larr; Prev</a>
           <a class="btn" href="#q109">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q109" tabindex="-1">
         <i class="ax" id="a109"></i><i class="ax" id="p109"></i>
@@ -2466,7 +2491,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p108">&larr; Prev</a>
           <a class="btn" href="#q110">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q110" tabindex="-1">
         <i class="ax" id="a110"></i><i class="ax" id="p110"></i>
@@ -2482,7 +2507,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p109">&larr; Prev</a>
           <a class="btn" href="#q111">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q111" tabindex="-1">
         <i class="ax" id="a111"></i><i class="ax" id="p111"></i>
@@ -2498,7 +2523,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p110">&larr; Prev</a>
           <a class="btn" href="#q112">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q112" tabindex="-1">
         <i class="ax" id="a112"></i><i class="ax" id="p112"></i>
@@ -2514,7 +2539,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p111">&larr; Prev</a>
           <a class="btn" href="#q113">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q113" tabindex="-1">
         <i class="ax" id="a113"></i><i class="ax" id="p113"></i>
@@ -2530,7 +2555,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p112">&larr; Prev</a>
           <a class="btn" href="#q114">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q114" tabindex="-1">
         <i class="ax" id="a114"></i><i class="ax" id="p114"></i>
@@ -2546,7 +2571,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p113">&larr; Prev</a>
           <a class="btn" href="#q115">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q115" tabindex="-1">
         <i class="ax" id="a115"></i><i class="ax" id="p115"></i>
@@ -2562,7 +2587,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p114">&larr; Prev</a>
           <a class="btn" href="#q116">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q116" tabindex="-1">
         <i class="ax" id="a116"></i><i class="ax" id="p116"></i>
@@ -2578,7 +2603,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p115">&larr; Prev</a>
           <a class="btn" href="#q117">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q117" tabindex="-1">
         <i class="ax" id="a117"></i><i class="ax" id="p117"></i>
@@ -2594,7 +2619,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p116">&larr; Prev</a>
           <a class="btn" href="#q118">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q118" tabindex="-1">
         <i class="ax" id="a118"></i><i class="ax" id="p118"></i>
@@ -2610,7 +2635,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p117">&larr; Prev</a>
           <a class="btn" href="#q119">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q119" tabindex="-1">
         <i class="ax" id="a119"></i><i class="ax" id="p119"></i>
@@ -2626,7 +2651,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p118">&larr; Prev</a>
           <a class="btn" href="#q120">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q120" tabindex="-1">
         <i class="ax" id="a120"></i><i class="ax" id="p120"></i>
@@ -2642,7 +2667,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p119">&larr; Prev</a>
           <a class="btn" href="#q121">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q121" tabindex="-1">
         <i class="ax" id="a121"></i><i class="ax" id="p121"></i>
@@ -2658,7 +2683,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p120">&larr; Prev</a>
           <a class="btn" href="#q122">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q122" tabindex="-1">
         <i class="ax" id="a122"></i><i class="ax" id="p122"></i>
@@ -2674,7 +2699,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p121">&larr; Prev</a>
           <a class="btn" href="#q123">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q123" tabindex="-1">
         <i class="ax" id="a123"></i><i class="ax" id="p123"></i>
@@ -2690,7 +2715,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p122">&larr; Prev</a>
           <a class="btn" href="#q124">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q124" tabindex="-1">
         <i class="ax" id="a124"></i><i class="ax" id="p124"></i>
@@ -2706,7 +2731,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p123">&larr; Prev</a>
           <a class="btn" href="#q125">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q125" tabindex="-1">
         <i class="ax" id="a125"></i><i class="ax" id="p125"></i>
@@ -2722,7 +2747,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p124">&larr; Prev</a>
           <a class="btn" href="#q126">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q126" tabindex="-1">
         <i class="ax" id="a126"></i><i class="ax" id="p126"></i>
@@ -2738,7 +2763,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p125">&larr; Prev</a>
           <a class="btn" href="#q127">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q127" tabindex="-1">
         <i class="ax" id="a127"></i><i class="ax" id="p127"></i>
@@ -2754,7 +2779,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p126">&larr; Prev</a>
           <a class="btn" href="#q128">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q128" tabindex="-1">
         <i class="ax" id="a128"></i><i class="ax" id="p128"></i>
@@ -2770,7 +2795,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p127">&larr; Prev</a>
           <a class="btn" href="#q129">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q129" tabindex="-1">
         <i class="ax" id="a129"></i><i class="ax" id="p129"></i>
@@ -2786,7 +2811,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p128">&larr; Prev</a>
           <a class="btn" href="#q130">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q130" tabindex="-1">
         <i class="ax" id="a130"></i><i class="ax" id="p130"></i>
@@ -2802,7 +2827,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p129">&larr; Prev</a>
           <a class="btn" href="#q131">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q131" tabindex="-1">
         <i class="ax" id="a131"></i><i class="ax" id="p131"></i>
@@ -2818,7 +2843,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p130">&larr; Prev</a>
           <a class="btn" href="#q132">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q132" tabindex="-1">
         <i class="ax" id="a132"></i><i class="ax" id="p132"></i>
@@ -2834,7 +2859,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p131">&larr; Prev</a>
           <a class="btn" href="#q133">Next &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <article class="card" id="q133" tabindex="-1">
         <i class="ax" id="a133"></i><i class="ax" id="p133"></i>
@@ -2850,7 +2875,7 @@ body:has(#q94:target) .nav a[href="#q94"] {
           <a class="btn" href="#p132">&larr; Prev</a>
           <a class="btn" href="#done">Finish &rarr;</a>
         </div>
-        <p class="esc"><a href="#decks">All decks</a></p>
+        <p class="esc"><a href="#decks">All decks</a> &middot; <a href="MKT4105.html">Back to the guide</a></p>
       </article>
       <section id="done">
         <div class="chap"><h2>End of the deck</h2></div>

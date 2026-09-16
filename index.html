@@ -164,6 +164,16 @@ footer p{margin:0;color:var(--ink-3);font-size:.9rem;line-height:1.6}
   <p class="brand">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></p>
   <input type="checkbox" id="flip" class="sr-only">
   <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+  <script>/* Store the resulting theme, not the inversion, so an OS theme change
+  later does not hand back the opposite of what was chosen. Same key as the
+  guides, so the choice carries across the whole site. */
+  (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+  sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+  saved=localStorage.getItem(k);
+  if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+  f.addEventListener('change',function(){
+    localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+  }catch(e){}})();</script>
 </header>
 
 <div class="inner">

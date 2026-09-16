@@ -142,7 +142,7 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
 .prbtn:active{transform:scale(.96)}
 @media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
 @media (hover:none){.prbtn{width:40px;height:40px}}
-@media (hover:hover) and (pointer:fine){.menubtn:hover{background:var(--ink);color:var(--paper)}.menuclose:hover{border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.menubtn:hover{color:var(--ink);border-color:var(--ink)}.menuclose:hover{border-color:var(--ink)}}
 @media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
 .themebtn:active{transform:scale(.96)}
 #flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
@@ -504,16 +504,22 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
   /* the label goes once the print control joins the bar: three 40px squares
      plus "CONTENTS" no longer fit at 390px */
   .menubtn .lbltxt{display:none}
-  .menubtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:none;
-    width:40px;padding:0;
-    font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--ink);text-decoration:none;border:1px solid var(--ink);
-    padding:9px 12px;min-height:40px;background:var(--paper)}
-  .menubtn .bars{width:13px;height:9px;flex:none;
-    border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
-    position:relative}
-  .menubtn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;
-    border-top:1.5px solid var(--ink)}
+  /* sized and coloured like the print and theme buttons beside it */
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:40px;height:40px;padding:0;cursor:pointer;
+    color:var(--ink-2);text-decoration:none;
+    border:1px solid var(--rule-strong);background:var(--paper);
+    transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),
+               transform 150ms var(--ease-out)}
+  .menubtn:active{transform:scale(.96)}
+  /* the middle bar is the element itself, so the three sit evenly and the set
+     is centred by the button's own align-items rather than by hand */
+  .menubtn .bars{position:relative;flex:none;width:17px;height:1.5px;
+    background:currentColor}
+  .menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;
+    left:0;width:17px;height:1.5px;background:currentColor}
+  .menubtn .bars::before{top:-5px}
+  .menubtn .bars::after{top:5px}
 
   .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -662,6 +668,18 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
       <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
       <input type="checkbox" id="flip" class="sr-only">
       <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+      <script>/* The checkbox inverts the system theme, and CSS cannot remember
+      anything, so the choice would reset on every load. Store the resulting
+      theme rather than the inversion: if the OS later switches to dark on its
+      own, a stored "inverted" would hand back light. Runs inline, right after
+      the control, so the theme is settled before the page below it paints. */
+      (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+      sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+      saved=localStorage.getItem(k);
+      if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+      f.addEventListener('change',function(){
+        localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+      }catch(e){}})();</script>
     </header>
 
     <div class="scrollarea">

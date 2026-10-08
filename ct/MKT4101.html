@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4101 Services Marketing &middot; Class test</title>
+<meta name="description" content="Class test study guide for MKT4101 Services Marketing: Zeithaml chapter 4, customer perceptions of service, satisfaction, service quality and service encounters.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#6f6a63;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:72ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#6f6a63;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px;z-index:70}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1),transform 150ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),transform 150ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
+@media (hover:hover) and (pointer:fine){.menubtn:hover{color:var(--ink);border-color:var(--ink)}.menuclose:hover{border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-x:clip;overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.125rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style, content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
+  font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:50%;translate:-50% 0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top center;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0;translate:0 0}
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
+@media (hover:none),(max-width:1039px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;translate:0 0;
+    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:12px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1.125rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+.lede .mark{vertical-align:middle;margin:0 2px}
+
+/* ═══════ syllabus map ═══════ */
+.smap{max-width:none;margin:1.5em 0 2.2em;border-top:1px solid var(--rule-strong)}
+.mstep{border-bottom:1px solid var(--rule)}
+.mstep > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;
+  padding:13px 2px;font-size:1.02rem;font-weight:500;color:var(--ink)}
+.mstep > summary::-webkit-details-marker{display:none}
+.mstep > summary .tog{flex:none;width:13px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.mstep > summary .tog::before{content:"+"}
+.mstep[open] > summary .tog::before{content:"\2013"}
+.mstep .mt{flex:1 1 auto;min-width:0}
+.mstep .mn{flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:21px;height:21px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:11px;font-weight:400}
+.mstep .mc{flex:none;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+@media (hover:hover) and (pointer:fine){
+  .mstep > summary:hover .tog,.mstep > summary:hover .mc{color:var(--ink)}
+}
+.mbody{padding:4px 0 16px}
+/* dotted rules between the groups inside a step, so the label blocks do not run
+   together; solid rules stay reserved for separating the steps themselves */
+.mrow{display:grid;grid-template-columns:minmax(0,1fr);gap:3px 24px;padding:9px 0}
+.mrow + .mrow{border-top:1px dotted var(--rule-strong)}
+@media (min-width:640px){
+  .mrow{grid-template-columns:minmax(120px,172px) minmax(0,1fr)}
+  /* and a dotted spine down the gutter, separating the label from its topics */
+  .mk{border-right:1px dotted var(--rule-strong);margin-right:-12px;padding-right:12px}
+}
+.mk{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);line-height:1.7;padding-top:2px}
+.doc .mv{margin:0;padding:0;list-style:none;max-width:none}
+@media (min-width:900px){.doc .mv{column-count:2;column-gap:26px}}
+.doc .mv > li{margin:0 0 1px;padding:0;color:var(--ink-2);font-size:.93rem;
+  line-height:1.55;break-inside:avoid}
+.doc .mv > li::before{content:none;display:none}
+.doc .mv > li > a{color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid transparent;transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.doc .mv > li > a:hover{color:var(--ink);border-bottom-color:var(--rule-strong)}}
+@media print{.mstep{break-inside:avoid}.mbody{display:block}}
+
+/* name-and-meaning pairs inside a definition row: two aligned columns, because
+   a bulleted "X, which is Y" list is really a table wearing a bullet.
+   table-layout:fixed is load-bearing: with auto layout the table sizes to its
+   content, ignores width:100%, and gets silently cut off by overflow-x:clip. */
+.doc .terms .v table.pt{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;
+  margin:.6em 0 .1em;font-size:.95rem;line-height:1.5}
+.doc .terms .v table.pt td{padding:9px 0;vertical-align:top;color:var(--ink-2);
+  border-top:1px dotted var(--rule-strong);overflow-wrap:anywhere}
+.doc .terms .v table.pt tr:first-child td{border-top:0;padding-top:2px}
+.doc .terms .v table.pt td:first-child{width:38%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.pt td{padding:10px 0}
+  .doc .terms .v table.pt td:first-child{width:45%;padding-right:12px}
+}
+/* numbered variant: the count sits in its own narrow column so the names stay
+   aligned, which a plain ordered list cannot do once the items wrap */
+.doc .terms .v table.ptn td:first-child{width:26px;padding-right:9px;text-align:right;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:11px}
+.doc .terms .v table.ptn tr:first-child td:first-child{padding-top:4px}
+.doc .terms .v table.ptn td:nth-child(2){width:36%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.ptn td:first-child{width:21px;padding-right:7px}
+  .doc .terms .v table.ptn td:nth-child(2){width:42%;padding-right:11px}
+}
+
+/* a list inside a definition row: tighter than a prose list, with clean bullet dots */
+.terms .v > p{margin:0 0 .5em}
+.terms .v ul{margin:.1em 0 0;padding:0;list-style:none;max-width:none}
+.terms .v ul > li{margin:0 0 .34em;padding-left:1.15em;position:relative;color:var(--ink-2)}
+.terms .v ul > li::before{content:"";position:absolute;left:2px;top:.68em;
+  width:4px;height:4px;border-radius:50%;background:var(--ink-3)}
+.terms .v ul > li:last-child{margin-bottom:0}
+.terms .v ol{margin:.1em 0 0;padding-left:1.3em}
+.terms .v ol > li{margin:0 0 .34em;color:var(--ink-2)}
+.terms .v ol > li:last-child{margin-bottom:0}
+
+/* the one nav entry that leaves the page: a mode switch, so it sits above the
+   contents list rather than at the end of it, where the sidebar scroll hides it */
+.nav a.navout{display:flex;align-items:center;gap:8px;margin:0 0 14px;
+  padding-bottom:14px;border-left-color:transparent;border-bottom:1px solid var(--rule);
+  color:var(--ink-2)}
+.nav a.navout .go{margin-left:auto;color:var(--ink-3);
+  transition:transform 160ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .nav a.navout:hover{color:var(--ink)}
+  .nav a.navout:hover .go{transform:translateX(3px)}
+}
+
+/* phone redraw of every diagram: one column, text at full size */
+.figbox svg.dn{display:none}
+@media (max-width:759px){
+  figure.rf .figbox{overflow-x:visible}
+  figure.rf .figbox svg.dw{display:none}
+  figure.rf .figbox svg.dn{display:block;min-width:0;max-width:400px;margin:0 auto}
+  figure.rf .figbox::after{display:none}
+  figure.rf figcaption::after{content:""}
+}
+@media print{.figbox svg.dn{display:none}.figbox svg.dw{display:block}}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto;position:relative}
+/* below 760px the diagram is wider than the screen; say so instead of clipping silently */
+@media (max-width:759px){.figbox::after{content:"";position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:none;background:linear-gradient(to right,transparent,var(--band))}
+  figcaption::after{content:" \00b7\00a0wider than the screen, swipe sideways"}}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+@supports not selector(:target-current){
+body:has(#map:target) .nav a[href="#map"],
+body:has(#ch1:target) .nav a[href="#ch1"],
+body:has(#s1-perception:target) .nav a[href="#s1-perception"],
+body:has(#s1-model:target) .nav a[href="#s1-model"],
+body:has(#s1-satisfaction:target) .nav a[href="#s1-satisfaction"],
+body:has(#s1-determinants:target) .nav a[href="#s1-determinants"],
+body:has(#s1-indexes:target) .nav a[href="#s1-indexes"],
+body:has(#s1-outcomes:target) .nav a[href="#s1-outcomes"],
+body:has(#s1-dissatisfaction:target) .nav a[href="#s1-dissatisfaction"],
+body:has(#ch2:target) .nav a[href="#ch2"],
+body:has(#s2-what:target) .nav a[href="#s2-what"],
+body:has(#s2-dimensions:target) .nav a[href="#s2-dimensions"],
+body:has(#s2-table:target) .nav a[href="#s2-table"],
+body:has(#s2-eservice:target) .nav a[href="#s2-eservice"],
+body:has(#s2-effort:target) .nav a[href="#s2-effort"],
+body:has(#ch3:target) .nav a[href="#ch3"],
+body:has(#s3-what:target) .nav a[href="#s3-what"],
+body:has(#s3-importance:target) .nav a[href="#s3-importance"],
+body:has(#s3-types:target) .nav a[href="#s3-types"],
+body:has(#s3-themes:target) .nav a[href="#s3-themes"],
+body:has(#s3-dos:target) .nav a[href="#s3-dos"],
+body:has(#s3-technology:target) .nav a[href="#s3-technology"],
+body:has(#sheet:target) .nav a[href="#sheet"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+}
+/* scroll-aware sidebar, no script: CSS scroll-target-group (Chromium 135+) marks the
+   link whose section is on screen as the reader scrolls; browsers without it keep the
+   click-based :target rule above */
+@supports selector(:target-current){
+  .nav{scroll-target-group:auto}
+  .navgrp ul a:target-current,.nav > a:target-current{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+}
+
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  /* sized and coloured like the print and theme buttons beside it */
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:40px;height:40px;padding:0;cursor:pointer;
+    color:var(--ink-2);text-decoration:none;
+    border:1px solid var(--rule-strong);background:var(--paper);
+    transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),
+               transform 150ms var(--ease-out)}
+  .menubtn:active{transform:scale(.96)}
+  /* the middle bar is the element itself, so the three sit evenly and the set
+     is centred by the button's own align-items rather than by hand */
+  .menubtn .bars{position:relative;flex:none;width:17px;height:1.5px;
+    background:currentColor}
+  .menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;
+    left:0;width:17px;height:1.5px;background:currentColor}
+  .menubtn .bars::before{top:-5px}
+  .menubtn .bars::after{top:5px}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to main content</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <a class="navout" href="../midterm/MKT4101.html"><span class="ht">Midterm guide</span><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a href="#map"><span class="ht">Syllabus map</span></a>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Perception and Satisfaction</span><span class="dots" aria-hidden="true">·······</span></summary>
+            <ul><li><a href="#s1-perception"><span class="ht">Customer perception</span></a></li><li><a href="#s1-model"><span class="ht">Figure 4.1</span></a></li><li><a href="#s1-satisfaction"><span class="ht">Customer satisfaction</span></a></li><li><a href="#s1-determinants"><span class="ht">Five determinants</span></a></li><li><a href="#s1-indexes"><span class="ht">National indexes</span></a></li><li><a href="#s1-outcomes"><span class="ht">Outcomes</span></a></li><li><a href="#s1-dissatisfaction"><span class="ht">Consequences of dissatisfaction</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Service Quality</span><span class="dots" aria-hidden="true">·····</span></summary>
+            <ul><li><a href="#s2-what"><span class="ht">What it is</span></a></li><li><a href="#s2-dimensions"><span class="ht">Five dimensions</span></a></li><li><a href="#s2-table"><span class="ht">How customers judge them</span></a></li><li><a href="#s2-eservice"><span class="ht">E-service quality</span></a></li><li><a href="#s2-effort"><span class="ht">Customer effort</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Service Encounters</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s3-what"><span class="ht">Moment of truth</span></a></li><li><a href="#s3-importance"><span class="ht">Why every encounter matters</span></a></li><li><a href="#s3-types"><span class="ht">Three types</span></a></li><li><a href="#s3-themes"><span class="ht">Four themes</span></a></li><li><a href="#s3-dos"><span class="ht">Dos and don'ts</span></a></li><li><a href="#s3-technology"><span class="ht">Technology-based encounters</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 20 minutes</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Class test &nbsp;/&nbsp; </span><b aria-current="page">MKT4101</b></nav>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+      <script>/* The checkbox inverts the system theme, and CSS cannot remember
+      anything, so the choice would reset on every load. Store the resulting
+      theme rather than the inversion: if the OS later switches to dark on its
+      own, a stored "inverted" would hand back light. Runs inline, right after
+      the control, so the theme is settled before the page below it paints. */
+      (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+      sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+      saved=localStorage.getItem(k);
+      if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+      f.addEventListener('change',function(){
+        localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+      }catch(e){}})();</script>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4101</p>
+    <h1>Services Marketing</h1>
+    <p class="lede">Class test guide for Zeithaml chapter 4, Customer Perceptions of Service: satisfaction, service quality and service encounters. Built from the chapter 4 slides and checked against the full book. Topics the book covers but the slides do not are marked <span class="mark">book only</span>.</p>
+    <div class="mast-meta">
+      <span>Class test</span>
+      <span>Zeithaml, Chapter 4</span>
+      <span>11 diagrams</span>
+      <span>&asymp; 20 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ MAP ══════════ -->
+      <section id="map">
+        <div class="chap"><h2>Syllabus map</h2></div>
+        <p class="src">Everything on the class test, and where it is answered</p>
+        <p>Zeithaml chapter 4, in three parts. Open a
+        part to see what sits under it; every line is a link to the section that covers it.</p>
+        <div class="smap"><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">1</span><span class="mt">Customer Perception and Satisfaction</span><span class="mc">9</span></summary><div class="mbody"><div class="mrow"><div class="mk">Perception</div><ul class="mv"><li><a href="#s1-perception">Definition</a></li><li><a href="#s1-model">Figure 4.1</a></li><li><a href="#s1-vs">Satisfaction vs service quality</a></li><li><a href="#s1-transaction">Transaction vs cumulative</a></li></ul></div><div class="mrow"><div class="mk">Satisfaction</div><ul class="mv"><li><a href="#s1-satisfaction">Definitions</a></li><li><a href="#s1-determinants">Five determinants</a></li><li><a href="#s1-indexes">National indexes and ACSI</a></li><li><a href="#s1-outcomes">Outcomes</a></li><li><a href="#s1-dissatisfaction">Consequences of dissatisfaction</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">2</span><span class="mt">Service Quality</span><span class="mc">6</span></summary><div class="mbody"><div class="mrow"><div class="mk">Quality</div><ul class="mv"><li><a href="#s2-what">Definition</a></li><li><a href="#s2-three">Outcome, interaction, environment</a></li></ul></div><div class="mrow"><div class="mk">Dimensions</div><ul class="mv"><li><a href="#s2-dimensions">Five dimensions (RATER)</a></li><li><a href="#s2-table">How customers judge them</a></li></ul></div><div class="mrow"><div class="mk">Online and effort</div><ul class="mv"><li><a href="#s2-eservice">E-service quality</a></li><li><a href="#s2-effort">Customer effort</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">3</span><span class="mt">Service Encounters</span><span class="mc">8</span></summary><div class="mbody"><div class="mrow"><div class="mk">Encounters</div><ul class="mv"><li><a href="#s3-what">Moment of truth</a></li><li><a href="#s3-cascade">Encounter cascade</a></li><li><a href="#s3-importance">Why every encounter matters</a></li></ul></div><div class="mrow"><div class="mk">Types</div><ul class="mv"><li><a href="#s3-types">Remote, technology-mediated, face-to-face</a></li></ul></div><div class="mrow"><div class="mk">Themes</div><ul class="mv"><li><a href="#s3-themes">Recovery, adaptability, spontaneity, coping</a></li><li><a href="#s3-dos">Dos and don'ts</a></li></ul></div><div class="mrow"><div class="mk">Technology</div><ul class="mv"><li><a href="#s3-technology">Technology-based encounters</a></li><li><a href="#s3-technology">Five adoption categories</a></li></ul></div></div></details></div>
+      </section>
+
+      <!-- ══════════ CHAPTER 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>Customer Perception and Satisfaction</h2></div>
+        <p class="src">Zeithaml, Chapter 4 · part 1 of 3</p>
+
+        <h3 id="s1-perception">What customer perception is</h3>
+
+        <p>Customer perception of services is the customer's subjective assessment of, and
+        feelings about, a company, a brand or its offerings. It covers their thoughts,
+        emotions and opinions about the brand and its products or services. It can be
+        positive or negative, and it forms whenever the customer interacts with the brand,
+        its products or its services. It matters because it shapes customer <span class="term" tabindex="0"><mark>loyalty</mark><span class="tip" role="tooltip"><b>The customer&#x27;s tendency to keep coming back to the same firm.</b>Driven by satisfaction, but only strongly at the very top of the scale.</span></span>, brand
+        image and, in the end, business success.</p>
+
+        <p>The book adds two points that sit underneath every answer in this chapter.
+        First, perceptions are always judged relative to expectations, and because
+        expectations shift, the same service can be rated differently over time, from person
+        to person and from culture to culture. Second, everything here is about the customer's
+        perception of the service, not some objective standard of what the service ought to
+        be.</p>
+
+        <h3 id="s1-model">Perceptions of quality and satisfaction</h3>
+
+        <p>The chapter turns on one figure. Satisfaction is the broad judgement, and service
+        quality is only one of the things that feeds it.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 344" role="img" aria-label="Customer perceptions of quality and customer satisfaction (Zeithaml Figure 4.1)."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="124" y1="22" x2="140" y2="22" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124" y1="56" x2="140" y2="56" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124" y1="90" x2="140" y2="90" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124" y1="124" x2="140" y2="124" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124" y1="158" x2="140" y2="158" stroke="var(--rule-strong)" stroke-width="1"/><line x1="140" y1="22" x2="140" y2="158" stroke="var(--rule-strong)" stroke-width="1"/><line x1="140" y1="90" x2="166" y2="90" stroke="var(--rule-strong)" stroke-width="1"/><line x1="316" y1="84.0" x2="350" y2="84.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="316" y1="186.0" x2="350" y2="186.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="316" y1="272.0" x2="350" y2="272.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350" y1="84" x2="350" y2="272" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350" y1="185.0" x2="390" y2="185.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="467.0" y1="92" x2="467.0" y2="148" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="467.0" y1="278" x2="467.0" y2="222" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="542" y1="185.0" x2="580" y2="185.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="118" y="26" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink-2)">Reliability</text><text x="118" y="60" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink-2)">Responsiveness</text><text x="118" y="94" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink-2)">Assurance</text><text x="118" y="128" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink-2)">Empathy</text><text x="118" y="162" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink-2)">Tangibles</text><rect x="166" y="58" width="150" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="241.0" y="88.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Service quality</text><rect x="166" y="160" width="150" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="241.0" y="190.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="400" fill="var(--ink)">Product quality</text><rect x="166" y="246" width="150" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="241.0" y="276.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="400" fill="var(--ink)">Price</text><rect x="392" y="150" width="150" height="70" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="467.0" y="181.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Customer</text><text x="467.0" y="197.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">satisfaction</text><rect x="392" y="40" width="150" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="467.0" y="62.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Situational</text><text x="467.0" y="78.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">factors</text><rect x="392" y="278" width="150" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="467.0" y="300.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Personal</text><text x="467.0" y="316.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">factors</text><rect x="582" y="150" width="118" height="70" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="641.0" y="181.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Customer</text><text x="641.0" y="197.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">loyalty</text></svg><svg class="dn" viewBox="0 0 340 492" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="82" x2="49" y2="266.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="106.0" x2="58" y2="106.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="146.0" x2="58" y2="146.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="186.0" x2="58" y2="186.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="226.0" x2="58" y2="226.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="266.0" x2="58" y2="266.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="42" x2="26" y2="466.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="66.0" x2="35" y2="66.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="306.0" x2="35" y2="306.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="346.0" x2="35" y2="346.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="386.0" x2="35" y2="386.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="426.0" x2="35" y2="426.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="466.0" x2="35" y2="466.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="32" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Customer satisfaction</text><rect x="35" y="50" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="70.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Service quality</text><rect x="58" y="90" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="110.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Reliability</text><rect x="58" y="130" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="150.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Responsiveness</text><rect x="58" y="170" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="190.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Assurance</text><rect x="58" y="210" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="230.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Empathy</text><rect x="58" y="250" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="270.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Tangibles</text><rect x="35" y="290" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="310.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Product quality</text><rect x="35" y="330" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="350.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Price</text><rect x="35" y="370" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="390.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Situational factors</text><rect x="35" y="410" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="430.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Personal factors</text><rect x="35" y="450" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="470.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Leads to: customer loyalty</text></svg></div><figcaption>Customer perceptions of quality and customer satisfaction (Zeithaml Figure 4.1).</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Service quality</div><div class="v">A focused evaluation of the five dimensions: reliability, responsiveness, assurance, empathy and tangibles.</div></div><div><div class="k">Customer satisfaction</div><div class="v">The broader judgement. It is influenced by service quality, product quality and price, and also by situational factors and personal factors.</div></div><div><div class="k">Customer loyalty</div><div class="v">The outcome. Satisfaction leads to loyalty, which is why companies care about satisfaction at all.</div></div></div>
+
+        <div class="note"><span class="lbl">Watch the arrow</span><p>The slide's redraw of this figure points the last arrow from loyalty into satisfaction. The book points it the other way: satisfaction leads to loyalty. Draw it the book's way.</p></div>
+
+        <h4 id="s1-vs">Satisfaction versus service quality <span class="mark">book only</span></h4>
+
+        <p>People use the two words as if they meant the same thing. Researchers agree they
+        do not: they have different causes and different outcomes. Satisfaction is the broader
+        concept, and perceived service quality is one component of it. A health club shows
+        the difference. Its service quality is judged on whether the equipment works, how
+        responsive the staff are and how skilled the trainers are. Satisfaction with the club
+        also takes in the quality of the products sold in its shop, the membership price, the
+        customer's own mood, and even the weather on the drive there.</p>
+
+        <h4 id="s1-transaction">Transaction versus cumulative perceptions <span class="mark">book only</span></h4>
+
+        <div class="terms"><div><div class="k">Transaction-specific</div><div class="v">The perception of one encounter, such as how a bank customer was treated by one teller on one visit. Best for diagnosing a service problem and fixing it straight away.</div></div><div><div class="k">Cumulative</div><div class="v">The overall perception built from every encounter over time: branch visits, online banking, ATMs in many cities, and even banking as an industry. A better predictor of loyalty, because loyalty comes from all the experiences together, not from one.</div></div></div>
+
+        <p>The two views are complementary, not competing. Single encounters are the building
+        blocks; the cumulative view is the wall.</p>
+
+        <h3 id="s1-satisfaction">Customer satisfaction</h3>
+
+        <p>Two definitions were given in class. Customer satisfaction measures how well a
+        company's products, services or overall experience meet or exceed customer
+        expectations and needs. Put more simply, it measures how happy customers are with a
+        company's products, services and capabilities.</p>
+
+        <p>The book's formal definition comes from Richard Oliver: <i>satisfaction is the
+        consumer's fulfillment response. It is a judgment that a product or service feature,
+        or the product or service itself, provides a pleasurable level of
+        consumption-related fulfillment.</i> In plain terms, it is the customer's evaluation of
+        whether the product or service met their needs and expectations. Failing to meet them
+        produces dissatisfaction.</p>
+
+        <div class="terms"><div><div class="k">What satisfaction can feel like <span class="mark">book only</span></div><div class="v"><p>Satisfaction is not one feeling. Depending on the service it shows up as:</p><table class="pt"><tbody><tr><td>Contentment</td><td>A passive response to routine services the customer barely thinks about.</td></tr><tr><td>Pleasure</td><td>For services that make the customer feel good.</td></tr><tr><td>Delight</td><td>For services that surprise the customer in a positive way.</td></tr><tr><td>Relief</td><td>When the service removes something negative.</td></tr><tr><td>Ambivalence</td><td>When the experience was a mix of positive and negative.</td></tr></tbody></table></div></div></div>
+
+        <p>Satisfaction is also a dynamic target. It is usually measured at one point in time
+        as if it were fixed, but it moves through the service cycle, and for a new service the
+        expectations it is judged against are themselves still forming.</p>
+
+        <h3 id="s1-determinants">What determines customer satisfaction</h3>
+
+        <p>Beyond quality and price, five determinants are named, and they are on the slide
+        exactly as the book lists them.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 700 310" role="img" aria-label="The five determinants of customer satisfaction."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="350.0" y1="155.0" x2="350.0" y2="37.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="155.0" x2="568.7429987478853" y2="118.53599466375621" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="155.0" x2="485.1906080272688" y2="250.46400533624382" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="155.0" x2="214.8093919727312" y2="250.46400533624382" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="155.0" x2="131.25700125211466" y2="118.53599466375621" stroke="var(--rule-strong)" stroke-width="1"/><rect x="278.0" y="17.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="33.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Product and</text><text x="350.0" y="48.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">service features</text><rect x="496.7429987478853" y="98.53599466375621" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="568.7429987478853" y="122.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Customer emotions</text><rect x="383.1906080272688" y="230.46400533624382" width="204" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="485.1906080272688" y="247.23900533624382" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Attributions for service</text><text x="485.1906080272688" y="261.73900533624385" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">success or failure</text><rect x="142.8093919727312" y="230.46400533624382" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="214.8093919727312" y="247.23900533624382" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Perceptions of</text><text x="214.8093919727312" y="261.73900533624385" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">equity and fairness</text><rect x="33.25700125211466" y="98.53599466375621" width="196" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="131.25700125211466" y="115.31099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Other customers, family</text><text x="131.25700125211466" y="129.81099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">members and coworkers</text><rect x="266.0" y="129.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="151.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">What determines</text><text x="350.0" y="167.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">satisfaction</text></svg><svg class="dn" viewBox="0 0 340 362" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">What determines</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">satisfaction</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Product and</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">service features</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Customer emotions</text><line x1="170.0" y1="166" x2="170.0" y2="180" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="180" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="200.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Attributions for service</text><text x="170.0" y="217.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">success or failure</text><line x1="170.0" y1="228" x2="170.0" y2="242" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="242" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="262.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Perceptions of</text><text x="170.0" y="279.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">equity and fairness</text><line x1="170.0" y1="290" x2="170.0" y2="304" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="304" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="324.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Other customers, family</text><text x="170.0" y="341.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">members and coworkers</text></svg></div><figcaption>The five determinants of customer satisfaction.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Five determinants</div><div class="v"><table class="pt ptn"><tbody><tr><td>1</td><td>Product and service features</td><td>The customer's evaluation of the specific features. For a resort hotel: the pool, golf access, restaurants, room comfort, staff courtesy, price. Customers trade features off against each other, price against quality against friendliness.</td></tr><tr><td>2</td><td>Customer emotions</td><td>Stable moods the customer brings in, such as being on holiday, and emotions the service itself creates. Emotions matter most in high-emotion services such as birth, marriage, illness and death. In river rafting, the guide's effect on the rafters' emotions drove their satisfaction with the whole trip.</td></tr><tr><td>3</td><td><span class="term" tabindex="0"><mark>Attributions</mark><span class="tip" role="tooltip"><b>The causes a customer believes lie behind an outcome.</b>Who they blame changes how satisfied they end up.</span></span> for service success or failure</td><td>Attributions are the perceived causes of events. When the outcome surprises the customer, they look for the reason, and who they blame changes how satisfied they are. A dieter who fails to lose weight asks whether it was the plan or themselves.</td></tr><tr><td>4</td><td>Perceptions of equity and fairness</td><td>Was I treated as well as other customers? Did I pay a fair price for what I got and the effort I spent? Fairness matters most after a service failure.</td></tr><tr><td>5</td><td>Other customers, family members and coworkers</td><td>Satisfaction is shaped by other people: a family's reactions to a holiday, the other rafters on the boat, or how colleagues use and talk about a new piece of software.</td></tr></tbody></table></div></div></div>
+
+        <h3 id="s1-indexes">National customer satisfaction indexes <span class="mark">book only</span></h3>
+
+        <p>Many countries track satisfaction nationally, as a measure of the quality of
+        economic output to sit beside the usual measures of quantity. Sweden was first, with
+        the Swedish Customer Satisfaction Barometer in 1989, followed by Germany, the United
+        States and Switzerland. The <i>American Customer Satisfaction Index</i> (<span class="term" tabindex="0"><mark>ACSI</mark><span class="tip" role="tooltip"><b>The American Customer Satisfaction Index, a national measure of satisfaction across about 200 firms.</b>Run by the University of Michigan, updated quarterly.</span></span>),
+        developed at the University of Michigan, tracks about 200 firms quarterly, with roughly
+        250 customer interviews per company. Each firm's score is built from its customers'
+        perceptions of quality, value, satisfaction, expectations, complaints and future
+        loyalty. The pattern worth remembering: goods cluster at the top of the ACSI table and
+        services fill the bottom, with subscription television and Internet service providers
+        lowest of all.</p>
+
+        <h3 id="s1-outcomes">Outcomes of customer satisfaction <span class="mark">book only</span></h3>
+
+        <p>Satisfaction is linked to loyalty and profit. Firms that beat competitors on the
+        ACSI have earned superior returns at lower risk, and the ACSI stock portfolio has
+        consistently outperformed the S&amp;P 500. But the relationship with loyalty is not a
+        straight line. It is only strong at the very top of the scale.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 218" role="img" aria-label="Satisfaction and repurchase: only the very satisfied are reliably loyal."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><text x="216" y="41" text-anchor="end" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Very satisfied</text><rect x="230" y="18" width="345.6" height="34" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="585.6" y="41" text-anchor="start" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">96%</text><text x="216" y="93" text-anchor="end" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Somewhat satisfied</text><rect x="230" y="70" width="187.2" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="427.2" y="93" text-anchor="start" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">52%</text><text x="216" y="145" text-anchor="end" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Neutral or very dissatisfied</text><rect x="230" y="122" width="25.2" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="265.2" y="145" text-anchor="start" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">7%</text><text x="330.0" y="185.25" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">Share of customers who say they will definitely repurchase.</text><text x="330.0" y="198.75" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">The jump from somewhat to very satisfied is the whole story.</text></svg><svg class="dn" viewBox="0 0 340 192.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="49.5" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="15" font-weight="600" fill="var(--ink)">96%</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Very satisfied</text><rect x="20.0" y="71.5" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="91.5" text-anchor="middle" font-family="Newsreader,serif" font-size="15" font-weight="600" fill="var(--ink)">52%</text><text x="170.0" y="111.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Somewhat satisfied</text><rect x="20.0" y="133.0" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="153.0" text-anchor="middle" font-family="Newsreader,serif" font-size="15" font-weight="600" fill="var(--ink)">7%</text><text x="170.0" y="172.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Neutral or very dissatisfied</text></svg></div><figcaption>Satisfaction and repurchase: only the very satisfied are reliably loyal.</figcaption></figure>
+
+        <p>Xerox found that customers rating it 5, very satisfied, were six times more likely
+        to repurchase than those rating it 4. Enterprise Rent-A-Car found the top rating made a
+        customer three times more likely to rent again than the second-highest. The lesson is
+        that merely satisfying customers is not enough to keep them; the firm has to more than
+        satisfy, or delight, them. At the other end, dissatisfaction is strongly linked to
+        defection, and loyalty can collapse once dissatisfaction passes a threshold or touches
+        a critical attribute.</p>
+
+        <h3 id="s1-dissatisfaction">Consequences of customer dissatisfaction</h3>
+
+        <p>The slide lists five consequences. This list comes from the slide rather than the
+        book, but every item follows from the book's satisfaction-loyalty link.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 640 318" role="img" aria-label="The consequences of customer dissatisfaction, as shown in class."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="170.0" y="12" width="300" height="46" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="39.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Negative word of mouth</text><line x1="320.0" y1="60" x2="320.0" y2="72" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="170.0" y="74" width="300" height="46" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="93.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Reduction in loyalty and</text><text x="320.0" y="109.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">customer lifetime value</text><line x1="320.0" y1="122" x2="320.0" y2="134" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="170.0" y="136" width="300" height="46" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="163.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Lead generation becomes harder</text><line x1="320.0" y1="184" x2="320.0" y2="196" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="170.0" y="198" width="300" height="46" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="225.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Lower sales</text><line x1="320.0" y1="246" x2="320.0" y2="258" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="170.0" y="260" width="300" height="46" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="287.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Employee churn</text></svg><svg class="dn" viewBox="0 0 340 268" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Negative word of mouth</text><line x1="170.0" y1="44" x2="170.0" y2="58" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="60" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="80.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Reduction in loyalty and</text><text x="170.0" y="97.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">customer lifetime value</text><line x1="170.0" y1="110" x2="170.0" y2="124" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="126" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="146.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Lead generation becomes harder</text><line x1="170.0" y1="160" x2="170.0" y2="174" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="176" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="196.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Lower sales</text><line x1="170.0" y1="210" x2="170.0" y2="224" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="226" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="246.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Employee churn</text></svg></div><figcaption>The consequences of customer dissatisfaction, as shown in class.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Five consequences</div><div class="v"><table class="pt ptn"><tbody><tr><td>1</td><td>Negative <span class="term" tabindex="0"><mark>word of mouth</mark><span class="tip" role="tooltip"><b>Customers telling other people about their experience.</b>Bad word of mouth reaches people the firm never met.</span></span></td><td>The dissatisfied customer tells others, and that warns off customers the firm never even met.</td></tr><tr><td>2</td><td>Reduction in loyalty and <span class="term" tabindex="0"><mark>customer lifetime value</mark><span class="tip" role="tooltip"><b>The total value of everything a customer would buy from the firm over the whole relationship.</b>Losing a customer loses all of it, not just the next sale.</span></span></td><td>The customer buys less, then leaves, so the value of the whole future relationship is lost, not just one sale.</td></tr><tr><td>3</td><td>Lead generation becomes harder</td><td>With a damaged reputation, winning new prospects costs more.</td></tr><tr><td>4</td><td>Lower sales</td><td>Fewer repeat purchases and fewer new customers together.</td></tr><tr><td>5</td><td>Employee churn</td><td>Staff who face unhappy customers every day burn out and leave, which then makes the service worse again.</td></tr></tbody></table></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Define customer perception of services</li><li>Draw Figure 4.1, with the arrow running from satisfaction to loyalty</li><li>Satisfaction versus service quality: which is broader</li><li>Transaction-specific versus cumulative perceptions</li><li>Both slide definitions of satisfaction, and Oliver's</li><li>Five determinants of satisfaction</li><li>Five consequences of dissatisfaction</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>Service Quality</h2></div>
+        <p class="src">Zeithaml, Chapter 4 · part 2 of 3</p>
+
+        <h3 id="s2-what">What service quality is</h3>
+
+        <p>Service quality is how well a service meets or exceeds customer expectations: the
+        customer compares the performance they perceived with what they expected. Efficiency,
+        courtesy and responsiveness matter most, which separates it from product quality,
+        where the focus is on tangible features. For pure services such as health care,
+        banking or education, service quality is the main thing customers judge.</p>
+
+        <h4 id="s2-three">Outcome, interaction and physical environment <span class="mark">book only</span></h4>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 86" role="img" aria-label="The three things a customer judges in any service."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="10.0" y="14" width="196.0" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="108.0" y="39.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Outcome quality</text><text x="108.0" y="55.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">what was delivered</text><line x1="208.0" y1="43.0" x2="230.0" y2="43.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="232.0" y="14" width="196.0" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="39.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Interaction quality</text><text x="330.0" y="55.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">how it was delivered</text><line x1="430.0" y1="43.0" x2="452.0" y2="43.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="454.0" y="14" width="196.0" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="552.0" y="39.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Physical environment</text><text x="552.0" y="55.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">quality: where</text></svg><svg class="dn" viewBox="0 0 340 200" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Outcome quality</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">what was delivered</text><line x1="170.0" y1="60" x2="170.0" y2="74" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="76" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="96.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Interaction quality</text><text x="170.0" y="113.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">how it was delivered</text><line x1="170.0" y1="126" x2="170.0" y2="140" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="142" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="162.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Physical environment</text><text x="170.0" y="179.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">quality: where</text></svg></div><figcaption>The three things a customer judges in any service.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Outcome quality</div><div class="v">The technical result. For a lawsuit, how the case ended; for a restaurant, the meal.</div></div><div><div class="k">Interaction quality</div><div class="v">How the result was delivered: calls returned on time, courtesy, listening, empathy.</div></div><div><div class="k">Physical environment quality</div><div class="v">The surroundings: the decor of the law office or the restaurant.</div></div></div>
+
+        <h3 id="s2-dimensions">The five dimensions</h3>
+
+        <p>Customers do not judge quality as one thing. They judge it on five dimensions,
+        found by Parasuraman, Zeithaml and Berry and later measured with the <span class="term" tabindex="0"><mark>SERVQUAL</mark><span class="tip" role="tooltip"><b>The survey scale built to measure the five service quality dimensions.</b>Covered properly in chapter 5; here you only need the name.</span></span> scale.
+        An easy way to hold them is the initials RATER.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 290" role="img" aria-label="The five dimensions of service quality."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="330.0" y1="145.0" x2="330.0" y2="27.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="145.0" x2="548.7429987478853" y2="108.53599466375621" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="145.0" x2="465.1906080272688" y2="240.46400533624382" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="145.0" x2="194.8093919727312" y2="240.46400533624382" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="145.0" x2="111.25700125211466" y2="108.53599466375621" stroke="var(--rule-strong)" stroke-width="1"/><rect x="258.0" y="7.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="31.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Reliability</text><rect x="476.7429987478853" y="88.53599466375621" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="548.7429987478853" y="112.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Responsiveness</text><rect x="393.1906080272688" y="220.46400533624382" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="465.1906080272688" y="244.48900533624382" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Assurance</text><rect x="122.80939197273119" y="220.46400533624382" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="194.8093919727312" y="244.48900533624382" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Empathy</text><rect x="39.25700125211466" y="88.53599466375621" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="111.25700125211466" y="112.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Tangibles</text><rect x="246.0" y="119.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="141.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Service</text><text x="330.0" y="157.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">quality</text></svg><svg class="dn" viewBox="0 0 340 298" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Service</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">quality</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Reliability</text><line x1="170.0" y1="104" x2="170.0" y2="118" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="118" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="138.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Responsiveness</text><line x1="170.0" y1="150" x2="170.0" y2="164" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="164" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="184.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Assurance</text><line x1="170.0" y1="196" x2="170.0" y2="210" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="210" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="230.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Empathy</text><line x1="170.0" y1="242" x2="170.0" y2="256" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="256" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="276.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Tangibles</text></svg></div><figcaption>The five dimensions of service quality.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Five dimensions</div><div class="v"><table class="pt"><tbody><tr><td>Reliability</td><td>Performing the promised service dependably and accurately. Usually the most important of the five. FedEx built its position on it.</td></tr><tr><td>Responsiveness</td><td>Willingness to help and to provide prompt service. Customers judge it by how long they wait for help, answers or a fix.</td></tr><tr><td>Assurance</td><td>Employees' knowledge and courtesy, and their ability to inspire trust and confidence. Matters most where the service feels risky: banking, insurance, medical, legal.</td></tr><tr><td>Empathy</td><td>Caring, individualised attention. Making customers feel understood and treated as individuals, which is where small firms can beat large ones.</td></tr><tr><td>Tangibles</td><td>The appearance of facilities, equipment, staff and communication materials. New customers lean on these most.</td></tr></tbody></table></div></div></div>
+
+        <div class="note"><span class="lbl">Not every dimension applies every time</span><p>Customers use the dimensions that fit the situation. Empathy hardly matters at an ATM, and tangibles do not matter in a phone call to book a repair.</p></div>
+
+        <h4 id="s2-table">How customers judge the five dimensions</h4>
+
+        <p>The slide shows three industries from the book's table; the book adds three more.</p>
+
+        <div class="scroller"><table><thead><tr><th>Industry</th><th>Reliability</th><th>Responsiveness</th><th>Assurance</th><th>Empathy</th><th>Tangibles</th></tr></thead><tbody><tr><td class="k">Car repair</td><td>Fixed first time, ready when promised</td><td>Accessible, no waiting, responds to requests</td><td>Knowledgeable mechanics</td><td>Knows customer by name, remembers past problems</td><td>Repair facility, waiting area, uniforms, equipment</td></tr><tr><td class="k">Airline</td><td>Flights depart and arrive on schedule</td><td>Prompt ticketing, in-flight and baggage handling</td><td>Trusted name, safety record, competent staff</td><td>Understands special needs, anticipates them</td><td>Aircraft, counters, baggage area, uniforms</td></tr><tr><td class="k">Medical care</td><td>Appointments on schedule, accurate diagnosis</td><td>Accessible, no waiting, willing to listen</td><td>Knowledge, skills, credentials, reputation</td><td>Treats patient as a person, listens, patient</td><td>Waiting room, exam room, equipment, materials</td></tr><tr><td class="k">Architecture <span class="mark">book only</span></td><td>Plans delivered on time and on budget</td><td>Returns calls, adapts to changes</td><td>Credentials, reputation, skills</td><td>Understands client's industry and needs</td><td>Office, reports, plans, billing, staff dress</td></tr><tr><td class="k">Information processing <span class="mark">book only</span></td><td>Information provided when requested</td><td>Prompt, not bureaucratic</td><td>Well-trained, knowledgeable staff</td><td>Knows internal customers as individuals</td><td>Internal reports, office, staff dress</td></tr><tr><td class="k">Internet brokerage <span class="mark">book only</span></td><td>Correct information, accurate execution</td><td>Quick site, easy access, no downtime</td><td>Credible sources, brand recognition</td><td>Human contact when needed</td><td>Look of the website and print materials</td></tr></tbody></table></div>
+
+        <h3 id="s2-eservice">E-service quality</h3>
+
+        <p>Online, the dimensions change. E-service quality (<span class="term" tabindex="0"><mark>E-S-QUAL</mark><span class="tip" role="tooltip"><b>The scale for e-service quality: how well a website supports shopping, buying and delivery.</b>Seven dimensions, four core and three for recovery.</span></span>) is the extent to which
+        a website makes shopping, buying and delivery efficient and effective. Seven
+        dimensions were found: four for ordinary use, and three that only come into play when
+        something goes wrong.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 600 295" role="img" aria-label="E-service quality: four core dimensions and three recovery dimensions."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="300.0" y1="46" x2="300.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="160.0" y1="62" x2="440.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="160.0" y1="62" x2="160.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="60.0" y1="114" x2="60.0" y2="265.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="60.0" y1="142.0" x2="72.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="60.0" y1="183.0" x2="72.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="60.0" y1="224.0" x2="72.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="60.0" y1="265.0" x2="72.0" y2="265.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="440.0" y1="62" x2="440.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="114" x2="340.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="142.0" x2="352.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="183.0" x2="352.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="224.0" x2="352.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="190.0" y="10" width="220" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="300.0" y="32.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">E-service quality</text><rect x="40.0" y="80" width="240" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="160.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Core service</text><text x="160.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">(no problems)</text><rect x="72.0" y="126" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="176.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Efficiency</text><rect x="72.0" y="167" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="176.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Fulfillment</text><rect x="72.0" y="208" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="176.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">System availability</text><rect x="72.0" y="249" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="176.0" y="269.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Privacy</text><rect x="320.0" y="80" width="240" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="440.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Recovery service</text><text x="440.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">(when problems arise)</text><rect x="352.0" y="126" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="456.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Responsiveness</text><rect x="352.0" y="167" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="456.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Compensation</text><rect x="352.0" y="208" width="208.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="456.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Contact</text></svg><svg class="dn" viewBox="0 0 340 442.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="97.0" x2="49" y2="241.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="121.0" x2="58" y2="121.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="161.0" x2="58" y2="161.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="201.0" x2="58" y2="201.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="241.0" x2="58" y2="241.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="312.0" x2="49" y2="416.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="336.0" x2="58" y2="336.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="376.0" x2="58" y2="376.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="416.0" x2="58" y2="416.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="42" x2="26" y2="288.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="73.5" x2="35" y2="73.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="288.5" x2="35" y2="288.5" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="32" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">E-service quality</text><rect x="35" y="50" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="69.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Core service</text><text x="181.5" y="86.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">(no problems)</text><rect x="58" y="105.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="125.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Efficiency</text><rect x="58" y="145.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="165.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Fulfillment</text><rect x="58" y="185.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="205.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">System availability</text><rect x="58" y="225.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="245.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Privacy</text><rect x="35" y="265.0" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="284.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Recovery service</text><text x="181.5" y="301.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">(when problems arise)</text><rect x="58" y="320.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="340.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Responsiveness</text><rect x="58" y="360.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="380.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Compensation</text><rect x="58" y="400.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="420.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Contact</text></svg></div><figcaption>E-service quality: four core dimensions and three recovery dimensions.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Core dimensions</div><div class="v"><p>Used when there are no problems.</p><table class="pt"><tbody><tr><td>Efficiency</td><td>The ease and speed of accessing and using the site.</td></tr><tr><td>Fulfillment</td><td>How far the site's promises about delivery and item availability are kept.</td></tr><tr><td>System availability</td><td>The correct technical functioning of the site.</td></tr><tr><td>Privacy</td><td>How safe the site is and how well it protects customer information.</td></tr></tbody></table></div></div><div><div class="k">Recovery dimensions</div><div class="v"><p>Used when the customer has a problem or question.</p><table class="pt"><tbody><tr><td>Responsiveness</td><td>Effective handling of problems and returns through the site.</td></tr><tr><td>Compensation</td><td>How far the site compensates customers for problems.</td></tr><tr><td>Contact</td><td>Availability of help by phone or from an online representative.</td></tr></tbody></table></div></div></div>
+
+        <h3 id="s2-effort">Customer effort <span class="mark">book only</span></h3>
+
+        <p>A separate driver of loyalty. Research on customer-service contacts found loyalty
+        depended less on delighting customers than on how little effort they had to spend to
+        get a problem solved. High effort drives customers away; delight does not reliably
+        keep them. So firms should prevent repeat calls, handle the emotional side of the
+        contact, avoid forcing a channel switch, and genuinely solve the problem. The limit:
+        for a wedding, a degree or a special holiday, customers expect to invest effort, and
+        other things decide their loyalty.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Define service quality, and how it differs from product quality</li><li>Outcome, interaction and physical environment quality</li><li>Five dimensions, RATER, each defined in one line</li><li>One row of the table for any industry</li><li>E-service quality: four core and three recovery dimensions</li><li>Customer effort, and where it does not apply</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>Service Encounters</h2></div>
+        <p class="src">Zeithaml, Chapter 4 · part 3 of 3</p>
+
+        <h3 id="s3-what">Service encounter, or moment of truth</h3>
+
+        <p>A service encounter is any moment when the customer deals with the service firm:
+        in person, by phone, or through some other medium. It is a social interaction, and it
+        is where something changes hands between provider and customer, whether goods,
+        information or both. The book calls encounters the building blocks of customer
+        perceptions, because each one is where a promise is kept or broken, and the customer's
+        overall view of the firm is assembled from them.</p>
+
+        <h4 id="s3-cascade">The encounter cascade <span class="mark">book only</span></h4>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 560 278" role="img" aria-label="A service encounter cascade for a hotel visit (Zeithaml Figure 4.4)."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="130.0" y="12" width="300" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="280.0" y="35.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Check-in</text><line x1="280.0" y1="52" x2="280.0" y2="64" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="130.0" y="66" width="300" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="280.0" y="89.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Bellperson takes customer to room</text><line x1="280.0" y1="106" x2="280.0" y2="118" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="130.0" y="120" width="300" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="280.0" y="143.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Restaurant meal</text><line x1="280.0" y1="160" x2="280.0" y2="172" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="130.0" y="174" width="300" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="280.0" y="197.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Wake-up call</text><line x1="280.0" y1="214" x2="280.0" y2="226" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="130.0" y="228" width="300" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="280.0" y="251.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Checkout</text></svg><svg class="dn" viewBox="0 0 340 252" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Check-in</text><line x1="170.0" y1="44" x2="170.0" y2="58" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="60" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="80.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Bellperson takes customer to room</text><line x1="170.0" y1="94" x2="170.0" y2="108" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="110" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="130.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Restaurant meal</text><line x1="170.0" y1="144" x2="170.0" y2="158" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="160" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="180.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Wake-up call</text><line x1="170.0" y1="194" x2="170.0" y2="208" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="210" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="230.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Checkout</text></svg></div><figcaption>A service encounter cascade for a hotel visit (Zeithaml Figure 4.4).</figcaption></figure>
+
+        <p>Encounters link into a chain, and the chain becomes the customer's whole
+        experience. Some services have a handful of encounters; Disney counts about 74 in a
+        park visit, and one bad one can sour the whole day. Early encounters weigh most:
+        Marriott found four of its top five loyalty drivers happen in the guest's first ten
+        minutes.</p>
+
+        <h4 id="s3-importance">Why every encounter matters <span class="mark">book only</span></h4>
+
+        <div class="terms"><div><div class="k">First encounters</div><div class="v">With a new customer, the first contact is often the only evidence they have. A rude phone call can lose the job before the firm's real skill is ever seen.</div></div><div><div class="k">Repeated encounters</div><div class="v">Each one adds to a composite image. Mostly good builds a strong image; a mix of good and bad leaves the customer unsure and open to competitors.</div></div><div><div class="k">Key encounters</div><div class="v">Some count more than others. In hospitals, nursing contact predicts satisfaction better than meals or discharge.</div></div><div><div class="k">Momentous encounters</div><div class="v">A single event can end a long relationship, or bind a customer for life. The book's example: a bank refused to validate a long-time customer's parking ticket over a few cents, and he moved his million-dollar account to a rival.</div></div></div>
+
+        <h3 id="s3-types">Types of service encounters</h3>
+
+        <p>Three types. A customer may meet the firm through any one of them, or all three.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 264" role="img" aria-label="The three types of service encounter, from least to most human contact."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="10" y="34" width="220" height="40" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="120.0" y="58.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Remote</text><text x="120.0" y="94" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)" font-style="italic">No human contact</text><text x="16" y="124" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Example</text><text x="120.0" y="142.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">ATM, website, mail</text><text x="120.0" y="157.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">or e-mail statement</text><text x="16" y="192" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Judged on</text><text x="120.0" y="214.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Tangible evidence and the</text><text x="120.0" y="229.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">technical system</text><rect x="250" y="34" width="220" height="40" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="58.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Technology-mediated</text><text x="360.0" y="94" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)" font-style="italic">A real person, through technology</text><text x="256" y="124" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Example</text><text x="360.0" y="142.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Phone, live chat,</text><text x="360.0" y="157.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">real-time text</text><text x="256" y="192" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Judged on</text><text x="360.0" y="214.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Tone of voice, knowledge,</text><text x="360.0" y="229.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">efficiency; word choice in text</text><rect x="490" y="34" width="220" height="40" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="600.0" y="58.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Face-to-face</text><text x="600.0" y="94" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)" font-style="italic">Direct personal contact</text><text x="496" y="124" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Example</text><text x="600.0" y="142.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Bank branch, hospital,</text><text x="600.0" y="157.5" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">B2B sales call</text><text x="496" y="192" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="600" fill="var(--ink-3)">Judged on</text><text x="600.0" y="207.0" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Verbal and non-verbal behaviour,</text><text x="600.0" y="222.0" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">dress, setting; the customer's</text><text x="600.0" y="237.0" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">own behaviour too</text><line x1="30" y1="14" x2="690" y2="14" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="30" y="28" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-3)" font-style="italic">less human contact</text><text x="690" y="28" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-3)" font-style="italic">more human contact, harder to judge</text></svg><svg class="dn" viewBox="0 0 340 456.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="132.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Remote</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">No human contact</text><text x="170.0" y="66.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">ATM, website, mail</text><text x="170.0" y="82.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">or e-mail statement</text><text x="170.0" y="99.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Judged on:</text><text x="170.0" y="115.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Tangible evidence and the</text><text x="170.0" y="132.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">technical system</text><rect x="20.0" y="154.0" width="300" height="132.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="174.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Technology-mediated</text><text x="170.0" y="193.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">A real person, through technology</text><text x="170.0" y="210.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Phone, live chat,</text><text x="170.0" y="226.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">real-time text</text><text x="170.0" y="243.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Judged on:</text><text x="170.0" y="259.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Tone of voice, knowledge,</text><text x="170.0" y="276.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">efficiency; word choice in text</text><rect x="20.0" y="298.0" width="300" height="148.5" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="318.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Face-to-face</text><text x="170.0" y="337.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Direct personal contact</text><text x="170.0" y="354.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Bank branch, hospital,</text><text x="170.0" y="370.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">B2B sales call</text><text x="170.0" y="387.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Judged on:</text><text x="170.0" y="403.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Verbal and non-verbal behaviour,</text><text x="170.0" y="420.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">dress, setting; the customer's</text><text x="170.0" y="436.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">own behaviour too</text></svg></div><figcaption>The three types of service encounter, from least to most human contact.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Remote</div><div class="v">No human contact at all: an ATM, a website, an automated phone line, or a bill arriving by post or e-mail. With no person to judge, the customer judges the tangible evidence and how well the technical system works.</div></div><div><div class="k">Technology-mediated</div><div class="v">A real person, reached in real time through technology: a phone call, live chat or text exchange. Judged on tone of voice, the employee's knowledge, and how efficiently the issue is handled. In text, word choice and tone carry everything.</div></div><div><div class="k">Face-to-face</div><div class="v">Direct personal contact between employee and customer. The hardest to get right: verbal and non-verbal behaviour, dress, equipment and setting all count, and the customer's own behaviour shapes the result too.</div></div></div>
+
+        <h3 id="s3-themes">Sources of satisfaction and dissatisfaction</h3>
+
+        <p>Thousands of encounter stories, gathered with the <span class="term" tabindex="0"><mark>critical incident technique</mark><span class="tip" role="tooltip"><b>A research method that collects customers&#x27; own stories of very good and very bad encounters.</b>The four themes came out of thousands of these stories.</span></span>,
+        sort into four themes. Each theme starts from a different trigger.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 760 249.5" role="img" aria-label="The four themes behind memorable service encounters, and what sets each off."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="380.0" y1="46" x2="380.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="100.0" y1="62" x2="660.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="100.0" y1="62" x2="100.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="114" x2="34.0" y2="199.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="147.5" x2="46.0" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="199.5" x2="46.0" y2="199.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="286.66666666666663" y1="62" x2="286.66666666666663" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="220.66666666666666" y1="114" x2="220.66666666666666" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="220.66666666666666" y1="147.5" x2="232.66666666666666" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="220.66666666666666" y1="206.75" x2="232.66666666666666" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="473.3333333333333" y1="62" x2="473.3333333333333" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="407.3333333333333" y1="114" x2="407.3333333333333" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="407.3333333333333" y1="147.5" x2="419.3333333333333" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="407.3333333333333" y1="206.75" x2="419.3333333333333" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="660.0" y1="62" x2="660.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="594.0" y1="114" x2="594.0" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="594.0" y1="147.5" x2="606.0" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="594.0" y1="206.75" x2="606.0" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><rect x="250.0" y="10" width="260" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="380.0" y="24.549999999999997" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Sources of satisfaction or</text><text x="380.0" y="40.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">dissatisfaction in encounters</text><rect x="14.0" y="80" width="172" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="100.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Recovery</text><rect x="46.0" y="126" width="140.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="116.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trigger: the service</text><text x="116.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">system failed</text><rect x="46.0" y="178.0" width="140.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="116.0" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Employee response</text><text x="116.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">to the failure</text><rect x="200.66666666666666" y="80" width="172" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="286.66666666666663" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Adaptability</text><rect x="232.66666666666666" y="126" width="139.99999999999997" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="302.66666666666663" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trigger: a special</text><text x="302.66666666666663" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">need or request</text><rect x="232.66666666666666" y="178.0" width="139.99999999999997" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="302.66666666666663" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">How flexible the</text><text x="302.66666666666663" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">employee and</text><text x="302.66666666666663" y="225.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">system are</text><rect x="387.3333333333333" y="80" width="172" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="473.3333333333333" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Spontaneity</text><rect x="419.3333333333333" y="126" width="139.99999999999994" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="489.33333333333326" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trigger: nothing</text><text x="489.33333333333326" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">at all</text><rect x="419.3333333333333" y="178.0" width="139.99999999999994" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="489.33333333333326" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Unprompted,</text><text x="489.33333333333326" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">unsolicited</text><text x="489.33333333333326" y="225.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">employee action</text><rect x="574.0" y="80" width="172" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="660.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Coping</text><rect x="606.0" y="126" width="140.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="676.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trigger: a problem</text><text x="676.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">customer</text><rect x="606.0" y="178.0" width="140.0" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="676.0" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Employee handling</text><text x="676.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">of an uncooperative</text><text x="676.0" y="225.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">customer</text></svg><svg class="dn" viewBox="0 0 340 698.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="98" x2="49" y2="181.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="128.5" x2="58" y2="128.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="181.5" x2="58" y2="181.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="244.0" x2="49" y2="335.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="274.5" x2="58" y2="274.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="335.25" x2="58" y2="335.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="405.5" x2="49" y2="496.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="436.0" x2="58" y2="436.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="496.75" x2="58" y2="496.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="567.0" x2="49" y2="658.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="597.5" x2="58" y2="597.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="658.25" x2="58" y2="658.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="58" x2="26" y2="551.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="82.0" x2="35" y2="82.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="228.0" x2="35" y2="228.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="389.5" x2="35" y2="389.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="551.0" x2="35" y2="551.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Sources of satisfaction or</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">dissatisfaction in encounters</text><rect x="35" y="66" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="86.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Recovery</text><rect x="58" y="106" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="125.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Trigger: the service</text><text x="193.0" y="140.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">system failed</text><rect x="58" y="159.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="178.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Employee response</text><text x="193.0" y="193.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">to the failure</text><rect x="35" y="212.0" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="232.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Adaptability</text><rect x="58" y="252.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="271.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Trigger: a special</text><text x="193.0" y="286.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">need or request</text><rect x="58" y="305.0" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="324.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">How flexible the</text><text x="193.0" y="339.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">employee and</text><text x="193.0" y="355.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">system are</text><rect x="35" y="373.5" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="394.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Spontaneity</text><rect x="58" y="413.5" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="432.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Trigger: nothing</text><text x="193.0" y="448.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">at all</text><rect x="58" y="466.5" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="485.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Unprompted,</text><text x="193.0" y="501.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">unsolicited</text><text x="193.0" y="516.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">employee action</text><rect x="35" y="535.0" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="555.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Coping</text><rect x="58" y="575.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="594.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Trigger: a problem</text><text x="193.0" y="609.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">customer</text><rect x="58" y="628.0" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="647.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Employee handling</text><text x="193.0" y="662.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">of an uncooperative</text><text x="193.0" y="678.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">customer</text></svg></div><figcaption>The four themes behind memorable service encounters, and what sets each off.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Four themes</div><div class="v"><table class="pt ptn"><tbody><tr><td>1</td><td>Recovery</td><td>The employee's response to a failure of the service delivery system: a missing room, a delayed flight, the wrong item sent. What the customer remembers is how the employee responded.</td></tr><tr><td>2</td><td>Adaptability</td><td>The employee's response to a special need or request. Customers judge how flexible the employee and the system are, and are pleased when the firm bends for them.</td></tr><tr><td>3</td><td>Spontaneity</td><td>Unprompted and unsolicited employee actions, with no failure and no request behind them. Good ones feel like a pleasant surprise; bad ones include rudeness, ignoring, discrimination.</td></tr><tr><td>4</td><td>Coping</td><td>The employee's response to problem customers who will not cooperate. Rarely satisfying for the customer, and customers almost never tell these stories about themselves.</td></tr></tbody></table></div></div></div>
+
+        <h4 id="s3-dos">Dos and don'ts for each theme</h4>
+
+        <div class="scroller"><table><thead><tr><th>Theme</th><th>Do</th><th>Don't</th></tr></thead><tbody><tr><td class="k">Recovery</td><td>Acknowledge the problem · explain causes · apologise · compensate or upgrade · lay out options · take responsibility</td><td>Ignore or blame the customer · leave them to fend for themselves · downgrade · act as if nothing is wrong · pass the buck</td></tr><tr><td class="k">Adaptability</td><td>Recognise how serious the need is · acknowledge · anticipate · try to accommodate · adjust the system · explain rules · take responsibility</td><td>Ignore · promise but not follow through · show unwillingness to try · embarrass or laugh at the customer · avoid responsibility · pass the buck</td></tr><tr><td class="k">Spontaneity</td><td>Take time · be attentive · anticipate needs · listen · provide information · show empathy</td><td>Show impatience · ignore · yell, laugh or swear · steal from customers · discriminate</td></tr><tr><td class="k">Coping</td><td>Listen · try to accommodate · explain · let go of the customer</td><td>Take the customer's dissatisfaction personally · let it affect other customers</td></tr></tbody></table></div>
+
+        <h3 id="s3-technology">Technology-based encounters</h3>
+
+        <p>The same logic carries over to websites, kiosks, apps and automated phone lines,
+        with some differences <span class="mark">book only</span>. Customers still expect the core promise kept: the
+        technology must work and meet their need quickly. Their biggest complaint is weak
+        recovery, when a failure forces them to phone the firm, the very thing they were
+        avoiding. They also expect personalisation, which is why Amazon and Netflix recommend
+        from each customer's history. And they adopt the technology only when it beats the
+        alternative, mainly on convenience.</p>
+
+        <p>Not everyone adopts, though. Customers fall into five groups by how they take to
+        technology.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 244" role="img" aria-label="Five categories of customers by technology adoption, with their share of consumers."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><text x="98" y="31" text-anchor="end" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Skeptics</text><rect x="110" y="14" width="243.2" height="26" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="361.20000000000005" y="32" text-anchor="start" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">38%</text><text x="399.20000000000005" y="32" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">detached, neither for nor against</text><text x="98" y="77" text-anchor="end" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Explorers</text><rect x="110" y="60" width="115.2" height="26" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="233.2" y="78" text-anchor="start" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">18%</text><text x="271.2" y="78" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">highly motivated to try new technology</text><text x="98" y="123" text-anchor="end" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Avoiders</text><rect x="110" y="106" width="102.4" height="26" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="220.4" y="124" text-anchor="start" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">16%</text><text x="258.4" y="124" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">resistant, not motivated to try</text><text x="98" y="169" text-anchor="end" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Pioneers</text><rect x="110" y="152" width="102.4" height="26" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="220.4" y="170" text-anchor="start" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">16%</text><text x="258.4" y="170" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">strong positive and strong negative views</text><text x="98" y="215" text-anchor="end" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Hesitaters</text><rect x="110" y="198" width="83.2" height="26" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="201.2" y="216" text-anchor="start" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">13%</text><text x="239.2" y="216" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">not innovative, less likely to use it</text></svg><svg class="dn" viewBox="0 0 340 315.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="49.5" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Skeptics  38%</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">detached, neither for nor against</text><rect x="20.0" y="71.5" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="91.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Explorers  18%</text><text x="170.0" y="111.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">highly motivated to try new technology</text><rect x="20.0" y="133.0" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="153.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Avoiders  16%</text><text x="170.0" y="172.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">resistant, not motivated to try</text><rect x="20.0" y="194.5" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="214.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Pioneers  16%</text><text x="170.0" y="234.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">strong positive and strong negative views</text><rect x="20.0" y="256.0" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="276.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Hesitaters  13%</text><text x="170.0" y="295.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">not innovative, less likely to use it</text></svg></div><figcaption>Five categories of customers by technology adoption, with their share of consumers.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Five categories</div><div class="v"><table class="pt"><tbody><tr><td>Skeptics (38%)</td><td>Somewhat detached from technology; neither strongly for nor against it.</td></tr><tr><td>Explorers (18%)</td><td>Highly motivated to try new technologies.</td></tr><tr><td>Avoiders (16%)</td><td>Resistant to new technologies and not motivated to try them.</td></tr><tr><td>Pioneers (16%)</td><td>Hold strong positive and strong negative views about technology at once.</td></tr><tr><td>Hesitaters (13%)</td><td>Not very innovative, so less likely to use new technologies.</td></tr></tbody></table></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Define a service encounter, and why it is called a <span class="term" tabindex="0"><mark>moment of truth</mark><span class="tip" role="tooltip"><b>Another name for a service encounter: the point where the customer meets the firm and judges it.</b>Each one is a chance to win or lose the customer.</span></span></li><li>The hotel encounter cascade</li><li>First, repeated, key and momentous encounters</li><li>Three types of encounter and what each is judged on</li><li>Four themes, each with its trigger</li><li>Two dos and two don'ts for each theme</li><li>Five technology categories with percentages</li></ul></div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 20 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open it to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>Figure 4.1: what feeds satisfaction</summary><ol><li>Service quality (the five dimensions)</li><li>Product quality</li><li>Price</li><li>Situational factors</li><li>Personal factors</li><li>Satisfaction then leads to loyalty</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Two kinds of perception</summary><ol><li>Transaction-specific: one encounter</li><li>Cumulative: all encounters over time</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>What satisfaction can feel like</summary><ol><li>Contentment</li><li>Pleasure</li><li>Delight</li><li>Relief</li><li>Ambivalence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 determinants of satisfaction</summary><ol><li>Product and service features</li><li>Customer emotions</li><li>Attributions for service success or failure</li><li>Perceptions of equity and fairness</li><li>Other customers, family members and coworkers</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Repurchase by satisfaction level</summary><ol><li>Very satisfied: 96%</li><li>Somewhat satisfied: 52%</li><li>Neutral or very dissatisfied: 7%</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 consequences of dissatisfaction</summary><ol><li>Negative word of mouth</li><li>Reduction in loyalty and customer lifetime value</li><li>Lead generation becomes harder</li><li>Lower sales</li><li>Employee churn</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 things judged in any service</summary><ol><li>Outcome quality</li><li>Interaction quality</li><li>Physical environment quality</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 service quality dimensions (RATER)</summary><ol><li>Reliability</li><li>Assurance</li><li>Tangibles</li><li>Empathy</li><li>Responsiveness</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>E-service quality: 4 core</summary><ol><li>Efficiency</li><li>Fulfillment</li><li>System availability</li><li>Privacy</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>E-service quality: 3 recovery</summary><ol><li>Responsiveness</li><li>Compensation</li><li>Contact</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Hotel encounter cascade</summary><ol><li>Check-in</li><li>Bellperson takes customer to room</li><li>Restaurant meal</li><li>Wake-up call</li><li>Checkout</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>3 types of service encounter</summary><ol><li>Remote</li><li>Technology-mediated</li><li>Face-to-face</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>4 themes in service encounters</summary><ol><li>Recovery: response to a system failure</li><li>Adaptability: response to a need or request</li><li>Spontaneity: unprompted employee action</li><li>Coping: response to a problem customer</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>5 technology adoption categories</summary><ol><li>Skeptics 38%</li><li>Explorers 18%</li><li>Avoiders 16%</li><li>Pioneers 16%</li><li>Hesitaters 13%</li></ol></details>
+        </div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4101 &middot; Services Marketing &middot; Class test study guide</b>
+          Compiled from the chapter 4 slides, checked against Zeithaml, Bitner and Gremler, <i>Services Marketing</i>, 7th edition &middot;
+                    Terminology preserved as printed</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

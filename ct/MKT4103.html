@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4103 Pricing Strategies &middot; Class test</title>
+<meta name="description" content="Class test study guide for MKT4103 Pricing Strategies: module 7, psychological influences on price sensitivity, the seventeen behavioural effects and prospect theory.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#6f6a63;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:72ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#6f6a63;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:12px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px;z-index:70}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1),transform 150ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),transform 150ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
+@media (hover:hover) and (pointer:fine){.menubtn:hover{color:var(--ink);border-color:var(--ink)}.menuclose:hover{border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-x:clip;overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.125rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style, content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
+  font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:50%;translate:-50% 0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top center;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0;translate:0 0}
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
+@media (hover:none),(max-width:1039px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;translate:0 0;
+    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:12px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1.125rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+.lede .mark{vertical-align:middle;margin:0 2px}
+
+/* ═══════ syllabus map ═══════ */
+.smap{max-width:none;margin:1.5em 0 2.2em;border-top:1px solid var(--rule-strong)}
+.mstep{border-bottom:1px solid var(--rule)}
+.mstep > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;
+  padding:13px 2px;font-size:1.02rem;font-weight:500;color:var(--ink)}
+.mstep > summary::-webkit-details-marker{display:none}
+.mstep > summary .tog{flex:none;width:13px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.mstep > summary .tog::before{content:"+"}
+.mstep[open] > summary .tog::before{content:"\2013"}
+.mstep .mt{flex:1 1 auto;min-width:0}
+.mstep .mn{flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:21px;height:21px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:11px;font-weight:400}
+.mstep .mc{flex:none;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+@media (hover:hover) and (pointer:fine){
+  .mstep > summary:hover .tog,.mstep > summary:hover .mc{color:var(--ink)}
+}
+.mbody{padding:4px 0 16px}
+/* dotted rules between the groups inside a step, so the label blocks do not run
+   together; solid rules stay reserved for separating the steps themselves */
+.mrow{display:grid;grid-template-columns:minmax(0,1fr);gap:3px 24px;padding:9px 0}
+.mrow + .mrow{border-top:1px dotted var(--rule-strong)}
+@media (min-width:640px){
+  .mrow{grid-template-columns:minmax(120px,172px) minmax(0,1fr)}
+  /* and a dotted spine down the gutter, separating the label from its topics */
+  .mk{border-right:1px dotted var(--rule-strong);margin-right:-12px;padding-right:12px}
+}
+.mk{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);line-height:1.7;padding-top:2px}
+.doc .mv{margin:0;padding:0;list-style:none;max-width:none}
+@media (min-width:900px){.doc .mv{column-count:2;column-gap:26px}}
+.doc .mv > li{margin:0 0 1px;padding:0;color:var(--ink-2);font-size:.93rem;
+  line-height:1.55;break-inside:avoid}
+.doc .mv > li::before{content:none;display:none}
+.doc .mv > li > a{color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid transparent;transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.doc .mv > li > a:hover{color:var(--ink);border-bottom-color:var(--rule-strong)}}
+@media print{.mstep{break-inside:avoid}.mbody{display:block}}
+
+/* name-and-meaning pairs inside a definition row: two aligned columns, because
+   a bulleted "X, which is Y" list is really a table wearing a bullet.
+   table-layout:fixed is load-bearing: with auto layout the table sizes to its
+   content, ignores width:100%, and gets silently cut off by overflow-x:clip. */
+.doc .terms .v table.pt{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;
+  margin:.6em 0 .1em;font-size:.95rem;line-height:1.5}
+.doc .terms .v table.pt td{padding:9px 0;vertical-align:top;color:var(--ink-2);
+  border-top:1px dotted var(--rule-strong);overflow-wrap:anywhere}
+.doc .terms .v table.pt tr:first-child td{border-top:0;padding-top:2px}
+.doc .terms .v table.pt td:first-child{width:38%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.pt td{padding:10px 0}
+  .doc .terms .v table.pt td:first-child{width:45%;padding-right:12px}
+}
+/* numbered variant: the count sits in its own narrow column so the names stay
+   aligned, which a plain ordered list cannot do once the items wrap */
+.doc .terms .v table.ptn td:first-child{width:26px;padding-right:9px;text-align:right;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:11px}
+.doc .terms .v table.ptn tr:first-child td:first-child{padding-top:4px}
+.doc .terms .v table.ptn td:nth-child(2){width:36%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.ptn td:first-child{width:21px;padding-right:7px}
+  .doc .terms .v table.ptn td:nth-child(2){width:42%;padding-right:11px}
+}
+
+/* a list inside a definition row: tighter than a prose list, with clean bullet dots */
+.terms .v > p{margin:0 0 .5em}
+.terms .v ul{margin:.1em 0 0;padding:0;list-style:none;max-width:none}
+.terms .v ul > li{margin:0 0 .34em;padding-left:1.15em;position:relative;color:var(--ink-2)}
+.terms .v ul > li::before{content:"";position:absolute;left:2px;top:.68em;
+  width:4px;height:4px;border-radius:50%;background:var(--ink-3)}
+.terms .v ul > li:last-child{margin-bottom:0}
+.terms .v ol{margin:.1em 0 0;padding-left:1.3em}
+.terms .v ol > li{margin:0 0 .34em;color:var(--ink-2)}
+.terms .v ol > li:last-child{margin-bottom:0}
+
+/* the one nav entry that leaves the page: a mode switch, so it sits above the
+   contents list rather than at the end of it, where the sidebar scroll hides it */
+.nav a.navout{display:flex;align-items:center;gap:8px;margin:0 0 14px;
+  padding-bottom:14px;border-left-color:transparent;border-bottom:1px solid var(--rule);
+  color:var(--ink-2)}
+.nav a.navout .go{margin-left:auto;color:var(--ink-3);
+  transition:transform 160ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .nav a.navout:hover{color:var(--ink)}
+  .nav a.navout:hover .go{transform:translateX(3px)}
+}
+
+/* phone redraw of every diagram: one column, text at full size */
+.figbox svg.dn{display:none}
+@media (max-width:759px){
+  figure.rf .figbox{overflow-x:visible}
+  figure.rf .figbox svg.dw{display:none}
+  figure.rf .figbox svg.dn{display:block;min-width:0;max-width:400px;margin:0 auto}
+  figure.rf .figbox::after{display:none}
+  figure.rf figcaption::after{content:""}
+}
+@media print{.figbox svg.dn{display:none}.figbox svg.dw{display:block}}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto;position:relative}
+/* below 760px the diagram is wider than the screen; say so instead of clipping silently */
+@media (max-width:759px){.figbox::after{content:"";position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:none;background:linear-gradient(to right,transparent,var(--band))}
+  figcaption::after{content:" \00b7\00a0wider than the screen, swipe sideways"}}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+@supports not selector(:target-current){
+body:has(#map:target) .nav a[href="#map"],
+body:has(#ch1:target) .nav a[href="#ch1"],
+body:has(#s1-why:target) .nav a[href="#s1-why"],
+body:has(#s1-map:target) .nav a[href="#s1-map"],
+body:has(#s1-shared:target) .nav a[href="#s1-shared"],
+body:has(#s1-switching:target) .nav a[href="#s1-switching"],
+body:has(#s1-expenditure:target) .nav a[href="#s1-expenditure"],
+body:has(#s1-difficult:target) .nav a[href="#s1-difficult"],
+body:has(#ch2:target) .nav a[href="#ch2"],
+body:has(#s2-nines:target) .nav a[href="#s2-nines"],
+body:has(#s2-fairness:target) .nav a[href="#s2-fairness"],
+body:has(#s2-overconfidence:target) .nav a[href="#s2-overconfidence"],
+body:has(#s2-smallpie:target) .nav a[href="#s2-smallpie"],
+body:has(#s2-promotional:target) .nav a[href="#s2-promotional"],
+body:has(#ch3:target) .nav a[href="#ch3"],
+body:has(#s3-prospect:target) .nav a[href="#s3-prospect"],
+body:has(#s3-prescriptions:target) .nav a[href="#s3-prescriptions"],
+body:has(#s3-reference:target) .nav a[href="#s3-reference"],
+body:has(#s3-endowment:target) .nav a[href="#s3-endowment"],
+body:has(#s3-anchoring:target) .nav a[href="#s3-anchoring"],
+body:has(#s3-comparison:target) .nav a[href="#s3-comparison"],
+body:has(#s3-framing:target) .nav a[href="#s3-framing"],
+body:has(#s3-order:target) .nav a[href="#s3-order"],
+body:has(#s3-endbenefit:target) .nav a[href="#s3-endbenefit"],
+body:has(#sheet:target) .nav a[href="#sheet"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+}
+/* scroll-aware sidebar, no script: CSS scroll-target-group (Chromium 135+) marks the
+   link whose section is on screen as the reader scrolls; browsers without it keep the
+   click-based :target rule above */
+@supports selector(:target-current){
+  .nav{scroll-target-group:auto}
+  .navgrp ul a:target-current,.nav > a:target-current{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+}
+
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  /* sized and coloured like the print and theme buttons beside it */
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:40px;height:40px;padding:0;cursor:pointer;
+    color:var(--ink-2);text-decoration:none;
+    border:1px solid var(--rule-strong);background:var(--paper);
+    transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),
+               transform 150ms var(--ease-out)}
+  .menubtn:active{transform:scale(.96)}
+  /* the middle bar is the element itself, so the three sit evenly and the set
+     is centred by the button's own align-items rather than by hand */
+  .menubtn .bars{position:relative;flex:none;width:17px;height:1.5px;
+    background:currentColor}
+  .menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;
+    left:0;width:17px;height:1.5px;background:currentColor}
+  .menubtn .bars::before{top:-5px}
+  .menubtn .bars::after{top:5px}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to main content</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <a class="navout" href="../midterm/MKT4103.html"><span class="ht">Midterm guide</span><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a href="#map"><span class="ht">Syllabus map</span></a>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Why Psychology Moves Price</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s1-why"><span class="ht">Price acceptance</span></a></li><li><a href="#s1-map"><span class="ht">The seventeen effects</span></a></li><li><a href="#s1-shared"><span class="ht">1 Shared cost</span></a></li><li><a href="#s1-switching"><span class="ht">2 Switching costs</span></a></li><li><a href="#s1-expenditure"><span class="ht">3 Expenditure</span></a></li><li><a href="#s1-difficult"><span class="ht">4 Difficult comparison</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Perceptual Challenges</span><span class="dots" aria-hidden="true">·····</span></summary>
+            <ul><li><a href="#s2-nines"><span class="ht">5 Price endings in 9s</span></a></li><li><a href="#s2-fairness"><span class="ht">6 Fairness</span></a></li><li><a href="#s2-overconfidence"><span class="ht">7 Overconfidence</span></a></li><li><a href="#s2-smallpie"><span class="ht">8 Small pie bias</span></a></li><li><a href="#s2-promotional"><span class="ht">9 Promotional influence</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Prospect Theory</span><span class="dots" aria-hidden="true">·········</span></summary>
+            <ul><li><a href="#s3-prospect"><span class="ht">10 Prospect theory</span></a></li><li><a href="#s3-prescriptions"><span class="ht">Prescriptions</span></a></li><li><a href="#s3-reference"><span class="ht">11 Reference price</span></a></li><li><a href="#s3-endowment"><span class="ht">12 Endowment</span></a></li><li><a href="#s3-anchoring"><span class="ht">13 Anchoring</span></a></li><li><a href="#s3-comparison"><span class="ht">14 Comparison set</span></a></li><li><a href="#s3-framing"><span class="ht">15 Framing</span></a></li><li><a href="#s3-order"><span class="ht">16 Order bias</span></a></li><li><a href="#s3-endbenefit"><span class="ht">17 End-benefit</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 20 minutes</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Class test &nbsp;/&nbsp; </span><b aria-current="page">MKT4103</b></nav>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+      <script>/* The checkbox inverts the system theme, and CSS cannot remember
+      anything, so the choice would reset on every load. Store the resulting
+      theme rather than the inversion: if the OS later switches to dark on its
+      own, a stored "inverted" would hand back light. Runs inline, right after
+      the control, so the theme is settled before the page below it paints. */
+      (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+      sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+      saved=localStorage.getItem(k);
+      if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+      f.addEventListener('change',function(){
+        localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+      }catch(e){}})();</script>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4103</p>
+    <h1>Pricing Strategies</h1>
+    <p class="lede">Class test guide for module 7, Psychological Influences on Price Sensitivity: the seventeen behavioural effects and prospect theory. Built from the module 7 slides and checked against Tim J. Smith, <i>Pricing Strategy</i>, chapter 5. Points the book adds beyond the slides are marked <span class="mark">book only</span>.</p>
+    <div class="mast-meta">
+      <span>Class test</span>
+      <span>Module 7 &middot; Smith, Chapter 5</span>
+      <span>10 diagrams</span>
+      <span>&asymp; 25 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ MAP ══════════ -->
+      <section id="map">
+        <div class="chap"><h2>Syllabus map</h2></div>
+        <p class="src">Everything on the class test, and where it is answered</p>
+        <p>Module 7, Smith chapter 5, in three parts. Open a
+        part to see what sits under it; every line is a link to the section that covers it.</p>
+        <div class="smap"><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">1</span><span class="mt">Why Psychology Moves Price</span><span class="mc">8</span></summary><div class="mbody"><div class="mrow"><div class="mk">Foundations</div><ul class="mv"><li><a href="#s1-why">Influencing price acceptance</a></li><li><a href="#s1-brain">Brain as a predictive machine</a></li><li><a href="#s1-map">The seventeen effects</a></li></ul></div><div class="mrow"><div class="mk">True economic costs</div><ul class="mv"><li><a href="#s1-shared">1 Shared cost effect</a></li><li><a href="#s1-shared">Four funds of money</a></li><li><a href="#s1-switching">2 Switching costs</a></li><li><a href="#s1-expenditure">3 Expenditure effect</a></li><li><a href="#s1-difficult">4 Difficult comparison effect</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">2</span><span class="mt">Perceptual Challenges</span><span class="mc">5</span></summary><div class="mbody"><div class="mrow"><div class="mk">Effects 5 to 9</div><ul class="mv"><li><a href="#s2-nines">5 Price endings in 9s</a></li><li><a href="#s2-fairness">6 Fairness effect</a></li><li><a href="#s2-overconfidence">7 Overconfidence</a></li><li><a href="#s2-smallpie">8 Small pie bias</a></li><li><a href="#s2-promotional">9 Promotional influence</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">3</span><span class="mt">Prospect Theory and Related Effects</span><span class="mc">10</span></summary><div class="mbody"><div class="mrow"><div class="mk">10 Prospect theory</div><ul class="mv"><li><a href="#s3-test">The gamble</a></li><li><a href="#s3-tenets">Four findings</a></li><li><a href="#s3-prescriptions">Prescriptions</a></li></ul></div><div class="mrow"><div class="mk">Effects 11 to 17</div><ul class="mv"><li><a href="#s3-reference">11 Reference price effects</a></li><li><a href="#s3-endowment">12 Endowment effect</a></li><li><a href="#s3-anchoring">13 Anchoring</a></li><li><a href="#s3-comparison">14 Comparison set effect</a></li><li><a href="#s3-framing">15 Framing effect</a></li><li><a href="#s3-order">16 Order bias</a></li><li><a href="#s3-endbenefit">17 End-benefit effect</a></li></ul></div></div></details></div>
+      </section>
+
+      <!-- ══════════ PART 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>Why Psychology Moves Price</h2></div>
+        <p class="src">Smith, Chapter 5 · part 1 of 3</p>
+
+        <h3 id="s1-why">Influencing price acceptance</h3>
+
+        <p>How customers judge value and price is shaped by many factors, and a lot of them
+        are psychological, some probably rooted in evolution. The module's stance is
+        practical: rather than trying to make buyers more logical, it is usually more
+        efficient to work with the way they already think. That means four jobs:</p>
+
+        <div class="terms"><div><div class="k">Four jobs</div><div class="v"><ul><li>Understand the decision biases in purchasing behaviour</li><li>Find ways to reduce psychological dissonance</li><li>Understand the limits of pricing power</li><li>And so make it easier for customers to decide to buy</li></ul></div></div></div>
+
+        <h4 id="s1-brain">The brain as a predictive machine</h4>
+
+        <p>Neuroeconomics suggests the brain constantly predicts what to expect. Shown a chair
+        you have never seen, you still guess its function, weight and rough price, from very
+        little information. The circuits doing this turn information into impressions,
+        preferences, judgements and predictions, and therefore into <span class="term" tabindex="0"><mark>willingness to pay</mark><span class="tip" role="tooltip"><b>The most a customer is prepared to pay for something.</b>The psychological effects work by shifting it.</span></span>.
+        People are <i>cognitive misers</i>: they save mental effort by relying on
+        <i>heuristics</i>, mental shortcuts, to decide faster.</p>
+
+        <div class="note"><span class="lbl">The slogan</span><p>It is your brain too. Use yours, don't fix theirs. Some effects lower <span class="term" tabindex="0"><mark>price sensitivity</mark><span class="tip" role="tooltip"><b>How strongly a customer&#x27;s buying reacts to a change in price.</b>Every effect in this module either raises or lowers it.</span></span> and can be steered by the firm, which builds pricing power. Others warn the firm where a pricing practice will backfire.</p></div>
+
+        <h3 id="s1-map">The seventeen effects</h3>
+
+        <p>The whole module hangs on one map, repeated through the slides. Learn the three
+        groups first, then the effects inside each.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 418" role="img" aria-label="The seventeen behavioural effects, in the three groups the module uses."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="360.0" y1="46" x2="360.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124.0" y1="62" x2="596.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="124.0" y1="62" x2="124.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="114" x2="34.0" y2="270.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="142.0" x2="46.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="183.0" x2="46.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="224.0" x2="46.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="34.0" y1="270.5" x2="46.0" y2="270.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="62" x2="360.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="114" x2="270.0" y2="317.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="142.0" x2="282.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="183.0" x2="282.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="229.5" x2="282.0" y2="229.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="276.0" x2="282.0" y2="276.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="270.0" y1="317.0" x2="282.0" y2="317.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="596.0" y1="62" x2="596.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="114" x2="506.0" y2="388.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="142.0" x2="518.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="183.0" x2="518.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="224.0" x2="518.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="265.0" x2="518.0" y2="265.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="306.0" x2="518.0" y2="306.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="347.0" x2="518.0" y2="347.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="506.0" y1="388.0" x2="518.0" y2="388.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="195.0" y="10" width="330" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="24.549999999999997" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Behavioural effects that influence</text><text x="360.0" y="40.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">price sensitivity</text><rect x="14.0" y="80" width="220" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="124.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">True economic costs</text><rect x="46.0" y="126" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="140.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">1 Shared cost effect</text><rect x="46.0" y="167" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="140.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">2 Switching costs</text><rect x="46.0" y="208" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="140.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">3 Expenditure effect</text><rect x="46.0" y="249" width="188.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="140.0" y="267.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">4 Difficult comparison</text><text x="140.0" y="281.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">effect</text><rect x="250.0" y="80" width="220" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Perceptual challenges</text><rect x="282.0" y="126" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">5 Price endings in 9s</text><rect x="282.0" y="167" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">6 Fairness effect</text><rect x="282.0" y="208" width="188.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="226.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">7 Overconfidence in future</text><text x="376.0" y="240.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">economic efficiency</text><rect x="282.0" y="260.0" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="280.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">8 Small pie bias</text><rect x="282.0" y="301.0" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="321.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">9 Promotional influence</text><rect x="486.0" y="80" width="220" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="596.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">10 Prospect theory</text><text x="596.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">and related effects</text><rect x="518.0" y="126" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">11 Reference price effects</text><rect x="518.0" y="167" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">12 Endowment effect</text><rect x="518.0" y="208" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">13 Anchoring</text><rect x="518.0" y="249" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="269.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">14 Comparison set effect</text><rect x="518.0" y="290" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="310.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">15 Framing effect</text><rect x="518.0" y="331" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="351.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">16 Order bias</text><rect x="518.0" y="372" width="188.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="612.0" y="392.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">17 End-benefit effect</text></svg><svg class="dn" viewBox="0 0 340 869.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="98" x2="49" y2="248.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="122.0" x2="58" y2="122.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="162.0" x2="58" y2="162.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="202.0" x2="58" y2="202.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="248.5" x2="58" y2="248.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="311.0" x2="49" y2="508.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="335.0" x2="58" y2="335.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="375.0" x2="58" y2="375.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="421.5" x2="58" y2="421.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="468.0" x2="58" y2="468.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="508.0" x2="58" y2="508.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="579.0" x2="49" y2="843.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="603.0" x2="58" y2="603.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="643.0" x2="58" y2="643.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="683.0" x2="58" y2="683.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="723.0" x2="58" y2="723.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="763.0" x2="58" y2="763.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="803.0" x2="58" y2="803.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="843.0" x2="58" y2="843.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="58" x2="26" y2="555.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="82.0" x2="35" y2="82.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="295.0" x2="35" y2="295.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="555.5" x2="35" y2="555.5" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Behavioural effects that influence</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">price sensitivity</text><rect x="35" y="66" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="86.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">True economic costs</text><rect x="58" y="106" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="126.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">1 Shared cost effect</text><rect x="58" y="146" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="166.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">2 Switching costs</text><rect x="58" y="186" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="206.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">3 Expenditure effect</text><rect x="58" y="226" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="245.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">4 Difficult comparison</text><text x="193.0" y="260.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">effect</text><rect x="35" y="279.0" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="299.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Perceptual challenges</text><rect x="58" y="319.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="339.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">5 Price endings in 9s</text><rect x="58" y="359.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="379.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">6 Fairness effect</text><rect x="58" y="399.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="418.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">7 Overconfidence in future</text><text x="193.0" y="433.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">economic efficiency</text><rect x="58" y="452.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="472.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">8 Small pie bias</text><rect x="58" y="492.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="512.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">9 Promotional influence</text><rect x="35" y="532.0" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="551.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">10 Prospect theory</text><text x="181.5" y="568.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">and related effects</text><rect x="58" y="587.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="607.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">11 Reference price effects</text><rect x="58" y="627.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="647.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">12 Endowment effect</text><rect x="58" y="667.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="687.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">13 Anchoring</text><rect x="58" y="707.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="727.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">14 Comparison set effect</text><rect x="58" y="747.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="767.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">15 Framing effect</text><rect x="58" y="787.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="807.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">16 Order bias</text><rect x="58" y="827.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="847.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">17 End-benefit effect</text></svg></div><figcaption>The seventeen behavioural effects, in the three groups the module uses.</figcaption></figure>
+
+        <h3 id="s1-true">True economic costs</h3>
+
+        <p>The first four effects look psychological but are really rational. Each comes from
+        a hidden cost, usually an <span class="term" tabindex="0"><mark>opportunity cost</mark><span class="tip" role="tooltip"><b>The value of the best alternative given up, such as the time spent shopping.</b>The true economic cost effects all rest on it.</span></span>, that a sensible buyer would weigh.</p>
+
+        <h4 id="s1-shared">1 Shared cost effect</h4>
+
+        <p>Price sensitivity falls when the customer pays with someone else's money. A
+        business traveller reimbursed by the company cares less about the fare; that is why
+        airline loyalty schemes let airlines charge a little more, since the firm pays but the
+        traveller chooses. Rebates work the same way to a smaller degree, because part of the
+        price is effectively paid back.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 370" role="img" aria-label="The four funds of money: whose money, and spent on whom."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="130" y="30" width="470" height="260" fill="var(--band)" stroke="var(--ink)"/><line x1="365.0" y1="30" x2="365.0" y2="290" stroke="var(--ink)" stroke-width="1"/><line x1="130" y1="160.0" x2="600" y2="160.0" stroke="var(--ink)" stroke-width="1"/><text x="247.5" y="64.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">1  Own money, on self</text><text x="247.5" y="84.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Moderate price sensitivity</text><text x="247.5" y="98.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">High sensitivity to</text><text x="247.5" y="112.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">personal utility</text><text x="482.5" y="64.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">3  Others' money, on self</text><text x="482.5" y="84.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Low price sensitivity</text><text x="482.5" y="98.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">High sensitivity to</text><text x="482.5" y="112.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">personal utility</text><text x="247.5" y="194.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">2  Own money, on others</text><text x="247.5" y="214.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Moderate price sensitivity</text><text x="247.5" y="228.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">High sensitivity to the</text><text x="247.5" y="242.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">utility of gift giving</text><text x="482.5" y="194.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">4  Others' money, on others</text><text x="482.5" y="214.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Low price sensitivity</text><text x="482.5" y="228.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Low utility sensitivity</text><text x="482.5" y="242.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)"></text><text x="247.5" y="316" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Themselves</text><text x="482.5" y="316" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Someone else</text><text x="365.0" y="338" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="600" fill="var(--ink)">Funds source (whose money)</text><g transform="translate(40 160.0) rotate(-90)"><text x="0" y="0" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="600" fill="var(--ink)">Funds purpose</text></g><text x="116" y="99.0" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Themselves</text><text x="116" y="229.0" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Someone else</text></svg><svg class="dn" viewBox="0 0 340 320.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">1  Own money, on self</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Moderate price sensitivity</text><text x="170.0" y="66.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">High sensitivity to personal utility</text><rect x="20.0" y="88.0" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="108.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">2  Own money, on others</text><text x="170.0" y="127.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Moderate price sensitivity</text><text x="170.0" y="144.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">High sensitivity to gift giving</text><rect x="20.0" y="166.0" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="186.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">3  Others' money, on self</text><text x="170.0" y="205.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Low price sensitivity</text><text x="170.0" y="222.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">High sensitivity to personal utility</text><rect x="20.0" y="244.0" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="264.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">4  Others' money, on others</text><text x="170.0" y="283.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Low price sensitivity</text><text x="170.0" y="300.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Low utility sensitivity</text></svg></div><figcaption>The four funds of money: whose money, and spent on whom.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Four funds of money</div><div class="v"><table class="pt ptn"><tbody><tr><td>1</td><td>Own money, on themselves</td><td>Careful about getting the most <span class="term" tabindex="0"><mark>utility</mark><span class="tip" role="tooltip"><b>The satisfaction or benefit a person gets from something.</b>Classical economics assumes people maximise it.</span></span> for each unit of money spent.</td></tr><tr><td>2</td><td>Own money, on someone else</td><td>Still price sensitive, but now trying to please the recipient and get the satisfaction of giving. The meaning of utility changes.</td></tr><tr><td>3</td><td>Someone else's money, on themselves</td><td>Focused on benefits, and much less price sensitive.</td></tr><tr><td>4</td><td>Someone else's money, on someone else</td><td>Buying for a business, say. Without oversight and the right incentives, neither price nor benefit sensitive.</td></tr></tbody></table></div></div></div>
+
+        <p>The industrial lesson: because business purchases spend other people's money,
+        they involve several decision makers and several decision criteria.</p>
+
+        <h4 id="s1-switching">2 Switching costs</h4>
+
+        <p>Economic switching costs are all the costs, direct and opportunity, of moving from
+        one supplier to another. They arise from <i>product-specific investments</i> the buyer
+        has made, which can be monetary or psychological. The key line: product-specific
+        investments decrease price sensitivity for existing customers.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 700 300" role="img" aria-label="Where switching costs come from: investments tied to one supplier's product."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="350.0" y1="150.0" x2="350.0" y2="32.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="150.0" x2="580.0" y2="150.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="150.0" x2="350.0" y2="268.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="150.0" x2="120.0" y2="150.00000000000003" stroke="var(--rule-strong)" stroke-width="1"/><rect x="244.0" y="12.0" width="212" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="28.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Complementary goods</text><text x="350.0" y="43.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(dock bought for an iPod)</text><rect x="494.0" y="130.0" width="172" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="580.0" y="146.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Learning</text><text x="580.0" y="161.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(Dreamweaver skills)</text><rect x="256.0" y="248.0" width="188" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="264.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Engineering costs</text><text x="350.0" y="279.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(re-certifying a chip)</text><rect x="48.0" y="130.00000000000003" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="120.0" y="146.77500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Brand loyalty</text><text x="120.0" y="161.27500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(psychological)</text><rect x="266.0" y="124.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="146.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Product-specific</text><text x="350.0" y="162.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">investments</text></svg><svg class="dn" viewBox="0 0 340 316" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Product-specific</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">investments</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Complementary goods</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(dock bought for an iPod)</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Learning</text><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(Dreamweaver skills)</text><line x1="170.0" y1="182" x2="170.0" y2="196" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="196" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="216.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Engineering costs</text><text x="170.0" y="233.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(re-certifying a chip)</text><line x1="170.0" y1="244" x2="170.0" y2="258" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="258" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="278.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Brand loyalty</text><text x="170.0" y="295.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(psychological)</text></svg></div><figcaption>Where switching costs come from: investments tied to one supplier's product.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Sources</div><div class="v"><table class="pt"><tbody><tr><td>Complementary goods</td><td>Buy an iPod, then a docking station for it. The dock makes the next player likely to be an iPod too.</td></tr><tr><td>Learning</td><td>Time spent mastering Dreamweaver would be lost by moving to Pagemaker.</td></tr><tr><td>Engineering costs</td><td>A chip designed into a product: changing it means re-engineering, re-certification and other direct costs.</td></tr><tr><td>Brand loyalty</td><td>The purely psychological cost of leaving a brand you trust.</td></tr></tbody></table></div></div></div>
+
+        <h4 id="s1-expenditure">3 Expenditure effect</h4>
+
+        <p>The bigger the price tag, the more it pays to shop around. Searching and comparing
+        take time and effort that could be spent elsewhere. On an expensive item that effort
+        is small next to the possible saving, so buyers compare hard; on a cheap item the
+        effort stays the same while the saving shrinks, so they don't bother. Price
+        sensitivity is higher when the purchase is a larger share of the budget. In business
+        markets, a larger or more strategically important purchase draws more scrutiny and so
+        more price sensitivity.</p>
+
+        <div class="note"><span class="lbl">The book's caveat</span><p>The effect is not always consistent. Told that a $39.99 microwave is $5 cheaper two miles away, more people make the trip than for the same $5 off a $499.99 TV. Prospect theory explains why: $5 feels bigger against a small price.</p></div>
+
+        <h4 id="s1-difficult">4 Difficult comparison effect</h4>
+
+        <p>Making products and prices hard to compare raises search costs and the buyer's
+        uncertainty. That discourages switching and lowers price sensitivity.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 287.0" role="img" aria-label="Three places the difficult comparison effect shows up."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="360.0" y1="46" x2="360.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="125.0" y1="62" x2="595.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="125.0" y1="62" x2="125.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="114" x2="40.0" y2="246.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="147.5" x2="52.0" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="199.5" x2="52.0" y2="199.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="246.0" x2="52.0" y2="246.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="62" x2="360.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="275.0" y1="114" x2="275.0" y2="251.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="275.0" y1="147.5" x2="287.0" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="275.0" y1="199.5" x2="287.0" y2="199.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="275.0" y1="251.5" x2="287.0" y2="251.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="595.0" y1="62" x2="595.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="510.0" y1="114" x2="510.0" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="510.0" y1="147.5" x2="522.0" y2="147.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="510.0" y1="206.75" x2="522.0" y2="206.75" stroke="var(--rule-strong)" stroke-width="1"/><rect x="230.0" y="10" width="260" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="32.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Difficult comparison effect</text><rect x="20.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="125.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Incumbent vs</text><text x="125.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">new entrant</text><rect x="52.0" y="126" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Incumbent hides price</text><text x="141.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">and benefits</text><rect x="52.0" y="178.0" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Entrant makes the</text><text x="141.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">comparison explicit</text><rect x="52.0" y="230.0" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="250.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Vonage vs AT&amp;T</text><rect x="255.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Brands vs</text><text x="360.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">generics</text><rect x="287.0" y="126" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Same ingredients,</text><text x="376.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">different trust</text><rect x="287.0" y="178.0" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Brand makes comparison</text><text x="376.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">harder, price higher</text><rect x="287.0" y="230.0" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="376.0" y="248.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Aspirin; Quaker Oats</text><text x="376.0" y="262.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">vs store brand</text><rect x="490.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="595.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Size changes</text><rect x="522.0" y="126" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="611.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Different sizes hide</text><text x="611.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">the unit price</text><rect x="522.0" y="178.0" width="178.0" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="611.0" y="196.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Prague beer: small looks</text><text x="611.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">cheaper, costs more</text><text x="611.0" y="225.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">per decilitre</text></svg><svg class="dn" viewBox="0 0 340 628.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="97.0" x2="49" y2="227.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="127.5" x2="58" y2="127.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="180.5" x2="58" y2="180.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="227.0" x2="58" y2="227.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="298.0" x2="49" y2="434.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="328.5" x2="58" y2="328.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="381.5" x2="58" y2="381.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="434.5" x2="58" y2="434.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="497.0" x2="49" y2="588.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="527.5" x2="58" y2="527.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="588.25" x2="58" y2="588.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="42" x2="26" y2="481.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="73.5" x2="35" y2="73.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="274.5" x2="35" y2="274.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="481.0" x2="35" y2="481.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="32" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Difficult comparison effect</text><rect x="35" y="50" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="69.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Incumbent vs</text><text x="181.5" y="86.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">new entrant</text><rect x="58" y="105.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="124.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Incumbent hides price</text><text x="193.0" y="139.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">and benefits</text><rect x="58" y="158.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="177.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Entrant makes the</text><text x="193.0" y="192.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">comparison explicit</text><rect x="58" y="211.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="231.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Vonage vs AT&amp;T</text><rect x="35" y="251.0" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="270.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Brands vs</text><text x="181.5" y="287.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">generics</text><rect x="58" y="306.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="325.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Same ingredients,</text><text x="193.0" y="340.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">different trust</text><rect x="58" y="359.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="378.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Brand makes comparison</text><text x="193.0" y="393.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">harder, price higher</text><rect x="58" y="412.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="431.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Aspirin; Quaker Oats</text><text x="193.0" y="446.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">vs store brand</text><rect x="35" y="465.0" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="485.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Size changes</text><rect x="58" y="505.0" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="524.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Different sizes hide</text><text x="193.0" y="539.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">the unit price</text><rect x="58" y="558.0" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="577.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Prague beer: small looks</text><text x="193.0" y="592.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">cheaper, costs more</text><text x="193.0" y="608.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">per decilitre</text></svg></div><figcaption>Three places the difficult comparison effect shows up.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Three areas</div><div class="v"><table class="pt"><tbody><tr><td>Incumbent vs new entrant</td><td>Incumbents blur price and benefits so switching takes more information gathering and feels riskier. Entrants do the opposite and make the comparison explicit. AT&T's base price plus a list of add-ons against Vonage's single flat fee is the textbook case.</td></tr><tr><td>Brands vs generics</td><td>Branded and generic aspirin have chemically identical active ingredients, yet buyers trust the brand and pay more for it. The brand itself makes comparison harder. Whole Foods: Quaker Oats $3.49, its own 365 brand $2.99.</td></tr><tr><td>Size changes</td><td>In a Prague pub a large beer (0.5 L) costs 20 CzK and a small (0.3 L) 14 CzK. The small looks cheaper, but costs 4.7 CzK per decilitre against 4.0 for the large. A higher unit price behind a lower-looking price.</td></tr></tbody></table></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>The four jobs, and why we work with biases rather than fix them</li><li><span class="term" tabindex="0"><mark>Cognitive misers</mark><span class="tip" role="tooltip"><b>A description of people as saving mental effort wherever they can.</b>Hence the reliance on heuristics.</span></span> and <span class="term" tabindex="0"><mark>heuristics</mark><span class="tip" role="tooltip"><b>Mental shortcuts people use to decide quickly with little effort.</b>They save effort but bias judgements in predictable ways.</span></span></li><li>The three groups of the seventeen effects</li><li>Four funds of money and the sensitivity of each</li><li>Switching costs: definition and four sources</li><li>Expenditure effect and its caveat</li><li>Three areas of the difficult comparison effect, with one example each</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>Perceptual Challenges</h2></div>
+        <p class="src">Smith, Chapter 5 · part 2 of 3</p>
+
+        <p>Effects 5 to 9 are purely psychological: no hidden cost explains them.</p>
+
+        <h3 id="s2-nines">5 Price endings in 9s</h3>
+
+        <p>If nothing psychological were going on, each digit would end a price about 10% of
+        the time. Count real prices and 9 dominates by far, with far fewer 5s and 0s. The
+        effect even reaches past the last digit. Of $24.99, $28.53 and $29.99, the lowest
+        sells most, as theory predicts, but $29.99 outsells $28.53 even though it is dearer.
+        That kink contradicts the downward-sloping demand curve.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 680 280" role="img" aria-label="The kink at an odd price point contradicts the demand curve."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="70" y1="210" x2="310" y2="210" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="70" y1="210" x2="70" y2="40" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="314" y="240" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Quantity</text><text x="64" y="44" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Price</text><text x="190.0" y="22" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Economically predicted</text><line x1="70" y1="82.5" x2="310" y2="82.5" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="64" y="86.5" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$29.99</text><line x1="70" y1="125.0" x2="310" y2="125.0" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="64" y="129.0" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$28.53</text><line x1="70" y1="184.5" x2="310" y2="184.5" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="64" y="188.5" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$24.99</text><path d="M110,52 L140,82.5 L195,125.0 L265,184.5 L298,204" fill="none" stroke="var(--ink)" stroke-width="1.8"/><circle cx="140" cy="82.5" r="3.5" fill="var(--ink)"/><line x1="140" y1="82.5" x2="140" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="140" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QH</text><circle cx="195" cy="125.0" r="3.5" fill="var(--ink)"/><line x1="195" y1="125.0" x2="195" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="195" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QM</text><circle cx="265" cy="184.5" r="3.5" fill="var(--ink)"/><line x1="265" y1="184.5" x2="265" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="265" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QL</text><text x="190.0" y="262.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)" font-style="italic">Order on the axis: QH, QM, QL.</text><line x1="400" y1="210" x2="640" y2="210" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="400" y1="210" x2="400" y2="40" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="644" y="240" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Quantity</text><text x="394" y="44" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Price</text><text x="520.0" y="22" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Observed</text><line x1="400" y1="82.5" x2="640" y2="82.5" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="394" y="86.5" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$29.99</text><line x1="400" y1="125.0" x2="640" y2="125.0" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="394" y="129.0" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$28.53</text><line x1="400" y1="184.5" x2="640" y2="184.5" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="394" y="188.5" text-anchor="end" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)">$24.99</text><path d="M440,52 L525,82.5 L470,125.0 L595,184.5 L628,204" fill="none" stroke="var(--ink)" stroke-width="1.8"/><circle cx="525" cy="82.5" r="3.5" fill="var(--ink)"/><line x1="525" y1="82.5" x2="525" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="525" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QH</text><circle cx="470" cy="125.0" r="3.5" fill="var(--ink)"/><line x1="470" y1="125.0" x2="470" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="470" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QM</text><circle cx="595" cy="184.5" r="3.5" fill="var(--ink)"/><line x1="595" y1="184.5" x2="595" y2="210" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><text x="595" y="224" text-anchor="middle" font-family="Newsreader,serif" font-size="10" font-weight="400" fill="var(--ink-3)">QL</text><text x="520.0" y="262.0" text-anchor="middle" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)" font-style="italic">Order: QM, QH, QL. $29.99 outsells $28.53.</text></svg><svg class="dn" viewBox="0 0 340 164.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="66.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Economically predicted</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Each lower price sells more:</text><text x="170.0" y="66.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">$24.99 > $28.53 > $29.99</text><rect x="20.0" y="88.0" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="108.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Observed</text><text x="170.0" y="127.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">$24.99 still sells most, but</text><text x="170.0" y="144.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">$29.99 outsells the odd $28.53</text></svg></div><figcaption>The kink at an odd price point contradicts the demand curve.</figcaption></figure>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 300" role="img" aria-label="The four psychological reasons prices end in nine."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="360.0" y1="150.0" x2="360.0" y2="32.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="150.0" x2="590.0" y2="150.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="150.0" x2="360.0" y2="268.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="150.0" x2="130.0" y2="150.00000000000003" stroke="var(--rule-strong)" stroke-width="1"/><rect x="266.0" y="12.0" width="188" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="28.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Meaning</text><text x="360.0" y="43.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(signals a sale price)</text><rect x="500.0" y="123.5" width="180" height="53" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="590.0" y="139.525" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Accessibility</text><text x="590.0" y="154.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(round prices</text><text x="590.0" y="168.525" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">are easier to recall)</text><rect x="288.0" y="241.5" width="144" height="53" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="257.525" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Encoding</text><text x="360.0" y="272.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(left digit</text><text x="360.0" y="286.525" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">read first)</text><rect x="58.0" y="123.50000000000003" width="144" height="53" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="130.0" y="139.52500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Framing</text><text x="130.0" y="154.02500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">(a small discount</text><text x="130.0" y="168.52500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">off a round number)</text><rect x="276.0" y="124.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="146.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Why prices</text><text x="360.0" y="162.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">end in 9</text></svg><svg class="dn" viewBox="0 0 340 367" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Why prices</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">end in 9</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Meaning</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(signals a sale price)</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Accessibility</text><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(round prices</text><text x="170.0" y="188.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">are easier to recall)</text><line x1="170.0" y1="199" x2="170.0" y2="213" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="213" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="233.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Encoding</text><text x="170.0" y="250.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(left digit</text><text x="170.0" y="267.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">read first)</text><line x1="170.0" y1="278" x2="170.0" y2="292" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="292" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="312.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Framing</text><text x="170.0" y="329.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(a small discount</text><text x="170.0" y="346.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">off a round number)</text></svg></div><figcaption>The four psychological reasons prices end in nine.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">Four reasons</div><div class="v"><table class="pt"><tbody><tr><td>Meaning</td><td>A 9 ending signals a low or discounted price, which lifts demand. The flip side is that it can suggest lower quality, which is why galleries price in round numbers and poster shops end in 9.</td></tr><tr><td>Accessibility</td><td>Round prices ending in 0 or 5 are easy to store and recall, which makes comparison shopping easier. Odd endings are harder to remember, so they quietly reduce comparison and price sensitivity.</td></tr><tr><td>Encoding</td><td>We read numbers left to right and the left digit matters most. A busy buyer reads the first digit and drops the rest, so $9.99 registers as much cheaper than $10. This is the <span class="term" tabindex="0"><mark>underestimation effect</mark><span class="tip" role="tooltip"><b>Perceiving $9.99 as much cheaper than $10 because the left digit is read first.</b>Part of the encoding explanation for 9 endings.</span></span>.</td></tr><tr><td>Framing</td><td>A 9 ending feels like a small discount off the next round number, a little gain that nudges the purchase.</td></tr></tbody></table></div></div></div>
+
+        <div class="note"><span class="lbl">Two extras from the book <span class="mark">book only</span></span><p>The old story that odd prices stopped cashiers pocketing exact change is discredited: it would make every odd digit common, not just 9. And the habit is cultural: post-Soviet Poland favoured 5s, and Japan and other Asian markets favour 8, a lucky number.</p></div>
+
+        <h3 id="s2-fairness">6 Fairness effect</h3>
+
+        <div class="terms"><div><div class="k">Seen as fair</div><div class="v">Prices within the range the customer expects from past experience of the category.</div></div><div><div class="k">Seen as unfair</div><div class="v">Large price increases, read as profit taking or as exploiting weaker customers; and prices that vary randomly between customers. Amazon was hit by this in 2005 when shoppers discovered it was testing different prices on different people.</div></div><div><div class="k">Where it bites</div><div class="v">Much more in necessity goods than in discretionary purchases. The expectation of fairness grows with economic sophistication and shapes how price changes, price differences and discrimination are received.</div></div></div>
+
+        <p>The book's reason: the brain handles buying with the same circuits used for sharing
+        within families and friends, so people bring expectations of fair sharing to every
+        transaction. Breaking them can turn into public outrage, not just a lost sale.</p>
+
+        <h3 id="s2-overconfidence">7 Overconfidence in future economic efficiency</h3>
+
+        <p>People buy some products expecting to behave a certain way later, and they are
+        consistently bad at predicting their own future behaviour. The gym study: members on
+        a $70 monthly plan went about 4.3 times a month, paying over $17 a visit, when a
+        10-visit pass cost $10 a visit. They were also 17% more likely to stay past the first
+        year than annual members, despite paying extra for the right to cancel at any time.
+        The cause was overconfidence in their own future self-control and efficiency.</p>
+
+        <h3 id="s2-smallpie">8 Small pie bias</h3>
+
+        <p>From negotiation research. Negotiators keep underestimating the size of the
+        <span class="term" tabindex="0"><mark>bargaining zone</mark><span class="tip" role="tooltip"><b>The range between the seller&#x27;s lowest and the buyer&#x27;s highest acceptable price.</b>Small pie bias makes negotiators think it is narrower than it is.</span></span>: they think they are splitting a smaller pie than really exists. So
+        they overestimate the share of the surplus they are getting, and sellers settle for
+        too low a price. They also tend to anchor their expectation near their own walk-away
+        price.</p>
+
+        <div class="terms"><div><div class="k">How to overcome it</div><div class="v">Form an expectation of the buyer's <span class="term" tabindex="0"><mark>reservation price</mark><span class="tip" role="tooltip"><b>The highest price a buyer will accept, or the lowest a seller will.</b>Anchoring and small pie bias both act on it.</span></span>, then use the negotiation to <i>seek disconfirming information</i>. Open with an offer outside what you think the buyer will accept, watch the reaction, update your estimate, and move the deal closer to the buyer's true reservation price.</div></div></div>
+
+        <h3 id="s2-promotional">9 Promotional influence</h3>
+
+        <p>What you say, and who you say it to, decide how good a price you can capture.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 620 346.0" role="img" aria-label="The two paths through which promotions change price sensitivity."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="310.0" y1="46" x2="310.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="155.0" y1="62" x2="465.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="155.0" y1="62" x2="155.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="50.0" y1="114" x2="50.0" y2="316.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="50.0" y1="154.75" x2="62.0" y2="154.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="50.0" y1="208.5" x2="62.0" y2="208.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="50.0" y1="262.25" x2="62.0" y2="262.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="50.0" y1="316.0" x2="62.0" y2="316.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="465.0" y1="62" x2="465.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="114" x2="360.0" y2="266.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="154.75" x2="372.0" y2="154.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="214.0" x2="372.0" y2="214.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="266.0" x2="372.0" y2="266.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="195.0" y="10" width="230" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="310.0" y="32.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Promotional influence</text><rect x="30.0" y="80" width="250" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="155.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">1 What you say</text><text x="155.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">(the message)</text><rect x="62.0" y="126" width="218.0" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="171.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Price-oriented: brand</text><text x="171.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">plus price, in local</text><text x="171.0" y="173.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">circulars</text><rect x="62.0" y="192.5" width="218.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="171.0" y="212.525" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Raises price sensitivity</text><rect x="62.0" y="233.5" width="218.0" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="171.0" y="251.77499999999998" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Value-oriented: brand</text><text x="171.0" y="266.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">plus benefits, in</text><text x="171.0" y="280.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">national advertising</text><rect x="62.0" y="300.0" width="218.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="171.0" y="320.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Lowers price sensitivity</text><rect x="340.0" y="80" width="250" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="465.0" y="93.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">2 Who you say it to</text><text x="465.0" y="108.7" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">(the market attracted)</text><rect x="372.0" y="126" width="218.0" height="57.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="481.0" y="144.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Advertising pulls in</text><text x="481.0" y="158.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">advertising-sensitive</text><text x="481.0" y="173.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">buyers</text><rect x="372.0" y="192.5" width="218.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="481.0" y="210.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">They are more price</text><text x="481.0" y="225.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">sensitive than average</text><rect x="372.0" y="244.5" width="218.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="481.0" y="262.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">So the whole market</text><text x="481.0" y="277.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">gets more price sensitive</text></svg><svg class="dn" viewBox="0 0 340 553.5" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="97.0" x2="49" y2="298.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="135.25" x2="58" y2="135.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="189.5" x2="58" y2="189.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="243.75" x2="58" y2="243.75" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="298.0" x2="58" y2="298.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="369.0" x2="49" y2="521.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="407.25" x2="58" y2="407.25" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="468.0" x2="58" y2="468.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="521.0" x2="58" y2="521.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="42" x2="26" y2="345.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="73.5" x2="35" y2="73.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="345.5" x2="35" y2="345.5" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="32" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Promotional influence</text><rect x="35" y="50" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="69.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">1 What you say</text><text x="181.5" y="86.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">(the message)</text><rect x="58" y="105.0" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="124.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Price-oriented: brand</text><text x="193.0" y="139.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">plus price, in local</text><text x="193.0" y="155.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">circulars</text><rect x="58" y="173.5" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="193.875" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Raises price sensitivity</text><rect x="58" y="213.5" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="232.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Value-oriented: brand</text><text x="193.0" y="248.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">plus benefits, in</text><text x="193.0" y="263.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">national advertising</text><rect x="58" y="282.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="302.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Lowers price sensitivity</text><rect x="35" y="322.0" width="293" height="47.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="341.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">2 Who you say it to</text><text x="181.5" y="358.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">(the market attracted)</text><rect x="58" y="377.0" width="270" height="60.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="396.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Advertising pulls in</text><text x="193.0" y="411.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">advertising-sensitive</text><text x="193.0" y="427.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">buyers</text><rect x="58" y="445.5" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="464.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">They are more price</text><text x="193.0" y="480.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">sensitive than average</text><rect x="58" y="498.5" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="517.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">So the whole market</text><text x="193.0" y="533.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">gets more price sensitive</text></svg></div><figcaption>The two paths through which promotions change price sensitivity.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">1 The message</div><div class="v"><table class="pt"><tbody><tr><td>Price-oriented promotion</td><td>Focuses on the brand and its price, typically in local circulars run with distributors. Leads to lower prices and higher price sensitivity.</td></tr><tr><td>Value-oriented promotion</td><td>Focuses on the brand and its features or benefits, typically national advertising run by the manufacturer. Leads to lower price sensitivity.</td></tr></tbody></table></div></div><div><div class="k">2 The market attracted</div><div class="v">Advertising enlarges the market by drawing in new buyers, and advertising-sensitive buyers tend to be more price sensitive. So advertising indirectly makes the market as a whole more price sensitive.</div></div><div><div class="k">In negotiations</div><div class="v">Leaning on key selling points lets sellers reach higher final prices.</div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Why 9-endings contradict the demand curve</li><li>Meaning, accessibility, encoding, framing</li><li>When prices feel fair and unfair; necessity vs discretionary</li><li>The gym study numbers</li><li>Small pie bias and how to overcome it</li><li>Price- vs value-oriented promotions, and the market-attracted effect</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>Prospect Theory and Related Effects</h2></div>
+        <p class="src">Smith, Chapter 5 · part 3 of 3</p>
+
+        <h3 id="s3-prospect">10 Prospect theory</h3>
+
+        <p>Economics assumes people maximise utility in every transaction. Study after study
+        shows predictable ways they do not. Prospect theory, set out by Kahneman and Tversky
+        in 1979, tries to define the heuristics behind that predictable irrationality by
+        asking how people choose among risky prospects. Since every purchase carries some
+        risk, it explains many buying behaviours and so many pricing opportunities. Newer
+        research links it to brain circuits shaped by evolution.</p>
+
+        <h4 id="s3-test">Which offer would you accept?</h4>
+
+        <div class="scroller"><table><thead><tr><th></th><th>Option 1</th><th>Option 2</th></tr></thead><tbody><tr><td class="k">The offer</td><td>50% chance of losing €10,000</td><td>Losing €4,500 with certainty</td></tr><tr><td class="k">Expected loss</td><td>€5,000</td><td>€4,500</td></tr><tr><td class="k">What many choose</td><td>This one, the gamble</td><td></td></tr></tbody></table></div>
+
+        <p>The sure loss is cheaper on average, yet many people take the gamble. Facing a
+        loss, people seek risk. That is a utility-maximising rule broken in a predictable
+        direction, which is exactly what prospect theory describes.</p>
+
+        <h4 id="s3-tenets">The four findings</h4>
+
+        <div class="terms"><div><div class="k">Four findings</div><div class="v"><table class="pt"><tbody><tr><td>Losses weigh heavier than gains</td><td>Losing a sum hurts more than gaining the same sum pleases. The curve for losses is much steeper than the curve for gains.</td></tr><tr><td>Inflection at the point of reference</td><td>Gains and losses are judged from a reference point, the perceived status quo. Because losses from it are avoided and gains above it discounted, buyers show a <span class="term" tabindex="0"><mark>status quo bias</mark><span class="tip" role="tooltip"><b>The tendency to stick with what you already have.</b>It follows from losses weighing more than gains.</span></span>, replacing items with copies of the last one.</td></tr><tr><td>Diminishing sensitivity</td><td>We notice changes, not absolute levels. The gap between 3° and 6° is easier to feel than between 13° and 16°; a gain of 100 vs 200 feels bigger than 1,100 vs 1,200. The same holds for losses.</td></tr><tr><td>Risk aversion in the positive frame, risk seeking in the negative</td><td>Also called the reflection effect: choices about losses mirror choices about gains. People avoid risk when it could cost them something pleasant and take risk when it could spare them something painful. Certainty makes losses feel worse and gains feel better.</td></tr></tbody></table></div></div></div>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 640 360" role="img" aria-label="The utility function from prospect theory: point B sits further from the axis than point A."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="50" y1="180" x2="590" y2="180" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="590" y1="180" x2="50" y2="180" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="320" y1="340" x2="320" y2="20" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="320" y1="20" x2="320" y2="340" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="588" y="200" text-anchor="end" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink-2)">Real gains</text><text x="52" y="200" text-anchor="start" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink-2)">Real losses</text><text x="328" y="32" text-anchor="start" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink-2)">Perceived value +</text><text x="328" y="340" text-anchor="start" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink-2)">Perceived value −</text><path d="M320,180 C380,110 470,85 570,72" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M320,180 C270,290 190,320 70,330" fill="none" stroke="var(--ink)" stroke-width="2"/><line x1="420" y1="180" x2="420" y2="110" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><line x1="320" y1="110" x2="420" y2="110" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><line x1="220" y1="180" x2="220" y2="298" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><line x1="320" y1="298" x2="220" y2="298" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><circle cx="420" cy="110" r="4" fill="var(--ink)"/><circle cx="220" cy="298" r="4" fill="var(--ink)"/><text x="432" y="130" text-anchor="start" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">A: a gain</text><text x="208" y="286" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">B: an equal loss</text><text x="470" y="52" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">Concave: diminishing sensitivity</text><text x="150" y="252" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">Steeper: losses loom larger</text><text x="334" y="198" text-anchor="start" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-3)" font-style="italic">Reference point</text></svg><svg class="dn" viewBox="0 0 340 242.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Kink at the reference point</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Gains and losses are measured</text><text x="170.0" y="66.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">from the status quo</text><rect x="20.0" y="88.0" width="300" height="66.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="108.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Losses are steeper</text><text x="170.0" y="127.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">A $10 loss hurts more than</text><text x="170.0" y="144.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">a $10 gain pleases</text><rect x="20.0" y="166.0" width="300" height="66.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="186.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Both sides flatten</text><text x="170.0" y="205.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Each extra dollar of gain</text><text x="170.0" y="222.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">or loss is felt less</text></svg></div><figcaption>The utility function from prospect theory: point B sits further from the axis than point A.</figcaption></figure>
+
+        <h4 id="s3-prescriptions">Prescriptions</h4>
+
+        <p>The slides and the book each turn the findings into pricing advice. They overlap,
+        so learn them side by side.</p>
+
+        <div class="scroller"><table><thead><tr><th>From the slides</th><th>Why it works</th></tr></thead><tbody><tr><td class="k">Minimise pain, highlight gain</td><td>A $10 loss hurts more than a $10 gain pleases, so shrink the price in the buyer's mind and enlarge the benefit.</td></tr><tr><td class="k">Bundle pain, unbundle gain</td><td>Two $5 losses hurt more than one $10 loss, and two $5 gains please more than one $10 gain. Charge one total; list every benefit separately.</td></tr><tr><td class="k">Reframe pains as gains</td><td>People fear a 5% chance of missing out on $50 more than they welcome a 95% chance of getting it. Present the offer as something gained.</td></tr><tr><td class="k">Price guarantees</td><td>Promising to match or beat the lowest price removes the buyer's doubt about getting the best deal, so they buy sooner and with confidence. Result: higher volume, and competition shifts away from price.</td></tr><tr><td class="k">Manage the reference point</td><td>Put the product in the buyer's hands, as bazaar sellers do, to trigger the endowment effect. Or ask them to imagine the gain: what would you do with $5,000 more? Our offer saves you that over 12 months.</td></tr></tbody></table></div>
+
+        <div class="scroller"><table><thead><tr><th>From the book <span class="mark">book only</span></th><th>Why it works</th></tr></thead><tbody><tr><td class="k">Unbundle gains, bundle losses</td><td>Itemise the benefits; quote one single price.</td></tr><tr><td class="k">Avoid surcharges, give discounts</td><td>A surcharge feels like a penalty, a discount like a gain. Raise the regular price and offer a cash discount rather than adding a card surcharge.</td></tr><tr><td class="k">Shift pain to indirect costs</td><td>Time and effort hurt less than visible money. Making customers drive further, queue or assemble helps explain IKEA, Walmart and Ryanair.</td></tr></tbody></table></div>
+
+        <div class="note"><span class="lbl">Three overarching insights</span><p>Organisms get used to steady states. The response to each further change gets smaller. Pain is more urgent than pleasure.</p></div>
+
+        <h3 id="s3-related">Effects related to prospect theory</h3>
+
+        <h4 id="s3-reference">11 Reference price effects</h4>
+
+        <p>The prices a customer has seen before in a category set the price they now expect.
+        Buyers often cannot remember what they recently paid, but whatever they do recall
+        still shapes their willingness to pay, their reference price. Mostly studied in
+        frequently bought consumer goods, it is expected to hold elsewhere too.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 300" role="img" aria-label="How promotions reset the reference price (alpha = 0.5 in this sketch)."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="80" y1="234" x2="620" y2="234" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><line x1="80" y1="234" x2="80" y2="24" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><text x="624" y="264" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Time</text><text x="74" y="28" text-anchor="end" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Price</text><line x1="116.0" y1="234" x2="116.0" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="107.0" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="116.0" cy="59.0" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><line x1="167.42857142857144" y1="234" x2="167.42857142857144" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="158.4" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="167.4" cy="59.0" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><line x1="218.85714285714286" y1="234" x2="218.85714285714286" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="209.9" y="160.0" width="18" height="8" fill="var(--ink)"/><circle cx="218.9" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><text x="218.85714285714286" y="228" text-anchor="middle" font-family="Newsreader,serif" font-size="9.5" font-weight="400" fill="var(--ink-3)" font-style="italic">promo</text><line x1="270.28571428571433" y1="234" x2="270.28571428571433" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="261.3" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="270.3" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><line x1="321.7142857142857" y1="234" x2="321.7142857142857" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="312.7" y="160.0" width="18" height="8" fill="var(--ink)"/><circle cx="321.7" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><text x="321.7142857142857" y="228" text-anchor="middle" font-family="Newsreader,serif" font-size="9.5" font-weight="400" fill="var(--ink-3)" font-style="italic">promo</text><line x1="373.14285714285717" y1="234" x2="373.14285714285717" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="364.1" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="373.1" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><line x1="424.5714285714286" y1="234" x2="424.5714285714286" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="415.6" y="160.0" width="18" height="8" fill="var(--ink)"/><circle cx="424.6" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><text x="424.5714285714286" y="228" text-anchor="middle" font-family="Newsreader,serif" font-size="9.5" font-weight="400" fill="var(--ink-3)" font-style="italic">promo</text><line x1="476.0" y1="234" x2="476.0" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="467.0" y="160.0" width="18" height="8" fill="var(--ink)"/><circle cx="476.0" cy="164.0" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><text x="476.0" y="228" text-anchor="middle" font-family="Newsreader,serif" font-size="9.5" font-weight="400" fill="var(--ink-3)" font-style="italic">promo</text><line x1="527.4285714285713" y1="234" x2="527.4285714285713" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="518.4" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="527.4" cy="111.5" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><line x1="578.8571428571429" y1="234" x2="578.8571428571429" y2="32" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="4 3"/><rect x="569.9" y="55.0" width="18" height="8" fill="var(--ink)"/><circle cx="578.9" cy="59.0" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><rect x="92" y="6" width="14" height="7" fill="var(--ink)"/><text x="112" y="13" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Observed price</text><circle cx="240" cy="10" r="4.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/><text x="250" y="13" text-anchor="start" font-family="Newsreader,serif" font-size="11" font-weight="400" fill="var(--ink-2)">Reference price  RPₜ = αPₜ₋₁ + (1 − α)Pₜ</text><text x="330.0" y="271.25" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">After each promotion the reference price sits below the full price,</text><text x="330.0" y="284.75" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">so full price feels like a loss and demand drops.</text></svg><svg class="dn" viewBox="0 0 340 242.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="66.0" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Reference price</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">RPₜ = αPₜ₋₁ + (1 − α)Pₜ</text><text x="170.0" y="66.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">a blend of last and current price</text><rect x="20.0" y="88.0" width="300" height="66.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="108.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">During a promotion</text><text x="170.0" y="127.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Price is below the reference,</text><text x="170.0" y="144.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">so it feels like a gain: sales jump</text><rect x="20.0" y="166.0" width="300" height="66.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="186.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">After the promotion</text><text x="170.0" y="205.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">The reference has been pulled down,</text><text x="170.0" y="222.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">full price feels like a loss: sales fall</text></svg></div><figcaption>How promotions reset the reference price (alpha = 0.5 in this sketch).</figcaption></figure>
+
+        <div class="terms"><div><div class="k">The formula</div><div class="v">RP<sub>t</sub> = &alpha;P<sub>t&minus;1</sub> + (1 &minus; &alpha;)P<sub>t</sub>. The reference price is a weighted blend of the last observed price and the current one. A large &alpha; means past prices dominate; a small &alpha; means the current price does.</div></div><div><div class="k">Promotions</div><div class="v">A discount resets expectations lower, which dampens demand later at full price. Full-price periods push expectations back up, which boosts demand during the next promotion.</div></div><div><div class="k">The trap</div><div class="v">Cycling between promotions and regular prices exaggerates both the spike and the slump. A firm reading only a profit-sensitivity analysis may keep promoting, with ever deeper discounts, until price and profit collapse. That is why promotions cannot be managed on numbers alone.</div></div></div>
+
+        <h4 id="s3-endowment">12 Endowment effect</h4>
+
+        <p>People value something more once they own it. In the original experiments students
+        were handed items at random and allowed to trade to get what they preferred, and far
+        fewer trades happened than chance would predict.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 600 166" role="img" aria-label="The mug experiment behind the endowment effect (figures from the slide)."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><text x="288" y="40" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Mug owners: minimum asking price</text><rect x="300" y="16" width="242.1" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="552.08" y="40" text-anchor="start" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">$7.12</text><text x="288" y="96" text-anchor="end" font-family="Newsreader,serif" font-size="12" font-weight="400" fill="var(--ink)">Non-owners: cash they would take instead</text><rect x="300" y="72" width="106.1" height="36" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="416.08" y="96" text-anchor="start" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">$3.12</text><text x="300.0" y="150" text-anchor="middle" font-family="Newsreader,serif" font-size="10.5" font-weight="400" fill="var(--ink-2)" font-style="italic">Same mug, about $5 retail. Owning it more than doubled its value.</text></svg><svg class="dn" viewBox="0 0 340 131.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="49.5" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30" text-anchor="middle" font-family="Newsreader,serif" font-size="16" font-weight="600" fill="var(--ink)">$7.12</text><text x="170.0" y="49.5" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Mug owners: minimum asking price</text><rect x="20.0" y="71.5" width="300" height="49.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="91.5" text-anchor="middle" font-family="Newsreader,serif" font-size="16" font-weight="600" fill="var(--ink)">$3.12</text><text x="170.0" y="111.0" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink-2)">Non-owners: cash they would take instead</text></svg></div><figcaption>The mug experiment behind the endowment effect (figures from the slide).</figcaption></figure>
+
+        <p>The slide's mug study: decorated mugs worth about $5 went to a third of the group.
+        Owners asked on average $7.12 to sell; non-owners would take only $3.12 instead of
+        one. Simply owning the mug raised its value. This is why bazaar sellers put goods in
+        your hands, car dealers push test drives, and trials work.</p>
+
+        <h4 id="s3-anchoring">13 Anchoring</h4>
+
+        <p>People set price expectations from information they meet early in the decision,
+        and then find those expectations hard to change, since that means relearning or
+        finding evidence the first impression was wrong. Anchoring strongly sets reservation
+        prices. In negotiations the first price heard becomes the anchor, so opening higher
+        tends to close higher.</p>
+
+        <h4 id="s3-comparison">14 Comparison set effect</h4>
+
+        <p>The alternatives a customer is weighing shape the price they expect. Cheaper
+        alternatives in the set pull expectations down; dearer ones push them up. So adjust
+        the set towards a favourable group: compare a small car with a larger, pricier car,
+        not with a motorcycle. And widen what is compared: a product with a higher upfront
+        price but lower lifetime cost should be judged on total cost of ownership, not purchase
+        price.</p>
+
+        <h4 id="s3-framing">15 Framing effect</h4>
+
+        <p>How a transaction is framed changes willingness to pay. The book's example: asked
+        what they would pay for the same drink, people name a higher price if a friend is
+        buying it at a smart hotel bar than at a grubby corner shop. Positive frames beat
+        negative ones, so stress benefits over costs, and itemise the positives.</p>
+
+        <h4 id="s3-order">16 Order bias</h4>
+
+        <p>Related to anchoring. The order in which prices are shown changes what people pick
+        and what they will pay. With fast-moving consumer goods the highest average price came
+        from presenting prices in descending order. Some studies found no significant effect
+        for household appliances, but it is still suspected to hold beyond FMCG.</p>
+
+        <div class="scroller"><table><thead><tr><th>Ascending order</th><th>Descending order</th></tr></thead><tbody><tr><td class="k">NAV at $39</td><td>N360 at $79</td></tr><tr><td class="k">NIS at $69</td><td>NIS at $69</td></tr><tr><td class="k">N360 at $79</td><td>NAV at $39</td></tr></tbody></table></div>
+
+        <p>The same three products: on average buyers choose a dearer one when the list starts
+        from the top. It links to loss aversion: having seen the best option first, dropping
+        to a cheaper one feels like giving up benefits. Hence the common practice in cars,
+        mattresses and other durables, and in business markets too, of showing the most
+        expensive model first and working down.</p>
+
+        <h4 id="s3-endbenefit">17 End-benefit effect</h4>
+
+        <p>Price sensitivity depends on how much the product contributes to the end benefit
+        the customer really wants. A product that delivers a large part of that goal meets
+        lower price sensitivity than one that is merely ancillary. So promote the link to the
+        customer's goal rather than the features. Nutrisystem sells not packaged diet food but
+        weight loss, and beyond that looking better, feeling healthier and making a good
+        impression at special occasions.</p>
+
+        <h3 id="s3-summary">Summary</h3>
+
+        <div class="terms"><div><div class="k">Three closing points</div><div class="v"><ul><li>Price cannot be optimised by numbers alone, without the qualitative influences</li><li>Many psychological, decision-bias, neurological and behavioural effects shape how customers perceive prices, evaluate offers and choose between them</li><li>Sales and marketing executives can use these effects to win price acceptance and capture more profit</li></ul></div></div></div>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>The gamble on the slide, and what it shows</li><li>Four findings of prospect theory</li><li>Draw the value function with A and B</li><li>Five slide prescriptions and three book prescriptions</li><li>The reference price formula and the promotion trap</li><li>The mug numbers</li><li>Anchoring, comparison set, framing, order bias, end-benefit: one line and one example each</li></ul></div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 20 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open it to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>True economic costs (1 to 4)</summary><ol><li>Shared cost effect</li><li>Switching costs</li><li>Expenditure effect</li><li>Difficult comparison effect</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Perceptual challenges (5 to 9)</summary><ol><li>Price endings in 9s</li><li>Fairness effect</li><li>Overconfidence in future economic efficiency</li><li>Small pie bias</li><li>Promotional influence</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Prospect theory and related (10 to 17)</summary><ol><li>Prospect theory</li><li>Reference price effects</li><li>Endowment effect</li><li>Anchoring</li><li>Comparison set effect</li><li>Framing effect</li><li>Order bias</li><li>End-benefit effect</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Four funds of money</summary><ol><li>Own money on self: moderate price sensitivity</li><li>Own money on others: moderate, utility of giving</li><li>Others' money on self: low price sensitivity</li><li>Others' money on others: low price and utility sensitivity</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Sources of switching costs</summary><ol><li>Complementary goods</li><li>Learning</li><li>Engineering costs</li><li>Brand loyalty</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Difficult comparison: three areas</summary><ol><li>Incumbent vs new entrant (Vonage vs AT&T)</li><li>Brands vs generics (aspirin)</li><li>Size changes (Prague beer)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Why prices end in 9</summary><ol><li>Meaning</li><li>Accessibility</li><li>Encoding</li><li>Framing</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Gym study</summary><ol><li>$70 a month, 4.3 visits, over $17 a visit</li><li>10-visit pass was $10 a visit</li><li>Monthly members 17% more likely to stay past year one</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Promotional influence: two paths</summary><ol><li>The message: price-oriented raises, value-oriented lowers sensitivity</li><li>The market attracted: advertising brings in more price-sensitive buyers</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Prospect theory: four findings</summary><ol><li>Losses weigh heavier than gains</li><li>Inflection at the point of reference</li><li>Diminishing sensitivity</li><li>Risk aversion in the positive frame, risk seeking in the negative</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Slide prescriptions</summary><ol><li>Minimise pain, highlight gain</li><li>Bundle pain, unbundle gain</li><li>Reframe pains as gains</li><li>Price guarantees</li><li>Manage the reference point</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Book prescriptions</summary><ol><li>Unbundle gains, bundle losses</li><li>Avoid surcharges, give discounts</li><li>Shift pain to indirect opportunity costs</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Reference price formula</summary><ol><li>RP(t) = alpha x P(t-1) + (1 - alpha) x P(t)</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Mug experiment</summary><ol><li>Owners' asking price $7.12</li><li>Non-owners' bid $3.12</li><li>Retail value about $5</li></ol></details>
+        </div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4103 &middot; Pricing Strategies &middot; Class test study guide</b>
+          Compiled from the module 7 slides, checked against Tim J. Smith, <i>Pricing Strategy</i> (Cengage, 2012), Chapter 5 &middot;
+                    Terminology preserved as printed</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

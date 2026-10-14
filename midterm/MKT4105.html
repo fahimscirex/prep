@@ -40,6 +40,9 @@
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --measure:72ch;
   --ease-out:cubic-bezier(.23,1,.32,1);
+
+  /* reader text-size scale, driven by the topbar control (no JS) */
+  --fs:1;
 }
 /* theme: one button that inverts whatever the system is doing */
 @media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
@@ -47,12 +50,17 @@
 @media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#6f6a63;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;background:var(--paper)}
+html{-webkit-text-size-adjust:100%;background:var(--paper);font-size:calc(100% * var(--fs))}
+/* reader text size: four steps, no JS. The readable scale is rem-based, so
+   moving the root size moves all of it. #fs2 (or none) checked = 1. */
+html:has(#fs1:checked){--fs:.88}
+html:has(#fs3:checked){--fs:1.15}
+html:has(#fs4:checked){--fs:1.32}
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 body{margin:0;background:var(--paper);color:var(--ink);
-  font:400 17.5px/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+  font:400 1.09375rem/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
 p{margin:0 0 1em}
 strong{font-weight:600}
@@ -64,10 +72,10 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
 
 /* micro-label */
 .lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
-  font-family:var(--serif);font-size:12px;font-weight:500;
+  font-family:var(--serif);font-size:.75rem;font-weight:500;
   letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
 /* mono is reserved for codes, numerals and stamps */
-.eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;
+.eyebrow{font-family:var(--mono);font-size:.75rem;font-weight:400;
   letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
 
 .skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
@@ -135,7 +143,7 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
   transition:transform 220ms cubic-bezier(.23,1,.32,1)}
 :root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
 .prbtn{display:flex;align-items:center;justify-content:center;flex:none;
-  margin-left:auto;width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
   border:1px solid var(--rule-strong);background:var(--paper);
   transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),transform 150ms var(--ease-out)}
 .prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
@@ -146,6 +154,24 @@ code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5
 @media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
 .themebtn:active{transform:scale(.96)}
 #flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+/* ═══════ reader text size: four steps, no JS ═══════ */
+/* Sized and bordered like the print and theme buttons beside it. The radios
+   are .sr-only; the checked cell inverts, the rest read as a segmented bar. */
+.fsgrp{display:flex;flex:none;margin-left:auto;
+  border:1px solid var(--rule-strong);background:var(--paper)}
+.fsgrp label{display:flex;align-items:center;justify-content:center;
+  width:28px;height:34px;cursor:pointer;color:var(--ink-3);
+  font-family:var(--serif);font-weight:500;line-height:1;
+  transition:color 140ms var(--ease-out),background 140ms var(--ease-out)}
+.fsgrp label + input + label{border-left:1px solid var(--rule-strong)}
+.fsgrp label[for="fs1"] span{font-size:11px}
+.fsgrp label[for="fs2"] span{font-size:13px}
+.fsgrp label[for="fs3"] span{font-size:15px}
+.fsgrp label[for="fs4"] span{font-size:17px}
+.fsgrp input:checked + label{background:var(--ink);color:var(--paper)}
+.fsgrp input:focus-visible + label{outline:1.5px solid var(--ink);outline-offset:2px;position:relative;z-index:1}
+@media (hover:hover) and (pointer:fine){.fsgrp input:not(:checked) + label:hover{color:var(--ink)}}
 
 .scrollarea{min-width:0}
 @media (min-width:1040px){.scrollarea{overflow-x:clip;overflow-y:auto;flex:1}}
@@ -187,7 +213,7 @@ ol{max-width:var(--measure)}
 
 /* ═══════ highlighter ═══════ */
 .mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
-  font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.1em;
+  font-family:var(--mono);font-size:.75rem;font-weight:400;letter-spacing:.1em;
   text-transform:uppercase;white-space:nowrap;color:var(--ink);
   background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
   padding:0 5px}
@@ -213,7 +239,7 @@ html,body{overflow-x:clip}
 .tip{
   position:absolute;top:calc(100% + 9px);left:50%;translate:-50% 0;z-index:60;
   width:max-content;max-width:min(310px,68vw);
-  font-family:var(--serif);font-size:14px;font-weight:400;line-height:1.5;
+  font-family:var(--serif);font-size:.875rem;font-weight:400;line-height:1.5;
   font-style:normal;letter-spacing:0;text-transform:none;
   color:var(--ink-2);background:var(--paper);
   border:1px solid var(--rule-strong);
@@ -254,7 +280,7 @@ td:last-child .tip{left:auto;right:0;translate:0 0}
 @media (hover:none){.term{cursor:pointer}}
 @media (hover:none),(max-width:1039px){
   .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;translate:0 0;
-    width:auto;max-width:none;font-size:15px;padding:14px 16px;
+    width:auto;max-width:none;font-size:.9375rem;padding:14px 16px;
     transform-origin:bottom center;
     transform:translateY(14px) scale(.98);filter:blur(2px)}
   .term:focus-within .tip{transform:none;filter:blur(0)}
@@ -271,9 +297,9 @@ td:last-child .tip{left:auto;right:0;translate:0 0}
 
 /* Geist Mono has no U+2731, so the stars are set in the serif and
    centred as their own flex item rather than left to fallback metrics */
-.mark .st{font-family:var(--serif);font-style:normal;font-size:11px;
+.mark .st{font-family:var(--serif);font-style:normal;font-size:.6875rem;
   line-height:1;letter-spacing:.06em;flex:none}
-.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:12px;
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:.75rem;
   line-height:1;letter-spacing:.06em;color:var(--ink-3)}
 
 /* ═══════ row list ═══════ */
@@ -293,7 +319,7 @@ td:last-child .tip{left:auto;right:0;translate:0 0}
 }
 table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
 th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
-thead th{font-family:var(--serif);font-size:12px;font-weight:500;letter-spacing:.13em;
+thead th{font-family:var(--serif);font-size:.75rem;font-weight:500;letter-spacing:.13em;
   text-transform:uppercase;background:var(--ink);color:var(--paper);
   border-bottom:0;padding-top:9px;padding-bottom:9px}
 tbody tr:last-child td{border-bottom:0}
@@ -306,7 +332,7 @@ td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-hei
   border-top:1px solid var(--rule)}
 .card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
   padding:18px 0;border-bottom:1px solid var(--rule)}
-.card .num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .num{font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
 .card .bd{min-width:0}
 .card h4{margin:0 0 7px;font-size:1.125rem}
 .card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
@@ -497,9 +523,11 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
 .menubtn,.menuclose{display:none}
 @media (max-width:1039px){
   .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
-    border-bottom:1px solid var(--ink);padding:10px 16px}
+    border-bottom:1px solid var(--ink);padding:10px 16px;gap:10px}
   .crumb{flex:1;min-width:0;white-space:nowrap}
   .crumb-rest{display:none}
+  /* the size bar joins the three 40px squares on a phone, so keep its cells slim */
+  .fsgrp label{width:24px;height:38px}
 
   /* the label goes once the print control joins the bar: three 40px squares
      plus "CONTENTS" no longer fit at 390px */
@@ -572,6 +600,8 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
 @media print{
   :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
     --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  /* paper keeps its own type scale, whatever the reader picked on screen */
+  html{font-size:100%}
   .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
   .app{display:block;height:auto;overflow:visible}
   .pane,.scrollarea{height:auto;overflow:visible}
@@ -665,6 +695,16 @@ body:has(#sheet:target) .nav a[href="#sheet"] {
     <header class="topbar">
       <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
       <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Midterm &nbsp;/&nbsp; </span><b aria-current="page">MKT4105</b></nav>
+      <div class="fsgrp" role="radiogroup" aria-label="Text size">
+        <input type="radio" name="fs" id="fs1" class="sr-only">
+        <label for="fs1"><span aria-hidden="true">A</span><span class="sr-only">Smallest text</span></label>
+        <input type="radio" name="fs" id="fs2" class="sr-only" checked>
+        <label for="fs2"><span aria-hidden="true">A</span><span class="sr-only">Small text</span></label>
+        <input type="radio" name="fs" id="fs3" class="sr-only">
+        <label for="fs3"><span aria-hidden="true">A</span><span class="sr-only">Large text</span></label>
+        <input type="radio" name="fs" id="fs4" class="sr-only">
+        <label for="fs4"><span aria-hidden="true">A</span><span class="sr-only">Largest text</span></label>
+      </div>
       <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
       <input type="checkbox" id="flip" class="sr-only">
       <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>

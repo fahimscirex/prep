@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKT4102 International Marketing &middot; Class test</title>
+<meta name="description" content="Class test study guide for MKT4102 International Marketing: Cateora chapter 6, The Political Environment, in plain language.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Geist+Mono:wght@400&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Component architecture ported from interior.dev/docs
+   (rail · pane · topbar · row-list · card · accordion · segmented
+   control · chip · well).
+   Skin inspired by literal.club: warm paper, literary serif, wide
+   margins, checkmark lists, highlighter for what matters.
+   Monochrome + one functional accent: the highlighter.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:#fdfcfa;
+  --band:#f8f3ef;
+  --well:#f2ede8;
+  --ink:#1b1917;
+  --ink-2:#56514b;
+  --ink-3:#6f6a63;
+  --rule:#e7e1da;
+  --rule-strong:#cec6bc;
+  --hi:#fbefa2;
+  --hi-edge:#f2dd72;
+
+  /* aliases so the gaps diagram needs no edits */
+  --bg:var(--paper); --surface:var(--paper);
+  --line:var(--rule-strong); --line-2:var(--rule);
+  --accent:var(--ink); --mark:var(--ink);
+
+  --serif:"Newsreader",Charter,Georgia,"Times New Roman",serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:72ch;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+
+  /* reader text-size scale, driven by the topbar control (no JS) */
+  --fs:1;
+}
+/* theme: one button that inverts whatever the system is doing */
+@media (prefers-color-scheme:dark){ :root{--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)} }
+:root:has(#flip:checked){--paper:#161513;--band:#1c1b18;--well:#211f1c;--ink:#eeeae3;--ink-2:#b2aca3;--ink-3:#8e8880;--rule:#2c2a26;--rule-strong:#403c37;--hi:rgba(245,214,106,.26);--hi-edge:rgba(245,214,106,.55)}
+@media (prefers-color-scheme:dark){ :root:has(#flip:checked){--paper:#fdfcfa;--band:#f8f3ef;--well:#f2ede8;--ink:#1b1917;--ink-2:#56514b;--ink-3:#6f6a63;--rule:#e7e1da;--rule-strong:#cec6bc;--hi:#fbefa2;--hi-edge:#f2dd72} }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper);font-size:calc(100% * var(--fs))}
+/* reader text size: four steps, no JS. The readable scale is rem-based, so
+   moving the root size moves all of it. #fs2 (or none) checked = 1. */
+html:has(#fs1:checked){--fs:.88}
+html:has(#fs3:checked){--fs:1.15}
+html:has(#fs4:checked){--fs:1.32}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 1.09375rem/1.62 var(--serif);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+p{margin:0 0 1em}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-strong);
+  text-underline-offset:3px;text-decoration-thickness:1px}
+@media (hover:hover) and (pointer:fine){a:hover{text-decoration-color:var(--ink)}}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+code{font-family:var(--mono);font-size:.8em;background:var(--well);padding:1px 5px;border-radius:2px}
+
+/* micro-label */
+.lbl,.src,.nav-h,figcaption,.mast-meta,.crumb{
+  font-family:var(--serif);font-size:.75rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+/* mono is reserved for codes, numerals and stamps */
+.eyebrow{font-family:var(--mono);font-size:.75rem;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink);padding:9px 14px;font-family:var(--mono);font-size:12px;z-index:30}
+.skip:focus{left:14px;top:14px;z-index:70}
+
+/* ═══════ shell ═══════ */
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media (min-width:1040px){
+  .app{grid-template-columns:252px minmax(0,1fr);height:100vh;overflow:hidden}
+}
+
+/* ═══════ rail ═══════ */
+.rail{padding:26px 22px;border-bottom:1px solid var(--rule);min-width:0}
+@media (min-width:1040px){
+  .rail{border-bottom:0;border-right:1px solid var(--rule);
+    overflow-y:auto;height:100vh;padding:0 20px 40px 28px}
+  /* wordmark sits in a band the same height as the topbar, so the two align */
+  .rail .brand{min-height:65px;display:flex;align-items:center;margin:0 -20px 0 -28px;
+    padding:0 20px 0 28px;border-bottom:1px solid var(--rule)}
+  .rail > .rule{display:none}
+  .rail .nav-h{margin-top:28px}
+}
+.brand{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  display:flex;align-items:baseline;gap:6px;margin:0 0 4px}
+.brand .sq{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400}
+.brand .muted{color:var(--ink-3);font-size:14px}
+.rail > .rule{border:0;border-top:1px solid var(--rule);margin:22px 0 18px}
+.nav-h{margin:0 0 12px}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:block;text-decoration:none;color:var(--ink-2);font-family:var(--serif);
+  font-size:15px;padding:6px 0;min-height:36px;line-height:1.5}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover,.navgrp summary:hover{color:var(--ink)}
+  .nav a:hover{text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}
+}
+.navgrp summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  padding:6px 0;min-height:36px;font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.navgrp summary::-webkit-details-marker{display:none}
+.navgrp summary .tog{flex:none;width:9px;font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.navgrp summary .tog::before{content:"+"}
+.navgrp[open] > summary .tog::before{content:"\2013"}
+.dots{display:none}
+.navgrp ul{list-style:none;margin:0 0 8px;padding:0 0 0 18px}
+.navgrp ul li{margin:0}
+.navgrp ul a{font-size:14px;color:var(--ink-3);min-height:32px;padding:4px 0}
+
+/* ═══════ pane ═══════ */
+.pane{display:flex;flex-direction:column;min-width:0;background:var(--paper)}
+@media (min-width:1040px){.pane{height:100vh;overflow:hidden}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;border-bottom:1px solid var(--rule);flex:none}
+.crumb b{color:var(--ink-2);font-weight:400}
+.crumb a{color:var(--ink-3);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.crumb a:hover{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule-strong);text-underline-offset:3px}}
+
+.themebtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms cubic-bezier(.23,1,.32,1),border-color 140ms cubic-bezier(.23,1,.32,1),transform 150ms cubic-bezier(.23,1,.32,1)}
+.themebtn::before{content:"";width:14px;height:14px;border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 0 50%,transparent 50% 100%);
+  transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+:root:has(#flip:checked) .themebtn::before{transform:rotate(180deg)}
+.prbtn{display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;padding:0;cursor:pointer;color:var(--ink-2);
+  border:1px solid var(--rule-strong);background:var(--paper);
+  transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),transform 150ms var(--ease-out)}
+.prbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
+.prbtn:active{transform:scale(.96)}
+@media (hover:hover) and (pointer:fine){.prbtn:hover{color:var(--ink);border-color:var(--ink)}}
+@media (hover:none){.prbtn{width:40px;height:40px}}
+@media (hover:hover) and (pointer:fine){.menubtn:hover{color:var(--ink);border-color:var(--ink)}.menuclose:hover{border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.themebtn:hover{color:var(--ink);border-color:var(--ink)}}
+.themebtn:active{transform:scale(.96)}
+#flip:focus-visible + .themebtn{outline:1.5px solid var(--ink);outline-offset:2px}
+
+/* ═══════ reader text size: four steps, no JS ═══════ */
+/* Sized and bordered like the print and theme buttons beside it. The radios
+   are .sr-only; the checked cell inverts, the rest read as a segmented bar. */
+.fsgrp{display:flex;flex:none;margin-left:auto;
+  border:1px solid var(--rule-strong);background:var(--paper)}
+.fsgrp label{display:flex;align-items:center;justify-content:center;
+  width:28px;height:34px;cursor:pointer;color:var(--ink-3);
+  font-family:var(--serif);font-weight:500;line-height:1;
+  transition:color 140ms var(--ease-out),background 140ms var(--ease-out)}
+.fsgrp label + input + label{border-left:1px solid var(--rule-strong)}
+.fsgrp label[for="fs1"] span{font-size:11px}
+.fsgrp label[for="fs2"] span{font-size:13px}
+.fsgrp label[for="fs3"] span{font-size:15px}
+.fsgrp label[for="fs4"] span{font-size:17px}
+.fsgrp input:checked + label{background:var(--ink);color:var(--paper)}
+.fsgrp input:focus-visible + label{outline:1.5px solid var(--ink);outline-offset:2px;position:relative;z-index:1}
+@media (hover:hover) and (pointer:fine){.fsgrp input:not(:checked) + label:hover{color:var(--ink)}}
+
+.scrollarea{min-width:0}
+@media (min-width:1040px){.scrollarea{overflow-x:clip;overflow-y:auto;flex:1}}
+.inner{padding:clamp(34px,6vw,72px) clamp(22px,6vw,88px) 120px;
+  max-width:calc(var(--measure) + 11rem);margin-inline:auto}
+
+/* ═══════ masthead ═══════ */
+.mast{margin-bottom:64px}
+.mast .eyebrow{display:block;margin:0 0 20px}
+h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1.12;
+  letter-spacing:-.022em;margin:0 0 20px;max-width:22ch}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin:0 0 26px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:7px 24px}
+
+/* ═══════ sections ═══════ */
+.doc section{margin-bottom:clamp(64px,9vw,104px);scroll-margin-top:20px}
+.chap{display:flex;align-items:baseline;gap:0;margin-bottom:8px;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.chap h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:500;line-height:1.16;letter-spacing:-.02em}
+.src{display:block;margin:0 0 36px}
+
+h3{font-size:1.25rem;font-weight:500;margin:52px 0 14px;scroll-margin-top:20px;
+  display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;max-width:var(--measure)}
+h4{font-size:1.125rem;font-weight:600;margin:32px 0 9px;letter-spacing:-.008em}
+.doc p,.doc > section > ul,.doc > section > ol{max-width:var(--measure)}
+
+/* checkmark lists, literal.club style, content only */
+.doc ul{margin:0 0 1.2em;padding:0;list-style:none;max-width:var(--measure)}
+.doc ul > li{margin-bottom:.7em;color:var(--ink-2);position:relative;padding-left:1.7em}
+.doc ul > li::before{content:"\2713";position:absolute;left:0;top:.08em;color:var(--ink-3);
+  font-family:var(--mono);font-size:.78em;line-height:1.85}
+li strong{color:var(--ink)}
+ol{max-width:var(--measure)}
+/* nav + accordion answers opt out */
+.nav ul,.nav li{list-style:none;margin:0;padding-left:0}
+.nav li::before{content:none}
+.sheet ol li{padding-left:0}
+.sheet ol li::before{content:none}
+
+/* ═══════ highlighter ═══════ */
+.mark{display:inline-flex;align-items:center;align-self:center;gap:5px;
+  font-family:var(--mono);font-size:.75rem;font-weight:400;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink);
+  background:linear-gradient(to bottom,transparent 14%,var(--hi) 14%,var(--hi) 88%,transparent 88%);
+  padding:0 5px}
+.mark.key{color:var(--ink);
+  background:linear-gradient(to bottom,transparent 8%,var(--hi) 8%,var(--hi) 94%,transparent 94%);
+  box-shadow:0 1px 0 var(--hi-edge)}
+
+
+/* ═══════ highlighter: key exam terms at point of definition ═══════ */
+mark{
+  background:linear-gradient(to bottom,transparent 10%,var(--hi) 10%,var(--hi) 92%,transparent 92%);
+  color:inherit;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark strong,strong mark{font-weight:600;color:var(--ink)}
+@media print{mark{background:#f0f0f0;box-shadow:none}}
+
+
+/* ═══════ term popovers: hover on pointer, tap-to-focus on touch ═══════ */
+.term{position:relative;cursor:help;display:inline}
+/* a hidden tip near the right edge must never widen the page; clip does not make a scroll container, so sticky and the drawer keep working */
+html,body{overflow-x:clip}
+.term:focus{outline:none}
+.term:focus-visible mark{outline:1.5px solid var(--ink);outline-offset:2px}
+.tip{
+  position:absolute;top:calc(100% + 9px);left:50%;translate:-50% 0;z-index:60;
+  width:max-content;max-width:min(310px,68vw);
+  font-family:var(--serif);font-size:.875rem;font-weight:400;line-height:1.5;
+  font-style:normal;letter-spacing:0;text-transform:none;
+  color:var(--ink-2);background:var(--paper);
+  border:1px solid var(--rule-strong);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.45);
+  padding:12px 15px;
+  transform-origin:top center;
+  /* resting = exit: quicker than the entrance, so dismissal feels immediate */
+  opacity:0;visibility:hidden;
+  transform:translateY(-6px) scale(.97);
+  filter:blur(3px);
+  transition:opacity 110ms ease, transform 110ms ease,
+             filter 110ms ease, visibility 0s linear 110ms}
+
+/* keyboard + tap: no delay, the intent is explicit */
+.term:focus-within .tip{
+  opacity:1;visibility:visible;transform:none;filter:blur(0);
+  transition:opacity 180ms var(--ease-out), transform 180ms var(--ease-out),
+             filter 180ms var(--ease-out), visibility 0s;
+  transition-delay:0s}
+
+@media (hover:hover) and (pointer:fine){
+  /* hover waits a beat so brushing past a term does not fire it */
+  .term:hover .tip{
+    opacity:1;visibility:visible;transform:none;filter:blur(0);
+    transition:opacity 180ms var(--ease-out) 130ms,
+               transform 180ms var(--ease-out) 130ms,
+               filter 180ms var(--ease-out) 130ms,
+               visibility 0s linear 130ms}
+  .term:focus-within .tip{transition-delay:0s}
+}
+/* default hangs rightward, where there is room. Only the last table
+   column flips, since anything there would run off the pane edge. */
+td:last-child .tip{left:auto;right:0;translate:0 0}
+/* touch: a sheet pinned to the bottom, so it can never clip.
+   cursor:pointer is load-bearing, not decoration: iOS Safari only dispatches
+   click (and therefore focus) to a non-interactive element that looks
+   clickable, so cursor:help alone leaves the tip unopenable by tap. */
+@media (hover:none){.term{cursor:pointer}}
+@media (hover:none),(max-width:1039px){
+  .tip{position:fixed;top:auto;bottom:14px;left:14px;right:14px;translate:0 0;
+    width:auto;max-width:none;font-size:.9375rem;padding:14px 16px;
+    transform-origin:bottom center;
+    transform:translateY(14px) scale(.98);filter:blur(2px)}
+  .term:focus-within .tip{transform:none;filter:blur(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tip{transform:none!important;filter:none!important;
+    transition:opacity 120ms linear, visibility 0s linear 120ms}
+  .term:hover .tip,.term:focus-within .tip{transition:opacity 120ms linear, visibility 0s}
+}
+@media print{.tip{display:none}}
+
+.tip b{display:block;margin-bottom:7px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500}
+
+/* Geist Mono has no U+2731, so the stars are set in the serif and
+   centred as their own flex item rather than left to fallback metrics */
+.mark .st{font-family:var(--serif);font-style:normal;font-size:.6875rem;
+  line-height:1;letter-spacing:.06em;flex:none}
+.sheet summary .st{font-family:var(--serif);font-style:normal;font-size:.75rem;
+  line-height:1;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ═══════ row list ═══════ */
+.terms{margin:0 0 1.6em;max-width:var(--measure)}
+.terms > div{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
+  padding:16px 0;border-bottom:1px solid var(--rule)}
+.terms > div:first-child{border-top:1px solid var(--rule)}
+@media (min-width:700px){.terms > div{grid-template-columns:minmax(140px,196px) minmax(0,1fr);gap:6px 26px}}
+.terms .k{font-size:.96rem;font-weight:600;color:var(--ink);line-height:1.5}
+.terms .v{color:var(--ink-2);font-size:1rem}
+.terms .v em{color:var(--ink);font-style:italic}
+
+/* ═══════ table ═══════ */
+.scroller{max-width:var(--measure);margin:0 0 1.6em;border:1px solid var(--ink)}
+@media (max-width:760px){
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.96rem}
+th,td{text-align:left;vertical-align:top;padding:13px 18px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--serif);font-size:.75rem;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  border-bottom:0;padding-top:9px;padding-bottom:9px}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td.k{font-weight:600;color:var(--ink)}
+td small{display:block;color:var(--ink-3);font-size:.9em;margin-top:5px;line-height:1.55}
+
+/* ═══════ numbered cards ═══════ */
+.cards{display:flex;flex-direction:column;gap:0;margin:0 0 1.6em;max-width:var(--measure);
+  border-top:1px solid var(--rule)}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.card .num{font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;color:var(--ink-3);padding-top:5px}
+.card .bd{min-width:0}
+.card h4{margin:0 0 7px;font-size:1.125rem}
+.card p,.card ul{margin:0;color:var(--ink-2);font-size:.96rem;max-width:none}
+.card li{margin-bottom:.35em}
+
+/* ═══════ syllabus map ═══════ */
+.smap{max-width:none;margin:1.5em 0 2.2em;border-top:1px solid var(--rule-strong)}
+.mstep{border-bottom:1px solid var(--rule)}
+.mstep > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;
+  padding:13px 2px;font-size:1.02rem;font-weight:500;color:var(--ink)}
+.mstep > summary::-webkit-details-marker{display:none}
+.mstep > summary .tog{flex:none;width:13px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.mstep > summary .tog::before{content:"+"}
+.mstep[open] > summary .tog::before{content:"\2013"}
+.mstep .mt{flex:1 1 auto;min-width:0}
+.mstep .mn{flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:21px;height:21px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:11px;font-weight:400}
+.mstep .mc{flex:none;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+@media (hover:hover) and (pointer:fine){
+  .mstep > summary:hover .tog,.mstep > summary:hover .mc{color:var(--ink)}
+}
+.mbody{padding:4px 0 16px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr);gap:3px 24px;padding:9px 0}
+.mrow + .mrow{border-top:1px dotted var(--rule-strong)}
+@media (min-width:640px){
+  .mrow{grid-template-columns:minmax(120px,172px) minmax(0,1fr)}
+  .mk{border-right:1px dotted var(--rule-strong);margin-right:-12px;padding-right:12px}
+}
+.mk{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);line-height:1.7;padding-top:2px}
+.doc .mv{margin:0;padding:0;list-style:none;max-width:none}
+@media (min-width:900px){.doc .mv{column-count:2;column-gap:26px}}
+.doc .mv > li{margin:0 0 1px;padding:0;color:var(--ink-2);font-size:.93rem;
+  line-height:1.55;break-inside:avoid}
+.doc .mv > li::before{content:none;display:none}
+.doc .mv > li > a{color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid transparent;transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.doc .mv > li > a:hover{color:var(--ink);border-bottom-color:var(--rule-strong)}}
+@media print{.mstep{break-inside:avoid}.mbody{display:block}}
+
+/* name-and-meaning pairs inside a definition row: two aligned columns */
+.doc .terms .v table.pt{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;
+  margin:.6em 0 .1em;font-size:.95rem;line-height:1.5}
+.doc .terms .v table.pt td{padding:9px 0;vertical-align:top;color:var(--ink-2);
+  border-top:1px dotted var(--rule-strong);overflow-wrap:anywhere}
+.doc .terms .v table.pt tr:first-child td{border-top:0;padding-top:2px}
+.doc .terms .v table.pt td:first-child{width:38%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.pt td{padding:10px 0}
+  .doc .terms .v table.pt td:first-child{width:45%;padding-right:12px}
+}
+.doc .terms .v table.ptn td:first-child{width:26px;padding-right:9px;text-align:right;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:11px}
+.doc .terms .v table.ptn tr:first-child td:first-child{padding-top:4px}
+.doc .terms .v table.ptn td:nth-child(2){width:36%;padding-right:18px;color:var(--ink)}
+@media (max-width:519px){
+  .doc .terms .v table.ptn td:first-child{width:21px;padding-right:7px}
+  .doc .terms .v table.ptn td:nth-child(2){width:42%;padding-right:11px}
+}
+
+/* a definition row whose value is itself a name/meaning pair table: beside it the
+   label column would sit mostly empty, so let the table have the full measure and
+   put the label above as a lead-in line */
+.doc .terms > div:has(table.pt){grid-template-columns:minmax(0,1fr)}
+@media (min-width:520px){.doc .terms .v table.pt td:first-child{width:30%}}
+
+/* a list inside a definition row */
+.terms .v > p{margin:0 0 .5em}
+.terms .v ul{margin:.1em 0 0;padding:0;list-style:none;max-width:none}
+.terms .v ul > li{margin:0 0 .34em;padding-left:1.15em;position:relative;color:var(--ink-2)}
+.terms .v ul > li::before{content:"";position:absolute;left:2px;top:.68em;
+  width:4px;height:4px;border-radius:50%;background:var(--ink-3)}
+.terms .v ul > li:last-child{margin-bottom:0}
+.terms .v ol{margin:.1em 0 0;padding-left:1.3em}
+.terms .v ol > li{margin:0 0 .34em;color:var(--ink-2)}
+.terms .v ol > li:last-child{margin-bottom:0}
+
+/* the one nav entry that leaves the page: a mode switch */
+.nav a.navout{display:flex;align-items:center;gap:8px;margin:0 0 14px;
+  padding-bottom:14px;border-left-color:transparent;border-bottom:1px solid var(--rule);
+  color:var(--ink-2)}
+.nav a.navout .go{margin-left:auto;color:var(--ink-3);
+  transition:transform 160ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .nav a.navout:hover{color:var(--ink)}
+  .nav a.navout:hover .go{transform:translateX(3px)}
+}
+
+/* phone redraw of every diagram: one column, text at full size */
+.figbox svg.dn{display:none}
+@media (max-width:759px){
+  figure.rf .figbox{overflow-x:visible}
+  figure.rf .figbox svg.dw{display:none}
+  figure.rf .figbox svg.dn{display:block;min-width:0;max-width:400px;margin:0 auto}
+  figure.rf .figbox::after{display:none}
+  figure.rf figcaption::after{content:""}
+}
+@media print{.figbox svg.dn{display:none}.figbox svg.dw{display:block}}
+
+/* ═══════ callout ═══════ */
+.note{background:var(--band);padding:22px 26px;margin:26px 0 1.8em;
+  max-width:var(--measure);color:var(--ink-2);font-size:1rem}
+.note .lbl{display:block;margin-bottom:10px;color:var(--ink-2)}
+.note p{max-width:none}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ═══════ figure ═══════ */
+figure{margin:0 0 1.8em;max-width:var(--measure)}
+.figbox{background:var(--band);padding:26px 18px;overflow-x:auto;position:relative}
+/* below 760px the diagram is wider than the screen; say so instead of clipping silently */
+@media (max-width:759px){.figbox::after{content:"";position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:none;background:linear-gradient(to right,transparent,var(--band))}
+  figcaption::after{content:" \00b7\00a0wider than the screen, swipe sideways"}}
+.figbox svg{display:block;width:100%;min-width:430px;height:auto}
+figcaption{margin-top:12px}
+
+/* ═══════ recall ═══════ */
+.recall{margin-top:44px;max-width:var(--measure);border-top:1px dotted var(--rule-strong);padding-top:20px}
+.recall .lbl{display:block;margin-bottom:14px}
+.recall ul{margin:0}
+.recall li{font-size:.98rem;margin-bottom:.6em}
+
+/* ═══════ accordion ═══════ */
+.sheet{display:flex;flex-direction:column;max-width:var(--measure);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.sheet details{border-bottom:1px solid var(--rule)}
+.sheet details:last-child{border-bottom:0}
+.sheet summary,.sheet ol{padding-inline:0}
+.sheet summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;
+  padding:15px 0;font-size:1rem;font-weight:600;color:var(--ink);min-height:44px}
+.sheet summary::-webkit-details-marker{display:none}
+.sheet summary .tog{flex:none;width:14px;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.sheet summary .tog::before{content:"+"}
+.sheet details[open] summary .tog::before{content:"\2013"}
+@media (hover:hover) and (pointer:fine){.sheet summary:hover .tog{color:var(--ink)}}
+.sheet ol{margin:0;padding:0 0 18px 32px;font-size:.96rem;line-height:1.9;
+  color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sheet ol li{padding-left:0;margin-bottom:0}
+.sheet ol li::before{content:none}
+.sheet ol{list-style:decimal}
+.sheet li::marker{color:var(--ink-3);font-family:var(--mono);font-size:.8em}
+
+footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--ink);
+  display:flex;align-items:flex-start;gap:14px;
+  font-family:var(--serif);font-size:12px;line-height:1.8;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+footer .stamp{width:26px;height:26px;border:1px solid var(--ink);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink)}
+footer b{display:block;color:var(--ink-2);font-weight:400}
+.made{margin:18px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:none}
+.made a{color:var(--ink-3);text-decoration-color:var(--rule-strong)}
+
+
+
+
+/* ═══════ desktop navigation ═══════ */
+.nav{display:flex;flex-direction:column;gap:0}
+
+/* chapter row: mono label, reads as a section header not a link */
+.navgrp{border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.navgrp:first-of-type{border-top:0;margin-top:0}
+.navgrp > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);padding:9px 0;min-height:38px}
+.navgrp > summary::-webkit-details-marker{display:none}
+.navgrp > summary .t{flex:1;min-width:0}
+.navgrp > summary .tog{flex:none;order:2;width:10px;text-align:right;
+  font-size:11px;color:var(--ink-3);letter-spacing:0}
+.navgrp > summary .tog::before{content:"\2212"}
+.navgrp:not([open]) > summary .tog::before{content:"+"}
+@media (hover:hover) and (pointer:fine){
+  .navgrp > summary:hover{color:var(--ink-2)}
+  .navgrp > summary:hover .tog{color:var(--ink)}
+}
+
+/* sub-items: serif, hung off a vertical rule */
+.navgrp ul{list-style:none;margin:0 0 10px;padding:0 0 0 2px;
+  border-left:1px solid var(--rule);}
+.navgrp ul li{margin:0}
+.navgrp ul a{display:block;font-family:var(--serif);font-size:14px;line-height:1.45;
+  color:var(--ink-3);text-decoration:none;padding:6px 8px 6px 12px;min-height:34px;
+  border-left:2px solid transparent;margin-left:-1px}
+
+/* top-level utility rows (Priority key, Last 30 minutes) */
+.nav > a{display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15.5px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:9px 0;min-height:38px}
+
+@media (hover:hover) and (pointer:fine){
+  .navgrp ul a:hover{color:var(--ink);border-left-color:var(--rule-strong)}
+  .nav > a:hover{color:var(--ink-2)}
+}
+
+/* current section, marked with the same highlighter as the prose */
+@supports not selector(:target-current){
+body:has(#map:target) .nav a[href="#map"],
+body:has(#ch1:target) .nav a[href="#ch1"],
+body:has(#s1-why:target) .nav a[href="#s1-why"],
+body:has(#s1-sovereignty:target) .nav a[href="#s1-sovereignty"],
+body:has(#s1-stability:target) .nav a[href="#s1-stability"],
+body:has(#s1-forms:target) .nav a[href="#s1-forms"],
+body:has(#s1-parties:target) .nav a[href="#s1-parties"],
+body:has(#s1-nationalism:target) .nav a[href="#s1-nationalism"],
+body:has(#s1-animosity:target) .nav a[href="#s1-animosity"],
+body:has(#s1-disputes:target) .nav a[href="#s1-disputes"],
+body:has(#ch2:target) .nav a[href="#ch2"],
+body:has(#s2-confiscation:target) .nav a[href="#s2-confiscation"],
+body:has(#s2-economic:target) .nav a[href="#s2-economic"],
+body:has(#s2-sanctions:target) .nav a[href="#s2-sanctions"],
+body:has(#s2-psas:target) .nav a[href="#s2-psas"],
+body:has(#s2-violence:target) .nav a[href="#s2-violence"],
+body:has(#s2-cyber:target) .nav a[href="#s2-cyber"],
+body:has(#ch3:target) .nav a[href="#ch3"],
+body:has(#s3-assessing:target) .nav a[href="#s3-assessing"],
+body:has(#s3-forecast:target) .nav a[href="#s3-forecast"],
+body:has(#s3-lessening:target) .nav a[href="#s3-lessening"],
+body:has(#s3-encouragement:target) .nav a[href="#s3-encouragement"],
+body:has(#s3-summary:target) .nav a[href="#s3-summary"],
+body:has(#sheet:target) .nav a[href="#sheet"] {
+  color:var(--ink);font-weight:500;border-left-color:var(--ink)
+}
+}
+/* scroll-aware sidebar, no script: CSS scroll-target-group (Chromium 135+) marks the
+   link whose section is on screen as the reader scrolls; browsers without it keep the
+   click-based :target rule above */
+@supports selector(:target-current){
+  .nav{scroll-target-group:auto}
+  .navgrp ul a:target-current,.nav > a:target-current{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+}
+
+
+/* ═══════ mobile navigation: :target drawer, no JS ═══════ */
+.menubtn,.menuclose{display:none}
+@media (max-width:1039px){
+  .topbar{position:sticky;top:0;z-index:30;background:var(--paper);
+    border-bottom:1px solid var(--ink);padding:10px 16px;gap:10px}
+  .crumb{flex:1;min-width:0;white-space:nowrap}
+  .crumb-rest{display:none}
+  /* the size bar joins the three 40px squares on a phone, so keep its cells slim */
+  .fsgrp label{width:24px;height:38px}
+
+  /* the label goes once the print control joins the bar: three 40px squares
+     plus "CONTENTS" no longer fit at 390px */
+  .menubtn .lbltxt{display:none}
+  /* sized and coloured like the print and theme buttons beside it */
+  .menubtn{display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:40px;height:40px;padding:0;cursor:pointer;
+    color:var(--ink-2);text-decoration:none;
+    border:1px solid var(--rule-strong);background:var(--paper);
+    transition:color 140ms var(--ease-out),border-color 140ms var(--ease-out),
+               transform 150ms var(--ease-out)}
+  .menubtn:active{transform:scale(.96)}
+  /* the middle bar is the element itself, so the three sit evenly and the set
+     is centred by the button's own align-items rather than by hand */
+  .menubtn .bars{position:relative;flex:none;width:17px;height:1.5px;
+    background:currentColor}
+  .menubtn .bars::before,.menubtn .bars::after{content:"";position:absolute;
+    left:0;width:17px;height:1.5px;background:currentColor}
+  .menubtn .bars::before{top:-5px}
+  .menubtn .bars::after{top:5px}
+
+  .rail{position:fixed;inset:0;z-index:50;background:var(--paper);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 22px 56px;border:0;border-right:0;
+    visibility:hidden;opacity:0;transform:translateY(-8px);
+    transition:opacity 180ms cubic-bezier(.23,1,.32,1),
+               transform 180ms cubic-bezier(.23,1,.32,1),
+               visibility 0s linear 180ms}
+  .rail:target{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+
+  .menuclose{display:inline-flex;align-items:center;gap:8px;align-self:flex-end;
+    font-family:var(--serif);font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border:1px solid var(--rule-strong);
+    padding:0 14px;min-height:40px;margin:0 0 18px auto}
+  .rail{display:flex;flex-direction:column}
+
+  /* comfortable targets inside the drawer */
+  .rail .nav > a,
+  .rail .navgrp > summary{min-height:52px;padding-block:14px;font-size:17px}
+  .rail .navgrp ul a{min-height:48px;padding-block:12px;font-size:16px}
+  .rail .navgrp ul{padding-left:16px}
+  .rail .nav > a,
+  .rail .navgrp > summary,
+  .rail .navgrp ul li:not(:last-child) a{border-bottom:1px solid var(--rule)}
+  .rail .navgrp{border-top:0;margin-top:0;padding-top:0}
+  .rail .navgrp ul{margin-bottom:0}
+}
+@media (max-width:1039px) and (prefers-reduced-motion:reduce){
+  .rail{transition:none}
+}
+
+/* ═══════ touch targets ═══════ */
+@media (max-width:1039px){
+  .nav a,.navgrp summary{min-height:44px;padding-block:10px}
+  .navgrp ul a{min-height:42px;padding-block:9px}
+  .themebtn{width:40px;height:40px}
+  .rail{padding:22px 20px 26px}
+}
+@media (hover:none){
+  .themebtn{width:40px;height:40px}
+}
+
+/* land clear of the sticky mobile topbar (must out-rank the base h3 rule) */
+@media (max-width:1039px){
+  .doc section,.doc h3,.doc h4{scroll-margin-top:76px}
+}
+
+/* ═══════ print: A4, one chapter per sheet ═══════ */
+@page{size:A4 portrait;margin:16mm 15mm}
+@media print{
+  :root{--paper:#fff;--band:#f4f4f4;--well:#fff;--ink:#000;--ink-2:#333;--ink-3:#666;
+    --rule:#ccc;--rule-strong:#999;--hi:#eee;--hi-edge:#ccc}
+  /* paper keeps its own type scale, whatever the reader picked on screen */
+  html{font-size:100%}
+  .rail,.topbar,.skip,footer,.made,.menubtn,.menuclose,.prbtn{display:none!important}
+  .app{display:block;height:auto;overflow:visible}
+  .pane,.scrollarea{height:auto;overflow:visible}
+  .inner{padding:0;max-width:none}
+  body{font:400 10.5pt/1.5 var(--serif);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc p,.doc>section>ul,.doc>section>ol,.terms,.scroller,.note,.cards,figure,.recall,.sheet,h3{max-width:none}
+  .scroller,.figbox{overflow:visible}
+  .figbox svg{min-width:0}
+
+  /* type scaled to the sheet, not the screen */
+  h1{font-size:21pt;margin-bottom:10pt}
+  .mast{margin-bottom:20pt}
+  .lede{font-size:11pt}
+  .chap h2{font-size:15pt}
+  h3{font-size:12pt;margin:16pt 0 6pt}
+  h4{font-size:10.5pt;margin:11pt 0 4pt}
+  .src{margin-bottom:14pt}
+
+  /* a chapter per sheet; the masthead keeps the first one company */
+  .doc > section{break-before:page;margin-bottom:0;padding-bottom:0}
+  .doc > section:first-of-type{break-before:auto}
+
+  /* the recall lists are short and narrow: two columns turn three sheets into two */
+  .sheet{display:block;columns:2;column-gap:10mm}
+
+  /* every accordion answer printed, open or not. A closed <details> clips its
+     content through ::details-content, so opening it needs that pseudo-element,
+     not just display on the light-DOM child. */
+  .sheet details::details-content{content-visibility:visible!important;block-size:auto!important}
+  .sheet details > *{display:block!important}
+  .sheet summary{list-style:none}
+
+  p,li,td{orphans:3;widows:3}
+  h1,h2,h3,h4{break-after:avoid-page}
+  /* the frame lived on the .scroller wrapper, so holding only the table together
+     stranded an empty bordered box on the previous sheet. Move the border onto
+     the table itself: nothing is left behind, and a long table may now split
+     across sheets with its header repeated instead of forcing a half-empty page. */
+  .scroller{border:0;margin-bottom:12pt}
+  table{border:1px solid var(--ink)}
+  /* a table that fits stays whole, so its header bar can never print alone at
+     the foot of a sheet; one too tall to fit still splits, and then the header
+     group repeats on each sheet it covers */
+  table,tr,.sheet details,figure,.figbox,.recall,.card,.note,.terms > div{break-inside:avoid}
+  thead{display:table-header-group;break-after:avoid}
+  a{text-decoration:none;color:inherit}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#doc">Skip to main content</a>
+
+<div class="app">
+
+  <aside class="rail" id="menu">
+    <a class="menuclose" href="#doc" aria-label="Close contents">Close &#215;</a>
+    <a class="brand" href="../index.html">Exam Prep<span class="sq" aria-hidden="true">&#10033;</span></a>
+    <hr class="rule">
+    <p class="nav-h">Contents</p>
+    <nav class="nav" aria-label="Contents">
+          <a class="navout" href="../midterm/MKT4102.html"><span class="ht">Midterm guide</span><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a href="#map"><span class="ht">Syllabus map</span></a>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Sovereignty and Stability</span><span class="dots" aria-hidden="true">········</span></summary>
+            <ul><li><a href="#s1-why"><span class="ht">The political environment</span></a></li><li><a href="#s1-sovereignty"><span class="ht">Sovereignty of nations</span></a></li><li><a href="#s1-stability"><span class="ht">Five causes of instability</span></a></li><li><a href="#s1-forms"><span class="ht">Forms of government</span></a></li><li><a href="#s1-parties"><span class="ht">Political parties</span></a></li><li><a href="#s1-nationalism"><span class="ht">Nationalism</span></a></li><li><a href="#s1-animosity"><span class="ht">Targeted animosity</span></a></li><li><a href="#s1-disputes"><span class="ht">Trade disputes</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Political Risks</span><span class="dots" aria-hidden="true">······</span></summary>
+            <ul><li><a href="#s2-confiscation"><span class="ht">Confiscation to domestication</span></a></li><li><a href="#s2-economic"><span class="ht">Economic risks</span></a></li><li><a href="#s2-sanctions"><span class="ht">Political sanctions</span></a></li><li><a href="#s2-psas"><span class="ht">Activists and NGOs</span></a></li><li><a href="#s2-violence"><span class="ht">Violence and terrorism</span></a></li><li><a href="#s2-cyber"><span class="ht">Cyberterrorism</span></a></li></ul>
+          </details>
+          <details class="navgrp" open>
+            <summary><span class="tog" aria-hidden="true"></span><span class="t">Assessing and Lessening</span><span class="dots" aria-hidden="true">·····</span></summary>
+            <ul><li><a href="#s3-assessing"><span class="ht">Assessing vulnerability</span></a></li><li><a href="#s3-forecast"><span class="ht">Forecasting political risk</span></a></li><li><a href="#s3-lessening"><span class="ht">Lessening vulnerability</span></a></li><li><a href="#s3-encouragement"><span class="ht">Government encouragement</span></a></li><li><a href="#s3-summary"><span class="ht">Summary</span></a></li></ul>
+          </details>
+          <a href="#sheet"><span class="ht">Last 20 minutes</span></a>
+    </nav>
+  </aside>
+
+  <div class="pane">
+
+    <header class="topbar">
+      <a class="menubtn" href="#menu" aria-label="Contents"><span class="bars" aria-hidden="true"></span><span class="lbltxt">Contents</span></a>
+      <nav class="crumb" aria-label="Breadcrumb"><span class="crumb-rest"><a href="../index.html">Exam Prep</a> &nbsp;/&nbsp; Class test &nbsp;/&nbsp; </span><b aria-current="page">MKT4102</b></nav>
+      <div class="fsgrp" role="radiogroup" aria-label="Text size">
+        <input type="radio" name="fs" id="fs1" class="sr-only">
+        <label for="fs1"><span aria-hidden="true">A</span><span class="sr-only">Smallest text</span></label>
+        <input type="radio" name="fs" id="fs2" class="sr-only" checked>
+        <label for="fs2"><span aria-hidden="true">A</span><span class="sr-only">Small text</span></label>
+        <input type="radio" name="fs" id="fs3" class="sr-only">
+        <label for="fs3"><span aria-hidden="true">A</span><span class="sr-only">Large text</span></label>
+        <input type="radio" name="fs" id="fs4" class="sr-only">
+        <label for="fs4"><span aria-hidden="true">A</span><span class="sr-only">Largest text</span></label>
+      </div>
+      <button class="prbtn" type="button" onclick="print()"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 6V1.5h7V6M4.5 12.5h7V15h-7zM4.5 12.5H2V6h12v6.5h-2.5"/></svg><span class="sr-only">Print this guide</span></button>
+      <input type="checkbox" id="flip" class="sr-only">
+      <label class="themebtn" for="flip"><span class="sr-only">Invert colour theme</span></label>
+      <script>/* The checkbox inverts the system theme, and CSS cannot remember
+      anything, so the choice would reset on every load. Store the resulting
+      theme rather than the inversion: if the OS later switches to dark on its
+      own, a stored "inverted" would hand back light. Runs inline, right after
+      the control, so the theme is settled before the page below it paints. */
+      (function(){try{var f=document.getElementById('flip'),k='prep-theme',
+      sysDark=function(){return matchMedia('(prefers-color-scheme:dark)').matches},
+      saved=localStorage.getItem(k);
+      if(saved==='dark'||saved==='light'){f.checked=(saved==='dark')!==sysDark();}
+      f.addEventListener('change',function(){
+        localStorage.setItem(k,f.checked!==sysDark()?'dark':'light');});
+      }catch(e){}})();</script>
+    </header>
+
+    <div class="scrollarea">
+      <div class="inner">
+        <header class="mast">
+    <p class="eyebrow">MKT4102</p>
+    <h1>International Marketing</h1>
+    <p class="lede">Class test guide for Cateora, Money, Gilly and Graham, <i>International Marketing</i> (2024), chapter 6, The Political Environment: A Critical Concern. Book-only: this course has no separate lecture slide set, so every point here comes from the chapter. Terms are kept exactly as printed and explained in plain words where they first appear, and the harder ones have a hover definition.</p>
+    <div class="mast-meta">
+      <span>Class test</span>
+      <span>Cateora, Chapter 6</span>
+      <span>10 diagrams</span>
+      <span>&asymp; 35 min read</span>
+    </div>
+  </header>
+        <main class="doc" id="doc">
+
+      <!-- ══════════ MAP ══════════ -->
+      <section id="map">
+        <div class="chap"><h2>Syllabus map</h2></div>
+        <p class="src">Everything on the class test, and where it is answered</p>
+        <p>Chapter 6, The Political Environment, in three parts. Open a part to see what
+        sits under it; every line is a link to the section that covers it.</p>
+        <div class="smap"><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">1</span><span class="mt">Sovereignty and Stability</span><span class="mc">8</span></summary><div class="mbody"><div class="mrow"><div class="mk">Foundations</div><ul class="mv"><li><a href="#s1-why">The political environment</a></li><li><a href="#s1-sovereignty">Sovereignty of nations</a></li><li><a href="#s1-stability">Five causes of instability</a></li></ul></div><div class="mrow"><div class="mk">The five factors</div><ul class="mv"><li><a href="#s1-forms">Forms of government</a></li><li><a href="#s1-parties">Political parties</a></li><li><a href="#s1-nationalism">Nationalism</a></li><li><a href="#s1-animosity">Targeted animosity</a></li><li><a href="#s1-disputes">Trade disputes</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">2</span><span class="mt">Political Risks</span><span class="mc">10</span></summary><div class="mbody"><div class="mrow"><div class="mk">Government takings</div><ul class="mv"><li><a href="#s2-confiscation">Confiscation, expropriation, domestication</a></li><li><a href="#s2-confiscation">Privatization</a></li></ul></div><div class="mrow"><div class="mk">Economic risks</div><ul class="mv"><li><a href="#s2-economic">Exchange controls</a></li><li><a href="#s2-economic">Local content and imports</a></li><li><a href="#s2-economic">Tax and price controls</a></li><li><a href="#s2-economic">Labor problems</a></li></ul></div><div class="mrow"><div class="mk">Beyond the government</div><ul class="mv"><li><a href="#s2-sanctions">Political sanctions</a></li><li><a href="#s2-psas">Activists and NGOs</a></li><li><a href="#s2-violence">Violence and terrorism</a></li><li><a href="#s2-cyber">Cyberterrorism</a></li></ul></div></div></details><details class="mstep"><summary><span class="tog" aria-hidden="true"></span><span class="mn">3</span><span class="mt">Assessing and Lessening</span><span class="mc">5</span></summary><div class="mbody"><div class="mrow"><div class="mk">Assessment</div><ul class="mv"><li><a href="#s3-assessing">Politically sensitive products</a></li><li><a href="#s3-forecast">Forecasting political risk</a></li></ul></div><div class="mrow"><div class="mk">Lessening</div><ul class="mv"><li><a href="#s3-lessening">Six strategies</a></li></ul></div><div class="mrow"><div class="mk">Encouragement</div><ul class="mv"><li><a href="#s3-encouragement">Government encouragement</a></li><li><a href="#s3-summary">Summary</a></li></ul></div></div></details></div>
+      </section>
+
+      <!-- ══════════ PART 1 ══════════ -->
+      <section id="ch1">
+        <div class="chap"><h2>Sovereignty and Stability</h2></div>
+        <p class="src">Cateora, Chapter 6 · part 1 of 3</p>
+
+        <h3 id="s1-why">The political environment</h3>
+
+        <p>No company, domestic or international, large or small, can do business without
+        weighing the political environment it will work in. Foreign and home governments are
+        both integral partners. A government reacts to its circumstances by making the
+        policies it thinks it needs, and it can encourage and support a company or
+        discourage, ban and restrict it. International law recognises the sovereign right of
+        a nation to grant or withhold permission to do business inside its borders, and to
+        control where its own citizens do business. That is why the political environment of
+        a country is a critical concern for the international marketer.</p>
+
+        <div class="note"><span class="lbl">Global Perspective</span><p>At the COP26 climate summit in Glasgow in 2021, Greta Thunberg told the crowd that politics is usually background music to trade, but that the music can get loud. The chapter's point is that her campaign is itself international marketing: sharp messaging, personal selling, public relations and social media, all aimed at one clear target market, the young. It also shows how protest can force its way onto the agenda of both governments and firms.</p></div>
+
+        <h3 id="s1-sovereignty">Sovereignty of nations</h3>
+
+        <p>In international law a sovereign state is independent and free from all external
+        control. It enjoys full legal equality with other states, governs its own territory,
+        chooses its own political, economic and social systems, and can make agreements with
+        other nations. <span class="term" tabindex="0"><mark>Sovereignty</mark><span class="tip" role="tooltip"><b>A nation&#x27;s supreme power over its own territory and its own people.</b>It also means the right to grant or refuse permission to do business inside the country.</span></span> means both the powers a state uses toward other countries
+        and the supreme powers it holds over its own members. A state sets the rules for
+        citizenship, defines its borders, and controls trade and the movement of people and
+        goods, and sometimes data, across them. A citizen stays subject to the state's laws
+        even while abroad, and it is this extension of national law beyond the border that
+        causes much of the conflict in international business.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 660 330" role="img" aria-label="The powers a nation keeps for itself, and can partly give up by treaty."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="330.0" y1="165.0" x2="330.0" y2="47.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="165.0" x2="560.0" y2="165.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="165.0" x2="330.0" y2="283.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="330.0" y1="165.0" x2="100.0" y2="165.00000000000003" stroke="var(--rule-strong)" stroke-width="1"/><rect x="258.0" y="27.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="51.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Its own territory</text><rect x="488.0" y="145.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="560.0" y="169.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Its own citizens</text><rect x="228.0" y="263.0" width="204" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="287.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trade across its borders</text><rect x="28.0" y="145.00000000000003" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="100.0" y="161.77500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Movement of people</text><text x="100.0" y="176.27500000000003" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">and goods</text><rect x="246.0" y="139.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="330.0" y="161.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">What a sovereign</text><text x="330.0" y="177.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">state controls</text></svg><svg class="dn" viewBox="0 0 340 268" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">What a sovereign</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">state controls</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Its own territory</text><line x1="170.0" y1="104" x2="170.0" y2="118" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="118" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="138.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Its own citizens</text><line x1="170.0" y1="150" x2="170.0" y2="164" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="164" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="184.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Trade across its borders</text><line x1="170.0" y1="196" x2="170.0" y2="210" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="210" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="230.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Movement of people</text><text x="170.0" y="247.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">and goods</text></svg></div><figcaption>The powers a nation keeps for itself, and can partly give up by treaty.</figcaption></figure>
+
+        <p>Nations do give up parts of their sovereignty in order to get along. The European
+        Union, the United States-Mexico-Canada Agreement, NATO and the World Trade
+        Organization are all cases of nations voluntarily yielding some sovereign rights for
+        a common, mutually beneficial goal. In 2009 the G20 leaders ceded some sovereignty
+        when they agreed to reject protectionism, at a moment when world trade had fallen
+        more than 12 percent. Countries that give up sovereignty often fear they gave away
+        too much: many Greeks resented the austerity forced on them, and some, including
+        former President Trump, have called the WTO the biggest threat so far to national
+        sovereignty. Foreign investment can look like a threat as well. A Chinese national
+        oil company's proposed purchase of Unocal was opposed on those grounds, and U.S.
+        politicians disliked the <span class="term" tabindex="0"><mark>sovereign wealth funds</mark><span class="tip" role="tooltip"><b>A large pool of money controlled by a foreign government and invested abroad.</b>Opposed in the United States as a threat to national sovereignty.</span></span> that put money into American banks
+        in 2008. Mexico blocked a Belgian company's power plant, reading it as an assault on
+        Mexican sovereignty. The point for the marketer is plain: national sovereignty is a
+        critical issue in assessing the environment in which a firm operates.</p>
+
+        <h3 id="s1-stability">Five causes of instability</h3>
+
+        <p>The ideal political climate for a multinational firm is a stable, friendly
+        government. Unfortunately, governments are not always stable and friendly, and even
+        stable, friendly governments do not always stay that way. A radical shift in
+        philosophy when an opposing party comes to power, pressure from nationalist and
+        self-interest groups, weakened economic conditions, bias against foreign investment,
+        and conflicts among governments can all shake a government's stability.</p>
+
+        <p>At the top of the list of concerns for a foreign business is the continuity of the
+        rules and the rule of law, whichever government is in power. A change of government
+        does not always mean a change in the level of <span class="term" tabindex="0"><mark>political risk</mark><span class="tip" role="tooltip"><b>The chance that government action will harm a foreign investment.</b>It runs from confiscation, the harshest, down to routine controls.</span></span>. Italy has formed more
+        than 50 governments since the Second World War, yet business goes on as usual. India
+        has had as many governments since 1945, but much policy is still hostile to foreign
+        investment, partly because senior civil servants stay in place and carry on with
+        former policies. In Mexico the PRI held power from 1929 to 2000, and across that
+        period the risk to foreign investors ran from <span class="term" tabindex="0"><mark>expropriation</mark><span class="tip" role="tooltip"><b>The government seizes an investment but makes some reimbursement.</b>Often followed by nationalization of the asset.</span></span> to NAFTA and an open
+        door.</p>
+
+        <p>Some African countries are unstable, with civil wars, boundary disputes and
+        oppressive military regimes. Kenya fell victim to political violence in 2008 that
+        disrupted the whole region, and Sierra Leone has had three changes of government in
+        five years. The result is a vicious cycle: for its nations to prosper, Africa needs
+        foreign investment, but investment is wary of unstable nations. A World Bank study
+        found the 47 nations of sub-Saharan Africa were drawing less than $2 billion a year
+        in direct foreign investment, about a tenth of what Mexico attracts. Even so, a
+        multinational can function under any type of government if there is long-run
+        predictability: PepsiCo ran a profitable countertrade business with the Soviet
+        Union, swapping Pepsi syrup for Russian vodka.</p>
+
+        <div class="terms"><div><div class="k">Five political causes of instability</div><div class="v"><ul><li>Some forms of government that seem inherently unstable</li><li>Changes in political parties during elections, which can reshape trade conditions</li><li><span class="term" tabindex="0"><mark>Nationalism</mark><span class="tip" role="tooltip"><b>An intense feeling of national pride and unity.</b>It can turn into an anti-foreign-business bias that harasses foreign investment.</span></span></li><li>Animosity targeted toward specific countries</li><li>Trade disputes themselves</li></ul></div></div></div>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 700 360" role="img" aria-label="The five political causes of instability the chapter lists."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="350.0" y1="180.0" x2="350.0" y2="62.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="180.0" x2="568.7429987478853" y2="143.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="180.0" x2="485.1906080272688" y2="275.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="180.0" x2="214.8093919727312" y2="275.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="180.0" x2="131.25700125211466" y2="143.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><rect x="278.0" y="42.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="58.775000000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Some forms of</text><text x="350.0" y="73.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">government</text><rect x="496.7429987478853" y="123.53599466375621" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="568.7429987478853" y="140.31099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Changes in</text><text x="568.7429987478853" y="154.81099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">political parties</text><rect x="413.1906080272688" y="255.46400533624382" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="485.1906080272688" y="279.4890053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Nationalism</text><rect x="142.8093919727312" y="255.46400533624382" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="214.8093919727312" y="272.2390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Animosity aimed at</text><text x="214.8093919727312" y="286.7390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">one country</text><rect x="59.25700125211466" y="123.53599466375621" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="131.25700125211466" y="147.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Trade disputes</text><rect x="266.0" y="154.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="176.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Five political causes</text><text x="350.0" y="192.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">of instability</text></svg><svg class="dn" viewBox="0 0 340 346" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Five political causes</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">of instability</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Some forms of</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">government</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Changes in</text><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">political parties</text><line x1="170.0" y1="182" x2="170.0" y2="196" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="196" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="216.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Nationalism</text><line x1="170.0" y1="228" x2="170.0" y2="242" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="242" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="262.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Animosity aimed at</text><text x="170.0" y="279.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">one country</text><line x1="170.0" y1="290" x2="170.0" y2="304" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="304" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="324.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Trade disputes</text></svg></div><figcaption>The five political causes of instability the chapter lists.</figcaption></figure>
+
+        <h4 id="s1-forms">Forms of government</h4>
+
+        <p>Around 500 BC the ancient Greeks named three fundamental forms of government: rule
+        by one, rule by few and rule by many. We call them monarchy (or dictatorship),
+        aristocracy (or oligarchy) and democracy. About the same time Cyrus the Great of
+        Persia declared that government exists to serve the people, an idea now written into
+        most constitutions. After colonialism and communism collapsed, the world largely
+        agreed that free-enterprise democracy was best. Of the more than 200 sovereign
+        states, almost all now have at least nominally representative government with
+        suffrage at 18 or over. About 10 percent require voting; the rest leave it
+        voluntary. A few countries have unusual rules: Bolivia lets you vote at 18 if
+        married and 21 if single, Peru bars police and military personnel, Croatia lets
+        employed people vote at 16, and Saudi Arabia let women vote only from 2015. More
+        troubling is the apparent backsliding toward autocracy in countries such as Nigeria,
+        Kenya, Bangladesh, Venezuela, Georgia and Kyrgyzstan, and Haiti's democracy has
+        still not recovered from the 2010 earthquake.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 640 80" role="img" aria-label="The three forms of government the ancient Greeks named."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="10.0" y="14" width="189.33333333333334" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="104.66666666666667" y="28.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Rule by one</text><text x="104.66666666666667" y="44.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">(monarchy or</text><text x="104.66666666666667" y="61.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">dictatorship)</text><line x1="201.33333333333334" y1="40.0" x2="223.33333333333334" y2="40.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="225.33333333333334" y="14" width="189.33333333333334" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="320.0" y="28.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Rule by few</text><text x="320.0" y="44.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">(aristocracy or</text><text x="320.0" y="61.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">oligarchy)</text><line x1="416.6666666666667" y1="40.0" x2="438.6666666666667" y2="40.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="440.6666666666667" y="14" width="189.33333333333334" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="535.3333333333334" y="36.475" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Rule by many</text><text x="535.3333333333334" y="52.975" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">(democracy)</text></svg><svg class="dn" viewBox="0 0 340 234" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Rule by one</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(monarchy or</text><text x="170.0" y="64.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">dictatorship)</text><line x1="170.0" y1="77" x2="170.0" y2="91" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="93" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="113.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Rule by few</text><text x="170.0" y="130.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(aristocracy or</text><text x="170.0" y="147.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">oligarchy)</text><line x1="170.0" y1="160" x2="170.0" y2="174" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="176" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="196.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Rule by many</text><text x="170.0" y="213.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">(democracy)</text></svg></div><figcaption>The three forms of government the ancient Greeks named.</figcaption></figure>
+
+        <div class="scroller"><table><thead><tr><th>Country</th><th>Government type</th></tr></thead><tbody><tr><td class="k">United States</td><td>Constitutional federal republic</td></tr><tr><td class="k">United Kingdom</td><td>Constitutional monarchy</td></tr><tr><td class="k">Saudi Arabia</td><td>Absolute monarchy</td></tr><tr><td class="k">Iran</td><td>Theocratic republic</td></tr><tr><td class="k">China</td><td>Communist party-led state</td></tr><tr><td class="k">Cuba</td><td>Communist state</td></tr><tr><td class="k">North Korea</td><td>Single-party state</td></tr><tr><td class="k">Belarus</td><td>Presidential republic in name, in fact a dictatorship</td></tr></tbody></table></div>
+
+        <h4 id="s1-parties">Political parties</h4>
+
+        <p>For most countries the marketer must know the philosophy of every major political
+        party, because any one of them might become dominant and change attitudes and the
+        overall business climate. Where two strong parties take turns in control, it matters
+        which direction each will take. In the United States a Democratic Congress was
+        reluctant to ratify trade pacts negotiated by a Republican administration, though
+        President Obama pushed through agreements with South Korea, Colombia and Panama in
+        2011. President Trump's nationalist stand against free trade was a reversal of his
+        own party's preferences. Unpredictable, drastic shifts in policy deter investment
+        whatever the cause, so political philosophy has to be assessed continuously.</p>
+
+        <h4 id="s1-nationalism">Nationalism</h4>
+
+        <p>Economic and cultural nationalism exists to some degree in every country, and it
+        matters when judging the business climate. Nationalism is an intense feeling of
+        national pride and unity, an awakening of a people to pride in their country, and it
+        can take an anti-foreign-business bias that tolerates controls on foreign investment.
+        <span class="term" tabindex="0"><mark>Economic nationalism</mark><span class="tip" role="tooltip"><b>Preserving national economic autonomy.</b>Residents identify their interests with the sovereignty of their own state.</span></span> aims to preserve national economic autonomy: residents identify
+        their interests with the sovereignty of their state, so national interest and
+        security come before international relations.</p>
+
+        <p>Nationalism shows itself in many ways: a call to buy the country's own products
+        only, restrictions on imports, restrictive tariffs, and controls over foreign
+        investment, which is viewed with suspicion. The more a country feels threatened by
+        an outside force, or the more its economy declines, the more nationalistic it turns.
+        After the Second World War militant nationalism was rampant, and expropriation,
+        restrictive investment policies and nationalisation of industries were common. India
+        imposed such restrictive practices that Coca-Cola, IBM and many others left rather
+        than face a hostile climate. By the late 1980s militant nationalism had subsided and
+        the foreign investor, once feared as a tyrant, was courted as a source of capital.
+        But nationalism comes and goes: when the United States pressed Japan to import more
+        rice, deep feelings of self-sufficiency and concern for Japanese farmers kept
+        restrictions in place for years.</p>
+
+        <div class="note"><span class="lbl">Crossing Borders 6.1</span><p>Coke's back, and it still has the secret. India ordered Coca-Cola to transfer 60 percent of its equity to Indians and hand over its know-how by April 1978, or shut down. Coca-Cola left the country rather than disclose its formula. Pepsi arrived during the 16-year exile and took 26 percent of the market. When India's attitude changed, Coke returned without giving up the formula, and to forestall further political trouble it sold 49 percent of its Indian bottler to investors and employees and bought the leading local cola, Thums-Up.</p></div>
+
+        <h4 id="s1-animosity">Targeted animosity</h4>
+
+        <p>Do not confuse nationalism, whose animosity is aimed at all foreign countries in
+        general, with a <span class="term" tabindex="0"><mark>targeted fear</mark><span class="tip" role="tooltip"><b>Animosity aimed at one particular country rather than at all foreign firms.</b>Toyota mistook American fear of Japan for general nationalism.</span></span> or animosity aimed at one particular country. Toyota
+        made that mistake in the United States in the late 1980s and early 1990s. Sales of
+        Japanese cars were falling, and the company assumed the problem was American
+        nationalism, but sales of German cars were not declining. The real problem was
+        Americans' fear of Japan, at a time when many saw the economic threat from Japan as
+        greater than the military threat from the Soviet Union. Toyota's campaign, showing
+        Camrys built by Americans in Kentucky, may even have fed the fear that Japan was
+        colonising the United States. Chinese consumers' long animosity toward Japanese
+        brands, rooted in the military aggression of the 1930s and 1940s, is another example
+        of history shaping marketing. French best-sellers attacking American influence sit
+        oddly beside France's appetite for American films and fast food. The United States is
+        not immune either: after the rift over Iraq, Americans turned on French wine, French
+        cheese and even products they thought were French, and French's Mustard had to say
+        it is an American company. No nation will tolerate penetration by a foreign firm it
+        sees as a social, cultural, economic or political threat.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 560 80" role="img" aria-label="Two different feelings, and a costly mistake to confuse them."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="10.0" y="14" width="257.0" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="138.5" y="28.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Nationalism</text><text x="138.5" y="44.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">aimed at all</text><text x="138.5" y="61.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">foreign firms</text><line x1="269.0" y1="40.0" x2="291.0" y2="40.0" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="293.0" y="14" width="257.0" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="421.5" y="28.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">Targeted animosity</text><text x="421.5" y="44.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">aimed at one</text><text x="421.5" y="61.225" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="400" fill="var(--ink)">country</text></svg><svg class="dn" viewBox="0 0 340 168" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Nationalism</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">aimed at all</text><text x="170.0" y="64.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">foreign firms</text><line x1="170.0" y1="77" x2="170.0" y2="91" stroke="var(--ink)" stroke-width="1.1" marker-end="url(#ah)"/><rect x="20.0" y="93" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="113.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Targeted animosity</text><text x="170.0" y="130.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">aimed at one</text><text x="170.0" y="147.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">country</text></svg></div><figcaption>Two different feelings, and a costly mistake to confuse them.</figcaption></figure>
+
+        <h4 id="s1-disputes">Trade disputes</h4>
+
+        <p>Finally, narrow trade disputes can unsettle wider international markets. Around
+        2018 the hot issues included washing machines, Internet trade, steel, <span class="term" tabindex="0"><mark>sanctions</mark><span class="tip" role="tooltip"><b>One nation or group boycotting another to change its behaviour.</b>History shows they rarely reach their goal.</span></span>
+        against Russia, farm subsidies in developed countries, and the long Airbus-Boeing
+        battle over subsidies. Any of these might boil over, though so far cooler heads and
+        the WTO's dispute resolution processes have prevailed.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>What a sovereign state is, and what it controls</li><li>Why nations give up sovereignty, and why they fear doing so</li><li>The five political causes of instability</li><li>The three forms of government, and the modern picture</li><li>Why the marketer must know every major party's philosophy</li><li>Nationalism versus animosity aimed at one country</li><li>Coke in India, and how it domesticated its operation</li><li>What a trade dispute can do to wider markets</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 2 ══════════ -->
+      <section id="ch2">
+        <div class="chap"><h2>Political Risks</h2></div>
+        <p class="src">Cateora, Chapter 6 · part 2 of 3</p>
+
+        <p>Issues of sovereignty, differing political philosophies and nationalism show up in
+        a host of government actions that raise the risks of global business. Of all the
+        political risks, the most costly are those that transfer equity from the company to
+        the government, with or without adequate compensation.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 760 377" role="img" aria-label="The chapter's political risks, from the harshest government action outward."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="380.0" y1="46" x2="380.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="125.0" y1="62" x2="635.0" y2="62" stroke="var(--rule-strong)" stroke-width="1"/><line x1="125.0" y1="62" x2="125.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="114" x2="40.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="142.0" x2="52.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="183.0" x2="52.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="40.0" y1="224.0" x2="52.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="380.0" y1="62" x2="380.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="114" x2="295.0" y2="347.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="142.0" x2="307.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="183.0" x2="307.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="224.0" x2="307.0" y2="224.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="265.0" x2="307.0" y2="265.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="306.0" x2="307.0" y2="306.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="295.0" y1="347.0" x2="307.0" y2="347.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="635.0" y1="62" x2="635.0" y2="80" stroke="var(--rule-strong)" stroke-width="1"/><line x1="550.0" y1="114" x2="550.0" y2="276.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="550.0" y1="142.0" x2="562.0" y2="142.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="550.0" y1="183.0" x2="562.0" y2="183.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="550.0" y1="229.5" x2="562.0" y2="229.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="550.0" y1="276.0" x2="562.0" y2="276.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="230.0" y="10" width="300" height="36" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="380.0" y="24.549999999999997" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">Political risks of</text><text x="380.0" y="40.55" text-anchor="middle" font-family="Newsreader,serif" font-size="13" font-weight="600" fill="var(--ink)">global business</text><rect x="20.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="125.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Government takings</text><rect x="52.0" y="126" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Confiscation</text><rect x="52.0" y="167" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Expropriation</text><rect x="52.0" y="208" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="141.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Domestication</text><rect x="275.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="380.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Economic risks</text><rect x="307.0" y="126" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Exchange controls</text><rect x="307.0" y="167" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Local-content laws</text><rect x="307.0" y="208" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="228.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Import restrictions</text><rect x="307.0" y="249" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="269.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Tax controls</text><rect x="307.0" y="290" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="310.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Price controls</text><rect x="307.0" y="331" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="396.0" y="351.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Labor problems</text><rect x="530.0" y="80" width="210" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="635.0" y="101.2" text-anchor="middle" font-family="Newsreader,serif" font-size="12" font-weight="600" fill="var(--ink)">Beyond the government</text><rect x="562.0" y="126" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="651.0" y="146.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Political sanctions</text><rect x="562.0" y="167" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="651.0" y="187.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Activists and NGOs</text><rect x="562.0" y="208" width="178.0" height="43.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="651.0" y="226.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Violence and</text><text x="651.0" y="240.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">terrorism</text><rect x="562.0" y="260.0" width="178.0" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="651.0" y="280.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Cyberterrorism</text></svg><svg class="dn" viewBox="0 0 340 721.0" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="49" y1="98" x2="49" y2="202.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="122.0" x2="58" y2="122.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="162.0" x2="58" y2="162.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="202.0" x2="58" y2="202.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="258" x2="49" y2="482.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="282.0" x2="58" y2="282.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="322.0" x2="58" y2="322.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="362.0" x2="58" y2="362.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="402.0" x2="58" y2="402.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="442.0" x2="58" y2="442.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="482.0" x2="58" y2="482.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="538" x2="49" y2="695.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="562.0" x2="58" y2="562.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="602.0" x2="58" y2="602.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="648.5" x2="58" y2="648.5" stroke="var(--rule-strong)" stroke-width="1"/><line x1="49" y1="695.0" x2="58" y2="695.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="58" x2="26" y2="522.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="82.0" x2="35" y2="82.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="242.0" x2="35" y2="242.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="26" y1="522.0" x2="35" y2="522.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="12" y="10" width="316" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Political risks of</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">global business</text><rect x="35" y="66" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="86.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Government takings</text><rect x="58" y="106" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="126.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Confiscation</text><rect x="58" y="146" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="166.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Expropriation</text><rect x="58" y="186" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="206.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Domestication</text><rect x="35" y="226" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="246.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Economic risks</text><rect x="58" y="266" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="286.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Exchange controls</text><rect x="58" y="306" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="326.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Local-content laws</text><rect x="58" y="346" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="366.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Import restrictions</text><rect x="58" y="386" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="406.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Tax controls</text><rect x="58" y="426" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="446.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Price controls</text><rect x="58" y="466" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="486.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Labor problems</text><rect x="35" y="506" width="293" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="181.5" y="526.725" text-anchor="middle" font-family="Newsreader,serif" font-size="13.5" font-weight="600" fill="var(--ink)">Beyond the government</text><rect x="58" y="546" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="566.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Political sanctions</text><rect x="58" y="586" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="606.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Activists and NGOs</text><rect x="58" y="626" width="270" height="45.0" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="645.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Violence and</text><text x="193.0" y="660.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">terrorism</text><rect x="58" y="679.0" width="270" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="193.0" y="699.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="400" fill="var(--ink)">Cyberterrorism</text></svg></div><figcaption>The chapter's political risks, from the harshest government action outward.</figcaption></figure>
+
+        <h3 id="s2-confiscation">Confiscation to domestication</h3>
+
+        <p>The most severe political risk is <span class="term" tabindex="0"><mark>confiscation</mark><span class="tip" role="tooltip"><b>Seizing a company&#x27;s assets with no payment.</b>The most severe political risk.</span></span>, the seizing of a company's assets
+        without payment. Two notable confiscations of U.S. property came when Fidel Castro
+        took power in Cuba and later when the Shah of Iran was overthrown. Confiscation was
+        most prevalent in the 1950s and 1960s, when many underdeveloped countries saw it,
+        wrongly, as a means of economic growth.</p>
+
+        <p>Less drastic but still severe is expropriation, where the government seizes an
+        investment but makes some reimbursement for the assets. In 2008 the Chavez regime in
+        Venezuela expropriated Mexico's CEMEX operations, paying a negotiated price. Often
+        the expropriated investment is nationalized, that is, it becomes a government-run
+        entity. A third type is <span class="term" tabindex="0"><mark>domestication</mark><span class="tip" role="tooltip"><b>Host-country decrees that gradually transfer a foreign investment to national control.</b>The goal is to share ownership, management and profits with nationals.</span></span>: the host country gradually causes the
+        transfer of foreign investment to national control and ownership through a series of
+        decrees that mandate local ownership and greater national involvement in management.
+        The goal is to force foreign investors to share more of the ownership, management
+        and profits with nationals than before.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 680 350" role="img" aria-label="From the harshest taking to the gradual one."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="340.0" y1="175.0" x2="340.0" y2="57.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="175.0" x2="539.1858428704209" y2="233.99999999999997" stroke="var(--rule-strong)" stroke-width="1"/><line x1="340.0" y1="175.0" x2="140.81415712957914" y2="234.00000000000006" stroke="var(--rule-strong)" stroke-width="1"/><rect x="268.0" y="37.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="340.0" y="53.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Confiscation</text><text x="340.0" y="68.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">no payment</text><rect x="467.18584287042086" y="213.99999999999997" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="539.1858428704209" y="230.77499999999998" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Expropriation</text><text x="539.1858428704209" y="245.27499999999998" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">some payment</text><rect x="68.81415712957914" y="207.50000000000006" width="144" height="53" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="140.81415712957914" y="223.52500000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Domestication</text><text x="140.81415712957914" y="238.02500000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">forced transfer</text><text x="140.81415712957914" y="252.52500000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">to nationals</text><rect x="256.0" y="149.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="340.0" y="163.875" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Three ways a host</text><text x="340.0" y="179.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">country takes an</text><text x="340.0" y="194.875" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">investment</text></svg><svg class="dn" viewBox="0 0 340 288" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="65" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Three ways a host</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">country takes an</text><text x="170.0" y="64.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">investment</text><line x1="170.0" y1="75" x2="170.0" y2="89" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="89" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Confiscation</text><text x="170.0" y="126.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">no payment</text><line x1="170.0" y1="137" x2="170.0" y2="151" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="151" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Expropriation</text><text x="170.0" y="188.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">some payment</text><line x1="170.0" y1="199" x2="170.0" y2="213" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="213" width="300" height="65" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="233.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Domestication</text><text x="170.0" y="250.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">forced transfer</text><text x="170.0" y="267.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">to nationals</text></svg></div><figcaption>From the harshest taking to the gradual one.</figcaption></figure>
+
+        <p>Expropriation and <span class="term" tabindex="0"><mark>nationalization</mark><span class="tip" role="tooltip"><b>Turning a seized investment into a government-run entity.</b>It often left firms inefficient, technologically weak and uncompetitive.</span></span> rarely delivered quick development; the
+        nationalised businesses tended to be inefficient, technologically weak and
+        noncompetitive in world markets. The risks of confiscation and expropriation have
+        lessened over the last two decades, with exceptions in Latin America and Venezuela
+        in particular, because experience showed that few of the hoped-for benefits
+        materialise. Today countries often require investors to share ownership, use local
+        content, accept labour and management agreements and share export sales as a
+        condition of entry, so the company domesticates itself in order to invest.</p>
+
+        <p>Countries now view foreign investment as a means of economic growth. Much of the
+        success of South Korea, Singapore and Taiwan is tied to it, and nations that once
+        restricted or forbade foreign investment now court investors as a source of capital
+        and technology. They have begun to privatize telecommunications, broadcasting,
+        airlines, banks and railroads to attract capital and sharpen competitiveness. In
+        Mexico the <span class="term" tabindex="0"><mark>privatisation</mark><span class="tip" role="tooltip"><b>Selling a state-owned business back to private owners.</b>Countries now privatize firms they once nationalized, to attract foreign capital.</span></span> of the national telephone company brought the government
+        hundreds of millions of dollars and immediate investment in new systems, and similar
+        stories played out in Brazil, Argentina, India and eastern Europe. Ironically, many
+        of the businesses expropriated and nationalized in earlier periods are now being
+        privatized.</p>
+
+        <h3 id="s2-economic">Economic risks</h3>
+
+        <p>Even though expropriation and confiscation are waning, international companies
+        still meet a variety of economic risks that can arrive with little warning.
+        Restraints may be imposed under the banner of national security, to protect an
+        infant industry, to conserve scarce foreign exchange, to raise revenue or to
+        retaliate against unfair trade practices. These risks are an important and recurring
+        part of the political environment that few international companies can avoid.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 380" role="img" aria-label="The six economic risks an international company can still meet."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="360.0" y1="190.0" x2="360.0" y2="72.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="559.1858428704209" y2="131.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="559.1858428704209" y2="248.99999999999997" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="360.0" y2="308.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="160.81415712957914" y2="249.00000000000006" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="160.81415712957912" y2="131.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="288.0" y="52.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="68.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Exchange</text><text x="360.0" y="83.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">controls</text><rect x="487.18584287042086" y="111.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="559.1858428704209" y="127.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Local-content</text><text x="559.1858428704209" y="142.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">laws</text><rect x="487.18584287042086" y="228.99999999999997" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="559.1858428704209" y="245.77499999999998" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Import</text><text x="559.1858428704209" y="260.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">restrictions</text><rect x="288.0" y="288.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="304.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Tax</text><text x="360.0" y="319.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">controls</text><rect x="88.81415712957914" y="229.00000000000006" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="160.81415712957914" y="245.77500000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Price</text><text x="160.81415712957914" y="260.2750000000001" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">controls</text><rect x="88.81415712957912" y="111.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="160.81415712957912" y="127.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Labor</text><text x="160.81415712957912" y="142.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">problems</text><rect x="276.0" y="164.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="194.375" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Economic risks</text></svg><svg class="dn" viewBox="0 0 340 424" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="32" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Economic risks</text><line x1="170.0" y1="42" x2="170.0" y2="56" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="56" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="76.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Exchange</text><text x="170.0" y="93.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">controls</text><line x1="170.0" y1="104" x2="170.0" y2="118" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="118" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="138.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Local-content</text><text x="170.0" y="155.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">laws</text><line x1="170.0" y1="166" x2="170.0" y2="180" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="180" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="200.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Import</text><text x="170.0" y="217.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">restrictions</text><line x1="170.0" y1="228" x2="170.0" y2="242" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="242" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="262.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Tax</text><text x="170.0" y="279.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">controls</text><line x1="170.0" y1="290" x2="170.0" y2="304" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="304" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="324.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Price</text><text x="170.0" y="341.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">controls</text><line x1="170.0" y1="352" x2="170.0" y2="366" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="366" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="386.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Labor</text><text x="170.0" y="403.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">problems</text></svg></div><figcaption>The six economic risks an international company can still meet.</figcaption></figure>
+
+        <div class="terms"><div><div class="k">The six economic risks</div><div class="v"><table class="pt"><tbody><tr><td><span class="term" tabindex="0"><mark>Exchange controls</mark><span class="tip" role="tooltip"><b>Rules limiting how much currency can move in or out of a country.</b>They spring from a shortage of foreign exchange.</span></span></td><td>They stem from shortages of foreign exchange. When reserves fall or a lot of capital is leaving the country, controls may be levied over all capital movements or against the most vulnerable companies, to conserve exchange for essential uses. A recurring problem is getting profits in and out without loss of value when a currency is devalued.</td></tr><tr><td><span class="term" tabindex="0"><mark>Local-content laws</mark><span class="tip" role="tooltip"><b>Rules that a share of a product sold locally must be made locally.</b>Thailand requires milk products to be half local milk.</span></span></td><td>A portion of any product sold in the country must be made locally. Thailand requires milk products to contain at least 50 percent local milk. These rules are not only for the Third World: the European Union once set a requirement as high as 45 percent for screwdriver operations, and the USMCA requires more than half local content for cars.</td></tr><tr><td><span class="term" tabindex="0"><mark>Import restrictions</mark><span class="tip" role="tooltip"><b>Selective limits on imports, to force buyers to purchase locally.</b>They can hamstring an industry when local supply is not developed.</span></span></td><td>Selective limits on imports of consumer goods, raw materials, machines and spare parts, meant to force foreign firms to buy locally. They often hamstring established industries when local supply is not developed. France restricted ketchup in its school cafeterias, and the United States at one point blocked tomatoes from Mexico.</td></tr><tr><td>Tax controls</td><td>Taxes become a political risk when they are used to control foreign investment, raised without warning and in violation of formal agreements. India taxes PepsiCo and Coca-Cola 40 percent on soda bottled there, and has tried to collect $40 million of tax on airline tickets sold online from Sabre's data centre in the United States.</td></tr><tr><td><span class="term" tabindex="0"><mark>Price controls</mark><span class="tip" role="tooltip"><b>Government limits on the price of essential products.</b>Common on pharmaceuticals, food, gasoline and cars during inflation.</span></span></td><td>Essential products that command public interest, such as pharmaceuticals, food, gasoline and cars, are often subject to price controls. In inflationary periods they hold down the cost of living, and they can be used to force a foreign firm to sell equity to local interests. A side effect is to slow or even stop capital investment.</td></tr><tr><td>Labor problems</td><td>In many countries labour unions have strong government support and use it to win concessions: layoffs may be forbidden, profits shared, and services provided. In France the belief in full employment is almost religious, and layoffs by foreign-owned firms are treated as national crises. Some multinationals are stronger than the unions, as when Walmart closed a Quebec store rather than let it be unionised.</td></tr></tbody></table></div></div></div>
+
+        <h3 id="s2-sanctions">Political sanctions</h3>
+
+        <p>One nation, or a group of nations, may <span class="term" tabindex="0"><mark>boycott</mark><span class="tip" role="tooltip"><b>A refusal to buy from or trade with a target, often by activists.</b>The Nestlé boycott changed the company&#x27;s marketing.</span></span> another and stop all trade between
+        them, or issue sanctions against the trade of specific products. The United States
+        has long had boycotts of trade with Cuba and Iran, and sanctions against Russia were
+        approved in 2017 over interference in the 2016 election, the annexation of Crimea
+        and military operations in eastern Europe, though implementation lagged. In 2022 the
+        world applied an unfamiliar high level of sanctions after Russia's attack on
+        Ukraine.</p>
+
+        <p>History shows that sanctions are almost always unsuccessful in reaching their
+        goals, particularly when other major nations ignore them. China signed an agreement
+        to bring $70 billion of natural gas from Iran and kept importing Iranian crude oil
+        through the boycott. In Cuba, North Korea and Iran the behaviour the sanctions were
+        meant to change continues, and the ones who seem to be hurt are the people and the
+        companies caught in the middle.</p>
+
+        <div class="note"><span class="lbl">Crossing Borders 6.2</span><p>Trade does not work as a stick, only as a carrot. Thomas Jefferson proposed the trade <span class="term" tabindex="0"><mark>embargo</mark><span class="tip" role="tooltip"><b>A ban on trade with a country.</b>Jefferson&#x27;s 1807 embargo fell apart in fifteen months.</span></span> in 1807 to make England and France leave American ships alone; instead it endangered New England traders and fell apart in 15 months. The book traces the failures after it: the 1940 embargo on Japan led directly to Pearl Harbor, the Arab boycott of Israel has run since 1948, Cuba has been boycotted for over 50 years without removing Castro, OPEC's 1973 oil slowdown did not stop support for Israel, and the 1979 grain and technology embargo did not move the Soviets out of Afghanistan. Its prescription is to throw carrots, by selling computers and Internet connections rather than dropping bombs, because coercion does not work and exchange does.</p></div>
+
+        <h3 id="s2-psas">Activists and NGOs</h3>
+
+        <p>Political and social activists (<span class="term" tabindex="0"><mark>PSAs</mark><span class="tip" role="tooltip"><b>Political and social activists, who press companies and governments for change.</b>Well organised, they can interrupt the normal flow of trade.</span></span>) are not usually officially sanctioned by a
+        government, but their actions can interrupt the normal flow of trade. They range
+        from those who seek peaceful change to those who turn to violence and <span class="term" tabindex="0"><mark>terrorism</mark><span class="tip" role="tooltip"><b>Political violence aimed at a government or the firms linked to it.</b>Most attacks on American targets have hit businesses, not governments.</span></span>, and
+        when well organised they can succeed. One of the best-known campaigns was the
+        worldwide boycott of Nestlé over the sale of baby formula in Third World markets,
+        which brought substantial changes to the company's marketing. Activists of the Free
+        Burma Campaign pressed enough to make several U.S. garment companies stop importing
+        textiles from Myanmar, and campus boycotts of Pepsi drinks, Pizza Hut and Taco Bell
+        led PepsiCo to sell its stake in its Myanmar <span class="term" tabindex="0"><mark>joint venture</mark><span class="tip" role="tooltip"><b>Sharing an investment with local or third-country partners.</b>It limits exposure and softens anti-foreign feeling.</span></span> and withdraw, because
+        potential losses in the United States outweighed potential profits in Myanmar.
+        Heineken and Carlsberg left Myanmar for similar reasons. Broader concern about
+        globalisation drove the Seattle protests during the 1999 WTO meeting and the
+        Washington demonstrations against the World Bank and the International Monetary
+        Fund. Whether misguided or not, PSAs are a potent force that companies such as Nike,
+        McDonald's and Nestlé have learned not to dismiss.</p>
+
+        <p>Protests need two things: large numbers of people, and memorable pictures. The
+        Internet and cell phones have become effective tools. During the rallies against the
+        Iraq war, organisers coordinated demonstrations in 600 cities worldwide.
+        Nongovernmental organizations (<span class="term" tabindex="0"><mark>NGOs</mark><span class="tip" role="tooltip"><b>Nongovernmental organizations, which lobby and campaign on public issues.</b>Some, like the Red Cross and Oxfam, carry real brand power.</span></span>) are increasingly affecting the policy decisions
+        of governments, through peaceful protest, lobbying and collaboration. Many also work
+        to reduce human suffering, and some, including the Red Cross and Red Crescent,
+        Amnesty International, Oxfam, UNICEF, Care and Habitat for Humanity, have earned
+        global recognition and real brand power.</p>
+
+        <h3 id="s2-violence">Violence and terrorism</h3>
+
+        <p>The 2022 Russian attack on Ukraine is both a humanitarian tragedy and an economic
+        tsunami. Even in far-away America the economic consequences were unexpectedly harsh,
+        the old fear of nuclear war was reignited, and the toughest trade sanctions in
+        history were applied. Violence is not usually initiated by governments, but it is
+        another risk for multinationals to weigh, and peaceful protests often turn violent.</p>
+
+        <p>Terrorism has many goals: to embarrass a government and its relationship with
+        firms, to raise funds by kidnapping executives, to use firms as pawns in disputes
+        not aimed at them, and to inflict terror. In the past 30 years, 80 percent of
+        terrorist attacks against the United States have been aimed at American businesses,
+        and since 9/11 McDonald's, KFC and Pizza Hut together have been bombed in more than
+        10 countries. The U.S. State Department posts travel advisories at four levels of
+        risk. When firms weigh political conflict, two decision criteria matter: the
+        proximity of the violence, and the advice and influence of local and foreign
+        stakeholders.</p>
+
+        <div class="scroller"><table><thead><tr><th>Level</th><th>Meaning</th></tr></thead><tbody><tr><td class="k">Level 1</td><td>Exercise normal precautions</td></tr><tr><td class="k">Level 2</td><td>Exercise increased caution</td></tr><tr><td class="k">Level 3</td><td>Reconsider travel</td></tr><tr><td class="k">Level 4</td><td>Do not travel</td></tr></tbody></table></div>
+
+        <p>In 1996 the political scientist Samuel Huntington predicted a clash of
+        civilizations, dividing the world into nine cultural groupings, and others expected
+        three trade spheres led by Japan, the European Union and the United States. The book
+        finds both too simple: they overlook the WTO and the fast-multiplying bilateral
+        trade agreements, and the facts suggest the greater threats to peace and commerce
+        are civil strife and terrorism, not civilization against civilization. Civil
+        conflicts can be settled by negotiation, as in the peaceful dissolution of the
+        Soviet Union, the split of the Czech and Slovak Republics, German reunification, the
+        Hong Kong handover and the occasional trade overtures between China and Taiwan.</p>
+
+        <h3 id="s2-cyber">Cyberterrorism</h3>
+
+        <p><span class="term" tabindex="0"><mark>Cyberterrorism</mark><span class="tip" role="tooltip"><b>Attacks by computer on a company, an industry or a country&#x27;s infrastructure.</b>It is hard to tell a rogue state from a hacker prank.</span></span> and cybercrime are always on the horizon. The Internet gives
+        foreign and domestic antagonists a way to damage a company with little chance of
+        being caught, and it is hard to tell whether an attack came from a rogue state, a
+        terrorist or a prankster. The I Love You worm caused an estimated $25 billion of
+        damage and was probably an out-of-control prank, while the Melissa virus and the
+        denial-of-service attacks that crippled the websites of CNN, ZDNet, Yahoo! and
+        Amazon were purposeful. China has been criticised for blocking text messaging and
+        disrupting Google, and large American organisations, Chase Bank among them, have
+        been hacked for reasons that range from espionage to robbery, political punishment
+        and national-security attacks.</p>
+
+        <p>Each wave of viruses becomes more damaging and spreads faster than the last.
+        Slammer doubled its numbers every 8.5 seconds in its first minute and infected more
+        than 75,000 hosts within 10 minutes. The Goner worm crossed from Europe and North
+        America to Australia overnight, bringing down government agencies, financial and
+        manufacturing sites and at least 25 multinationals. A Group of 8 conference met on
+        cybercrime, and the 2016 disruption of the U.S. election through social media showed
+        how serious an attack on the processes of democracy can be.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>Confiscation, expropriation and domestication, in order of severity</li><li>Why expropriation and nationalization fell out of favour</li><li>The six economic risks, with one example each</li><li>Why sanctions usually fail, with the book's track record</li><li>How PSAs and NGOs can change a company's plans</li><li>The two things a protest needs</li><li>The four travel advisory levels</li><li>What cyberterrorism can do, and why it is hard to trace</li></ul></div>
+      </section>
+
+      <!-- ══════════ PART 3 ══════════ -->
+      <section id="ch3">
+        <div class="chap"><h2>Assessing and Lessening</h2></div>
+        <p class="src">Cateora, Chapter 6 · part 3 of 3</p>
+
+        <h3 id="s3-assessing">Assessing vulnerability</h3>
+
+        <p>There are at least as many reasons for a company's <span class="term" tabindex="0"><mark>political vulnerability</mark><span class="tip" role="tooltip"><b>How likely a company or product is to draw government attention.</b>Visible, sensitive or foreign-linked products are the most exposed.</span></span> as
+        there are political philosophies, economic variations and cultural differences. Some
+        companies are more politically vulnerable than others because they receive special
+        government attention, and that attention can be positive or negative. There are no
+        absolute guidelines to tell whether a company and its products will draw political
+        attention. Countries seeking investment in high-priority industries may excuse firms
+        from taxes, customs duties, quotas and exchange controls: India announced a new
+        trade policy that eases restraints and offers tax breaks for firms developing
+        infrastructure. A firm whose products are not high priority, or that falls from
+        favour for some other reason, faces unpredictable restrictions. Continental Can
+        Company's joint venture to make cans for the Chinese market met a barrage of
+        restrictions when the Chinese economy weakened: canned beverages were declared
+        wasteful and banned from state functions and banquets, tariffs on aluminium were
+        doubled, and a new tax was placed on canned drinks, turning a potentially profitable
+        investment into a loss.</p>
+
+        <h4 id="s3-sensitive">Politically sensitive products</h4>
+
+        <p>There is no formula, but some tendencies help. Products that have, or are
+        perceived to have, an effect on the environment, exchange rates, national and
+        economic security, or the welfare of people (and especially children) are more
+        likely to be politically sensitive. So are products that are publicly visible,
+        subject to public debate, or associated with their country of origin. Examples
+        include the U.S. government's suspicion of China's Huawei entering the American
+        telecommunications market, and the interest of Ant Financial, part of Alibaba, in
+        merging with MoneyGram. Fast-food restaurants, meant to be visible, are lightning
+        rods: authorities closed a KFC in India for health reasons after months of protest,
+        before a court ordered it reopened. Health is often the subject of debate. The
+        European Union has banned hormone-treated beef for more than a decade, and the WTO
+        found in 1989 that the ban had no scientific basis, yet it remains. Fears of
+        genetically modified food, or Frankenfood, have effectively banned GM foods in
+        Europe: Unilever stopped using GM ingredients in Britain, and 11 restaurant chains,
+        including McDonald's, Pizza Hut, Wimpy and Burger King, went GM-free. McDonald's
+        stopped using genetically modified potatoes for its U.S. french fries to forestall a
+        similar reaction at home.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 700 380" role="img" aria-label="The tendencies that draw government attention to a product."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="350.0" y1="190.0" x2="350.0" y2="72.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="568.7429987478853" y2="153.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="485.1906080272688" y2="285.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="214.8093919727312" y2="285.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="131.25700125211466" y2="153.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><rect x="252.0" y="52.0" width="196" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="76.025" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Affects the environment</text><rect x="474.7429987478853" y="133.5359946637562" width="188" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="568.7429987478853" y="157.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Affects exchange rates</text><rect x="413.1906080272688" y="265.4640053362438" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="485.1906080272688" y="282.2390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Touches national or</text><text x="485.1906080272688" y="296.7390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">economic security</text><rect x="142.8093919727312" y="265.4640053362438" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="214.8093919727312" y="282.2390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Affects the welfare</text><text x="214.8093919727312" y="296.7390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">of people</text><rect x="59.25700125211466" y="133.5359946637562" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="131.25700125211466" y="150.31099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Publicly visible or</text><text x="131.25700125211466" y="164.81099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">debated</text><rect x="266.0" y="164.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="186.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">What makes a product</text><text x="350.0" y="202.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">politically sensitive</text></svg><svg class="dn" viewBox="0 0 340 346" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">What makes a product</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">politically sensitive</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Affects the environment</text><line x1="170.0" y1="104" x2="170.0" y2="118" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="118" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="138.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Affects exchange rates</text><line x1="170.0" y1="150" x2="170.0" y2="164" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="164" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="184.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Touches national or</text><text x="170.0" y="201.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">economic security</text><line x1="170.0" y1="212" x2="170.0" y2="226" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="226" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="246.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Affects the welfare</text><text x="170.0" y="263.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">of people</text><line x1="170.0" y1="274" x2="170.0" y2="288" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="288" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="308.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Publicly visible or</text><text x="170.0" y="325.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">debated</text></svg></div><figcaption>The tendencies that draw government attention to a product.</figcaption></figure>
+
+        <h4 id="s3-forecast">Forecasting political risk</h4>
+
+        <p>Besides qualitative judgement, many firms use systematic methods to measure
+        political risk. Political risk assessment is an attempt to forecast political
+        instability so that management can identify and evaluate political events and their
+        potential influence on current and future decisions. Perhaps the greatest risk is
+        the threat of a government actually failing, causing chaos in the streets and
+        markets. Foreign Policy magazine uses 12 criteria, including demographic pressures,
+        human flight and uneven development, to rank countries on its <span class="term" tabindex="0"><mark>Fragile States Index</mark><span class="tip" role="tooltip"><b>A ranking of the countries closest to failure, on twelve criteria.</b>It helps firms forecast the risk of government collapse.</span></span>.</p>
+
+        <div class="scroller"><table><thead><tr><th>#</th><th>Country</th></tr></thead><tbody><tr><td class="k">1</td><td>Yemen</td></tr><tr><td class="k">2</td><td>Somalia</td></tr><tr><td class="k">3</td><td>Syria</td></tr><tr><td class="k">4</td><td>South Sudan</td></tr><tr><td class="k">5</td><td>Democratic Republic of the Congo</td></tr><tr><td class="k">6</td><td>Central African Republic</td></tr><tr><td class="k">7</td><td>Chad</td></tr><tr><td class="k">8</td><td>Sudan</td></tr><tr><td class="k">9</td><td>Afghanistan</td></tr><tr><td class="k">10</td><td>Zimbabwe</td></tr><tr><td class="k">11</td><td>Ethiopia</td></tr><tr><td class="k">12</td><td>Nigeria</td></tr><tr><td class="k">13</td><td>Haiti</td></tr><tr><td class="k">14</td><td>Guinea</td></tr><tr><td class="k">15</td><td>Cameroon</td></tr><tr><td class="k">16</td><td>Burundi</td></tr><tr><td class="k">17</td><td>Libya</td></tr><tr><td class="k">18</td><td>Eritrea</td></tr><tr><td class="k">19</td><td>Mali</td></tr><tr><td class="k">20</td><td>Iraq</td></tr></tbody></table></div>
+
+        <p>Risk assessment estimates the level of risk a company is taking on and how much
+        it is prepared to accept. In the former Soviet Union and China the risk may be too
+        high for some firms, while stronger, better-financed firms make longer-term
+        investments that will pay off as the economy grows and risk subsides. One study
+        found that French managers' market-entry decisions are more influenced by concerns
+        about political risk than those of American and Japanese managers. An executive's
+        line captures the trade-off: if U.S. companies wait until all the problems are
+        solved, somebody else will get the business.</p>
+
+        <h3 id="s3-lessening">Lessening vulnerability</h3>
+
+        <p>A company cannot directly control the political environment, but a specific
+        venture can take measures to reduce its susceptibility to politically induced risks.
+        Foreign investors are often accused of exploiting a country's wealth for the
+        investor's sole benefit, an attitude summed up by a recent president of Peru: we
+        have had massive foreign investment for decades but Peru has not achieved
+        development, so foreign capital will now have to meet government and social goals.
+        As long as such impressions persist, the political climate for foreign investors
+        stays hostile. Relations between governments and multinationals are generally
+        positive if the investment improves the <span class="term" tabindex="0"><mark>balance of payments</mark><span class="tip" role="tooltip"><b>The record of a country&#x27;s money coming in and going out.</b>An investment that improves it is welcomed.</span></span> by increasing exports or
+        replacing imports, uses locally produced resources, transfers capital, technology or
+        skills, creates jobs, and/or makes tax contributions.</p>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 700 380" role="img" aria-label="What a host government looks for before it offers protection rather than harassment."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="350.0" y1="190.0" x2="350.0" y2="72.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="568.7429987478853" y2="153.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="485.1906080272688" y2="285.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="214.8093919727312" y2="285.4640053362438" stroke="var(--rule-strong)" stroke-width="1"/><line x1="350.0" y1="190.0" x2="131.25700125211466" y2="153.5359946637562" stroke="var(--rule-strong)" stroke-width="1"/><rect x="264.0" y="52.0" width="172" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="68.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Improves the balance</text><text x="350.0" y="83.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">of payments</text><rect x="496.7429987478853" y="133.5359946637562" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="568.7429987478853" y="150.31099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Uses local</text><text x="568.7429987478853" y="164.81099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">resources</text><rect x="413.1906080272688" y="265.4640053362438" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="485.1906080272688" y="282.2390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Transfers capital,</text><text x="485.1906080272688" y="296.7390053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">technology, skills</text><rect x="142.8093919727312" y="265.4640053362438" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="214.8093919727312" y="289.4890053362438" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Creates jobs</text><rect x="59.25700125211466" y="133.5359946637562" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="131.25700125211466" y="157.56099466375622" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Pays taxes</text><rect x="266.0" y="164.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="350.0" y="186.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Contributions that make</text><text x="350.0" y="202.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">a firm welcome</text></svg><svg class="dn" viewBox="0 0 340 346" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Contributions that make</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">a firm welcome</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Improves the balance</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">of payments</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Uses local</text><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">resources</text><line x1="170.0" y1="182" x2="170.0" y2="196" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="196" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="216.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Transfers capital,</text><text x="170.0" y="233.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">technology, skills</text><line x1="170.0" y1="244" x2="170.0" y2="258" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="258" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="278.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Creates jobs</text><line x1="170.0" y1="290" x2="170.0" y2="304" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="304" width="300" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="324.9" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Pays taxes</text></svg></div><figcaption>What a host government looks for before it offers protection rather than harassment.</figcaption></figure>
+
+        <p>Corporate philanthropy helps too. Microsoft pledged more than $100 million in
+        technology and training in a deal to put government services online in Mexico. Cisco
+        Systems runs 10,000 networking academies in 150 countries through non-profits.
+        Procter &amp; Gamble helps train leaders in China, Motorola and Intel run training in
+        Malaysia, and Merck developed and donated a once-a-year pill against river blindness
+        in Africa and Latin America. Companies that put down deep local roots and align
+        their strategy with the host country's long-term goals stand the best chance of
+        overcoming a poor image. Beyond good citizenship, the chapter lists six strategies.</p>
+
+        <div class="terms"><div><div class="k">Six strategies</div><div class="v"><table class="pt"><tbody><tr><td>Joint ventures</td><td>With locals or with third-country multinationals. Either way financial exposure is limited: a local partner reduces anti-MNC feeling, and another MNC adds the bargaining power of a third country.</td></tr><tr><td>Expanding the investment base</td><td>Bring in several investors, including politically connected ones, and banks. The banks and investors have power if the government threatens a takeover, especially if they have lent to the host country. Watch the ethical and legal limits of conflicts of interest.</td></tr><tr><td><span class="term" tabindex="0"><mark>Licensing</mark><span class="tip" role="tooltip"><b>Letting a foreign firm use your technology for a fee.</b>It removes most risk when the technology is unique and the risk is high.</span></span> or <span class="term" tabindex="0"><mark>franchising</mark><span class="tip" role="tooltip"><b>Letting a foreign partner run your proven business format for a fee.</b>McDonald&#x27;s and KFC are the familiar examples.</span></span></td><td>License technology for a fee, which is effective when the technology is unique and the risk is high, though the licensee may refuse to pay while still using it. Franchising, as with KFC and McDonald's, is a similar route.</td></tr><tr><td><span class="term" tabindex="0"><mark>Planned domestication</mark><span class="tip" role="tooltip"><b>Phasing in national ownership gradually, by design.</b>A better response than waiting for government-forced domestication.</span></span></td><td>A planned phasing out, in which the firm gradually brings nationals into all phases of operations. Not the preferred practice, but far better than government-initiated domestication, which can be as disastrous as confiscation.</td></tr><tr><td><span class="term" tabindex="0"><mark>Political bargaining</mark><span class="tip" role="tooltip"><b>Lobbying governments to lower political risk.</b>Mattel&#x27;s public apology to China is the book&#x27;s example.</span></span></td><td>Lobbying and other bargaining to avoid political risk. Mattel issued an extraordinary public apology to China over a toy recall, admitting its own design flaws to protect its supply chain. Toyota once considered raising U.S. prices to help its American competitors, and China agreed to textile quotas and a floating currency under criticism. <span class="term" tabindex="0"><mark>Corporate social responsibility</mark><span class="tip" role="tooltip"><b>Company programmes that benefit the host society.</b>They polish a firm&#x27;s image and can double as a bargaining chip.</span></span> can double as a bargaining chip overseas.</td></tr><tr><td><span class="term" tabindex="0"><mark>Political payoffs</mark><span class="tip" role="tooltip"><b>Paying those in power to intervene on a company&#x27;s behalf.</b>Bribery is illegal for U.S. citizens at home and abroad, and the book rejects it.</span></span></td><td>Paying those in power to intervene, which is bribery. It is illegal for U.S. citizens to pay a bribe even where it is common practice, and though it may bring short-term benefits, the long-term risks are high and the book does not recommend it.</td></tr></tbody></table></div></div></div>
+
+        <figure class="rf"><div class="figbox"><svg class="dw" viewBox="0 0 720 380" role="img" aria-label="The six strategies, the last of which the book warns against."><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><line x1="360.0" y1="190.0" x2="360.0" y2="72.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="559.1858428704209" y2="131.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="559.1858428704209" y2="248.99999999999997" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="360.0" y2="308.0" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="160.81415712957914" y2="249.00000000000006" stroke="var(--rule-strong)" stroke-width="1"/><line x1="360.0" y1="190.0" x2="160.81415712957912" y2="131.0" stroke="var(--rule-strong)" stroke-width="1"/><rect x="288.0" y="52.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="68.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Joint</text><text x="360.0" y="83.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">ventures</text><rect x="487.18584287042086" y="111.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="559.1858428704209" y="127.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Expanding the</text><text x="559.1858428704209" y="142.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">investment base</text><rect x="487.18584287042086" y="228.99999999999997" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="559.1858428704209" y="245.77499999999998" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Licensing or</text><text x="559.1858428704209" y="260.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">franchising</text><rect x="288.0" y="288.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="304.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Planned</text><text x="360.0" y="319.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">domestication</text><rect x="88.81415712957914" y="229.00000000000006" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="160.81415712957914" y="245.77500000000006" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Political</text><text x="160.81415712957914" y="260.2750000000001" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">bargaining</text><rect x="88.81415712957912" y="111.0" width="144" height="40" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="160.81415712957912" y="127.775" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">Political</text><text x="160.81415712957912" y="142.275" text-anchor="middle" font-family="Newsreader,serif" font-size="11.5" font-weight="400" fill="var(--ink)">payoffs</text><rect x="276.0" y="164.0" width="168" height="52" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="360.0" y="186.625" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">Ways to lessen political</text><text x="360.0" y="202.125" text-anchor="middle" font-family="Newsreader,serif" font-size="12.5" font-weight="600" fill="var(--ink)">vulnerability and risk</text></svg><svg class="dn" viewBox="0 0 340 440" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--ink)"/></marker></defs><rect x="20.0" y="10" width="300" height="48" fill="var(--band)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="30.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">Ways to lessen political</text><text x="170.0" y="47.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="600" fill="var(--ink)">vulnerability and risk</text><line x1="170.0" y1="58" x2="170.0" y2="72" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="72" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="92.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Joint</text><text x="170.0" y="109.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">ventures</text><line x1="170.0" y1="120" x2="170.0" y2="134" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="134" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="154.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Expanding the</text><text x="170.0" y="171.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">investment base</text><line x1="170.0" y1="182" x2="170.0" y2="196" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="196" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="216.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Licensing or</text><text x="170.0" y="233.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">franchising</text><line x1="170.0" y1="244" x2="170.0" y2="258" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="258" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="278.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Planned</text><text x="170.0" y="295.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">domestication</text><line x1="170.0" y1="306" x2="170.0" y2="320" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="320" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="340.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Political</text><text x="170.0" y="357.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">bargaining</text><line x1="170.0" y1="368" x2="170.0" y2="382" stroke="var(--rule-strong)" stroke-width="1"/><rect x="20.0" y="382" width="300" height="48" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><text x="170.0" y="402.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">Political</text><text x="170.0" y="419.4" text-anchor="middle" font-family="Newsreader,serif" font-size="14" font-weight="400" fill="var(--ink)">payoffs</text></svg></div><figcaption>The six strategies, the last of which the book warns against.</figcaption></figure>
+
+        <h3 id="s3-encouragement">Government encouragement</h3>
+
+        <p>Governments both encourage and discourage foreign investment. Within the same
+        country one firm may be harassed while another enjoys an umbrella of protection and
+        preferential treatment, and the difference is the evaluation of a company's
+        contribution to the national interest. The most important reason to encourage
+        foreign investment is to accelerate the development of an economy, and more
+        countries now set guidelines aimed at economic goals: firms may be expected to
+        create local employment, transfer technology, generate export sales, stimulate local
+        industry and conserve foreign exchange as the price of market concessions. Recent
+        investments in China, India and the former Soviet republics carry such provisions.</p>
+
+        <p>After the 2009 downturn the U.S. government was creative in promoting exports:
+        visa rules were changed to spur tourism and home sales, and diplomats help push
+        sales of jetliners abroad. Governments are motivated for economic and political
+        reasons to encourage firms to seek opportunities worldwide, even in risky countries,
+        and to reduce the politically motivated financial risks of doing business abroad.
+        The Department of Commerce is the principal agency supporting U.S. business abroad,
+        and the International Trade Administration, a bureau of the DOC, helps U.S. business
+        compete in the global marketplace. The International Development Finance Corporation
+        provides debt financing, equity investments, feasibility studies, investment funds,
+        political risk insurance and technical assistance, and the Export-Import Bank
+        underwrites trade and investment for U.S. firms.</p>
+
+        <p>Many governments also offer incentives for clean energy. Local circumstances shape
+        each country's choices: Brazil favours biofuels, and Mexico favours hydrocarbon
+        remediation. <span class="term" tabindex="0"><mark>Feed-in tariffs</mark><span class="tip" role="tooltip"><b>A long-term contract to buy renewable energy at a set price.</b>It gives producers stable income in a volatile energy market.</span></span> are long-term price contracts often tied to costs of
+        production, which give producers a stable platform of income in an otherwise
+        volatile energy price environment. Government support for renewable energy is also
+        affected by oil and gas prices: if oil stays below $85 a barrel, countries adjust
+        their clean-energy policies.</p>
+
+        <h3 id="s3-summary">Summary</h3>
+
+        <p>Vital to every marketer's assessment of a foreign market is an appreciation of the
+        political environment of the country they plan to operate in. Government involvement
+        in business abroad, especially foreign-controlled business, is generally much
+        greater than a firm is used to in the United States. The foreign firm must strive to
+        make its activities politically acceptable, or it may be subjected to a variety of
+        politically condoned harassment. Beyond harassment, it must also live with
+        uncertainty over the continuity of policy: a firm accepted under one administration
+        may find its activities undesirable under the next. An unfamiliar or hostile
+        environment does not rule out success, as long as the company becomes a local
+        economic asset and responds creatively to the issues that political and social
+        activists raise. The U.S. government may aid an American business in its foreign
+        operations, and a host country often gives an umbrella of protection to a firm it
+        considers vital to its national economic goals.</p>
+
+        <div class="recall"><span class="lbl">Recall in one line each</span><ul><li>What makes a company politically vulnerable, and why there is no formula</li><li>The tendencies that make a product politically sensitive</li><li>What political risk assessment is for</li><li>The Fragile States Index, and why government failure is the worst case</li><li>The five contributions that make a firm welcome</li><li>The six strategies for lessening vulnerability, and the one the book rejects</li><li>Why bribery is both illegal and risky</li><li>Why and how governments encourage foreign investment</li></ul></div>
+      </section>
+
+      <!-- ══════════ SHEET ══════════ -->
+      <section id="sheet">
+        <div class="chap"><h2>Last 20 minutes</h2></div>
+        <p class="src">The lists you must be able to write out from memory</p>
+        <p>Cover the answer, say the list out loud, then open it to check. Everything expands when printed.</p>
+        <div class="sheet">
+          <details><summary><span class="tog" aria-hidden="true"></span>What a sovereign state controls</summary><ol><li>Its own territory</li><li>Its own citizens</li><li>Trade across its borders</li><li>The movement of people, goods and sometimes data</li><li>The right to make agreements with other nations</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Five political causes of instability</summary><ol><li>Some forms of government that seem inherently unstable</li><li>Changes in political parties during elections</li><li>Nationalism</li><li>Animosity targeted at one country</li><li>Trade disputes themselves</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>The three forms of government</summary><ol><li>Rule by one: monarchy or dictatorship</li><li>Rule by few: aristocracy or oligarchy</li><li>Rule by many: democracy</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Nationalism vs targeted animosity</summary><ol><li>Nationalism: aimed at all foreign firms in general</li><li>Targeted animosity: aimed at one particular country, for example American fear of Japan</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Three ways a host country takes an investment</summary><ol><li>Confiscation: seizure with no payment, the harshest</li><li>Expropriation: seizure with some reimbursement, often then nationalized</li><li>Domestication: gradual transfer to national control by decree</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>The six economic risks</summary><ol><li>Exchange controls</li><li>Local-content laws</li><li>Import restrictions</li><li>Tax controls</li><li>Price controls</li><li>Labor problems</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Why sanctions usually fail</summary><ol><li>Other major nations ignore them</li><li>The targeted behaviour continues, as in Cuba, North Korea and Iran</li><li>The people and the companies in the middle are the ones hurt</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>The two things a protest needs</summary><ol><li>Large numbers of people</li><li>Memorable pictures</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>The four travel advisory levels</summary><ol><li>Level 1: exercise normal precautions</li><li>Level 2: exercise increased caution</li><li>Level 3: reconsider travel</li><li>Level 4: do not travel</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>What makes a product politically sensitive</summary><ol><li>Affects the environment</li><li>Affects exchange rates</li><li>Touches national or economic security</li><li>Affects the welfare of people, especially children</li><li>Publicly visible, debated, or linked to its country of origin</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>The five contributions that make a firm welcome</summary><ol><li>Improves the balance of payments</li><li>Uses locally produced resources</li><li>Transfers capital, technology or skills</li><li>Creates jobs</li><li>Makes tax contributions</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Six strategies to lessen political vulnerability</summary><ol><li>Joint ventures</li><li>Expanding the investment base</li><li>Licensing or franchising</li><li>Planned domestication</li><li>Political bargaining</li><li>Political payoffs, which the book rejects</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>U.S. agencies that help firms abroad</summary><ol><li>Department of Commerce</li><li>International Trade Administration</li><li>International Development Finance Corporation</li><li>Export-Import Bank</li></ol></details>
+          <details><summary><span class="tog" aria-hidden="true"></span>Fragile States Index: the top of the list</summary><ol><li>Yemen</li><li>Somalia</li><li>Syria</li><li>South Sudan</li><li>Democratic Republic of the Congo</li></ol></details>
+        </div>
+      </section>
+
+      <footer>
+          <span class="stamp" aria-hidden="true">&#10033;</span>
+          <span><b>MKT4102 &middot; International Marketing &middot; Class test study guide</b>
+          Compiled from Cateora, Money, Gilly and Graham, <i>International Marketing</i> (2024), chapter 6, The Political Environment &middot;
+                    Terminology preserved as printed</span>
+        </footer>
+
+      <p class="made">&gt; Made for Misbah | <a href="https://scirex.me">scirex.me</a></p>
+
+    </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
